@@ -15,6 +15,8 @@
 #include "Sound/SoundBase.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "DrawDebugHelpers.h"
+#include "Particles/ParticleSystem.h"
+#include "Particles/ParticleSystemComponent.h"
 
 const FName AHiWavePawn::MoveForwardBinding("MoveForward");
 const FName AHiWavePawn::MoveRightBinding("MoveRight");
@@ -34,6 +36,14 @@ AHiWavePawn::AHiWavePawn()
 	// Cache our sound effect
 	static ConstructorHelpers::FObjectFinder<USoundBase> FireAudio(TEXT("/Game/TwinStick/Audio/TwinStickFire.TwinStickFire"));
 	FireSound = FireAudio.Object;
+
+	// Cache our hit particle
+	//HitParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("MyPSC"));
+	//static ConstructorHelpers::FObjectFinder<UParticleSystem> HP(TEXT("ParticleSystem'/Game/Particles/PlayerHitParticle.PlayerHitParticle'"));
+	//HitParticle->SetTemplate(HP.Object);
+	//HitParticle->SetupAttachment(RootComponent);
+	//HitParticle->bAutoActivate = false;
+
 
 	// Create a camera boom...
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -191,4 +201,15 @@ void AHiWavePawn::HoldFire() {
 
 void AHiWavePawn::ReleaseFire() {
 	bFireHeld = false;
+}
+
+void AHiWavePawn::TakeHit() {
+	if (HitParticle != nullptr) {
+		UE_LOG(LogTemp, Warning, TEXT("Player is hit going to spawn %s"), *HitParticle->GetFName().ToString());
+		FRotator rotation = FRotator::ZeroRotator;
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("HitParticle is null"));
+	}
 }

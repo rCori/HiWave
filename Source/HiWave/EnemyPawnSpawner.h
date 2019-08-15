@@ -7,6 +7,7 @@
 #include "EnemyPawnSpawner.generated.h"
 
 class UBoxComponent;
+class APawn;
 
 UCLASS()
 class HIWAVE_API AEnemyPawnSpawner : public AActor
@@ -23,6 +24,9 @@ public:
 	UPROPERTY()
 	FTimerHandle SpawnTimerHandle;
 
+	UPROPERTY(EditDefaultsOnly, Category = SpawningCharacter)
+	TSubclassOf<APawn> EnemyType;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -33,5 +37,7 @@ public:
 
 	UFUNCTION()
 	void DoEnemyPawnSpawn();
+
+
 
 };

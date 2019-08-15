@@ -26,7 +26,6 @@ void UBTService_CheckForPlayer::TickNode(UBehaviorTreeComponent& OwnerComp, uint
 		if (Enemy)
 		{
 			OwnerComp.GetBlackboardComponent()->SetValue<UBlackboardKeyType_Object>(EnemyPC->EnemyKeyID, Enemy);
-			UE_LOG(LogTemp, Warning, TEXT("Service found player"));
 		}
 	}
 }

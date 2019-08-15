@@ -4,7 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Particles/ParticleSystem.h"
+#include "Particles/ParticleSystemComponent.h"
 #include "HiWavePawn.generated.h"
+
 
 UCLASS(Blueprintable)
 class AHiWavePawn : public APawn
@@ -42,6 +45,10 @@ public:
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* FireSound;
 
+	/** Particle to emit when an enemy hits us */
+	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
+	UParticleSystem* HitParticle;
+
 	// Begin Actor Interface
 	virtual void Tick(float DeltaSeconds) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
@@ -52,6 +59,10 @@ public:
 
 	/* Handler for the fire timer expiry */
 	void ShotTimerExpired();
+
+	/* Call when hit by the enemy */
+	UFUNCTION()
+	void TakeHit();
 
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;

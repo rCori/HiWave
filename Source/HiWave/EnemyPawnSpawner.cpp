@@ -7,6 +7,7 @@
 #include "Engine/CollisionProfile.h"
 #include "EnemyAI.h"
 #include "TimerManager.h"
+#include "GameFramework/Pawn.h"
 
 // Sets default values
 AEnemyPawnSpawner::AEnemyPawnSpawner()
@@ -24,7 +25,7 @@ AEnemyPawnSpawner::AEnemyPawnSpawner()
 void AEnemyPawnSpawner::BeginPlay()
 {
 	Super::BeginPlay();
-	GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &AEnemyPawnSpawner::DoEnemyPawnSpawn, 1.5f, true, -1.0f);
+	//GetWorldTimerManager().SetTimer(SpawnTimerHandle, this, &AEnemyPawnSpawner::DoEnemyPawnSpawn, 1.5f, true, -1.0f);
 	//DoEnemyPawnSpawn();
 
 }
@@ -52,7 +53,7 @@ void AEnemyPawnSpawner::DoEnemyPawnSpawn()
 	ActorSpawnParameters.Instigator = Instigator;
 	if (GetWorld()) {
 		FRotator rotator = FRotator(0.0, 0.0, 0.0);
-		AEnemyPawn* spawnedActor = GetWorld()->SpawnActor<AEnemyPawn>(actorSpawnLocation, rotator, ActorSpawnParameters);
+		APawn* spawnedActor = GetWorld()->SpawnActor<APawn>(EnemyType,actorSpawnLocation, rotator, ActorSpawnParameters);
 		if (spawnedActor != nullptr) {
 			spawnedActor->SpawnDefaultController();
 		}

@@ -55,7 +55,6 @@ public:
 	UPROPERTY(EditAnywhere, Category = Behavior)
 	class UCollidingPawnMovementComponent* OurMovementComponent;
 
-
 private:
 	float health;
 };

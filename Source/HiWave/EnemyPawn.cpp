@@ -67,7 +67,6 @@ UPawnMovementComponent* AEnemyPawn::GetMovementComponent() const
 }
 
 void AEnemyPawn::EnemyTakeDamage(float damage) {
-	UE_LOG(LogTemp, Warning, TEXT("Enemy is taking damage"));
 	health -= damage;
 	if (health <= 0.0) {
 		EnemyDeath();
@@ -80,7 +79,7 @@ void AEnemyPawn::EnemyDeath() {
 
 void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
-	if (playerActor != NULL) {
-		UE_LOG(LogTemp, Warning, TEXT("You hit the player"));
+	if (playerActor != NULL){
+		playerActor->TakeHit();
 	}
 }
