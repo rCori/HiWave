@@ -75,6 +75,7 @@ void AEnemyPawn::EnemyTakeDamage(float damage) {
 
 void AEnemyPawn::EnemyDeath() {
 	Destroy();
+	OnEnemyDeathDelegate.Broadcast(SpawningGroupTag);
 }
 
 void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
@@ -82,4 +83,8 @@ void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimit
 	if (playerActor != NULL){
 		playerActor->TakeHit();
 	}
+}
+
+void AEnemyPawn::SetSpawningGroupTag(FString groupTag) {
+	this->SpawningGroupTag = groupTag;
 }

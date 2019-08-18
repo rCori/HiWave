@@ -45,11 +45,7 @@ void AHiWaveProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, 
 
 	AEnemyPawn *enemyActor = Cast<AEnemyPawn>(OtherActor);
 	if (enemyActor != NULL) {
-		UE_LOG(LogTemp, Warning, TEXT("The cast works"));
 		enemyActor->EnemyTakeDamage(10.0f);
-	}
-	else {
-		UE_LOG(LogTemp, Warning, TEXT("Failing cast"));
 	}
 
 	Destroy();

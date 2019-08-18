@@ -33,19 +33,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DoDummySpawning();
 
+	UFUNCTION()
+	void EnemyPawnDeathEventCallback(FString enemyTag);
 	
 
 private:
-	FTimerDelegate TimerDelLeft;
-	FTimerDelegate TimerDelCenter;
-	FTimerDelegate TimerDelRight;
-	FTimerHandle TimerHandle1;
-	FTimerHandle TimerHandle2;
-	FTimerHandle TimerHandle3;
-	FTimerHandle TimerHandle4;
-	FTimerHandle TimerHandle5;
-	FTimerHandle TimerHandle6;
-
 
 
 };

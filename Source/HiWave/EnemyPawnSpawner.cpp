@@ -37,7 +37,7 @@ void AEnemyPawnSpawner::Tick(float DeltaTime)
 
 }
 
-void AEnemyPawnSpawner::DoEnemyPawnSpawn()
+APawn* AEnemyPawnSpawner::DoEnemyPawnSpawn()
 {
 	FVector extent = BoxComponent->GetScaledBoxExtent();
 	FVector origin = GetActorLocation();
@@ -56,7 +56,8 @@ void AEnemyPawnSpawner::DoEnemyPawnSpawn()
 		APawn* spawnedActor = GetWorld()->SpawnActor<APawn>(EnemyType,actorSpawnLocation, rotator, ActorSpawnParameters);
 		if (spawnedActor != nullptr) {
 			spawnedActor->SpawnDefaultController();
+			return spawnedActor;
 		}
 	}
+	return nullptr;
 }
-

@@ -4,6 +4,7 @@
 #include "EnemySpawnSystem.h"
 #include "TimerManager.h"
 #include "Engine/World.h"
+#include "EnemyPawn.h"
 #include "EnemyPawnSpawner.h"
 
 
@@ -34,7 +35,12 @@ void AEnemySpawnSystem::DoSpawn(FString tag) {
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn"));
 	bool contains = SpawnerCollection.Contains(tag);
 	if (contains) {
-		SpawnerCollection[tag]->DoEnemyPawnSpawn();
+		APawn* pawn = SpawnerCollection[tag]->DoEnemyPawnSpawn();
+		AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
+		if (enemyPawn != nullptr) {
+			UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference to AEnemyPawn came through clean"));
+			enemyPawn->OnEnemyDeathDelegate.AddDynamic(this, &AEnemySpawnSystem::EnemyPawnDeathEventCallback);
+		}
 		UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn spawning successful"));
 	}
 	else {
@@ -44,6 +50,16 @@ void AEnemySpawnSystem::DoSpawn(FString tag) {
 
 void AEnemySpawnSystem::DoDummySpawning() {
 	
+	FTimerDelegate TimerDelLeft;
+	FTimerDelegate TimerDelCenter;
+	FTimerDelegate TimerDelRight;
+	FTimerHandle TimerHandle1;
+	FTimerHandle TimerHandle2;
+	FTimerHandle TimerHandle3;
+	FTimerHandle TimerHandle4;
+	FTimerHandle TimerHandle5;
+	FTimerHandle TimerHandle6;
+
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoDummySpawning"));
 	FString leftFString = "left";
 	FString centerFString = "center";
@@ -69,4 +85,7 @@ void AEnemySpawnSystem::DoDummySpawning() {
 }
 
 
-
+void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)
+{
+	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::EnemyPawnDeathEventCallback(%s)"), *enemyTag);
+}

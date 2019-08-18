@@ -8,6 +8,7 @@
 #include "EnemyPawn.generated.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogEnemyPawn, Warning, All);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEnemyDeathDelegate, FString, groupTag);
 
 class UBehaviorTree;
 
@@ -49,12 +50,23 @@ public:
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
+	/** Function for spawning system to set enemy group **/
+	UFUNCTION()
+	void SetSpawningGroupTag(FString gorupTag);
+
 	UPROPERTY(EditAnywhere, Category = Behavior)
 	class UBehaviorTree *BotBehavior;
 
 	UPROPERTY(EditAnywhere, Category = Behavior)
 	class UCollidingPawnMovementComponent* OurMovementComponent;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FString SpawningGroupTag;
+
+	UPROPERTY(BlueprintAssignable, Category = "Delegates")
+	FOnEnemyDeathDelegate OnEnemyDeathDelegate;
+
 private:
 	float health;
+
 };
