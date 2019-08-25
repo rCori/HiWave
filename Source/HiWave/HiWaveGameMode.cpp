@@ -4,6 +4,19 @@
 #include "HiWavePlayerController.h"
 #include "HiWavePawn.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Json.h"
+
+void AHiWaveGameMode::BeginPlay()
+{
+	FString JsonRaw = "{ \"exampleString\": \"Hello World\" }";
+	TSharedPtr<FJsonObject> JsonParsed;
+	TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(JsonRaw);
+	if (FJsonSerializer::Deserialize(JsonReader, JsonParsed))
+	{
+		FString ExampleString = JsonParsed->GetStringField("exampleString");
+		UE_LOG(LogTemp, Warning, TEXT("ExampleString: %s"), *ExampleString);
+	}
+}
 
 AHiWaveGameMode::AHiWaveGameMode()
 {
@@ -20,5 +33,6 @@ AHiWaveGameMode::AHiWaveGameMode()
 
 	// tell your custom game mode to use your custom player controller
 	PlayerControllerClass = AHiWavePlayerController::StaticClass();
+
 }
 

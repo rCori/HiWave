@@ -11,6 +11,8 @@ class AHiWaveGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
+	virtual void BeginPlay() override; //Override beginplay from the base class
+
 public:
 	AHiWaveGameMode();
 

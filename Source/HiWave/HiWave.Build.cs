@@ -8,6 +8,10 @@ public class HiWave : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "AIModule", "NavigationSystem" });
-	}
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "AIModule", "NavigationSystem", "UMG" });
+
+        PublicDependencyModuleNames.AddRange(new string[] { "Json", "JsonUtilities" });
+
+        PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
+    }
 }

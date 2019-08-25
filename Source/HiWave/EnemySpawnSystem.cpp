@@ -2,8 +2,10 @@
 
 
 #include "EnemySpawnSystem.h"
+#include "Engine/DataTable.h"
 #include "TimerManager.h"
 #include "Engine/World.h"
+#include "SpawnRowData.h"
 #include "EnemyPawn.h"
 #include "EnemyPawnSpawner.h"
 
@@ -20,7 +22,9 @@ AEnemySpawnSystem::AEnemySpawnSystem()
 void AEnemySpawnSystem::BeginPlay()
 {
 	Super::BeginPlay();
-	DoDummySpawning();
+	//Dummy spawning turned off to test "real" spawning from data table configuration
+	//DoDummySpawning();
+	SpawnFromDatatable();
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::BeginPlay"));
 }
 
@@ -31,15 +35,20 @@ void AEnemySpawnSystem::Tick(float DeltaTime)
 
 }
 
-void AEnemySpawnSystem::DoSpawn(FString tag) {
+void AEnemySpawnSystem::DoSpawn(FString spawnerTag, FString groupTag) {
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn"));
-	bool contains = SpawnerCollection.Contains(tag);
+	bool contains = SpawnerCollection.Contains(spawnerTag);
 	if (contains) {
-		APawn* pawn = SpawnerCollection[tag]->DoEnemyPawnSpawn();
+		APawn* pawn = SpawnerCollection[spawnerTag]->DoEnemyPawnSpawn();
 		AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
 		if (enemyPawn != nullptr) {
 			UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference to AEnemyPawn came through clean"));
 			enemyPawn->OnEnemyDeathDelegate.AddDynamic(this, &AEnemySpawnSystem::EnemyPawnDeathEventCallback);
+			enemyPawn->SetSpawningGroupTag(groupTag);
+			if (!EnemyGroupCounter.Contains(groupTag)) {
+				EnemyGroupCounter.Add(groupTag, 0);
+			}
+			EnemyGroupCounter[groupTag]++;
 		}
 		UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn spawning successful"));
 	}
@@ -64,9 +73,12 @@ void AEnemySpawnSystem::DoDummySpawning() {
 	FString leftFString = "left";
 	FString centerFString = "center";
 	FString rightFString = "right";
-	TimerDelLeft.BindUFunction(this, FName("DoSpawn"), leftFString);
-	TimerDelCenter.BindUFunction(this, FName("DoSpawn"), centerFString);
-	TimerDelRight.BindUFunction(this, FName("DoSpawn"), rightFString);
+
+	FString groupTag = "testGroup";
+
+	TimerDelLeft.BindUFunction(this, FName("DoSpawn"), leftFString, groupTag);
+	TimerDelCenter.BindUFunction(this, FName("DoSpawn"), centerFString, groupTag);
+	TimerDelRight.BindUFunction(this, FName("DoSpawn"), rightFString, groupTag);
 
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle1, TimerDelLeft, 2.f, false);
 
@@ -85,7 +97,22 @@ void AEnemySpawnSystem::DoDummySpawning() {
 }
 
 
+void AEnemySpawnSystem::SpawnFromDatatable()
+{
+	TArray<FName> RowNames;
+	RowNames = SpawningDataTable->GetRowNames();
+	//The RowNames are "Wave1" and "Wave2".
+	for (FName &rowName : RowNames) {
+		static const FString ContextString(TEXT("spawnAfterKilled"));
+		//The value of the "spawnAfterKilled" element of the current row
+		FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(rowName, TEXT(""),true);
+		UE_LOG(LogTemp, Warning, TEXT("RowName: %s - spawnAfterKilled: %s"),*rowName.ToString(), *spawnRowData->spawnAfterKilled);
+		
+	}
+}
+
 void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)
 {
-	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::EnemyPawnDeathEventCallback(%s)"), *enemyTag);
+	EnemyGroupCounter[enemyTag]--;
+	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::EnemyPawnDeathEventCallback(%s). There are now only %d enemies left in that group"), *enemyTag, EnemyGroupCounter[enemyTag]);
 }

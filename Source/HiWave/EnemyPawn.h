@@ -52,7 +52,7 @@ public:
 
 	/** Function for spawning system to set enemy group **/
 	UFUNCTION()
-	void SetSpawningGroupTag(FString gorupTag);
+	void SetSpawningGroupTag(FString groupTag);
 
 	UPROPERTY(EditAnywhere, Category = Behavior)
 	class UBehaviorTree *BotBehavior;

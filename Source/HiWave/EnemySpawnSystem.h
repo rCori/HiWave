@@ -24,14 +24,29 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Point Collection")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
+	class UDataTable* SpawningDataTable;
+
+	//This points to the DataTable we are going to base our spawns off of
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
 	TMap<FString, AEnemyPawnSpawner*> SpawnerCollection;
 
+	//Keeps a count of how many enemies are left in any given enemy group
+	UPROPERTY(BlueprintReadOnly)
+	TMap<FString, int> EnemyGroupCounter;
+
+
 	UFUNCTION(BlueprintCallable)
-	void DoSpawn(FString tag);
+	void DoSpawn(FString spawnerTag, FString groupTag);
 
 	UFUNCTION(BlueprintCallable)
 	void DoDummySpawning();
+
+	/**
+	* Read the DataTable SpawningDataTable start spawning enemies.
+	*/
+	UFUNCTION(BlueprintCallable)
+	void SpawnFromDatatable();
 
 	UFUNCTION()
 	void EnemyPawnDeathEventCallback(FString enemyTag);
