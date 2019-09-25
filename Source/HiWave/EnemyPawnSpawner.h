@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "SpawnRowData.h"
+#include "EnemyPawn.h"
 #include "EnemyPawnSpawner.generated.h"
 
 class UBoxComponent;
@@ -25,7 +27,7 @@ public:
 	FTimerHandle SpawnTimerHandle;
 
 	UPROPERTY(EditDefaultsOnly, Category = SpawningCharacter)
-	TSubclassOf<APawn> EnemyType;
+	TMap<EEnemyType,TSubclassOf<AEnemyPawn>> EnemyTypeMap;
 
 protected:
 	// Called when the game starts or when spawned
@@ -36,6 +38,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION()
-	APawn* DoEnemyPawnSpawn();
+	APawn* DoEnemyPawnSpawn(EEnemyType enemyType);
 
 };

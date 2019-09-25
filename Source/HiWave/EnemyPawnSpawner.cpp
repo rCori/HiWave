@@ -8,6 +8,7 @@
 #include "EnemyAI.h"
 #include "TimerManager.h"
 #include "GameFramework/Pawn.h"
+#include "SpawnRowData.h"
 
 // Sets default values
 AEnemyPawnSpawner::AEnemyPawnSpawner()
@@ -37,7 +38,7 @@ void AEnemyPawnSpawner::Tick(float DeltaTime)
 
 }
 
-APawn* AEnemyPawnSpawner::DoEnemyPawnSpawn()
+APawn* AEnemyPawnSpawner::DoEnemyPawnSpawn(EEnemyType enemyType)
 {
 	FVector extent = BoxComponent->GetScaledBoxExtent();
 	FVector origin = GetActorLocation();
@@ -53,7 +54,7 @@ APawn* AEnemyPawnSpawner::DoEnemyPawnSpawn()
 	ActorSpawnParameters.Instigator = Instigator;
 	if (GetWorld()) {
 		FRotator rotator = FRotator(0.0, 0.0, 0.0);
-		APawn* spawnedActor = GetWorld()->SpawnActor<APawn>(EnemyType,actorSpawnLocation, rotator, ActorSpawnParameters);
+		APawn* spawnedActor = GetWorld()->SpawnActor<APawn>(EnemyTypeMap[enemyType],actorSpawnLocation, rotator, ActorSpawnParameters);
 		if (spawnedActor != nullptr) {
 			spawnedActor->SpawnDefaultController();
 			return spawnedActor;

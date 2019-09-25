@@ -4,19 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "EnemyPawn.h"
-#include "BasicEnemy.generated.h"
+#include "RedEnemy.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class HIWAVE_API ABasicEnemy : public AEnemyPawn
+class HIWAVE_API ARedEnemy : public AEnemyPawn
 {
 	GENERATED_BODY()
-
-public:
-
-	// Sets default values for this pawn's properties
-	ABasicEnemy();
 	
+public:
+	ARedEnemy();
+
 };

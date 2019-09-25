@@ -60,13 +60,16 @@ public:
 	UPROPERTY(EditAnywhere, Category = Behavior)
 	class UCollidingPawnMovementComponent* OurMovementComponent;
 
+	UPROPERTY(EditAnywhere, Category = Mesh)
+	class UStaticMeshComponent* StaticMeshComponentPtr;
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FString SpawningGroupTag;
 
 	UPROPERTY(BlueprintAssignable, Category = "Delegates")
 	FOnEnemyDeathDelegate OnEnemyDeathDelegate;
 
-private:
+protected:
 	float health;
 
 };

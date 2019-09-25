@@ -16,28 +16,28 @@ AEnemyPawn::AEnemyPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
+	//static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	// Create the mesh component
-	EnemyMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-	EnemyMeshComponent->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
-	//EnemyMeshComponent->SetNotifyRigidBodyCollision(true);
-	EnemyMeshComponent->SetStaticMesh(ShipMesh.Object);
-	EnemyMeshComponent->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);// set up a notification for when this component hits something
-	RootComponent = EnemyMeshComponent;
+	StaticMeshComponentPtr = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
+	StaticMeshComponentPtr->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
+	//StaticMeshComponentPtr->SetNotifyRigidBodyCollision(true);
+	//StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
+	StaticMeshComponentPtr->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);// set up a notification for when this component hits something
+	RootComponent = StaticMeshComponentPtr;
 
 	//Set the default AI controller class.
 	//When spawning use this->SpawnDefaultController()
-	AIControllerClass = AEnemyAI::StaticClass();
+	//AIControllerClass = AEnemyAI::StaticClass();
 
 	//Assign bot behavior by grabbing the BehaviorTree object in content
-	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'")); 
-	BotBehavior = BTob.Object;
+	//static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'")); 
+	//BotBehavior = BTob.Object;
 
 	//Adding movement component
-	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
-	OurMovementComponent->UpdatedComponent = RootComponent;
+	//OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
+	//OurMovementComponent->UpdatedComponent = RootComponent;
 
-	health = 50.0;
+	//health = 50.0;
 }
 
 // Called when the game starts or when spawned

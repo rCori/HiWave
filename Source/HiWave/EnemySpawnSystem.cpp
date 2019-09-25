@@ -39,7 +39,7 @@ void AEnemySpawnSystem::DoSpawn(FString spawnerTag, FString groupTag) {
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn"));
 	bool contains = SpawnerCollection.Contains(spawnerTag);
 	if (contains) {
-		APawn* pawn = SpawnerCollection[spawnerTag]->DoEnemyPawnSpawn();
+		APawn* pawn = SpawnerCollection[spawnerTag]->DoEnemyPawnSpawn(EEnemyType::VE_NormalPawn);
 		AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
 		if (enemyPawn != nullptr) {
 			UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference to AEnemyPawn came through clean"));
@@ -117,7 +117,7 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 				int32 spawnPointIndex = FMath::Rand() % spawnRowData->spawnPoints.Num();
 				ESpawnPoints spawnPoint = spawnRowData->spawnPoints[spawnPointIndex];
 				AEnemyPawnSpawner* spawnerToUse = getSpawner(spawnPoint);
-				APawn* pawn = spawnerToUse->DoEnemyPawnSpawn();
+				APawn* pawn = spawnerToUse->DoEnemyPawnSpawn(enemy);
 				AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
 				if (enemyPawn != nullptr) {
 					UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference to AEnemyPawn came through clean"));
@@ -149,7 +149,7 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 			}
 			*/
 #if WITH_EDITOR
-			const FString enumName = EnumPtr->GetDisplayNameText(static_cast<uint32>(enemy)).ToString();
+			//const FString enumName = EnumPtr->GetDisplayNameText(static_cast<uint32>(enemy)).ToString();
 			//UE_LOG(LogTemp, Warning, TEXT("RowName: %s - spawnAfterKilled: %s"), *rowName.ToString(), *enumName);
 #else
 			return EnumPtr->GetEnumName(EnumValue);

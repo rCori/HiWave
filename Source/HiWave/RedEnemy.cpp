@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BasicEnemy.h"
+#include "RedEnemy.h"
 #include "EnemyPawn.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
@@ -9,9 +9,7 @@
 #include "CollidingPawnMovementComponent.h"
 #include "EnemyAI.h"
 
-
-
-ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
+ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	//Create the static mesh for this specific pawn
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
@@ -28,5 +26,5 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
-	health = 50.0;
+	health = 100.0;
 }

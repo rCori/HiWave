@@ -205,11 +205,11 @@ void AHiWavePawn::ReleaseFire() {
 
 void AHiWavePawn::TakeHit() {
 	if (HitParticle != nullptr) {
-		UE_LOG(LogTemp, Warning, TEXT("Player is hit going to spawn %s"), *HitParticle->GetFName().ToString());
+		//UE_LOG(LogTemp, Warning, TEXT("Player is hit going to spawn %s"), *HitParticle->GetFName().ToString());
 		FRotator rotation = FRotator::ZeroRotator;
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("HitParticle is null"));
+		//UE_LOG(LogTemp, Warning, TEXT("HitParticle is null"));
 	}
 }
