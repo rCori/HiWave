@@ -5,7 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "EnemyPawnSpawner.h"
+#include "SpawnRowData.h"
 #include "EnemySpawnSystem.generated.h"
+
 
 UCLASS()
 class HIWAVE_API AEnemySpawnSystem : public AActor
@@ -53,6 +55,6 @@ public:
 	
 
 private:
-
+	AEnemyPawnSpawner* getSpawner(ESpawnPoints spawnPoint);
 
 };

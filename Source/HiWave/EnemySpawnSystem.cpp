@@ -108,6 +108,54 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 		FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(rowName, TEXT(""),true);
 		UE_LOG(LogTemp, Warning, TEXT("RowName: %s - spawnAfterKilled: %s"),*rowName.ToString(), *spawnRowData->spawnAfterKilled);
 		
+		const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, TEXT("EEnemyType"), true);
+
+
+		for (EEnemyType enemy : spawnRowData->enemies) {
+			
+			if (spawnRowData->canShuffleSpawnPoints) {
+				int32 spawnPointIndex = FMath::Rand() % spawnRowData->spawnPoints.Num();
+				ESpawnPoints spawnPoint = spawnRowData->spawnPoints[spawnPointIndex];
+				AEnemyPawnSpawner* spawnerToUse = getSpawner(spawnPoint);
+				APawn* pawn = spawnerToUse->DoEnemyPawnSpawn();
+				AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
+				if (enemyPawn != nullptr) {
+					UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference to AEnemyPawn came through clean"));
+					enemyPawn->OnEnemyDeathDelegate.AddDynamic(this, &AEnemySpawnSystem::EnemyPawnDeathEventCallback);
+					enemyPawn->SetSpawningGroupTag(rowName.ToString());
+					if (!EnemyGroupCounter.Contains(rowName.ToString())) {
+						EnemyGroupCounter.Add(rowName.ToString(), 0);
+					}
+					EnemyGroupCounter[rowName.ToString()]++;
+				}
+				else {
+					UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference was null"));
+				}
+			}
+			else {
+			}
+
+			/*
+			enemy.GetDisplayNameText();
+			switch (enemy) {
+			case EEnemyType::VE_NormalPawn:
+				UE_LOG(LogTemp, Warning, TEXT("RowName: %s - spawnAfterKilled: normalPawn"), *rowName.ToString());
+				break;
+			case EEnemyType::VE_RedPawn:
+				UE_LOG(LogTemp, Warning, TEXT("RowName: %s - spawnAfterKilled: redPawn"), *rowName.ToString());
+				break;
+			default:
+				break;
+			}
+			*/
+#if WITH_EDITOR
+			const FString enumName = EnumPtr->GetDisplayNameText(static_cast<uint32>(enemy)).ToString();
+			//UE_LOG(LogTemp, Warning, TEXT("RowName: %s - spawnAfterKilled: %s"), *rowName.ToString(), *enumName);
+#else
+			return EnumPtr->GetEnumName(EnumValue);
+#endif
+		}
+
 	}
 }
 
@@ -115,4 +163,31 @@ void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)
 {
 	EnemyGroupCounter[enemyTag]--;
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::EnemyPawnDeathEventCallback(%s). There are now only %d enemies left in that group"), *enemyTag, EnemyGroupCounter[enemyTag]);
+}
+
+AEnemyPawnSpawner* AEnemySpawnSystem::getSpawner(ESpawnPoints spawnPoint)
+{
+	switch (spawnPoint) {
+	case ESpawnPoints::VE_Left1:
+		return SpawnerCollection["left1"];
+		break;
+	case ESpawnPoints::VE_Left2:
+		return SpawnerCollection["left2"];
+		break;
+	case ESpawnPoints::VE_Left3:
+		return SpawnerCollection["left3"];
+		break;
+	case ESpawnPoints::VE_Right1:
+		return SpawnerCollection["right1"];
+		break;
+	case ESpawnPoints::VE_Right2:
+		return SpawnerCollection["right2"];
+		break;
+	case ESpawnPoints::VE_Right3:
+		return SpawnerCollection["right3"];
+		break;
+	default:
+		return nullptr;
+
+	}
 }

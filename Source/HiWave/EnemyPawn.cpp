@@ -22,7 +22,7 @@ AEnemyPawn::AEnemyPawn()
 	EnemyMeshComponent->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 	//EnemyMeshComponent->SetNotifyRigidBodyCollision(true);
 	EnemyMeshComponent->SetStaticMesh(ShipMesh.Object);
-	EnemyMeshComponent->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);		// set up a notification for when this component hits something
+	EnemyMeshComponent->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);// set up a notification for when this component hits something
 	RootComponent = EnemyMeshComponent;
 
 	//Set the default AI controller class.
