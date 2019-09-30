@@ -7,7 +7,7 @@
 #include "Engine/World.h"
 #include "SpawnRowData.h"
 #include "EnemyPawn.h"
-#include "EnemyPawnSpawner.h"
+#include "EnemySpawnPoint.h"
 
 
 // Sets default values
@@ -24,7 +24,7 @@ void AEnemySpawnSystem::BeginPlay()
 	Super::BeginPlay();
 	//Dummy spawning turned off to test "real" spawning from data table configuration
 	//DoDummySpawning();
-	SpawnFromDatatable();
+	SpawnFromDatatable(FString(TEXT("Wave1")));
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::BeginPlay"));
 }
 
@@ -56,6 +56,7 @@ void AEnemySpawnSystem::DoSpawn(FString spawnerTag, FString groupTag) {
 		UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn spawner does not exist"));
 	}
 }
+
 
 void AEnemySpawnSystem::DoDummySpawning() {
 	
@@ -97,44 +98,43 @@ void AEnemySpawnSystem::DoDummySpawning() {
 }
 
 
-void AEnemySpawnSystem::SpawnFromDatatable()
+void AEnemySpawnSystem::SpawnFromDatatable(const FString &rowName)
 {
-	TArray<FName> RowNames;
-	RowNames = SpawningDataTable->GetRowNames();
+	//TArray<FName> RowNames;
+	//RowNames = SpawningDataTable->GetRowNames();
 	//The RowNames are "Wave1" and "Wave2".
-	for (FName &rowName : RowNames) {
+	//for (FName &rowName : RowNames) {
 		static const FString ContextString(TEXT("spawnAfterKilled"));
 		//The value of the "spawnAfterKilled" element of the current row
-		FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(rowName, TEXT(""),true);
-		UE_LOG(LogTemp, Warning, TEXT("RowName: %s - spawnAfterKilled: %s"),*rowName.ToString(), *spawnRowData->spawnAfterKilled);
+		FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*rowName), TEXT(""),true);
+		UE_LOG(LogTemp, Warning, TEXT("RowName: %s - spawnAfterKilled: %s"),*rowName, *spawnRowData->spawnAfterKilled);
 		
 		const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, TEXT("EEnemyType"), true);
 
-
+		int32 enemyCount = 0;
 		for (EEnemyType enemy : spawnRowData->enemies) {
-			
+			int32 spawnPointIndex = enemyCount;
 			if (spawnRowData->canShuffleSpawnPoints) {
-				int32 spawnPointIndex = FMath::Rand() % spawnRowData->spawnPoints.Num();
-				ESpawnPoints spawnPoint = spawnRowData->spawnPoints[spawnPointIndex];
-				AEnemyPawnSpawner* spawnerToUse = getSpawner(spawnPoint);
-				APawn* pawn = spawnerToUse->DoEnemyPawnSpawn(enemy);
-				AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
-				if (enemyPawn != nullptr) {
-					UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference to AEnemyPawn came through clean"));
-					enemyPawn->OnEnemyDeathDelegate.AddDynamic(this, &AEnemySpawnSystem::EnemyPawnDeathEventCallback);
-					enemyPawn->SetSpawningGroupTag(rowName.ToString());
-					if (!EnemyGroupCounter.Contains(rowName.ToString())) {
-						EnemyGroupCounter.Add(rowName.ToString(), 0);
-					}
-					EnemyGroupCounter[rowName.ToString()]++;
+				spawnPointIndex = FMath::Rand() % spawnRowData->spawnPoints.Num();
+			}
+
+			ESpawnPoints spawnPoint = spawnRowData->spawnPoints[spawnPointIndex];
+			AEnemySpawnPoint* spawnerToUse = getSpawner(spawnPoint);
+			APawn* pawn = spawnerToUse->DoEnemyPawnSpawn(enemy);
+			AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
+			if (enemyPawn != nullptr) {
+				UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference to AEnemyPawn came through clean"));
+				enemyPawn->OnEnemyDeathDelegate.AddDynamic(this, &AEnemySpawnSystem::EnemyPawnDeathEventCallback);
+				enemyPawn->SetSpawningGroupTag(rowName);
+				if (!EnemyGroupCounter.Contains(rowName)) {
+					EnemyGroupCounter.Add(rowName, 0);
 				}
-				else {
-					UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference was null"));
-				}
+				EnemyGroupCounter[rowName]++;
 			}
 			else {
+				UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference was null"));
 			}
-
+			++enemyCount;
 			/*
 			enemy.GetDisplayNameText();
 			switch (enemy) {
@@ -156,16 +156,22 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 #endif
 		}
 
-	}
+	//}
 }
 
 void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)
 {
 	EnemyGroupCounter[enemyTag]--;
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::EnemyPawnDeathEventCallback(%s). There are now only %d enemies left in that group"), *enemyTag, EnemyGroupCounter[enemyTag]);
+	if (EnemyGroupCounter[enemyTag] == 0) {
+		FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*enemyTag), TEXT(""), true);
+		if (spawnRowData->spawnAfterKilled != "") {
+			SpawnFromDatatable(spawnRowData->spawnAfterKilled);
+		}
+	}
 }
 
-AEnemyPawnSpawner* AEnemySpawnSystem::getSpawner(ESpawnPoints spawnPoint)
+AEnemySpawnPoint* AEnemySpawnSystem::getSpawner(ESpawnPoints spawnPoint)
 {
 	switch (spawnPoint) {
 	case ESpawnPoints::VE_Left1:

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "EnemyPawnSpawner.h"
+#include "EnemySpawnPoint.h"
 #include "SpawnRowData.h"
 #include "EnemySpawnSystem.generated.h"
 
@@ -31,7 +31,7 @@ public:
 
 	//This points to the DataTable we are going to base our spawns off of
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
-	TMap<FString, AEnemyPawnSpawner*> SpawnerCollection;
+	TMap<FString, AEnemySpawnPoint*> SpawnerCollection;
 
 	//Keeps a count of how many enemies are left in any given enemy group
 	UPROPERTY(BlueprintReadOnly)
@@ -48,13 +48,13 @@ public:
 	* Read the DataTable SpawningDataTable start spawning enemies.
 	*/
 	UFUNCTION(BlueprintCallable)
-	void SpawnFromDatatable();
+	void SpawnFromDatatable(const FString &rowName);
 
 	UFUNCTION()
 	void EnemyPawnDeathEventCallback(FString enemyTag);
 	
 
 private:
-	AEnemyPawnSpawner* getSpawner(ESpawnPoints spawnPoint);
+	AEnemySpawnPoint* getSpawner(ESpawnPoints spawnPoint);
 
 };
