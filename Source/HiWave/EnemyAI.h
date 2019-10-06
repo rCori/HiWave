@@ -28,4 +28,6 @@ public:
 	virtual void OnPossess(APawn *InPawn) override;
 
 	uint8 EnemyKeyID;
+
+	uint8 RotatePointID;
 };

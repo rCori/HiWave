@@ -16,6 +16,15 @@ class AHiWaveGameMode : public AGameModeBase
 public:
 	AHiWaveGameMode();
 
+	UFUNCTION()
+	void DestroyAndRespawnPlayer();
+
+	UPROPERTY(BlueprintReadWrite)
+	int playerLives;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<UUserWidget> LivesWidgetClass;
+
 };
 
 

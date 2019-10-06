@@ -22,8 +22,10 @@ AEnemyPawn::AEnemyPawn()
 	StaticMeshComponentPtr->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 	//StaticMeshComponentPtr->SetNotifyRigidBodyCollision(true);
 	//StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
-	StaticMeshComponentPtr->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);// set up a notification for when this component hits something
+	//StaticMeshComponentPtr->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);// set up a notification for when this component hits something
 	RootComponent = StaticMeshComponentPtr;
+
+	StaticMeshComponentPtr->OnComponentBeginOverlap.AddDynamic(this, &AEnemyPawn::OnOverlap);
 
 	//Set the default AI controller class.
 	//When spawning use this->SpawnDefaultController()
@@ -85,6 +87,15 @@ void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimit
 	}
 }
 
+void AEnemyPawn::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
+	if (playerActor != NULL) {
+		playerActor->TakeHit();
+	}
+}
+
 void AEnemyPawn::SetSpawningGroupTag(FString groupTag) {
 	this->SpawningGroupTag = groupTag;
 }
+

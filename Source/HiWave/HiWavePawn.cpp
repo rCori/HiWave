@@ -3,6 +3,8 @@
 #include "HiWavePawn.h"
 #include "HiWaveProjectile.h"
 #include "HiWavePlayerController.h"
+#include "HiWaveGameMode.h"
+
 #include "TimerManager.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Camera/CameraComponent.h"
@@ -30,8 +32,9 @@ AHiWavePawn::AHiWavePawn()
 	// Create the mesh component
 	ShipMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	RootComponent = ShipMeshComponent;
-	ShipMeshComponent->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
+	//ShipMeshComponent->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 	ShipMeshComponent->SetStaticMesh(ShipMesh.Object);
+	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
 	
 	// Cache our sound effect
 	static ConstructorHelpers::FObjectFinder<USoundBase> FireAudio(TEXT("/Game/TwinStick/Audio/TwinStickFire.TwinStickFire"));
@@ -192,7 +195,6 @@ const FRotator AHiWavePawn::RotateWithMouse() {
 		newRotator = FRotator();
 	}
 	return newRotator;
-
 }
 
 void AHiWavePawn::HoldFire() {
@@ -208,6 +210,7 @@ void AHiWavePawn::TakeHit() {
 		//UE_LOG(LogTemp, Warning, TEXT("Player is hit going to spawn %s"), *HitParticle->GetFName().ToString());
 		FRotator rotation = FRotator::ZeroRotator;
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
 	}
 	else {
 		//UE_LOG(LogTemp, Warning, TEXT("HitParticle is null"));

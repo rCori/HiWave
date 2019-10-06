@@ -4,24 +4,22 @@
 #include "HiWavePlayerController.h"
 #include "HiWavePawn.h"
 #include "UObject/ConstructorHelpers.h"
-#include "Json.h"
+#include "Kismet/GameplayStatics.h"
+#include "Blueprint/UserWidget.h"
 
 void AHiWaveGameMode::BeginPlay()
 {
-	FString JsonRaw = "{ \"exampleString\": \"Hello World\" }";
-	TSharedPtr<FJsonObject> JsonParsed;
-	TSharedRef<TJsonReader<TCHAR>> JsonReader = TJsonReaderFactory<TCHAR>::Create(JsonRaw);
-	if (FJsonSerializer::Deserialize(JsonReader, JsonParsed))
+
+	UUserWidget* LivesWidget = CreateWidget<UUserWidget>(GetWorld(), LivesWidgetClass);
+	if (LivesWidget != nullptr)
 	{
-		FString ExampleString = JsonParsed->GetStringField("exampleString");
-		UE_LOG(LogTemp, Warning, TEXT("ExampleString: %s"), *ExampleString);
+		LivesWidget->AddToViewport();
 	}
 }
 
 AHiWaveGameMode::AHiWaveGameMode()
 {
-	// set default pawn class to our character class
-	//DefaultPawnClass = AHiWavePawn::StaticClass();
+
 
 	// This isn't working for some reason
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprint/BP_HiWavePawn"));
@@ -30,9 +28,37 @@ AHiWaveGameMode::AHiWaveGameMode()
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
 	
-
 	// tell your custom game mode to use your custom player controller
 	PlayerControllerClass = AHiWavePlayerController::StaticClass();
 
+	playerLives = 3;
+
+
 }
 
+void AHiWaveGameMode::DestroyAndRespawnPlayer()
+{
+	APawn *playerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+	if (!playerPawn) return;
+	bool destroyable = playerPawn->Destroy();
+	APlayerController *playerController = UGameplayStatics::GetPlayerController(this, 0);
+	UE_LOG(LogTemp, Warning, TEXT("Player is destroyable %s"), (destroyable ? TEXT("True") : TEXT("False")));
+
+	--playerLives;
+
+	if (playerLives > 0) {
+
+		FVector Location(-520.0f, 10.0f, 330.0f);
+		FRotator Rotation(0.0f, 0.0f, 0.0f);
+		FActorSpawnParameters SpawnInfo;
+		SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+		SpawnInfo.Owner = this;
+		SpawnInfo.Instigator = Instigator;
+		APawn *spawnedPlayer = GetWorld()->SpawnActor<APawn>(DefaultPawnClass, Location, Rotation, SpawnInfo);
+		if (spawnedPlayer != nullptr) {
+			playerController->Possess(spawnedPlayer);
+		}
+	} else {
+		UGameplayStatics::OpenLevel(GetWorld(), "MainMenuMap");
+	}
+}

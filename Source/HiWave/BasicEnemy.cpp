@@ -29,4 +29,5 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
 	health = 50.0;
+	speed = 250.0;
 }

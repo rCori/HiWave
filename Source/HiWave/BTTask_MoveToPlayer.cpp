@@ -10,6 +10,7 @@
 #include "EnemyAI.h"
 #include "HiWavePawn.h"
 #include "EnemyPawn.h"
+#include "Kismet/KismetMathLibrary.h"
 
 void UBTTask_MoveToPlayer::OnGameplayTaskActivated(class UGameplayTask &)
 {
@@ -25,19 +26,14 @@ EBTNodeResult::Type UBTTask_MoveToPlayer::ExecuteTask(UBehaviorTreeComponent& Ow
 	if (Enemy) {
 
 
-		//UNavigationSystem* Nav = UNavigationSystem::GetCurrent(GetWorld());
-
-		//UNavigationPath* path = navSys->FindPathToLocationSynchronously(GetWorld(), GetPawn()->GetActorLocation(), position, NULL);
-
 		AEnemyPawn *enemyPawn = Cast<AEnemyPawn>(CharPC->GetPawn());
 
 		FVector movementDirection = (Enemy->GetActorLocation() - CharPC->GetPawn()->GetActorLocation()).GetSafeNormal();
 		enemyPawn->AddMovementInput(movementDirection, 2.0f);
 
-		//CharPC->MoveToActor(Enemy, 1.0f, true, true, true, 0, true);
-		//CharPC->MoveToLocation(Enemy->GetActorLocation(), 0.5f, false, false, false, 0, false);
-		//FVector NewLocation = ((Enemy->GetActorLocation()- CharPC->GetPawn()->GetActorLocation()).GetSafeNormal() * 3.5) + CharPC->GetPawn()->GetActorLocation();
-		//CharPC->GetPawn()->SetActorLocation(NewLocation);
+		FRotator lookAtRotate = UKismetMathLibrary::FindLookAtRotation(CharPC->GetPawn()->GetActorLocation(), Enemy->GetActorLocation());
+		enemyPawn->SetActorRotation(lookAtRotate);
+
 		return EBTNodeResult::Succeeded;
 	}
 	else {

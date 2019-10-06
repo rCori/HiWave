@@ -27,4 +27,6 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
 	health = 100.0;
+
+	speed = 500.0;
 }

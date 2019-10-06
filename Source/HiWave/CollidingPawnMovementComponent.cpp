@@ -2,6 +2,7 @@
 
 
 #include "CollidingPawnMovementComponent.h"
+#include "EnemyPawn.h"
 
 
 void UCollidingPawnMovementComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)
@@ -14,8 +15,13 @@ void UCollidingPawnMovementComponent::TickComponent(float DeltaTime, enum ELevel
 		return;
 	}
 
+	if (!enemyPawnRef) {
+		enemyPawnRef = Cast<AEnemyPawn>(PawnOwner);
+	}
+
 	// Get (and then clear) the movement vector that we set in ACollidingPawn::Tick
-	FVector DesiredMovementThisFrame = ConsumeInputVector().GetClampedToMaxSize(1.0f) * DeltaTime * 150.0f;
+	float moveSpeed = enemyPawnRef != nullptr ? enemyPawnRef->GetSpeed() : 0.0f;
+	FVector DesiredMovementThisFrame = ConsumeInputVector().GetClampedToMaxSize(1.0f) * DeltaTime * moveSpeed;
 	if (!DesiredMovementThisFrame.IsNearlyZero())
 	{
 		FHitResult Hit;

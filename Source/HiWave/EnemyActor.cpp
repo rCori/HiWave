@@ -19,9 +19,10 @@ AEnemyActor::AEnemyActor()
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	// Create the mesh component
 	EnemyMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-	EnemyMeshComponent->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
+	//EnemyMeshComponent->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 	//EnemyMeshComponent->SetNotifyRigidBodyCollision(true);
 	EnemyMeshComponent->SetStaticMesh(ShipMesh.Object);
+	EnemyMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
 	EnemyMeshComponent->OnComponentHit.AddDynamic(this, &AEnemyActor::OnHit);		// set up a notification for when this component hits something
 	RootComponent = EnemyMeshComponent;
 }

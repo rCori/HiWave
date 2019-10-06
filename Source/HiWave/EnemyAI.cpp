@@ -26,6 +26,7 @@ void AEnemyAI::OnPossess(APawn *InPawn)
 	{
 		blackboardComp->InitializeBlackboard(*Char->BotBehavior->BlackboardAsset);
 		EnemyKeyID = blackboardComp->GetKeyID("Target");
+		RotatePointID = blackboardComp->GetKeyID("RotatePoint");
 		behaviorComp->StartTree(*Char->BotBehavior);
 	}
 }
