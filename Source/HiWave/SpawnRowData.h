@@ -40,6 +40,31 @@ enum class ESpawnPoints : uint8
 
 };
 
+UENUM(BlueprintType)		//"BlueprintType" is essential to include
+enum class ENextSpawnTiming : uint8
+{
+	VE_AfterClear	UMETA(DisplayName = "AfterClear"),
+	VE_Timer		UMETA(DisplayName = "Timer"),
+};
+
+
+UENUM(BlueprintType)	//"BlueprintType" is essential to include
+enum class ENextSpawnOverwriteStatus : uint8
+{
+	VE_NoOverwrite	UMETA(DisplayName = "NoOverwrite"),
+	VE_AddIfEmpty	UMETA(DisplayName = "ListAddIfEmpty"),
+	VE_Add			UMETA(DisplayName = "ListAdd"),
+	VE_Overwrite	UMETA(DisplayName = "ListOverwrite"),
+};
+
+UENUM(BlueprintType)	//"BlueprintType" is essential to include
+enum class ENextSpawnListRandomize : uint8
+{
+	VE_KeepSame			UMETA(DisplayName = "KeepSame"),
+	VE_Randomized		UMETA(DisplayName = "Random"),
+	VE_InOrder			UMETA(DisplayName = "InOrder"),
+};
+
 USTRUCT(BlueprintType)
 struct FSpawnRowData : public FTableRowBase
 {
@@ -54,12 +79,20 @@ public:
 	TArray<ESpawnPoints> spawnPoints;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FString> spawnWaveNames;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float spawnTimer;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool canShuffleSpawnPoints;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString spawnAfterKilled;
+	ENextSpawnTiming nextSpawnTiming;
 
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//FSpawnRowDataChild spawnRowDataChild;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ENextSpawnOverwriteStatus nextSpawnOverwriteStatus;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ENextSpawnListRandomize nextSpawnListRandomize;
 };

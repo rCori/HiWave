@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Containers/Queue.h"
 #include "EnemySpawnPoint.h"
 #include "SpawnRowData.h"
 #include "EnemySpawnSystem.generated.h"
@@ -36,7 +37,13 @@ public:
 	//Keeps a count of how many enemies are left in any given enemy group
 	UPROPERTY(BlueprintReadOnly)
 	TMap<FString, int> EnemyGroupCounter;
+	
+	//This is a collection of what spawning groups are queued up to spawn
+	UPROPERTY(BlueprintReadOnly)
+	TArray<FString> WaveQueue;
 
+	UPROPERTY(BlueprintReadOnly)
+	bool WaveQueueRandomized;
 
 	UFUNCTION(BlueprintCallable)
 	void DoSpawn(FString spawnerTag, FString groupTag);
@@ -48,7 +55,7 @@ public:
 	* Read the DataTable SpawningDataTable start spawning enemies.
 	*/
 	UFUNCTION(BlueprintCallable)
-	void SpawnFromDatatable(const FString &rowName);
+	void SpawnFromDatatable(/*const FString &rowName*/);
 
 	UFUNCTION()
 	void EnemyPawnDeathEventCallback(FString enemyTag);

@@ -68,6 +68,7 @@ AHiWavePawn::AHiWavePawn()
 	FireRate = 0.1f;
 	bCanFire = true;
 	bFireHeld = false;
+	bIsDead = false;
 }
 
 void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -83,6 +84,8 @@ void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 
 void AHiWavePawn::Tick(float DeltaSeconds)
 {
+	//Can't fire if you are dead
+	if (bIsDead) return;
 	// Find movement direction
 	const float ForwardValue = GetInputAxisValue(MoveForwardBinding);
 	const float RightValue = GetInputAxisValue(MoveRightBinding);
@@ -206,13 +209,25 @@ void AHiWavePawn::ReleaseFire() {
 }
 
 void AHiWavePawn::TakeHit() {
+
+	//Turn off collision
+	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	ShipMeshComponent->SetVisibility(false);
+
+	FTimerDelegate TimerDeathAndRespawn;
+	FTimerHandle TimerHandleDeathAndRespawn;
+	TimerDeathAndRespawn.BindUFunction(this, FName("DoDeathAndRespawn"));
+
 	if (HitParticle != nullptr) {
 		//UE_LOG(LogTemp, Warning, TEXT("Player is hit going to spawn %s"), *HitParticle->GetFName().ToString());
 		FRotator rotation = FRotator::ZeroRotator;
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
-		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
 	}
-	else {
-		//UE_LOG(LogTemp, Warning, TEXT("HitParticle is null"));
-	}
+
+	bIsDead = true;
+	GetWorld()->GetTimerManager().SetTimer(TimerHandleDeathAndRespawn, TimerDeathAndRespawn, 2.f, false);
+}
+
+void AHiWavePawn::DoDeathAndRespawn() {
+	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
 }

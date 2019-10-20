@@ -49,6 +49,9 @@ public:
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;
 
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	bool bIsDead;
+
 	// Begin Actor Interface
 	virtual void Tick(float DeltaSeconds) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
@@ -63,6 +66,10 @@ public:
 	/* Call when hit by the enemy */
 	UFUNCTION()
 	void TakeHit();
+
+	/* Called on a Timer from TakeHit() */
+	UFUNCTION()
+	void DoDeathAndRespawn();
 
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
