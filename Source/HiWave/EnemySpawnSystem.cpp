@@ -8,6 +8,7 @@
 #include "SpawnRowData.h"
 #include "EnemyPawn.h"
 #include "EnemySpawnPoint.h"
+#include <string>
 
 
 // Sets default values
@@ -105,42 +106,61 @@ void AEnemySpawnSystem::SpawnFromDatatable(/*const FString &rowName*/)
 	//If we have nothing to spawn then just return
 	if(WaveQueue.Num() == 0) return;
 	int indexToGet = 0;
+	//If the spawns are supposed to be randomized, pull a random element out of the list
 	if (WaveQueueRandomized) {
 		indexToGet = FMath::Rand() % WaveQueue.Num();
 	}
+	//Pull the name of the row out and remove it, we are about to spawn and "use it up"
 	FString rowName = WaveQueue[indexToGet];
 	WaveQueue.RemoveAt(indexToGet);
 
-	static const FString ContextString(TEXT("spawnAfterKilled"));
-	//The value of the "spawnAfterKilled" element of the current row
+	//Get the actual data table row we care about
 	FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*rowName), TEXT(""),true);
-	UE_LOG(LogTemp, Warning, TEXT("RowName: %s - spawnAfterKilled: %b"),*rowName, (spawnRowData->nextSpawnTiming == ENextSpawnTiming::VE_AfterClear));
 		
-	const UEnum* EnumPtr = FindObject<UEnum>(ANY_PACKAGE, TEXT("EEnemyType"), true);
+	//Find the new name
+	const FString groupName = createNewGroupNameForWave(rowName);
 
 	int32 enemyCount = 0;
 	for (EEnemyType enemy : spawnRowData->enemies) {
+
+		//default spawn point index in the row data's list of spawn points is the same as the current enemy index in row data's list of enemies
 		int32 spawnPointIndex = enemyCount;
 		if (spawnRowData->canShuffleSpawnPoints) {
 			spawnPointIndex = FMath::Rand() % spawnRowData->spawnPoints.Num();
 		}
 
+		//Actually grab the AEnemySpawnPoint to use with getSpawner
 		ESpawnPoints spawnPoint = spawnRowData->spawnPoints[spawnPointIndex];
 		AEnemySpawnPoint* spawnerToUse = getSpawner(spawnPoint);
+
+		//AEnemySpawnPoint will allow us to spawn the enemy actor
 		APawn* pawn = spawnerToUse->DoEnemyPawnSpawn(enemy);
 		AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
+
+		//Make sure the spawn was successful
 		if (enemyPawn != nullptr) {
 			UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference to AEnemyPawn came through clean"));
+			
+			//So far this is the best way I can  find to give enemies a callback for when they are destroyed. They all have the same event
+			//Later if we want different enemies to have different events this could be it's own small function
 			enemyPawn->OnEnemyDeathDelegate.AddDynamic(this, &AEnemySpawnSystem::EnemyPawnDeathEventCallback);
-			enemyPawn->SetSpawningGroupTag(rowName);
-			if (!EnemyGroupCounter.Contains(rowName)) {
-				EnemyGroupCounter.Add(rowName, 0);
+
+			//Each enemy is given a group. That group contains a count of how many in that group are left
+			//We need to have this because we want to know when all enemies from a group are destroyed.
+			//If this is the first enemy from this group, we must make that group new in the map. Otherwise
+			//just increment the existing cout
+			enemyPawn->SetSpawningGroupTag(groupName);
+			if (!EnemyGroupCounter.Contains(groupName)) {
+				EnemyGroupCounter.Add(groupName, 0);
 			}
-			EnemyGroupCounter[rowName]++;
+			EnemyGroupCounter[groupName]++;
 		}
+		/*
 		else {
 			UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference was null"));
 		}
+		*/
+		//Number of enemies spawned from this wave has increased by 1
 		++enemyCount;
 	}
 
@@ -193,7 +213,8 @@ void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)
 	EnemyGroupCounter[enemyTag]--;
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::EnemyPawnDeathEventCallback(%s). There are now only %d enemies left in that group"), *enemyTag, EnemyGroupCounter[enemyTag]);
 	if (EnemyGroupCounter[enemyTag] == 0) {
-		FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*enemyTag), TEXT(""), true);
+		const FString waveName = getWaveNameFromGroupTag(enemyTag);
+		FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*waveName), TEXT(""), true);
 		if (spawnRowData->nextSpawnTiming == ENextSpawnTiming::VE_AfterClear) {
 			SpawnFromDatatable();
 		}
@@ -225,4 +246,40 @@ AEnemySpawnPoint* AEnemySpawnSystem::getSpawner(ESpawnPoints spawnPoint)
 		return nullptr;
 
 	}
+}
+
+const FString AEnemySpawnSystem::createNewGroupNameForWave(FString rowName) const
+{
+
+	//This is the map
+	//EnemyGroupCounter
+	//Start at index 0 looking for a valid new group name
+	int currGroupIndex = 0;
+	bool groupNameFound = false;
+	FString currName = rowName;
+	currName.Append("_");
+	currName.Append(std::to_string(currGroupIndex).c_str());
+	while (!groupNameFound) {
+		//If the EnemyGroupCounter map does not contain this name yet then we found an untaken name
+		if (!EnemyGroupCounter.Contains(currName)) {
+			groupNameFound = true;
+		}
+		//Otherwise keep searching, try the next name in the series
+		else {
+			currName = rowName;
+			currName.Append("_");
+			currName.Append(std::to_string(++currGroupIndex).c_str());
+		}
+	}
+
+	return currName;
+}
+
+const FString AEnemySpawnSystem::getWaveNameFromGroupTag(FString groupName) const
+{
+	int charIndex = 0;
+	FString waveName = groupName;
+	groupName.FindLastChar('_', charIndex);
+	groupName = groupName.Left(charIndex);
+	return groupName;
 }

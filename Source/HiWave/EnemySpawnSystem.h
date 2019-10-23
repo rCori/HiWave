@@ -64,4 +64,9 @@ public:
 private:
 	AEnemySpawnPoint* getSpawner(ESpawnPoints spawnPoint);
 
+	const FString createNewGroupNameForWave(FString rowName) const;
+
+	//Does the reverse of what createNewGroupNameForWave does
+	const FString getWaveNameFromGroupTag(FString groupName) const;
+
 };

@@ -177,7 +177,7 @@ const FRotator AHiWavePawn::RotateWithMouse() {
 
 		FHitResult Hit(ForceInit);
 		//FVector start = mouseWorldLocation;
-		FVector End = mouseWorldLocation + (mouseWorldDirection*1800.0f);
+		FVector End = mouseWorldLocation + (mouseWorldDirection*2200.0f);
 		FCollisionQueryParams CollisionParams;
 		FVector Start = mouseWorldLocation;
 

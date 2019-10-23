@@ -17,4 +17,10 @@ class HIWAVE_API ARedEnemy : public AEnemyPawn
 public:
 	ARedEnemy();
 
+	virtual void EnemyDeath() override;
+
+	/** Particle to emit when an enemy hits us */
+	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
+	UParticleSystem* HitParticle;
+
 };

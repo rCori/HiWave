@@ -44,7 +44,7 @@ public:
 	void EnemyTakeDamage(float damage);
 
 	UFUNCTION(BlueprintCallable)
-	void EnemyDeath();
+	virtual void EnemyDeath();
 
 	/** Function to handle the enemy hitting the player */
 	UFUNCTION()
