@@ -19,4 +19,9 @@ public:
 	// Sets default values for this pawn's properties
 	ABasicEnemy();
 	
+	virtual void EnemyDeath() override;
+
+	/** Particle to emit when an enemy hits us */
+	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
+	UParticleSystem* HitParticle;
 };

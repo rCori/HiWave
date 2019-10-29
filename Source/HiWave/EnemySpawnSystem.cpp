@@ -26,8 +26,8 @@ void AEnemySpawnSystem::BeginPlay()
 	WaveQueueRandomized = false;
 	//Dummy spawning turned off to test "real" spawning from data table configuration
 	//DoDummySpawning();
-	//WaveQueue.Add(FString(TEXT("Wave1")));
-	//SpawnFromDatatable(/*FString(TEXT("Wave1"))*/);
+	WaveQueue.Add(FString(TEXT("Wave1")));
+	SpawnFromDatatable(/*FString(TEXT("Wave1"))*/);
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::BeginPlay"));
 }
 
@@ -123,13 +123,13 @@ void AEnemySpawnSystem::SpawnFromDatatable(/*const FString &rowName*/)
 	FTimerDelegate singleSpawnDelegate;
 	singleSpawnDelegate.BindUFunction(this, FName("SingleSpawnWave"), spawnRowData->canShuffleSpawnPoints, spawnRowData->enemies, spawnRowData->spawnPoints, groupName);
 
-	if (spawnRowData->spawnTimer == 0.0) {
+	if (spawnRowData->nextInternalSpawnTimer == 0.0) {
 		SingleSpawnWave(spawnRowData->canShuffleSpawnPoints, spawnRowData->enemies, spawnRowData->spawnPoints, groupName);
 	}
 	else {
 		for (int i = 1; i <= spawnRowData->spawnCount; i++) {
 			FTimerHandle singleSpawnHandle;
-			GetWorld()->GetTimerManager().SetTimer(singleSpawnHandle, singleSpawnDelegate, spawnRowData->spawnTimer * i, false);
+			GetWorld()->GetTimerManager().SetTimer(singleSpawnHandle, singleSpawnDelegate, spawnRowData->nextInternalSpawnTimer * i, false);
 		}
 	}
 
@@ -216,7 +216,7 @@ void AEnemySpawnSystem::SpawnFromDatatable(/*const FString &rowName*/)
 		FTimerDelegate SpawnTimerDelegate;
 		FTimerHandle SpawnTimerHandle;
 		SpawnTimerDelegate.BindUFunction(this, FName("SpawnFromDatatable"));
-		GetWorld()->GetTimerManager().SetTimer(SpawnTimerHandle, SpawnTimerDelegate, spawnRowData->spawnTimer, false);
+		GetWorld()->GetTimerManager().SetTimer(SpawnTimerHandle, SpawnTimerDelegate, spawnRowData->nextSpawnRowTimer, false);
 	}
 }
 

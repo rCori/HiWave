@@ -6,10 +6,9 @@
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
+#include "Kismet/GameplayStatics.h"
 #include "CollidingPawnMovementComponent.h"
 #include "EnemyAI.h"
-
-
 
 ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	//Create the static mesh for this specific pawn
@@ -28,6 +27,16 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
-	health = 50.0;
-	speed = 250.0;
+	health = 10.0;
+	speed = 500.0;
+}
+
+void ABasicEnemy::EnemyDeath()
+{
+	if (HitParticle != nullptr) {
+		//UE_LOG(LogTemp, Warning, TEXT("Player is hit going to spawn %s"), *HitParticle->GetFName().ToString());
+		FRotator rotation = FRotator::ZeroRotator;
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+	}
+	Super::EnemyDeath();
 }

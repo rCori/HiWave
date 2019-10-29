@@ -29,7 +29,7 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 
 	health = 100.0;
 
-	speed = 500.0;
+	speed = 50.0;
 }
 
 void ARedEnemy::EnemyDeath()

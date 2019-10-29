@@ -25,6 +25,7 @@ enum class EEnemyType : uint8
 {
 	VE_NormalPawn	UMETA(DisplayName = "NormalPawn"),
 	VE_RedPawn		UMETA(DisplayName = "RedPawn"),
+	VE_DashingPawn	UMETA(DisplayName = "DashingPawn"),
 
 };
 
@@ -82,7 +83,10 @@ public:
 	TArray<FString> spawnWaveNames;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float spawnTimer;
+	float nextSpawnRowTimer;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float nextInternalSpawnTimer;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool canShuffleSpawnPoints;
