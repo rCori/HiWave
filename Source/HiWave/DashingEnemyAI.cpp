@@ -1,22 +1,20 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "EnemyAI.h"
+
+#include "DashingEnemyAI.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "BehaviorTree/BehaviorTreeComponent.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
 #include "EnemyPawn.h"
 
-
-
-
-AEnemyAI::AEnemyAI()
+ADashingEnemyAI::ADashingEnemyAI()
 {
 	blackboardComp = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComp"));
 	behaviorComp = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorComp"));
 }
 
-void AEnemyAI::OnPossess(APawn *InPawn)
+void ADashingEnemyAI::OnPossess(APawn *InPawn)
 {
 	Super::OnPossess(InPawn);
 
@@ -25,8 +23,8 @@ void AEnemyAI::OnPossess(APawn *InPawn)
 	if (Char && Char->BotBehavior)
 	{
 		blackboardComp->InitializeBlackboard(*Char->BotBehavior->BlackboardAsset);
-		EnemyKeyID = blackboardComp->GetKeyID("Target");
-		RotatePointID = blackboardComp->GetKeyID("RotatePoint");
+		PlayerID = blackboardComp->GetKeyID("Player");
+		DashTargetID = blackboardComp->GetKeyID("DashTarget");
 		behaviorComp->StartTree(*Char->BotBehavior);
 	}
 }

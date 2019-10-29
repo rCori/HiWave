@@ -24,8 +24,6 @@ EBTNodeResult::Type UBTTask_MoveToPlayer::ExecuteTask(UBehaviorTreeComponent& Ow
 	AHiWavePawn *Enemy = Cast<AHiWavePawn>(OwnerComp.GetBlackboardComponent()->GetValue<UBlackboardKeyType_Object>(CharPC->EnemyKeyID));
 
 	if (Enemy) {
-
-
 		AEnemyPawn *enemyPawn = Cast<AEnemyPawn>(CharPC->GetPawn());
 
 		FVector movementDirection = (Enemy->GetActorLocation() - CharPC->GetPawn()->GetActorLocation()).GetSafeNormal();

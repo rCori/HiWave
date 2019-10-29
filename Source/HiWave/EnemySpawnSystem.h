@@ -57,6 +57,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SpawnFromDatatable(/*const FString &rowName*/);
 
+	UFUNCTION(BlueprintCallable)
+	void SingleSpawnWave(const bool &canShuffleSpawnPoints, const TArray<EEnemyType> &enemies, const TArray<ESpawnPoints> &spawnPoints, const FString &groupName);
+
 	UFUNCTION()
 	void EnemyPawnDeathEventCallback(FString enemyTag);
 	

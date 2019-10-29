@@ -7,6 +7,7 @@
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
 #include "HiWavePawn.h"
 #include "EnemyAI.h"
+#include "DashingEnemyAI.h"
 #include "EnemyPawn.h"
 
 
@@ -19,6 +20,8 @@ UBTService_CheckForPlayer::UBTService_CheckForPlayer()
 void UBTService_CheckForPlayer::TickNode(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory, float DeltaSeconds)
 {
 	AEnemyAI *EnemyPC = Cast<AEnemyAI>(OwnerComp.GetAIOwner());
+	
+	ADashingEnemyAI *DashingEnemyPC = Cast<ADashingEnemyAI>(OwnerComp.GetAIOwner());
 
 	if (EnemyPC) {
 		AHiWavePawn *Enemy = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
@@ -26,6 +29,14 @@ void UBTService_CheckForPlayer::TickNode(UBehaviorTreeComponent& OwnerComp, uint
 		if (Enemy)
 		{
 			OwnerComp.GetBlackboardComponent()->SetValue<UBlackboardKeyType_Object>(EnemyPC->EnemyKeyID, Enemy);
+		}
+	}
+	else if (DashingEnemyPC) {
+		AHiWavePawn *Player = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+
+		if (Player)
+		{
+			OwnerComp.GetBlackboardComponent()->SetValue<UBlackboardKeyType_Object>(DashingEnemyPC->PlayerID, Player);
 		}
 	}
 }

@@ -95,4 +95,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ENextSpawnListRandomize nextSpawnListRandomize;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int spawnCount;
+
 };

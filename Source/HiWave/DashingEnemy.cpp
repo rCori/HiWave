@@ -5,7 +5,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "CollidingPawnMovementComponent.h"
-#include "EnemyAI.h"
+#include "DashingEnemyAI.h"
 
 ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 	//Create the static mesh for this specific pawn
@@ -14,7 +14,7 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 
 	//Set the default AI controller class.
 	//When spawning use this->SpawnDefaultController()
-	AIControllerClass = AEnemyAI::StaticClass();
+	AIControllerClass = ADashingEnemyAI::StaticClass();
 
 	//Assign bot behavior by grabbing the BehaviorTree object in content
 	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
@@ -26,5 +26,5 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 
 	health = 10.0;
 
-	speed = 2000.0;
+	speed = 1250.0;
 }
