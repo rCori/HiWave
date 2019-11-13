@@ -96,7 +96,9 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 	// Calculate  movement
 	const FVector Movement = MoveDirection * MoveSpeed * DeltaSeconds;
 
+	
 	FRotator NewRotation = RotateWithMouse();
+	RootComponent->SetRelativeRotation(NewRotation);
 
 	// If non-zero size, move this actor
 	if (Movement.SizeSquared() > 0.0f)
@@ -114,9 +116,9 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 			RootComponent->MoveComponent(Deflection, NewRotation, true);
 		}
 	}
-	else {
-		RootComponent->SetRelativeRotation(NewRotation);
-	}
+	//else {
+		
+	//
 	
 
 	// Try and fire a shot
@@ -183,10 +185,11 @@ const FRotator AHiWavePawn::RotateWithMouse() {
 
 		//DrawDebugLine(GetWorld(), Start, End, FColor::Green, true, 2.f, false, 4.f);
 
-		GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_WorldDynamic, CollisionParams);
+		//GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_WorldDynamic, CollisionParams);
+		GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, CollisionParams);
 
 		FVector tempLookAtTarget;
-		if (Hit.GetActor())
+		if (Hit.bBlockingHit)
 		{
 			tempLookAtTarget = Hit.Location;
 		}

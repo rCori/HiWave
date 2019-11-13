@@ -39,6 +39,36 @@ enum class ESpawnPoints : uint8
 	VE_Right2 	UMETA(DisplayName = "Right2"),
 	VE_Right3 	UMETA(DisplayName = "Right3"),
 
+	VE_00		UMETA(DisplayName = "[0,0]"),
+	VE_10		UMETA(DisplayName = "[1,0]"),
+	VE_20		UMETA(DisplayName = "[2,0]"),
+	VE_30		UMETA(DisplayName = "[3,0]"),
+	VE_40		UMETA(DisplayName = "[4,0]"),
+
+	VE_01		UMETA(DisplayName = "[0,1]"),
+	VE_11		UMETA(DisplayName = "[1,1]"),
+	VE_21		UMETA(DisplayName = "[2,1]"),
+	VE_31		UMETA(DisplayName = "[3,1]"),
+	VE_41		UMETA(DisplayName = "[4,1]"),
+
+	VE_02		UMETA(DisplayName = "[0,2]"),
+	VE_12		UMETA(DisplayName = "[1,2]"),
+	VE_22		UMETA(DisplayName = "[2,2]"),
+	VE_32		UMETA(DisplayName = "[3,2]"),
+	VE_42		UMETA(DisplayName = "[4,2]"),
+
+	VE_03		UMETA(DisplayName = "[0,3]"),
+	VE_13		UMETA(DisplayName = "[1,3]"),
+	VE_23		UMETA(DisplayName = "[2,3]"),
+	VE_33		UMETA(DisplayName = "[3,3]"),
+	VE_43		UMETA(DisplayName = "[4,3]"),
+
+	VE_04		UMETA(DisplayName = "[0,4]"),
+	VE_14		UMETA(DisplayName = "[1,4]"),
+	VE_24		UMETA(DisplayName = "[2,4]"),
+	VE_34		UMETA(DisplayName = "[3,4]"),
+	VE_44		UMETA(DisplayName = "[4,4]"),
+
 };
 
 UENUM(BlueprintType)		//"BlueprintType" is essential to include

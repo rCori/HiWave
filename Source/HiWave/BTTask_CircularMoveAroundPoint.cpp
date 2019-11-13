@@ -37,27 +37,6 @@ EBTNodeResult::Type UBTTask_CircularMoveAroundPoint::ExecuteTask(UBehaviorTreeCo
 
 
 	AEnemyPawn *enemyPawn = Cast<AEnemyPawn>(CharPC->GetPawn());
-	/*
-	//FVector movementDirection = (Enemy->GetActorLocation() - CharPC->GetPawn()->GetActorLocation()).GetSafeNormal();
-	//enemyPawn->AddMovementInput(movementDirection, 2.0f);
-	FVector distance = (PointToRotate - CharPC->GetPawn()->GetActorLocation()).GetSafeNormal();
-	//UE_LOG(LogTemp, Warning, TEXT("distance %s"), *distance.ToString());
-
-	float angleInRadians = acosf(FVector::DotProduct(distance, FVector::ForwardVector));
-	float angleInDegrees = FMath::RadiansToDegrees(angleInRadians);
-	UE_LOG(LogTemp, Warning, TEXT("angleInDegrees %f"), angleInDegrees);
-
-	float xCircle = FMath::Cos(angleInRadians);
-	float yCircle = FMath::Sin(angleInRadians);
-		
-	FVector trigLocation(xCircle, yCircle, 0.0);
-	//UE_LOG(LogTemp, Warning, TEXT("trigLocation %s"), *trigLocation.ToString());
-	FVector movementDirection = FVector::CrossProduct(trigLocation, FVector::UpVector);
-	UE_LOG(LogTemp, Warning, TEXT("movementDirection %s"), *movementDirection.ToString());
-
-	enemyPawn->AddMovementInput(movementDirection, 1.0f);
-	return EBTNodeResult::InProgress;
-	*/
 	UE_LOG(LogTemp, Warning, TEXT("currentMovementDirection %s"), *currentMovementDirection.ToString());
 	enemyPawn->AddMovementInput(currentMovementDirection, 1.0f);
 	return EBTNodeResult::InProgress;

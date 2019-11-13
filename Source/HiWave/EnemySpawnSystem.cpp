@@ -26,8 +26,10 @@ void AEnemySpawnSystem::BeginPlay()
 	WaveQueueRandomized = false;
 	//Dummy spawning turned off to test "real" spawning from data table configuration
 	//DoDummySpawning();
-	WaveQueue.Add(FString(TEXT("Wave1")));
-	SpawnFromDatatable(/*FString(TEXT("Wave1"))*/);
+	if (SpawningDataTable != nullptr) {
+		WaveQueue.Add(FString(TEXT("Wave1")));
+		SpawnFromDatatable(/*FString(TEXT("Wave1"))*/);
+	}
 	UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::BeginPlay"));
 }
 
@@ -299,6 +301,90 @@ AEnemySpawnPoint* AEnemySpawnSystem::getSpawner(ESpawnPoints spawnPoint)
 	case ESpawnPoints::VE_Right3:
 		return SpawnerCollection["right3"];
 		break;
+
+
+	case ESpawnPoints::VE_00:
+		return SpawnerCollection["[0,0]"];
+		break;
+	case ESpawnPoints::VE_10:
+		return SpawnerCollection["[1,0]"];
+		break;
+	case ESpawnPoints::VE_20:
+		return SpawnerCollection["[2,0]"];
+		break;
+	case ESpawnPoints::VE_30:
+		return SpawnerCollection["[3,0]"];
+		break;
+	case ESpawnPoints::VE_40:
+		return SpawnerCollection["[4,0]"];
+		break;
+
+
+	case ESpawnPoints::VE_01:
+		return SpawnerCollection["[0,1]"];
+		break;
+	case ESpawnPoints::VE_11:
+		return SpawnerCollection["[1,1]"];
+		break;
+	case ESpawnPoints::VE_21:
+		return SpawnerCollection["[2,1]"];
+		break;
+	case ESpawnPoints::VE_31:
+		return SpawnerCollection["[3,1]"];
+		break;
+	case ESpawnPoints::VE_41:
+		return SpawnerCollection["[4,1]"];
+		break;
+
+	case ESpawnPoints::VE_02:
+		return SpawnerCollection["[0,2]"];
+		break;
+	case ESpawnPoints::VE_12:
+		return SpawnerCollection["[1,2]"];
+		break;
+	case ESpawnPoints::VE_22:
+		return SpawnerCollection["[2,2]"];
+		break;
+	case ESpawnPoints::VE_32:
+		return SpawnerCollection["[3,2]"];
+		break;
+	case ESpawnPoints::VE_42:
+		return SpawnerCollection["[4,2]"];
+		break;
+
+
+	case ESpawnPoints::VE_03:
+		return SpawnerCollection["[0,3]"];
+		break;
+	case ESpawnPoints::VE_13:
+		return SpawnerCollection["[1,3]"];
+		break;
+	case ESpawnPoints::VE_23:
+		return SpawnerCollection["[2,3]"];
+		break;
+	case ESpawnPoints::VE_33:
+		return SpawnerCollection["[3,3]"];
+		break;
+	case ESpawnPoints::VE_43:
+		return SpawnerCollection["[4,3]"];
+		break;
+
+	case ESpawnPoints::VE_04:
+		return SpawnerCollection["[0,4]"];
+		break;
+	case ESpawnPoints::VE_14:
+		return SpawnerCollection["[1,4]"];
+		break;
+	case ESpawnPoints::VE_24:
+		return SpawnerCollection["[2,4]"];
+		break;
+	case ESpawnPoints::VE_34:
+		return SpawnerCollection["[3,4]"];
+		break;
+	case ESpawnPoints::VE_44:
+		return SpawnerCollection["[4,4]"];
+		break;
+
 	default:
 		return nullptr;
 
