@@ -1,16 +1,19 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "BasicEnemy.h"
+#include "RedEnemy.h"
 #include "EnemyPawn.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "Kismet/GameplayStatics.h"
 #include "CollidingPawnMovementComponent.h"
-#include "EnemyAI.h"
+#include "EnemyAI/EnemyAI.h"
+#include "TimerManager.h"
+#include "Engine/World.h"
+#include "Particles/ParticleSystemComponent.h"
 
-ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
+ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	//Create the static mesh for this specific pawn
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
@@ -27,16 +30,23 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
-	health = 10.0;
-	speed = 750.0;
+	health = 100.0;
+
+	speed = 400.0;
 }
 
-void ABasicEnemy::EnemyDeath()
+void ARedEnemy::EnemyDeath()
 {
 	if (HitParticle != nullptr) {
-		//UE_LOG(LogTemp, Warning, TEXT("Player is hit going to spawn %s"), *HitParticle->GetFName().ToString());
 		FRotator rotation = FRotator::ZeroRotator;
-		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+		FTransform transform = FTransform();
+		transform.SetLocation(GetActorLocation());
+		FQuat rotQuaternion = FQuat(rotation);
+		transform.SetRotation(rotQuaternion);
+		transform.SetScale3D(FVector::OneVector);
+		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
+		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 	Super::EnemyDeath();
 }
+

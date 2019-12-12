@@ -7,9 +7,9 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
 #include "Runtime/NavigationSystem/Public/NavigationSystem.h"
-#include "EnemyAI.h"
+#include "EnemyAI/EnemyAI.h"
 #include "HiWavePawn.h"
-#include "EnemyPawn.h"
+#include "EnemyPawns/EnemyPawn.h"
 
 UBTTask_CircularMoveAroundPoint::UBTTask_CircularMoveAroundPoint(const FObjectInitializer& objectInitializer) 
 	: Super(objectInitializer)

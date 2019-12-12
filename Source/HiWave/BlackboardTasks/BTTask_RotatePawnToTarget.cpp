@@ -6,9 +6,9 @@
 #include "BehaviorTree/BehaviorTreeComponent.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
-#include "EnemyAI.h"
-#include "DashingEnemyAI.h"
-#include "EnemyPawn.h"
+#include "EnemyAI/EnemyAI.h"
+#include "EnemyAI/DashingEnemyAI.h"
+#include "EnemyPawns/EnemyPawn.h"
 #include "HiWavePawn.h"
 #include "Kismet/KismetMathLibrary.h"
 

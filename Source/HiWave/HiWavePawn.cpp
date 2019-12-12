@@ -3,7 +3,7 @@
 #include "HiWavePawn.h"
 #include "HiWaveProjectile.h"
 #include "HiWavePlayerController.h"
-#include "HiWaveGameMode.h"
+#include "GameModes/HiWaveGameMode.h"
 
 #include "TimerManager.h"
 #include "UObject/ConstructorHelpers.h"
@@ -28,25 +28,10 @@ const FName AHiWavePawn::FireBinding("Fire");
 
 AHiWavePawn::AHiWavePawn()
 {	
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	// Create the mesh component
 	ShipMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	RootComponent = ShipMeshComponent;
-	//ShipMeshComponent->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
-	ShipMeshComponent->SetStaticMesh(ShipMesh.Object);
 	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
-	
-	// Cache our sound effect
-	static ConstructorHelpers::FObjectFinder<USoundBase> FireAudio(TEXT("/Game/TwinStick/Audio/TwinStickFire.TwinStickFire"));
-	FireSound = FireAudio.Object;
-
-	// Cache our hit particle
-	//HitParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("MyPSC"));
-	//static ConstructorHelpers::FObjectFinder<UParticleSystem> HP(TEXT("ParticleSystem'/Game/Particles/PlayerHitParticle.PlayerHitParticle'"));
-	//HitParticle->SetTemplate(HP.Object);
-	//HitParticle->SetupAttachment(RootComponent);
-	//HitParticle->bAutoActivate = false;
-
 
 	// Create a camera boom...
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -62,13 +47,14 @@ AHiWavePawn::AHiWavePawn()
 	CameraComponent->bUsePawnControlRotation = false;	// Camera does not rotate relative to arm
 
 	// Movement
-	MoveSpeed = 1000.0f;
+	moveSpeed = 1000.0f;
 	// Weapon
 	GunOffset = FVector(90.f, 0.f, 0.f);
-	FireRate = 0.1f;
-	bCanFire = true;
+	fireRate = 0.1f;
+	fireTimer = 0.0f;
 	bFireHeld = false;
 	bIsDead = false;
+	spawnTimer = 2.0f;
 }
 
 void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -94,8 +80,7 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 	const FVector MoveDirection = FVector(ForwardValue, RightValue, 0.f).GetClampedToMaxSize(1.0f);
 
 	// Calculate  movement
-	const FVector Movement = MoveDirection * MoveSpeed * DeltaSeconds;
-
+	const FVector Movement = MoveDirection * moveSpeed * DeltaSeconds;
 	
 	FRotator NewRotation = RotateWithMouse();
 	RootComponent->SetRelativeRotation(NewRotation);
@@ -116,10 +101,11 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 			RootComponent->MoveComponent(Deflection, NewRotation, true);
 		}
 	}
-	//else {
-		
-	//
-	
+
+	//Update timer to when we can fire again
+	if (fireTimer < fireRate) {
+		fireTimer += DeltaSeconds;
+	}
 
 	// Try and fire a shot
 	if (bFireHeld) {
@@ -130,7 +116,7 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 void AHiWavePawn::FireShot()
 {
 	// If it's ok to fire again
-	if (bCanFire == true)
+	if (fireTimer>= fireRate)
 	{
 		const FRotator FireRotation = GetActorRotation();
 		// Spawn projectile at an offset from this pawn
@@ -143,23 +129,53 @@ void AHiWavePawn::FireShot()
 			World->SpawnActor<AHiWaveProjectile>(SpawnLocation, FireRotation);
 		}
 
-		bCanFire = false;
-		World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AHiWavePawn::ShotTimerExpired, FireRate);
+		//Reset timer after successful fire
+		fireTimer = 0.0f;
 
 		// try and play the sound if specified
 		if (FireSound != nullptr)
 		{
 			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
 		}
-
-		bCanFire = false;
 	}
 }
 
-void AHiWavePawn::ShotTimerExpired()
-{
-	bCanFire = true;
+
+void AHiWavePawn::HoldFire() {
+	bFireHeld = true;
 }
+
+void AHiWavePawn::ReleaseFire() {
+	bFireHeld = false;
+}
+
+void AHiWavePawn::TakeHit() {
+
+	//Turn off collision
+	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	ShipMeshComponent->SetVisibility(false);
+
+	//Create a timer to call DoDeathAndRespawn in some number of seconds
+	FTimerDelegate TimerDeathAndRespawn;
+	FTimerHandle TimerHandleDeathAndRespawn;
+	TimerDeathAndRespawn.BindUFunction(this, FName("DoDeathAndRespawn"));
+
+	//Spawn the death particle
+	if (HitParticle != nullptr) {
+		FRotator rotation = FRotator::ZeroRotator;
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+	}
+
+	//Destroy all the enemies and get ready to go through player respawn process.
+	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAllEnemies();
+	bIsDead = true;
+	GetWorld()->GetTimerManager().SetTimer(TimerHandleDeathAndRespawn, TimerDeathAndRespawn, 2.f, false);
+}
+
+void AHiWavePawn::DoDeathAndRespawn() const {
+	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
+}
+
 
 const FRotator AHiWavePawn::RotateWithMouse() {
 	AHiWavePlayerController* pc = Cast<AHiWavePlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
@@ -178,14 +194,12 @@ const FRotator AHiWavePawn::RotateWithMouse() {
 		GetActorEyesViewPoint(CameraLoc, CameraRot);
 
 		FHitResult Hit(ForceInit);
-		//FVector start = mouseWorldLocation;
-		FVector End = mouseWorldLocation + (mouseWorldDirection*2200.0f);
+		FVector End = mouseWorldLocation + (mouseWorldDirection*2800.0f);
 		FCollisionQueryParams CollisionParams;
 		FVector Start = mouseWorldLocation;
 
 		//DrawDebugLine(GetWorld(), Start, End, FColor::Green, true, 2.f, false, 4.f);
 
-		//GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_WorldDynamic, CollisionParams);
 		GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, CollisionParams);
 
 		FVector tempLookAtTarget;
@@ -195,42 +209,10 @@ const FRotator AHiWavePawn::RotateWithMouse() {
 		}
 		tempLookAtTarget.Z = actorLocation.Z;
 		newRotator = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), tempLookAtTarget);
-		
+
 	}
 	else {
 		newRotator = FRotator();
 	}
 	return newRotator;
-}
-
-void AHiWavePawn::HoldFire() {
-	bFireHeld = true;
-}
-
-void AHiWavePawn::ReleaseFire() {
-	bFireHeld = false;
-}
-
-void AHiWavePawn::TakeHit() {
-
-	//Turn off collision
-	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
-	ShipMeshComponent->SetVisibility(false);
-
-	FTimerDelegate TimerDeathAndRespawn;
-	FTimerHandle TimerHandleDeathAndRespawn;
-	TimerDeathAndRespawn.BindUFunction(this, FName("DoDeathAndRespawn"));
-
-	if (HitParticle != nullptr) {
-		//UE_LOG(LogTemp, Warning, TEXT("Player is hit going to spawn %s"), *HitParticle->GetFName().ToString());
-		FRotator rotation = FRotator::ZeroRotator;
-		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
-	}
-
-	bIsDead = true;
-	GetWorld()->GetTimerManager().SetTimer(TimerHandleDeathAndRespawn, TimerDeathAndRespawn, 2.f, false);
-}
-
-void AHiWavePawn::DoDeathAndRespawn() {
-	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
 }

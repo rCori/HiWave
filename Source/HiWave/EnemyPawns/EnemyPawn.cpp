@@ -6,9 +6,10 @@
 #include "Engine/CollisionProfile.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
-#include "EnemyAI.h"
+#include "EnemyAI/EnemyAI.h"
 #include "CollidingPawnMovementComponent.h"
 #include "HiWavePawn.h"
+#include "Components/SphereComponent.h"
 
 // Sets default values
 AEnemyPawn::AEnemyPawn()
@@ -25,8 +26,11 @@ AEnemyPawn::AEnemyPawn()
 	//StaticMeshComponentPtr->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);// set up a notification for when this component hits something
 	RootComponent = StaticMeshComponentPtr;
 
-	StaticMeshComponentPtr->OnComponentBeginOverlap.AddDynamic(this, &AEnemyPawn::OnOverlap);
+	//StaticMeshComponentPtr->OnComponentBeginOverlap.AddDynamic(this, &AEnemyPawn::OnOverlap);
 
+	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("HitDetection"));
+	SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AEnemyPawn::OnOverlap);
+	SphereComponent->SetupAttachment(RootComponent);
 	//Set the default AI controller class.
 	//When spawning use this->SpawnDefaultController()
 	//AIControllerClass = AEnemyAI::StaticClass();

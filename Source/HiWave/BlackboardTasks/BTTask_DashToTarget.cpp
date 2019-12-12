@@ -8,8 +8,8 @@
 #include "BehaviorTree/Blackboard/BlackboardKeyType_Vector.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
 #include "HiWavePawn.h"
-#include "EnemyPawn.h"
-#include "DashingEnemyAI.h"
+#include "EnemyPawns/EnemyPawn.h"
+#include "EnemyAI/DashingEnemyAI.h"
 
 
 UBTTask_DashToTarget::UBTTask_DashToTarget(const FObjectInitializer& objectInitializer)

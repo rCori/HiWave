@@ -3,8 +3,8 @@
 
 #include "BTTask_RedEnemyProjectileFire.h"
 #include "UObject/ConstructorHelpers.h"
-#include "EnemyPawn.h"
-#include "EnemyAI.h"
+#include "EnemyPawns/EnemyPawn.h"
+#include "EnemyAI/EnemyAI.h"
 #include "RedEnemyProjectile.h"
 #include "Engine/Blueprint.h"
 #include "BehaviorTree/BlackboardComponent.h"
@@ -16,8 +16,14 @@ UBTTask_RedEnemyProjectileFire::UBTTask_RedEnemyProjectileFire(const FObjectInit
 
 	gunOffset = FVector(90.0f, 0.0f, 0.0f);
 
-	static ConstructorHelpers::FObjectFinder<UBlueprint> RedProjectileBlueprint(TEXT("Blueprint'/Game/Blueprint/BP_RedEnemyProjectile.BP_RedEnemyProjectile'"));
-	redEnemyProjectile = (UClass*)RedProjectileBlueprint.Object->GeneratedClass;
+	//static ConstructorHelpers::FObjectFinder<UBlueprint> RedProjectileBlueprint(TEXT("Blueprint'/Game/Blueprint/BP_RedEnemyProjectile.BP_RedEnemyProjectile'"));
+	//static ConstructorHelpers::FObjectFinder<UBlueprint> RedProjectileBlueprint(TEXT("'/Game/Blueprint/BP_RedEnemyProjectile.BP_RedEnemyProjectile_C'"));
+	//redEnemyProjectile = (UClass*)RedProjectileBlueprint.Object->GeneratedClass;
+	static ConstructorHelpers::FClassFinder<AActor> redProjectileClassFinder(TEXT("/Game/Blueprint/BP_RedEnemyProjectile"));
+	if (redProjectileClassFinder.Succeeded())
+	{
+		redEnemyProjectile = redProjectileClassFinder.Class;
+	}
 
 }
 
@@ -31,7 +37,7 @@ EBTNodeResult::Type UBTTask_RedEnemyProjectileFire::ExecuteTask(UBehaviorTreeCom
 
 	float _shotTimer = OwnerComp.GetBlackboardComponent()->GetValueAsFloat("ShotTimer");
 	if (_shotTimer > 1.0) {
-		UE_LOG(LogTemp, Warning, TEXT("Red enemy is shooting"));
+		//UE_LOG(LogTemp, Warning, TEXT("Red enemy is shooting"));
 		_shotTimer = 0.0;
 		OwnerComp.GetBlackboardComponent()->SetValueAsFloat("ShotTimer", _shotTimer);
 		//Cast AI from owner so we can get reference to the pawn itself

@@ -1,23 +1,20 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "RedEnemy.h"
+#include "DashingEnemy.h"
 #include "EnemyPawn.h"
-#include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
-#include "Kismet/GameplayStatics.h"
 #include "CollidingPawnMovementComponent.h"
-#include "EnemyAI.h"
+#include "EnemyAI/DashingEnemyAI.h"
+#include "Kismet/GameplayStatics.h"
+#include "Particles/ParticleSystemComponent.h"
 
-ARedEnemy::ARedEnemy() : AEnemyPawn() {
-	//Create the static mesh for this specific pawn
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
-	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
+ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 
 	//Set the default AI controller class.
 	//When spawning use this->SpawnDefaultController()
-	AIControllerClass = AEnemyAI::StaticClass();
+	AIControllerClass = ADashingEnemyAI::StaticClass();
 
 	//Assign bot behavior by grabbing the BehaviorTree object in content
 	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
@@ -27,18 +24,23 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
-	health = 100.0;
+	health = 10.0;
 
-	speed = 400.0;
+	speed = 1250.0;
 }
 
-void ARedEnemy::EnemyDeath()
+void ADashingEnemy::EnemyDeath()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Red enemy is dead enemy"));
 	if (HitParticle != nullptr) {
-		//UE_LOG(LogTemp, Warning, TEXT("Player is hit going to spawn %s"), *HitParticle->GetFName().ToString());
 		FRotator rotation = FRotator::ZeroRotator;
-		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+		FTransform transform = FTransform();
+		transform.SetLocation(GetActorLocation());
+		FQuat rotQuaternion = FQuat(rotation);
+		transform.SetRotation(rotQuaternion);
+		transform.SetScale3D(FVector::OneVector);
+		//spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
+		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 	Super::EnemyDeath();
 }

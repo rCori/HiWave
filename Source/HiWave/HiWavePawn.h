@@ -32,14 +32,6 @@ public:
 	/** Offset from the ships location to spawn projectiles */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
 	FVector GunOffset;
-	
-	/* How fast the weapon will fire */
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
-	float FireRate;
-
-	/* The speed our ship moves around the level */
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
-	float MoveSpeed;
 
 	/** Sound to play each time we fire */
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
@@ -58,18 +50,22 @@ public:
 	// End Actor Interface
 
 	/* Fire a shot in the specified direction */
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void FireShot();
 
-	/* Handler for the fire timer expiry */
-	void ShotTimerExpired();
-
 	/* Call when hit by the enemy */
-	UFUNCTION()
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void TakeHit();
 
-	/* Called on a Timer from TakeHit() */
-	UFUNCTION()
-	void DoDeathAndRespawn();
+	/* 
+	 * Called on a Timer from TakeHit()
+	 * All this does is get the game mode AHiWaveGameMode from the world and
+	 * call DestroyAndRespawnPlayer() on it. Only exists as this function so
+	 * it can be called on a timer
+	 */
+	UFUNCTION(Category = SpawnSystem, BlueprintCallable)
+	void DoDeathAndRespawn() const;
+	
 
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
@@ -78,19 +74,33 @@ public:
 	static const FName FireRightBinding;
 	static const FName FireBinding;
 
+protected:
+	/* The speed our ship moves around the level */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	float moveSpeed;
+
+	/* How fast the weapon will fire */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	float fireRate;
+
+	/* How long between player being hit and spawning again */
+	UPROPERTY(Category = SpawnSystem, EditDefaultsOnly, BlueprintReadOnly)
+	float spawnTimer;
+
 private:
 
+	/* Only for internal use to point the player in the direction of the mouse */
 	const FRotator RotateWithMouse();
+
+	/* Bound to pressing and releasing the 'FireBinding' action*/
 	void HoldFire();
 	void ReleaseFire();
 
-	/* Flag to control firing  */
-	uint32 bCanFire : 1;
-
-	/** Handle for efficient management of ShotTimerExpired timer */
-	FTimerHandle TimerHandle_ShotTimerExpired;
-
+	/* Modified by HoldFire() and ReleaseFire() which are bound to 'FireBinding' action */
 	bool bFireHeld;
+
+	/* Keeps track of last shot fired. Once larger than fireRate player can shoot again. */
+	float fireTimer;
 
 public:
 	/** Returns ShipMeshComponent subobject **/

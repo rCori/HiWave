@@ -4,23 +4,30 @@
 
 #include "CoreMinimal.h"
 #include "EnemyPawn.h"
-#include "RedEnemy.generated.h"
+#include "BasicEnemy.generated.h"
+
+class UParticleSystemComponent;
 
 /**
  * 
  */
 UCLASS()
-class HIWAVE_API ARedEnemy : public AEnemyPawn
+class HIWAVE_API ABasicEnemy : public AEnemyPawn
 {
 	GENERATED_BODY()
-	
-public:
-	ARedEnemy();
 
+public:
+
+	// Sets default values for this pawn's properties
+	ABasicEnemy();
+	
 	virtual void EnemyDeath() override;
 
 	/** Particle to emit when an enemy hits us */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	UParticleSystemComponent* spawnedParticle;
 
 };

@@ -2,7 +2,7 @@
 
 
 #include "CollidingPawnMovementComponent.h"
-#include "EnemyPawn.h"
+#include "EnemyPawns/EnemyPawn.h"
 
 
 void UCollidingPawnMovementComponent::TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction)

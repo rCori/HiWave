@@ -7,9 +7,9 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
 #include "Runtime/NavigationSystem/Public/NavigationSystem.h"
-#include "EnemyAI.h"
+#include "EnemyAI/EnemyAI.h"
 #include "HiWavePawn.h"
-#include "EnemyPawn.h"
+#include "EnemyPawns/EnemyPawn.h"
 #include "Kismet/KismetMathLibrary.h"
 
 void UBTTask_MoveToPlayer::OnGameplayTaskActivated(class UGameplayTask &)

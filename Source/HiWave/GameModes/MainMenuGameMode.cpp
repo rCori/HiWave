@@ -20,5 +20,5 @@ void AMainMenuGameMode::BeginPlay()
 
 void AMainMenuGameMode::StartGameButton()
 {
-	UGameplayStatics::OpenLevel(GetWorld(), "TwinStickExampleMap");
+	UGameplayStatics::OpenLevel(GetWorld(), "GameMap");
 }

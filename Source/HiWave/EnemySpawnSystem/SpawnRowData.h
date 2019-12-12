@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Engine/DataTable.h"
-#include "SpawnRowDataChild.h"
 #include "SpawnRowData.generated.h"
 
 /**

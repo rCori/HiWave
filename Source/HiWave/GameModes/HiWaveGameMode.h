@@ -6,6 +6,10 @@
 #include "GameFramework/GameModeBase.h"
 #include "HiWaveGameMode.generated.h"
 
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDestroyAndRespawnPlayer);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDestroyAllEnemies);
+
 UCLASS(MinimalAPI)
 class AHiWaveGameMode : public AGameModeBase
 {
@@ -19,11 +23,20 @@ public:
 	UFUNCTION()
 	void DestroyAndRespawnPlayer();
 
+	UFUNCTION()
+	void DestroyAllEnemies();
+
 	UPROPERTY(BlueprintReadWrite)
 	int playerLives;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
 	TSubclassOf<UUserWidget> LivesWidgetClass;
+
+	UPROPERTY(BlueprintAssignable, Category = "Test")
+	FOnDestroyAndRespawnPlayer OnDestroyAndRespawnPlayer;
+
+	UPROPERTY(BlueprintAssignable, Category = "Test")
+	FOnDestroyAllEnemies OnDestroyAllEnemies;
 
 };
 

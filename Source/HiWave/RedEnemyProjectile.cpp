@@ -6,7 +6,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "HiWavePawn.h"
-#include "EnemyPawn.h"
+#include "EnemyPawns/EnemyPawn.h"
 
 // Sets default values
 ARedEnemyProjectile::ARedEnemyProjectile()
@@ -19,7 +19,7 @@ ARedEnemyProjectile::ARedEnemyProjectile()
 	ProjectileMesh->SetupAttachment(RootComponent);
 	ProjectileMesh->BodyInstance.SetCollisionProfileName("Projectile");
 	//ProjectileMesh->SetNotifyRigidBodyCollision(true);
-	//ProjectileMesh->OnComponentHit.AddDynamic(this, &ARedEnemyProjectile::OnHit);		// set up a notification for when this component hits something
+	ProjectileMesh->OnComponentHit.AddDynamic(this, &ARedEnemyProjectile::OnHit);		// set up a notification for when this component hits something
 	ProjectileMesh->OnComponentBeginOverlap.AddDynamic(this, &ARedEnemyProjectile::OnOverlapBegin);
 	RootComponent = ProjectileMesh;
 
@@ -41,8 +41,6 @@ ARedEnemyProjectile::ARedEnemyProjectile()
 void ARedEnemyProjectile::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("Red projectile was spawned"));
-	
 }
 
 // Called every frame
@@ -52,38 +50,19 @@ void ARedEnemyProjectile::Tick(float DeltaTime)
 
 }
 
-/*
+
 void ARedEnemyProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	// Only add impulse and destroy projectile if we hit a physics
-	if ((OtherActor != NULL) && (OtherActor != this) && (OtherComp != NULL) && OtherComp->IsSimulatingPhysics())
-	{
-		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
-	}
-
-	AHiWavePawn *player = Cast<AHiWavePawn>(OtherActor);
-	if (player != NULL) {
-		player->DoDeathAndRespawn();
-	}
-
 	AEnemyPawn *enemy = Cast<AEnemyPawn>(OtherActor);
 	if (enemy == nullptr) {
 		Destroy();
 	}
 
 }
-*/
+
 
 void ARedEnemyProjectile::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	// Only add impulse and destroy projectile if we hit a physics
-	/*
-	if ((OtherActor != NULL) && (OtherActor != this) && (OtherComp != NULL) && OtherComp->IsSimulatingPhysics())
-	{
-		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
-	}
-	*/
-
 	AHiWavePawn *player = Cast<AHiWavePawn>(OtherActor);
 	if (player != NULL) {
 		player->TakeHit();

@@ -17,11 +17,6 @@ class HIWAVE_API AEnemyPawn : public APawn
 {
 	GENERATED_BODY()
 
-	/* The mesh component */
-	UPROPERTY(Category = Mesh, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	class UStaticMeshComponent* EnemyMeshComponent;
-
-	
 
 protected:
 	// Called when the game starts or when spawned
@@ -68,6 +63,9 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Mesh)
 	class UStaticMeshComponent* StaticMeshComponentPtr;
+
+	UPROPERTY(EditAnywhere, Category = Mesh)
+	class USphereComponent* SphereComponent;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FString SpawningGroupTag;

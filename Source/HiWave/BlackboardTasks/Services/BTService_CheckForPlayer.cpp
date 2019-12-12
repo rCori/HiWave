@@ -6,9 +6,9 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "BehaviorTree/Blackboard/BlackboardKeyAllTypes.h"
 #include "HiWavePawn.h"
-#include "EnemyAI.h"
-#include "DashingEnemyAI.h"
-#include "EnemyPawn.h"
+#include "EnemyAI/EnemyAI.h"
+#include "EnemyAI/DashingEnemyAI.h"
+#include "EnemyPawns/EnemyPawn.h"
 
 
 UBTService_CheckForPlayer::UBTService_CheckForPlayer()
