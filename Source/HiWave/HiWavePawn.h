@@ -9,6 +9,9 @@
 #include "HiWavePawn.generated.h"
 
 
+//Logging during game startup
+DECLARE_LOG_CATEGORY_EXTERN(LogPlayerDeath, Log, All);
+
 UCLASS(Blueprintable)
 class AHiWavePawn : public APawn
 {
@@ -26,6 +29,7 @@ class AHiWavePawn : public APawn
 	UPROPERTY(Category = Camera, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
 
+
 public:
 	AHiWavePawn();
 
@@ -41,6 +45,10 @@ public:
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;
 
+	/** Capsule component for burst weapon radius */
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
+	class UCapsuleComponent* CapsuleComponent;
+
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	bool bIsDead;
 
@@ -53,9 +61,22 @@ public:
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void FireShot();
 
+	/* Do the burst attack */
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	void DoBurst();
+	
+	/* Overlap function for the burst collision */
+	UFUNCTION()
+	void OnBurstOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+
 	/* Call when hit by the enemy */
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void TakeHit();
+
+	/* After hte burst attack reset the size of the capsule collision component */
+	UFUNCTION(Category = Gameplay)
+	void ResetBurstCollision();
 
 	/* 
 	 * Called on a Timer from TakeHit()
@@ -73,11 +94,19 @@ public:
 	static const FName FireForwardBinding;
 	static const FName FireRightBinding;
 	static const FName FireBinding;
+	static const FName BurstBinding;
 
 protected:
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 	/* The speed our ship moves around the level */
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
 	float moveSpeed;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly, meta = (ClampMin = 0.05,ClampMax = 0.95))
+	float speedRatio;
 
 	/* How fast the weapon will fire */
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
@@ -101,6 +130,10 @@ private:
 
 	/* Keeps track of last shot fired. Once larger than fireRate player can shoot again. */
 	float fireTimer;
+
+	/* THe size of the capsule component at it's largest size. */
+	float capsuleRadius;
+	float capsuleHalfHeight;
 
 public:
 	/** Returns ShipMeshComponent subobject **/

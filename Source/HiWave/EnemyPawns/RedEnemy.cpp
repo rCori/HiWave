@@ -31,8 +31,8 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
 	health = 100.0;
-
 	speed = 400.0;
+	pointsAwarded = 100;
 }
 
 void ARedEnemy::EnemyDeath()

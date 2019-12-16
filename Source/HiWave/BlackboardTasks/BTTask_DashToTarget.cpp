@@ -28,7 +28,6 @@ void UBTTask_DashToTarget::OnGameplayTaskActivated(class UGameplayTask &)
 EBTNodeResult::Type UBTTask_DashToTarget::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
 	if (distance < 50.0) {
-		UE_LOG(LogTemp, Warning, TEXT("Setting DashTarget"));
 		OwnerComp.GetBlackboardComponent()->SetValueAsBool("DashTargetFound", false);
 		return EBTNodeResult::Succeeded;
 	}
@@ -50,7 +49,6 @@ void UBTTask_DashToTarget::TickTask(UBehaviorTreeComponent & OwnerComp, uint8 * 
 		enemyPawn->AddMovementInput(movementDirectionNormal, 2.0f);
 
 		if (distance < 50.0) {
-			UE_LOG(LogTemp, Warning, TEXT("Setting DashTarget"));
 			FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
 			distance = MAX_FLT;
 		}

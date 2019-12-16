@@ -10,6 +10,7 @@
 #include "CollidingPawnMovementComponent.h"
 #include "HiWavePawn.h"
 #include "Components/SphereComponent.h"
+#include "HiWaveGameState.h"
 
 // Sets default values
 AEnemyPawn::AEnemyPawn()
@@ -81,12 +82,18 @@ void AEnemyPawn::EnemyTakeDamage(float damage) {
 
 void AEnemyPawn::EnemyDeath() {
 	Destroy();
+	AHiWaveGameState* hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+	if (hiWaveGameState) {
+		hiWaveGameState->IncreasePlayerScore(pointsAwarded);
+	}
 	OnEnemyDeathDelegate.Broadcast(SpawningGroupTag);
 }
 
 void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
 	if (playerActor != NULL){
+		UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn] OnHit"));
+		
 		playerActor->TakeHit();
 	}
 }
@@ -94,7 +101,15 @@ void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimit
 void AEnemyPawn::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
-	if (playerActor != NULL) {
+	if (playerActor != NULL && OtherComp->ComponentHasTag("ShipMesh")) {
+		UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn %s] OnOverlap"), *GetActorLabel());
+		/*
+		UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn] OverlappedComp->GetFName: %s"), *(OtherComp->GetFName().ToString()));
+		
+		for (FName tagName : OtherComp->ComponentTags) {
+			UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn] TagName: %s"), *(tagName.ToString()));
+		}
+		*/
 		playerActor->TakeHit();
 	}
 }

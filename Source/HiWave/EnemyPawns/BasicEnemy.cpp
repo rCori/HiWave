@@ -32,6 +32,7 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 
 	health = 10.0;
 	speed = 1050.0;
+	pointsAwarded = 10;
 }
 
 

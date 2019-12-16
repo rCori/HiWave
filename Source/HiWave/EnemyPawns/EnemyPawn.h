@@ -73,6 +73,9 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Delegates")
 	FOnEnemyDeathDelegate OnEnemyDeathDelegate;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Score")
+	int pointsAwarded;
+
 protected:
 	float health;
 

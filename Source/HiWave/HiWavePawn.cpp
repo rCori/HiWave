@@ -19,12 +19,17 @@
 #include "DrawDebugHelpers.h"
 #include "Particles/ParticleSystem.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "EnemyPawns/EnemyPawn.h"
 
 const FName AHiWavePawn::MoveForwardBinding("MoveForward");
 const FName AHiWavePawn::MoveRightBinding("MoveRight");
 const FName AHiWavePawn::FireForwardBinding("FireForward");
 const FName AHiWavePawn::FireRightBinding("FireRight");
 const FName AHiWavePawn::FireBinding("Fire");
+const FName AHiWavePawn::BurstBinding("Burst");
+
+DEFINE_LOG_CATEGORY(LogPlayerDeath);
 
 AHiWavePawn::AHiWavePawn()
 {	
@@ -32,6 +37,7 @@ AHiWavePawn::AHiWavePawn()
 	ShipMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	RootComponent = ShipMeshComponent;
 	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
+	ShipMeshComponent->ComponentTags.Add("ShipMesh");
 
 	// Create a camera boom...
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -46,8 +52,15 @@ AHiWavePawn::AHiWavePawn()
 	CameraComponent->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	CameraComponent->bUsePawnControlRotation = false;	// Camera does not rotate relative to arm
 
+	//Create hitbox for burst capsule
+	CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("BurstHitDetection"));
+	CapsuleComponent->OnComponentBeginOverlap.AddDynamic(this, &AHiWavePawn::OnBurstOverlap);
+	CapsuleComponent->SetupAttachment(RootComponent);
+	CapsuleComponent->ComponentTags.Add("BurstHitbox");
+
 	// Movement
 	moveSpeed = 1000.0f;
+	speedRatio = 0.75;
 	// Weapon
 	GunOffset = FVector(90.f, 0.f, 0.f);
 	fireRate = 0.1f;
@@ -66,6 +79,7 @@ void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAxis(MoveRightBinding);
 	PlayerInputComponent->BindAction(FireBinding, IE_Pressed, this, &AHiWavePawn::HoldFire);
 	PlayerInputComponent->BindAction(FireBinding, IE_Released, this, &AHiWavePawn::ReleaseFire);
+	PlayerInputComponent->BindAction(BurstBinding, IE_Released, this, &AHiWavePawn::DoBurst);
 }
 
 void AHiWavePawn::Tick(float DeltaSeconds)
@@ -77,13 +91,17 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 	const float RightValue = GetInputAxisValue(MoveRightBinding);
 
 	// Clamp max size so that (X=1, Y=1) doesn't cause faster movement in diagonal directions
-	const FVector MoveDirection = FVector(ForwardValue, RightValue, 0.f).GetClampedToMaxSize(1.0f);
+	const FVector MoveDirection = FVector(ForwardValue, RightValue, 0.0f).GetClampedToMaxSize(1.0f);
 
 	// Calculate  movement
-	const FVector Movement = MoveDirection * moveSpeed * DeltaSeconds;
+	FVector Movement = MoveDirection * (moveSpeed)* speedRatio * DeltaSeconds;
 	
 	FRotator NewRotation = RotateWithMouse();
 	RootComponent->SetRelativeRotation(NewRotation);
+
+	if (bFireHeld) {
+		Movement -= NewRotation.Vector() * (moveSpeed) * (1- speedRatio) * DeltaSeconds;
+	}
 
 	// If non-zero size, move this actor
 	if (Movement.SizeSquared() > 0.0f)
@@ -140,6 +158,29 @@ void AHiWavePawn::FireShot()
 	}
 }
 
+void AHiWavePawn::DoBurst()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Did burst attack!"));
+	TArray<AActor*> overlappingActors;
+	CapsuleComponent->SetCapsuleSize(capsuleRadius, capsuleHalfHeight, true);
+
+	//Create a timer to call DoDeathAndRespawn in some number of seconds
+	FTimerDelegate TimerResetBurstCollision;
+	FTimerHandle TimerHandleResetBurstCollision;
+	TimerResetBurstCollision.BindUFunction(this, FName("ResetBurstCollision"));
+
+	GetWorld()->GetTimerManager().SetTimer(TimerHandleResetBurstCollision, TimerResetBurstCollision, 0.4f, false);
+}
+
+void AHiWavePawn::OnBurstOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+{
+	AEnemyPawn *enemyPawn = Cast<AEnemyPawn>(OtherActor);
+	if (enemyPawn != NULL) {
+		UE_LOG(LogPlayerDeath, Warning, TEXT("[AHiWavePawn with enemy pawn %s] OnBurstOverlap"), *(enemyPawn->GetActorLabel()));
+		//enemyPawn->TakeHit();
+	}
+}
+
 
 void AHiWavePawn::HoldFire() {
 	bFireHeld = true;
@@ -150,6 +191,8 @@ void AHiWavePawn::ReleaseFire() {
 }
 
 void AHiWavePawn::TakeHit() {
+
+	UE_LOG(LogPlayerDeath, Warning, TEXT("[HiWavePawn] TakeHit"));
 
 	//Turn off collision
 	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
@@ -172,8 +215,23 @@ void AHiWavePawn::TakeHit() {
 	GetWorld()->GetTimerManager().SetTimer(TimerHandleDeathAndRespawn, TimerDeathAndRespawn, 2.f, false);
 }
 
+void AHiWavePawn::ResetBurstCollision()
+{
+	CapsuleComponent->SetCapsuleSize(0, 0, false);
+}
+
 void AHiWavePawn::DoDeathAndRespawn() const {
+	UE_LOG(LogPlayerDeath, Warning, TEXT("[HiWavePawn] DoDeathAndRespawn"));
 	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
+}
+
+void AHiWavePawn::BeginPlay()
+{	
+	capsuleRadius = CapsuleComponent->GetScaledCapsuleRadius();
+	capsuleHalfHeight = CapsuleComponent->GetScaledCapsuleHalfHeight();
+	CapsuleComponent->SetCapsuleSize(0, 0, false);
+	
+	Super::BeginPlay();
 }
 
 

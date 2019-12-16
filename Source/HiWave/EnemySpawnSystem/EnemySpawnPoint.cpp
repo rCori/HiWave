@@ -86,7 +86,6 @@ void AEnemySpawnPoint::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AAct
 	AHiWavePawn *player = Cast<AHiWavePawn>(OtherActor);
 	if (player != nullptr)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Player has entered spawner"));
 		bIsIntersecting = true;
 	}
 }
@@ -96,7 +95,6 @@ void AEnemySpawnPoint::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor
 	AHiWavePawn *player = Cast<AHiWavePawn>(OtherActor);
 	if (player != nullptr)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Player has left spawner"));
 		bIsIntersecting = false;
 	}
 }

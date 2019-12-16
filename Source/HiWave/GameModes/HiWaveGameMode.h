@@ -32,10 +32,10 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
 	TSubclassOf<UUserWidget> LivesWidgetClass;
 
-	UPROPERTY(BlueprintAssignable, Category = "Test")
+	UPROPERTY(BlueprintAssignable, Category = "Spawning")
 	FOnDestroyAndRespawnPlayer OnDestroyAndRespawnPlayer;
 
-	UPROPERTY(BlueprintAssignable, Category = "Test")
+	UPROPERTY(BlueprintAssignable, Category = "Spawning")
 	FOnDestroyAllEnemies OnDestroyAllEnemies;
 
 };

@@ -25,8 +25,8 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
 	health = 10.0;
-
 	speed = 1250.0;
+	pointsAwarded = 50;
 }
 
 void ADashingEnemy::EnemyDeath()
