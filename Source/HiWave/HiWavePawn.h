@@ -45,9 +45,16 @@ public:
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;
 
+	/** Particle to emit when we do the burst attack */
+	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
+	UParticleSystem* BurstParticle;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	UParticleSystemComponent* spawnedBurstParticle;
+
 	/** Capsule component for burst weapon radius */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
-	class UCapsuleComponent* CapsuleComponent;
+	class UStaticMeshComponent* BurstComponent;
 
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	bool bIsDead;
@@ -65,6 +72,14 @@ public:
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void DoBurst();
 	
+	/* Pause or unpause the game */
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	void PauseFunction();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ExpandBurstComponent();
+
+
 	/* Overlap function for the burst collision */
 	UFUNCTION()
 	void OnBurstOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -74,9 +89,13 @@ public:
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void TakeHit();
 
-	/* After hte burst attack reset the size of the capsule collision component */
+	/* After the burst attack reset the size of the capsule collision component */
 	UFUNCTION(Category = Gameplay)
 	void ResetBurstCollision();
+
+	/* After the burst attack reset the size of the capsule collision component */
+	UFUNCTION(Category = Gameplay)
+	void ResetBurstAvailability();
 
 	/* 
 	 * Called on a Timer from TakeHit()
@@ -95,6 +114,7 @@ public:
 	static const FName FireRightBinding;
 	static const FName FireBinding;
 	static const FName BurstBinding;
+	static const FName PauseBinding;
 
 protected:
 
@@ -116,6 +136,17 @@ protected:
 	UPROPERTY(Category = SpawnSystem, EditDefaultsOnly, BlueprintReadOnly)
 	float spawnTimer;
 
+	/* How fast the burst attack comes back */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	float burstCollisionTimer;
+
+	/* How fast the burst attack comes back */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	float burstAvailabilityTimer;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadOnly)
+	FVector burstComponentRelativeScale;
+
 private:
 
 	/* Only for internal use to point the player in the direction of the mouse */
@@ -128,12 +159,18 @@ private:
 	/* Modified by HoldFire() and ReleaseFire() which are bound to 'FireBinding' action */
 	bool bFireHeld;
 
+	/* Modified by DoBurst() and ResetBurstCollision(). Sets wether the burst attack can be done */
+	bool bBurstAvailable;
+
 	/* Keeps track of last shot fired. Once larger than fireRate player can shoot again. */
 	float fireTimer;
 
 	/* THe size of the capsule component at it's largest size. */
-	float capsuleRadius;
-	float capsuleHalfHeight;
+	//float capsuleRadius;
+	//float capsuleHalfHeight;
+	
+	/* Is the game in pause state */
+	bool bIsPaused;
 
 public:
 	/** Returns ShipMeshComponent subobject **/

@@ -12,6 +12,7 @@
 #include "TimerManager.h"
 #include "Engine/World.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "Materials/MaterialInstanceDynamic.h"
 
 ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	//Create the static mesh for this specific pawn
@@ -33,6 +34,24 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	health = 100.0;
 	speed = 400.0;
 	pointsAwarded = 100;
+	damageRatio = 1.0;
+}
+
+// Called when the game starts or when spawned
+void ARedEnemy::BeginPlay()
+{
+
+	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
+	auto frontMaterial = staticMesh->GetMaterial(0);
+	auto sizeMaterial = staticMesh->GetMaterial(1);
+
+	dynamicFrontMaterial = UMaterialInstanceDynamic::Create(frontMaterial, NULL);
+	staticMesh->SetMaterial(0, dynamicFrontMaterial);
+
+	dynamicSideMaterial = UMaterialInstanceDynamic::Create(sizeMaterial, NULL);
+	staticMesh->SetMaterial(1, dynamicSideMaterial);
+
+	Super::BeginPlay();
 }
 
 void ARedEnemy::EnemyDeath()
@@ -48,5 +67,12 @@ void ARedEnemy::EnemyDeath()
 		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 	Super::EnemyDeath();
+}
+
+void ARedEnemy::BurstOverlap()
+{
+	dynamicFrontMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	dynamicSideMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	damageRatio = 3.0;
 }
 

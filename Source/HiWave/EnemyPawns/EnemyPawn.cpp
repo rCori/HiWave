@@ -45,6 +45,8 @@ AEnemyPawn::AEnemyPawn()
 	//OurMovementComponent->UpdatedComponent = RootComponent;
 
 	//health = 50.0;
+
+	
 }
 
 // Called when the game starts or when spawned
@@ -74,7 +76,7 @@ UPawnMovementComponent* AEnemyPawn::GetMovementComponent() const
 }
 
 void AEnemyPawn::EnemyTakeDamage(float damage) {
-	health -= damage;
+	health -= damage * damageRatio;
 	if (health <= 0.0) {
 		EnemyDeath();
 	}

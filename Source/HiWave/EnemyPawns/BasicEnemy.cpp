@@ -12,6 +12,7 @@
 #include "TimerManager.h"
 #include "Engine/World.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "Materials/MaterialInstanceDynamic.h"
 
 ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	//Create the static mesh for this specific pawn
@@ -30,11 +31,25 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
-	health = 10.0;
+	health = 30.0;
 	speed = 1050.0;
 	pointsAwarded = 10;
+	damageRatio = 1.0;
 }
 
+// Called when the game starts or when spawned
+void ABasicEnemy::BeginPlay()
+{
+
+	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
+	auto material = staticMesh->GetMaterial(0);
+
+	dynamicMaterial = UMaterialInstanceDynamic::Create(material, NULL);
+	staticMesh->SetMaterial(0, dynamicMaterial);
+
+	Super::BeginPlay();
+
+}
 
 void ABasicEnemy::EnemyDeath()
 {
@@ -50,4 +65,12 @@ void ABasicEnemy::EnemyDeath()
 		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 	Super::EnemyDeath();
+}
+
+
+
+void ABasicEnemy::BurstOverlap()
+{
+	dynamicMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	damageRatio = 2.0;
 }

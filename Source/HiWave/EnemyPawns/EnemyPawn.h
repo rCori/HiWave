@@ -41,6 +41,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	virtual void EnemyDeath();
 
+	UFUNCTION(BlueprintCallable)
+	virtual void BurstOverlap() {};
+
 	/** Function to handle the enemy hitting the player */
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
@@ -78,7 +81,7 @@ public:
 
 protected:
 	float health;
-
+	float damageRatio;
 	float speed;
 
 };

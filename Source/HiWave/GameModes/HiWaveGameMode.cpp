@@ -11,10 +11,10 @@
 void AHiWaveGameMode::BeginPlay()
 {
 
-	UUserWidget* LivesWidget = CreateWidget<UUserWidget>(GetWorld(), LivesWidgetClass);
-	if (LivesWidget != nullptr)
+	UUserWidget* GameplayWidget = CreateWidget<UUserWidget>(GetWorld(), GameplayWidgetClass);
+	if (GameplayWidget != nullptr)
 	{
-		LivesWidget->AddToViewport();
+		GameplayWidget->AddToViewport();
 	}
 }
 
@@ -79,5 +79,26 @@ void AHiWaveGameMode::DestroyAllEnemies() {
 		else {
 			UE_LOG(LogTemp, Warning, TEXT("AHiWaveGameMode::DestroyAndRespawnPlayer. Cast to destroy an enemy from world has failed"));
 		}
+	}
+}
+
+void AHiWaveGameMode::OpenPauseMenu() {
+	if (!bIsPaused) {
+		bIsPaused = true;
+		PauseWidget = CreateWidget<UUserWidget>(GetWorld(), PauseWidgetClass);
+		if (PauseWidget != nullptr)
+		{
+			PauseWidget->AddToViewport();
+		}
+		UGameplayStatics::SetGamePaused(GetWorld(), true);
+
+	}
+	else {
+		bIsPaused = false;
+		if (PauseWidget != nullptr)
+		{
+			PauseWidget->RemoveFromViewport();
+		}
+		UGameplayStatics::SetGamePaused(GetWorld(), false);
 	}
 }

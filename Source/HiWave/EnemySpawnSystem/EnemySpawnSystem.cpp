@@ -49,7 +49,6 @@ void AEnemySpawnSystem::Tick(float DeltaTime)
 }
 
 
-
 void AEnemySpawnSystem::SpawnFromDatatable()
 {
 	//If we have nothing to spawn then just return
@@ -216,9 +215,6 @@ void AEnemySpawnSystem::ClearAllSpawnTimers()
 		spawnTimerCollection.RemoveAt(0, (spawnTimerCollection.Num() - 1), true);
 	}
 }
-
-
-
 
 
 void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)

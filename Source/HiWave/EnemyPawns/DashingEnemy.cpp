@@ -3,12 +3,14 @@
 
 #include "DashingEnemy.h"
 #include "EnemyPawn.h"
+#include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "CollidingPawnMovementComponent.h"
 #include "EnemyAI/DashingEnemyAI.h"
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "Materials/MaterialInstanceDynamic.h"
 
 ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 
@@ -24,9 +26,25 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
-	health = 10.0;
+	health = 20.0;
 	speed = 1250.0;
 	pointsAwarded = 50;
+	damageRatio = 1.0;
+}
+
+void ADashingEnemy::BeginPlay() {
+
+	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
+	auto frontMaterial = staticMesh->GetMaterial(0);
+	auto sizeMaterial = staticMesh->GetMaterial(1);
+
+	dynamicFrontMaterial = UMaterialInstanceDynamic::Create(frontMaterial, NULL);
+	staticMesh->SetMaterial(0, dynamicFrontMaterial);
+
+	dynamicSideMaterial = UMaterialInstanceDynamic::Create(sizeMaterial, NULL);
+	staticMesh->SetMaterial(1, dynamicSideMaterial);
+
+	Super::BeginPlay();
 }
 
 void ADashingEnemy::EnemyDeath()
@@ -43,4 +61,11 @@ void ADashingEnemy::EnemyDeath()
 		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
 	Super::EnemyDeath();
+}
+
+void ADashingEnemy::BurstOverlap()
+{
+	dynamicFrontMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	dynamicSideMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	damageRatio = 2.0;
 }

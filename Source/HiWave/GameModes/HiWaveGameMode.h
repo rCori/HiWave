@@ -10,6 +10,8 @@
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDestroyAndRespawnPlayer);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDestroyAllEnemies);
 
+class UUserWidget;
+
 UCLASS(MinimalAPI)
 class AHiWaveGameMode : public AGameModeBase
 {
@@ -26,18 +28,27 @@ public:
 	UFUNCTION()
 	void DestroyAllEnemies();
 
+	UFUNCTION(BlueprintCallable)
+	void OpenPauseMenu();
+
 	UPROPERTY(BlueprintReadWrite)
 	int playerLives;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
-	TSubclassOf<UUserWidget> LivesWidgetClass;
+	TSubclassOf<UUserWidget> GameplayWidgetClass;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<UUserWidget> PauseWidgetClass;
 
 	UPROPERTY(BlueprintAssignable, Category = "Spawning")
 	FOnDestroyAndRespawnPlayer OnDestroyAndRespawnPlayer;
 
 	UPROPERTY(BlueprintAssignable, Category = "Spawning")
 	FOnDestroyAllEnemies OnDestroyAllEnemies;
+private:
+	bool bIsPaused;
 
+	UUserWidget* PauseWidget;
 };
 
 
