@@ -104,7 +104,7 @@ void AEnemyPawn::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AAct
 {
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
 	if (playerActor != NULL && OtherComp->ComponentHasTag("ShipMesh")) {
-		UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn %s] OnOverlap"), *GetActorLabel());
+		//UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn %s] OnOverlap"), *GetActorLabel());
 		/*
 		UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn] OverlappedComp->GetFName: %s"), *(OtherComp->GetFName().ToString()));
 		

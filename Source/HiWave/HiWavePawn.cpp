@@ -73,6 +73,7 @@ AHiWavePawn::AHiWavePawn()
 	bIsDead = false;
 	bBurstAvailable = true;
 	spawnTimer = 2.0f;
+	CurrentSpeed = FVector::ZeroVector;
 }
 
 void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -101,28 +102,61 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 	const FVector MoveDirection = FVector(ForwardValue, RightValue, 0.0f).GetClampedToMaxSize(1.0f);
 
 	// Calculate  movement
-	FVector Movement = MoveDirection * (moveSpeed)* speedRatio * DeltaSeconds;
-	
+	//FVector Movement = MoveDirection * (moveSpeed)* speedRatio * DeltaSeconds;
+	/*
+	if (MoveDirection.SizeSquared() > 0) {
+		currentMovementVelocity = (currentMovementVelocity.GetSafeNormal() * (currentMovementVelocity.Size() * (DeltaSeconds / accelerationRate)));
+		currentMovementVelocity += MoveDirection * moveSpeed * DeltaSeconds;
+		if (FMath::Abs(currentMovementVelocity.Size()) > moveSpeed) {
+			currentMovementVelocity = currentMovementVelocity.GetSafeNormal() * moveSpeed * DeltaSeconds;
+		}
+		UE_LOG(LogTemp, Warning, TEXT("Increasing currentMovementDirection to %s"),
+			*currentMovementVelocity.ToString());
+	}
+	else {
+		//currentMovementDirection += (-currentMovementDirection * (accelerationRate / DeltaSeconds));
+		currentMovementVelocity = (currentMovementVelocity.GetSafeNormal() * (currentMovementVelocity.Size() * (DeltaSeconds /accelerationRate)));
+		UE_LOG(LogTemp, Warning, TEXT("Decreasing currentMovementDirection to %s"),
+			*currentMovementVelocity.ToString());
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("currentMovementDirection is %s"),
+		*currentMovementVelocity.ToString());
+
+	FVector Movement = currentMovementVelocity;
+	*/
+
+	//Apply constant acceleration to your speed
+	CurrentSpeed += MoveDirection * Acceleration * DeltaSeconds;
+
+	//Constantly subtract friction from your speed
+	CurrentSpeed -= CurrentSpeed * Friction * DeltaSeconds;
+
+	//Limit your speed to a maximum speed;
+	if (FMath::Abs(CurrentSpeed.Size()) > MaxSpeed) {
+		CurrentSpeed = MoveDirection * MaxSpeed * DeltaSeconds;
+	}
+
 	FRotator NewRotation = RotateWithMouse();
 	RootComponent->SetRelativeRotation(NewRotation);
-
+	/*
 	if (bFireHeld) {
 		Movement -= NewRotation.Vector() * (moveSpeed) * (1- speedRatio) * DeltaSeconds;
 	}
-
+	*/
 	// If non-zero size, move this actor
-	if (Movement.SizeSquared() > 0.0f)
+	if (CurrentSpeed.SizeSquared() > 0.0f)
 	{
 		//const FRotator NewRotation = Movement.Rotation();
 		FHitResult Hit(1.f);
-		RootComponent->MoveComponent(Movement, NewRotation, true, &Hit);
+		RootComponent->MoveComponent(CurrentSpeed, NewRotation, true, &Hit);
 		
 		//RotateWithMouse();
 
 		if (Hit.IsValidBlockingHit())
 		{
 			const FVector Normal2D = Hit.Normal.GetSafeNormal2D();
-			const FVector Deflection = FVector::VectorPlaneProject(Movement, Normal2D) * (1.f - Hit.Time);
+			const FVector Deflection = FVector::VectorPlaneProject(CurrentSpeed, Normal2D) * (1.f - Hit.Time);
 			RootComponent->MoveComponent(Deflection, NewRotation, true);
 		}
 	}
@@ -209,7 +243,7 @@ void AHiWavePawn::OnBurstOverlap(UPrimitiveComponent * OverlappedComp, AActor * 
 {
 	AEnemyPawn *enemyPawn = Cast<AEnemyPawn>(OtherActor);
 	if (enemyPawn != NULL) {
-		UE_LOG(LogPlayerDeath, Warning, TEXT("[AHiWavePawn with enemy pawn %s] OnBurstOverlap"), *(enemyPawn->GetActorLabel()));
+		//UE_LOG(LogPlayerDeath, Warning, TEXT("[AHiWavePawn with enemy pawn %s] OnBurstOverlap"), *(enemyPawn->GetActorLabel()));
 		//enemyPawn->TakeHit();
 		enemyPawn->BurstOverlap();
 	}

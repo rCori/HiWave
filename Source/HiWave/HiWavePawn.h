@@ -128,6 +128,8 @@ protected:
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly, meta = (ClampMin = 0.05,ClampMax = 0.95))
 	float speedRatio;
 
+	
+
 	/* How fast the weapon will fire */
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
 	float fireRate;
@@ -147,6 +149,22 @@ protected:
 	UPROPERTY(Category = Gameplay, BlueprintReadOnly)
 	FVector burstComponentRelativeScale;
 
+	/* The rate we accelerate in any direction */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	float Acceleration;
+
+	/* Maximum speed */
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
+	float MaxSpeed;
+
+	/* Friction to constant apply to speed */
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
+	float Friction;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadOnly)
+	FVector CurrentSpeed;
+
+
 private:
 
 	/* Only for internal use to point the player in the direction of the mouse */
@@ -165,10 +183,6 @@ private:
 	/* Keeps track of last shot fired. Once larger than fireRate player can shoot again. */
 	float fireTimer;
 
-	/* THe size of the capsule component at it's largest size. */
-	//float capsuleRadius;
-	//float capsuleHalfHeight;
-	
 	/* Is the game in pause state */
 	bool bIsPaused;
 
