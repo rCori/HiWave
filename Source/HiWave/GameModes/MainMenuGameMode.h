@@ -23,6 +23,8 @@ public:
 	void StartGameButton();
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "MainMenu")
-	TSubclassOf<UUserWidget> MainMenuWidgetClass;
+	TSubclassOf<UUserWidget> MainMenuBackgroundWidgetClass;
 	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "MainMenu")
+	TSubclassOf<UUserWidget> MainMenuButtonsWidgetClass;
 };

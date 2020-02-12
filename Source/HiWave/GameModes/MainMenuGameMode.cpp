@@ -10,11 +10,18 @@
 
 void AMainMenuGameMode::BeginPlay()
 {
-	UUserWidget* MainMenuWidget = CreateWidget<UUserWidget>(GetWorld(), MainMenuWidgetClass);
+	UUserWidget* MainMenuBackgroundWidget = CreateWidget<UUserWidget>(GetWorld(), MainMenuBackgroundWidgetClass);
 
-	if (MainMenuWidget != nullptr)
+	if (MainMenuBackgroundWidget != nullptr)
 	{
-		MainMenuWidget->AddToViewport();
+		MainMenuBackgroundWidget->AddToViewport();
+	}
+
+	UUserWidget* MainMenuButtonsWidget = CreateWidget<UUserWidget>(GetWorld(), MainMenuButtonsWidgetClass);
+
+	if (MainMenuButtonsWidget != nullptr)
+	{
+		MainMenuButtonsWidget->AddToViewport();
 	}
 }
 
