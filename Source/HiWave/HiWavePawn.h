@@ -97,6 +97,10 @@ public:
 	UFUNCTION(Category = Gameplay)
 	void ResetBurstAvailability();
 
+	/* Directly incrase the amount of burst gauge */
+	UFUNCTION(Category = Burst)
+	void IncreaseBurst(float amount);
+
 	/* 
 	 * Called on a Timer from TakeHit()
 	 * All this does is get the game mode AHiWaveGameMode from the world and
@@ -164,6 +168,17 @@ protected:
 	UPROPERTY(Category = Gameplay, BlueprintReadOnly)
 	FVector CurrentSpeed;
 
+	/* Modified by DoBurst() and ResetBurstCollision(). Sets wether the burst attack can be done */
+	UPROPERTY(Category = Burst, BlueprintReadOnly)
+	bool bBurstAvailable;
+
+	/* Number that represents current progress to refilling burst usage */
+	UPROPERTY(Category = Burst, BlueprintReadOnly)
+	float burstProgress;
+
+	/* Burst progress must be at this level to set bBurstAvailable to true */
+	UPROPERTY(Category = Burst, EditDefaultsOnly, BlueprintReadOnly)
+	float maxBurst;
 
 private:
 
@@ -177,8 +192,8 @@ private:
 	/* Modified by HoldFire() and ReleaseFire() which are bound to 'FireBinding' action */
 	bool bFireHeld;
 
-	/* Modified by DoBurst() and ResetBurstCollision(). Sets wether the burst attack can be done */
-	bool bBurstAvailable;
+	
+
 
 	/* Keeps track of last shot fired. Once larger than fireRate player can shoot again. */
 	float fireTimer;

@@ -74,6 +74,9 @@ AHiWavePawn::AHiWavePawn()
 	bBurstAvailable = true;
 	spawnTimer = 2.0f;
 	CurrentSpeed = FVector::ZeroVector;
+	burstProgress = 20.0f;
+	maxBurst = 20.0f;
+
 }
 
 void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
@@ -169,7 +172,15 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 	// Try and fire a shot
 	if (bFireHeld) {
 		FireShot();
-	}	
+	}
+	if (!bBurstAvailable)
+	{
+		burstProgress += DeltaSeconds;
+		if (burstProgress >= maxBurst) {
+			burstProgress = maxBurst;
+			bBurstAvailable = true;
+		}
+	}
 }
 
 void AHiWavePawn::FireShot()
@@ -202,6 +213,7 @@ void AHiWavePawn::FireShot()
 void AHiWavePawn::DoBurst()
 {
 	if (bBurstAvailable && !bIsDead) {
+		burstProgress = 0.0f;
 		bBurstAvailable = false;
 		UE_LOG(LogTemp, Warning, TEXT("Did burst attack!"));
 		//CapsuleComponent->SetCapsuleSize(capsuleRadius, capsuleHalfHeight, true);
@@ -224,11 +236,11 @@ void AHiWavePawn::DoBurst()
 		//GetWorld()->GetTimerManager().SetTimer(TimerHandleResetBurstCollision, TimerResetBurstCollision, burstCollisionTimer, false);
 
 
-		FTimerDelegate TimerResetBurstAvailability;
-		FTimerHandle TimerHandleResetBurstAvailability;
-		TimerResetBurstAvailability.BindUFunction(this, FName("ResetBurstAvailability"));
+		//FTimerDelegate TimerResetBurstAvailability;
+		//FTimerHandle TimerHandleResetBurstAvailability;
+		//TimerResetBurstAvailability.BindUFunction(this, FName("ResetBurstAvailability"));
 
-		GetWorld()->GetTimerManager().SetTimer(TimerHandleResetBurstAvailability, TimerResetBurstAvailability, burstAvailabilityTimer, false);
+		//GetWorld()->GetTimerManager().SetTimer(TimerHandleResetBurstAvailability, TimerResetBurstAvailability, burstAvailabilityTimer, false);
 	}
 	else {
 		UE_LOG(LogTemp, Warning, TEXT("Burst attack not available"));
@@ -293,6 +305,11 @@ void AHiWavePawn::ResetBurstCollision()
 void AHiWavePawn::ResetBurstAvailability()
 {
 	bBurstAvailable = true;
+}
+
+void AHiWavePawn::IncreaseBurst(float amount)
+{
+	burstProgress += amount;
 }
 
 void AHiWavePawn::DoDeathAndRespawn() const {

@@ -3,6 +3,7 @@
 
 #include "BasicEnemy.h"
 #include "EnemyPawn.h"
+#include "HiWavePawn.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
@@ -35,6 +36,7 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	speed = 1050.0;
 	pointsAwarded = 10;
 	damageRatio = 1.0;
+	burstAwarded = 0.2;
 }
 
 // Called when the game starts or when spawned
@@ -64,6 +66,7 @@ void ABasicEnemy::EnemyDeath()
 		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
 		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
+
 	Super::EnemyDeath();
 }
 

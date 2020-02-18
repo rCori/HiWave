@@ -88,6 +88,11 @@ void AEnemyPawn::EnemyDeath() {
 	if (hiWaveGameState) {
 		hiWaveGameState->IncreasePlayerScore(pointsAwarded);
 	}
+	AHiWavePawn* hiWavePawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	if (hiWavePawn) {
+		hiWavePawn->IncreaseBurst(burstAwarded);
+	}
+
 	OnEnemyDeathDelegate.Broadcast(SpawningGroupTag);
 }
 

@@ -35,6 +35,7 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	speed = 400.0;
 	pointsAwarded = 100;
 	damageRatio = 1.0;
+	burstAwarded = 1.0;
 }
 
 // Called when the game starts or when spawned

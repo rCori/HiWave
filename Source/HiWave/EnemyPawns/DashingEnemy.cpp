@@ -30,6 +30,7 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 	speed = 1250.0;
 	pointsAwarded = 50;
 	damageRatio = 1.0;
+	burstAwarded = 0.5;
 }
 
 void ADashingEnemy::BeginPlay() {
@@ -60,6 +61,7 @@ void ADashingEnemy::EnemyDeath()
 		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
 		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
+
 	Super::EnemyDeath();
 }
 

@@ -73,11 +73,14 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FString SpawningGroupTag;
 
-	UPROPERTY(BlueprintAssignable, Category = "Delegates")
+	UPROPERTY(BlueprintAssignable, Category = Delegates)
 	FOnEnemyDeathDelegate OnEnemyDeathDelegate;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Score")
+	UPROPERTY(EditDefaultsOnly, Category = Score)
 	int pointsAwarded;
+
+	UPROPERTY(EditDefaultsOnly, Category = Burst)
+	float burstAwarded;
 
 protected:
 	float health;
