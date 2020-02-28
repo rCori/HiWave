@@ -11,6 +11,8 @@
 #include "HiWavePawn.h"
 #include "Components/SphereComponent.h"
 #include "HiWaveGameState.h"
+#include "Sound/SoundBase.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AEnemyPawn::AEnemyPawn()
@@ -78,7 +80,11 @@ UPawnMovementComponent* AEnemyPawn::GetMovementComponent() const
 void AEnemyPawn::EnemyTakeDamage(float damage) {
 	health -= damage * damageRatio;
 	if (health <= 0.0) {
+		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
 		EnemyDeath();
+	}
+	else {
+		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
 	}
 }
 

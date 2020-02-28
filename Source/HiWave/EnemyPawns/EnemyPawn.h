@@ -82,9 +82,23 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = Burst)
 	float burstAwarded;
 
+	/** Sound to play each time enemy is hit */
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+	class USoundBase* HitSound;
+
+	/** Sound to play each time we fire */
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+	class USoundBase* DeathSound;
+
 protected:
+
+	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
 	float health;
+
+	UPROPERTY(EditDefaultsOnly, Category = Burst)
 	float damageRatio;
+
+	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
 	float speed;
 
 };
