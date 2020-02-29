@@ -44,6 +44,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	virtual void BurstOverlap() {};
 
+	UFUNCTION(BlueprintNativeEvent, meta = (DisplayName = "Make the enemy's material flash some color for a second on a timeline"))
+	void OnHitEffect();
+
 	/** Function to handle the enemy hitting the player */
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);

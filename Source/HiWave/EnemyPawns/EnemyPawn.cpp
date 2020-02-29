@@ -51,6 +51,9 @@ AEnemyPawn::AEnemyPawn()
 	
 }
 
+void AEnemyPawn::OnHitEffect_Implementation() {
+}
+
 // Called when the game starts or when spawned
 void AEnemyPawn::BeginPlay()
 {
@@ -85,6 +88,7 @@ void AEnemyPawn::EnemyTakeDamage(float damage) {
 	}
 	else {
 		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
+		OnHitEffect();
 	}
 }
 

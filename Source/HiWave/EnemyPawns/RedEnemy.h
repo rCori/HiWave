@@ -35,6 +35,9 @@ public:
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	UParticleSystemComponent* spawnedParticle;
 
+	UPROPERTY(Category = Visual, BlueprintReadWrite)
 	UMaterialInstanceDynamic *dynamicFrontMaterial;
+
+	UPROPERTY(Category = Visual, BlueprintReadWrite)
 	UMaterialInstanceDynamic *dynamicSideMaterial;
 };
