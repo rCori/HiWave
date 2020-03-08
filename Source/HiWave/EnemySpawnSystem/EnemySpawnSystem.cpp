@@ -30,8 +30,8 @@ void AEnemySpawnSystem::BeginPlay()
 	//Dummy spawning turned off to test "real" spawning from data table configuration
 	//DoDummySpawning();
 	if (SpawningDataTable != nullptr) {
-		WaveQueue.Add(FString(TEXT("Wave1")));
-		SpawnFromDatatable(/*FString(TEXT("Wave1"))*/);
+		//WaveQueue.Add(FString(TEXT("Wave1")));
+		//SpawnFromDatatable(/*FString(TEXT("Wave1"))*/);
 
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAllEnemies.AddDynamic(this, &AEnemySpawnSystem::ClearAllSpawnTimers);

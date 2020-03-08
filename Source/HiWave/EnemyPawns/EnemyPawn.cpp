@@ -65,6 +65,7 @@ void AEnemyPawn::BeginPlay()
 void AEnemyPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	UE_LOG(LogTemp, Warning, TEXT("APawn Tick DeltaTime %f"), DeltaTime);
 
 }
 

@@ -30,14 +30,14 @@ void UBTTask_CircularMoveAroundPoint::OnGameplayTaskActivated(class UGameplayTas
 
 EBTNodeResult::Type UBTTask_CircularMoveAroundPoint::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
-	
+	//UE_LOG(LogTemp, Warning, TEXT("UBTTask_CircularMoveAroundPoint ExecuteTask"));
 	AEnemyAI *CharPC = Cast<AEnemyAI>(OwnerComp.GetAIOwner());
 
 	FVector PointToRotate = OwnerComp.GetBlackboardComponent()->GetValue<UBlackboardKeyType_Vector>(CharPC->RotatePointID);
 
 
 	AEnemyPawn *enemyPawn = Cast<AEnemyPawn>(CharPC->GetPawn());
-	UE_LOG(LogTemp, Warning, TEXT("currentMovementDirection %s"), *currentMovementDirection.ToString());
+	//UE_LOG(LogTemp, Warning, TEXT("currentMovementDirection %s"), *currentMovementDirection.ToString());
 	enemyPawn->AddMovementInput(currentMovementDirection, 1.0f);
 	return EBTNodeResult::InProgress;
 }
@@ -45,7 +45,7 @@ EBTNodeResult::Type UBTTask_CircularMoveAroundPoint::ExecuteTask(UBehaviorTreeCo
 void UBTTask_CircularMoveAroundPoint::TickTask(UBehaviorTreeComponent & OwnerComp, uint8 * NodeMemory, float DeltaSeconds)
 {
 	Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
-	//UE_LOG(LogTemp, Warning, TEXT("DeltaSeconds %f"), DeltaSeconds);
+	UE_LOG(LogTemp, Warning, TEXT("UBTTask_CircularMoveAroundPoint TickTask DeltaSeconds %f"), DeltaSeconds);
 
 	arcCurrTime += DeltaSeconds;
 
@@ -53,12 +53,16 @@ void UBTTask_CircularMoveAroundPoint::TickTask(UBehaviorTreeComponent & OwnerCom
 	float moveX = currentMovementDirection.X + (DeltaSeconds * -2.0f);
 	float moveY = currentMovementDirection.Y + (DeltaSeconds * 0.75f);
 
-	currentMovementDirection = FVector(moveX, moveY, 0).GetSafeNormal();
+	FVector newMovementDirection = FVector(moveX, moveY, 0).GetSafeNormal();
+
+
 
 	if (arcCurrTime >= arcTimer) {
 		arcCurrTime = 0.0f;
-		currentMovementDirection = FVector(1, 0, 0);
+		newMovementDirection = FVector(1, 0, 0);
 	}
+
+	currentMovementDirection = newMovementDirection;
 
 	FinishLatentTask(OwnerComp, EBTNodeResult::Succeeded);
 }
