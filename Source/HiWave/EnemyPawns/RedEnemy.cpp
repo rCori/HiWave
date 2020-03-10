@@ -3,6 +3,7 @@
 
 #include "RedEnemy.h"
 #include "EnemyPawn.h"
+#include "HiWavePawn.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
@@ -13,6 +14,7 @@
 #include "Engine/World.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "Kismet/KismetMathLibrary.h"
 
 ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	//Create the static mesh for this specific pawn
@@ -31,11 +33,82 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
+
+	gunOffset = FVector(90.0f, 0.0f, 0.0f);
+
+	static ConstructorHelpers::FClassFinder<AActor> redProjectileClassFinder(TEXT("/Game/Blueprint/BP_RedEnemyProjectile"));
+	if (redProjectileClassFinder.Succeeded())
+	{
+		redEnemyProjectile = redProjectileClassFinder.Class;
+	}
+
 	health = 100.0;
 	speed = 400.0;
 	pointsAwarded = 100;
 	damageRatio = 1.0;
 	burstAwarded = 1.0;
+	rotationSpeed = 200.0;
+	fireRate = 5.0;
+	fireTimer = 0.0;
+
+	yawDifference = MAX_FLT;
+	bFacingPlayer = false;
+}
+
+void ARedEnemy::Tick(float DeltaTime)
+{
+
+	if (playerPawn == nullptr) {
+		playerPawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+		//If we could not find a player pawn then just leave early
+		if (playerPawn == nullptr) return;
+	}
+
+	FRotator lookAtRotate = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), playerPawn->GetActorLocation());
+
+	yawDifference = lookAtRotate.Yaw - GetActorRotation().Yaw;
+	if (FMath::Abs(yawDifference) < 2.0) {
+		yawDifference = MAX_FLT;
+		bFacingPlayer = true;
+	}
+	else {
+		bFacingPlayer = false;
+	}
+
+	if (bFacingPlayer) {
+		FVector newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+		AddMovementInput(newDirection, 1.0f);
+	}
+	else {
+		directionToRotate.Yaw = DeltaTime * rotationSpeed;
+		if (yawDifference < 0) {
+			directionToRotate.Yaw *= -1;
+		}
+		AddActorLocalRotation(directionToRotate);
+	}
+
+	fireTimer += DeltaTime;
+	UE_LOG(LogTemp, Warning, TEXT("fireTimer is at: %f"),fireTimer);
+
+	if (fireTimer >= fireRate) {
+
+		//Get the rotation of the projectile
+		const FRotator FireRotation = GetActorRotation();
+
+		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(gunOffset);
+
+		//In order to spawn anything we need reference to the world
+		UWorld* const World = GetWorld();
+		if (World != NULL)
+		{
+			// spawn the projectile
+			//World->SpawnActor<ARedEnemyProjectile>(SpawnLocation, FireRotation);
+			World->SpawnActor<AActor>(redEnemyProjectile, SpawnLocation, FireRotation);
+		}
+
+		fireTimer = 0.0;
+	}
+
 }
 
 // Called when the game starts or when spawned

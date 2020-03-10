@@ -28,6 +28,9 @@ public:
 	// Sets default values for this pawn's properties
 	ABasicEnemy();
 	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 	virtual void EnemyDeath() override;
 
 	virtual void BurstOverlap() override;
@@ -42,5 +45,6 @@ public:
 	UPROPERTY(Category = Visual, BlueprintReadWrite)
 	UMaterialInstanceDynamic *dynamicMaterial;
 
-
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	class AHiWavePawn* playerPawn;
 };

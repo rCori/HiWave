@@ -125,15 +125,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	/* The speed our ship moves around the level */
-	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
-	float moveSpeed;
-
-	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly, meta = (ClampMin = 0.05,ClampMax = 0.95))
-	float speedRatio;
-
-	
-
 	/* How fast the weapon will fire */
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
 	float fireRate;

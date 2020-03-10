@@ -45,7 +45,6 @@ EBTNodeResult::Type UBTTask_CircularMoveAroundPoint::ExecuteTask(UBehaviorTreeCo
 void UBTTask_CircularMoveAroundPoint::TickTask(UBehaviorTreeComponent & OwnerComp, uint8 * NodeMemory, float DeltaSeconds)
 {
 	Super::TickTask(OwnerComp, NodeMemory, DeltaSeconds);
-	UE_LOG(LogTemp, Warning, TEXT("UBTTask_CircularMoveAroundPoint TickTask DeltaSeconds %f"), DeltaSeconds);
 
 	arcCurrTime += DeltaSeconds;
 

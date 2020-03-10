@@ -24,6 +24,9 @@ protected:
 public:
 	ARedEnemy();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 	virtual void EnemyDeath() override;
 
 	virtual void BurstOverlap() override;
@@ -40,4 +43,26 @@ public:
 
 	UPROPERTY(Category = Visual, BlueprintReadWrite)
 	UMaterialInstanceDynamic *dynamicSideMaterial;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	class AHiWavePawn* playerPawn;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
+	float rotationSpeed;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
+	float fireRate;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
+	FVector gunOffset;
+
+private:
+	float yawDifference;
+	FRotator directionToRotate;
+
+	bool bFacingPlayer;
+
+	float fireTimer;
+
+	UClass *redEnemyProjectile;
 };

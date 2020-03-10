@@ -39,6 +39,19 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	burstAwarded = 0.2;
 }
 
+void ABasicEnemy::Tick(float DeltaTime)
+{
+	if (playerPawn == nullptr) {
+		playerPawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+		//If we could not find a player pawn then just leave early
+		if (playerPawn == nullptr) return;
+	}
+
+	FVector newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+	AddMovementInput(newDirection, 1.0f);
+
+}
+
 // Called when the game starts or when spawned
 void ABasicEnemy::BeginPlay()
 {

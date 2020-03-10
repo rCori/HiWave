@@ -22,6 +22,8 @@
 //#include "Components/CapsuleComponent.h"
 #include "Components/BoxComponent.h"
 #include "EnemyPawns/EnemyPawn.h"
+#include <EngineGlobals.h>
+#include <Runtime/Engine/Classes/Engine/Engine.h>
 
 const FName AHiWavePawn::MoveForwardBinding("MoveForward");
 const FName AHiWavePawn::MoveRightBinding("MoveRight");
@@ -60,9 +62,6 @@ AHiWavePawn::AHiWavePawn()
 	BurstComponent->SetupAttachment(RootComponent);
 	BurstComponent->ComponentTags.Add("BurstHitbox");
 
-	// Movement
-	moveSpeed = 1000.0f;
-	speedRatio = 0.75;
 	// Weapon
 	GunOffset = FVector(90.f, 0.f, 0.f);
 	fireRate = 0.1f;
@@ -105,29 +104,6 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 	const FVector MoveDirection = FVector(ForwardValue, RightValue, 0.0f).GetClampedToMaxSize(1.0f);
 
 	// Calculate  movement
-	//FVector Movement = MoveDirection * (moveSpeed)* speedRatio * DeltaSeconds;
-	/*
-	if (MoveDirection.SizeSquared() > 0) {
-		currentMovementVelocity = (currentMovementVelocity.GetSafeNormal() * (currentMovementVelocity.Size() * (DeltaSeconds / accelerationRate)));
-		currentMovementVelocity += MoveDirection * moveSpeed * DeltaSeconds;
-		if (FMath::Abs(currentMovementVelocity.Size()) > moveSpeed) {
-			currentMovementVelocity = currentMovementVelocity.GetSafeNormal() * moveSpeed * DeltaSeconds;
-		}
-		UE_LOG(LogTemp, Warning, TEXT("Increasing currentMovementDirection to %s"),
-			*currentMovementVelocity.ToString());
-	}
-	else {
-		//currentMovementDirection += (-currentMovementDirection * (accelerationRate / DeltaSeconds));
-		currentMovementVelocity = (currentMovementVelocity.GetSafeNormal() * (currentMovementVelocity.Size() * (DeltaSeconds /accelerationRate)));
-		UE_LOG(LogTemp, Warning, TEXT("Decreasing currentMovementDirection to %s"),
-			*currentMovementVelocity.ToString());
-	}
-
-	UE_LOG(LogTemp, Warning, TEXT("currentMovementDirection is %s"),
-		*currentMovementVelocity.ToString());
-
-	FVector Movement = currentMovementVelocity;
-	*/
 
 	//Apply constant acceleration to your speed
 	CurrentSpeed += MoveDirection * Acceleration * DeltaSeconds;
@@ -142,17 +118,13 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 
 	FRotator NewRotation = RotateWithMouse();
 	RootComponent->SetRelativeRotation(NewRotation);
-	/*
-	if (bFireHeld) {
-		Movement -= NewRotation.Vector() * (moveSpeed) * (1- speedRatio) * DeltaSeconds;
-	}
-	*/
+
 	// If non-zero size, move this actor
 	if (CurrentSpeed.SizeSquared() > 0.0f)
 	{
 		//const FRotator NewRotation = Movement.Rotation();
 		FHitResult Hit(1.f);
-		RootComponent->MoveComponent(CurrentSpeed, NewRotation, true, &Hit);
+		RootComponent->MoveComponent(CurrentSpeed*DeltaSeconds, NewRotation, true, &Hit);
 		
 		//RotateWithMouse();
 
@@ -188,6 +160,8 @@ void AHiWavePawn::FireShot()
 	// If it's ok to fire again
 	if (fireTimer>= fireRate)
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("fireTime at time of shot: %f"), fireTimer));
+
 		const FRotator FireRotation = GetActorRotation();
 		// Spawn projectile at an offset from this pawn
 		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
