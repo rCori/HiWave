@@ -20,33 +20,17 @@ AEnemyPawn::AEnemyPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("HitDetection"));
+	SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AEnemyPawn::OnOverlap);
+	RootComponent = SphereComponent;
+	//SphereComponent->SetupAttachment(RootComponent);
+
 	//static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	// Create the mesh component
 	StaticMeshComponentPtr = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	StaticMeshComponentPtr->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
-	//StaticMeshComponentPtr->SetNotifyRigidBodyCollision(true);
-	//StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
-	//StaticMeshComponentPtr->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);// set up a notification for when this component hits something
-	RootComponent = StaticMeshComponentPtr;
-
-	//StaticMeshComponentPtr->OnComponentBeginOverlap.AddDynamic(this, &AEnemyPawn::OnOverlap);
-
-	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("HitDetection"));
-	SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AEnemyPawn::OnOverlap);
-	SphereComponent->SetupAttachment(RootComponent);
-	//Set the default AI controller class.
-	//When spawning use this->SpawnDefaultController()
-	//AIControllerClass = AEnemyAI::StaticClass();
-
-	//Assign bot behavior by grabbing the BehaviorTree object in content
-	//static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'")); 
-	//BotBehavior = BTob.Object;
-
-	//Adding movement component
-	//OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
-	//OurMovementComponent->UpdatedComponent = RootComponent;
-
-	//health = 50.0;
+	//RootComponent = StaticMeshComponentPtr;
+	StaticMeshComponentPtr->SetupAttachment(RootComponent);
 
 	
 }

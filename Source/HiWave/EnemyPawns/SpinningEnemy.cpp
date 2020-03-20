@@ -3,9 +3,14 @@
 
 #include "SpinningEnemy.h"
 #include "EnemyPawns/EnemyPawn.h"
+#include "Components/StaticMeshComponent.h"
 #include "CollidingPawnMovementComponent.h"
 #include "Components/BoxComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "EnemyAI/EnemyAI.h"
+#include "Materials/MaterialInstanceDynamic.h"
+#include "Particles/ParticleSystemComponent.h"
+#include "Math/UnrealMathUtility.h"
 
 
 ASpinningEnemy::ASpinningEnemy() : AEnemyPawn() {
@@ -27,30 +32,59 @@ ASpinningEnemy::ASpinningEnemy() : AEnemyPawn() {
 	currentMovementDirection = FVector(1, 0, 0);
 	arcCurrTime = 0;
 	arcTimer = 1.0;
-
+	circleCounter = 0.0;
 	PrimaryActorTick.bCanEverTick = true;
-
+	circleNumber = 1.0;
+	rotationSpeed = 1.0;
 }
 
 void ASpinningEnemy::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	float moveX = currentMovementDirection.X + (DeltaTime * -2.0f);
-	float moveY = currentMovementDirection.Y + (DeltaTime * 0.75f);
-
-	FVector newMovementDirection = FVector(moveX, moveY, 0).GetSafeNormal();
-
-	if (arcCurrTime >= arcTimer) {
-		arcCurrTime = 0.0f;
-		newMovementDirection = FVector(1, 0, 0);
+	circleCounter += (DeltaTime*circleNumber);
+	if (circleCounter > 2.0 * PI) { 
+		circleCounter = (circleCounter - (2.0* PI));
 	}
+	float moveX = FMath::Cos(circleCounter);
+	float moveY = FMath::Sin(circleCounter);
 
-	currentMovementDirection = newMovementDirection;
-	AddMovementInput(currentMovementDirection, 1.0f);
+	FVector newMovementDirection = FVector(moveX, moveY, 0);
+
+	AddMovementInput(newMovementDirection, 1.0f);
+
+	FRotator NewRotation = FRotator(0.0f, rotationSpeed*DeltaTime, 0.0f);
+	FQuat QuatRotation = FQuat(NewRotation);
+	AddActorLocalRotation(QuatRotation, false, 0, ETeleportType::None);
+}
+
+
+// Called when the game starts or when spawned
+void ASpinningEnemy::BeginPlay()
+{
+	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
+	auto bodyMaterial = staticMesh->GetMaterial(0);
+	auto armMaterial = staticMesh->GetMaterial(1);
+
+	dynamicBodyMaterial = UMaterialInstanceDynamic::Create(bodyMaterial, NULL);
+	staticMesh->SetMaterial(0, dynamicBodyMaterial);
+
+	dynamicArmMaterial = UMaterialInstanceDynamic::Create(armMaterial, NULL);
+	staticMesh->SetMaterial(1, dynamicArmMaterial);
+
+	Super::BeginPlay();
 }
 
 void ASpinningEnemy::EnemyDeath() {
+	if (HitParticle != nullptr) {
+		FRotator rotation = FRotator::ZeroRotator;
+		FTransform transform = FTransform();
+		transform.SetLocation(GetActorLocation());
+		FQuat rotQuaternion = FQuat(rotation);
+		transform.SetRotation(rotQuaternion);
+		transform.SetScale3D(FVector::OneVector);
+		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
+		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	}
 	Super::EnemyDeath();
 }
 

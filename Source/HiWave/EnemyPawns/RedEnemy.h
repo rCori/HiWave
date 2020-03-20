@@ -31,7 +31,7 @@ public:
 
 	virtual void BurstOverlap() override;
 
-	/** Particle to emit when an enemy hits us */
+	/** Particle to emit when this enemy dies */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;
 

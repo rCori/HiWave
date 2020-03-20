@@ -16,6 +16,8 @@ void AHiWaveGameMode::BeginPlay()
 	{
 		GameplayWidget->AddToViewport();
 	}
+
+	GEngine->GameViewport->Viewport->LockMouseToViewport(true);
 }
 
 AHiWaveGameMode::AHiWaveGameMode()

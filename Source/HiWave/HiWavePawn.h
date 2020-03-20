@@ -41,6 +41,9 @@ public:
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* FireSound;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Mesh)
+	class USphereComponent* SphereComponent;
+
 	/** Particle to emit when an enemy hits us */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;

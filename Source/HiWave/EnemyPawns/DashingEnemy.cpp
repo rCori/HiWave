@@ -3,6 +3,7 @@
 
 #include "DashingEnemy.h"
 #include "EnemyPawn.h"
+#include "HiWavePawn.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
@@ -11,6 +12,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "Kismet/KismetMathLibrary.h"
 
 ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 
@@ -31,6 +33,47 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 	pointsAwarded = 50;
 	damageRatio = 1.0;
 	burstAwarded = 0.5;
+}
+
+void ADashingEnemy::Tick(float DeltaTime)
+{
+	if (playerPawn == nullptr) {
+		playerPawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+		//If we could not find a player pawn then just leave early
+		if (playerPawn == nullptr) return;
+	}
+
+	if (!bFacingPlayer) {
+		FRotator lookAtRotate = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), playerPawn->GetActorLocation());
+
+		yawDifference = lookAtRotate.Yaw - GetActorRotation().Yaw;
+		if (FMath::Abs(yawDifference) < 2.0) {
+			yawDifference = MAX_FLT;
+			bFacingPlayer = true;
+			dashTarget = playerPawn->GetActorLocation();
+			dashDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+		}
+		else {
+			directionToRotate.Yaw = DeltaTime * 200.0;
+			if (yawDifference < 0) {
+				directionToRotate.Yaw *= -1;
+			}
+			AddActorLocalRotation(directionToRotate);
+			bFacingPlayer = false;
+		}
+	}
+	else {
+		FVector distanceVec = (dashTarget - GetActorLocation());
+
+		float distance = distanceVec.Size();
+		if (distance < 10.0) {
+			distance = MAX_FLT;
+			bFacingPlayer = false;
+		}
+		else {
+			AddMovementInput(dashDirection, 1.0f);
+		}
+	}
 }
 
 void ADashingEnemy::BeginPlay() {

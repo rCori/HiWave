@@ -34,7 +34,7 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
 
-	gunOffset = FVector(90.0f, 0.0f, 0.0f);
+	gunOffset = FVector(90.0f, 100.0f, 0.0f);
 
 	static ConstructorHelpers::FClassFinder<AActor> redProjectileClassFinder(TEXT("/Game/Blueprint/BP_RedEnemyProjectile"));
 	if (redProjectileClassFinder.Succeeded())
@@ -88,7 +88,6 @@ void ARedEnemy::Tick(float DeltaTime)
 	}
 
 	fireTimer += DeltaTime;
-	UE_LOG(LogTemp, Warning, TEXT("fireTimer is at: %f"),fireTimer);
 
 	if (fireTimer >= fireRate) {
 

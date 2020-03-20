@@ -22,6 +22,7 @@
 //#include "Components/CapsuleComponent.h"
 #include "Components/BoxComponent.h"
 #include "EnemyPawns/EnemyPawn.h"
+#include "Components/SphereComponent.h"
 #include <EngineGlobals.h>
 #include <Runtime/Engine/Classes/Engine/Engine.h>
 
@@ -37,15 +38,22 @@ DEFINE_LOG_CATEGORY(LogPlayerDeath);
 
 AHiWavePawn::AHiWavePawn()
 {	
+
+	//Create hitsphere
+	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
+	RootComponent = SphereComponent;
+	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
+	//SphereComponent->SetupAttachment(RootComponent);
+
 	// Create the mesh component
 	ShipMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-	RootComponent = ShipMeshComponent;
-	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
-	ShipMeshComponent->ComponentTags.Add("ShipMesh");
+	//RootComponent = ShipMeshComponent;
+	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	ShipMeshComponent->SetupAttachment(RootComponent);
 
 	// Create a camera boom...
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
-	CameraBoom->SetupAttachment(RootComponent);
+	CameraBoom->SetupAttachment(ShipMeshComponent);
 	CameraBoom->bAbsoluteRotation = true; // Don't want arm to rotate when ship does
 	CameraBoom->TargetArmLength = 1200.f;
 	CameraBoom->RelativeRotation = FRotator(-80.f, 0.f, 0.f);
@@ -59,7 +67,7 @@ AHiWavePawn::AHiWavePawn()
 	//Create hitbox for burst capsule
 	BurstComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BurstHitDetection"));
 	BurstComponent->OnComponentBeginOverlap.AddDynamic(this, &AHiWavePawn::OnBurstOverlap);
-	BurstComponent->SetupAttachment(RootComponent);
+	BurstComponent->SetupAttachment(ShipMeshComponent);
 	BurstComponent->ComponentTags.Add("BurstHitbox");
 
 	// Weapon
@@ -132,7 +140,7 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 		{
 			const FVector Normal2D = Hit.Normal.GetSafeNormal2D();
 			const FVector Deflection = FVector::VectorPlaneProject(CurrentSpeed, Normal2D) * (1.f - Hit.Time);
-			RootComponent->MoveComponent(Deflection, NewRotation, true);
+			RootComponent->MoveComponent(Deflection*DeltaSeconds, NewRotation, true);
 		}
 	}
 
@@ -160,8 +168,6 @@ void AHiWavePawn::FireShot()
 	// If it's ok to fire again
 	if (fireTimer>= fireRate)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("fireTime at time of shot: %f"), fireTimer));
-
 		const FRotator FireRotation = GetActorRotation();
 		// Spawn projectile at an offset from this pawn
 		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
@@ -249,7 +255,7 @@ void AHiWavePawn::TakeHit() {
 	UE_LOG(LogPlayerDeath, Warning, TEXT("[HiWavePawn] TakeHit"));
 
 	//Turn off collision
-	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 	ShipMeshComponent->SetVisibility(false);
 
 	//Create a timer to call DoDeathAndRespawn in some number of seconds
@@ -293,12 +299,7 @@ void AHiWavePawn::DoDeathAndRespawn() const {
 
 void AHiWavePawn::BeginPlay()
 {	
-	//capsuleRadius = CapsuleComponent->GetScaledCapsuleRadius();
-	//capsuleHalfHeight = CapsuleComponent->GetScaledCapsuleHalfHeight();
-	//CapsuleComponent->SetCapsuleSize(0, 0, false);
-	
-	//boxExtent = BoxComponent->GetScaledBoxExtent();
-	//BoxComponent->SetBoxExtent(FVector::ZeroVector, false);
+
 	burstComponentRelativeScale = BurstComponent->GetComponentScale();
 	BurstComponent->SetWorldScale3D(FVector::ZeroVector);
 
@@ -324,7 +325,7 @@ const FRotator AHiWavePawn::RotateWithMouse() {
 		GetActorEyesViewPoint(CameraLoc, CameraRot);
 
 		FHitResult Hit(ForceInit);
-		FVector End = mouseWorldLocation + (mouseWorldDirection*2800.0f);
+		FVector End = mouseWorldLocation + (mouseWorldDirection*3400.0f);
 		FCollisionQueryParams CollisionParams;
 		FVector Start = mouseWorldLocation;
 

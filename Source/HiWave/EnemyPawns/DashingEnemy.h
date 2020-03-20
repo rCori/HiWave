@@ -24,9 +24,15 @@ protected:
 public:
 	ADashingEnemy();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 	virtual void EnemyDeath() override;
 
 	virtual void BurstOverlap() override;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	class AHiWavePawn* playerPawn;
 
 	/** Particle to emit when an enemy hits us */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
@@ -40,4 +46,13 @@ public:
 
 	UPROPERTY(Category = Visual, BlueprintReadWrite)
 	UMaterialInstanceDynamic *dynamicSideMaterial;
+
+private:
+
+	float yawDifference;
+	FRotator directionToRotate;
+	FVector dashDirection;
+	FVector dashTarget;
+	bool bFacingPlayer;
+
 };

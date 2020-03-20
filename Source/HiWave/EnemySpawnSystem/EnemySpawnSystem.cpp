@@ -30,8 +30,8 @@ void AEnemySpawnSystem::BeginPlay()
 	//Dummy spawning turned off to test "real" spawning from data table configuration
 	//DoDummySpawning();
 	if (SpawningDataTable != nullptr) {
-		//WaveQueue.Add(FString(TEXT("Wave1")));
-		//SpawnFromDatatable(/*FString(TEXT("Wave1"))*/);
+		WaveQueue.Add(FString(TEXT("Wave1")));
+		SpawnFromDatatable();
 
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAllEnemies.AddDynamic(this, &AEnemySpawnSystem::ClearAllSpawnTimers);
@@ -56,14 +56,20 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	int indexToGet = 0;
 	//If the spawns are supposed to be randomized, pull a random element out of the list
 	if (WaveQueueRandomized) {
-		indexToGet = FMath::Rand() % WaveQueue.Num();
+		int iterCount = WaveQueue.Num();
+		for (int i = 0; i < iterCount; i++) {
+			indexToGet = FMath::Rand() % WaveQueue.Num();
+			FString temp = WaveQueue[i];
+			WaveQueue[i] = WaveQueue[indexToGet];
+			WaveQueue[indexToGet] = temp;
+		}
 	}
 
 	PreviousWaveQueue = WaveQueue;
 
 	//Pull the name of the row out and remove it, we are about to spawn and "use it up"
-	FString rowName = WaveQueue[indexToGet];
-	WaveQueue.RemoveAt(indexToGet);
+	FString rowName = WaveQueue[0];
+	WaveQueue.RemoveAt(0);
 
 	//Save this rowName so we can spawn it agai if the player dies
 	LastWaveSpawned = rowName;
@@ -74,7 +80,7 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	//Find the new name
 	const FString groupName = createNewGroupNameForWave(rowName);
 
-	//UE_LOG(LogTemp, Warning, TEXT("Spawning group with groupName: %s"), *groupName);
+	UE_LOG(LogTemp, Warning, TEXT("Spawning group with groupName: %s"), *groupName);
 
 	FTimerDelegate singleSpawnDelegate;
 	singleSpawnDelegate.BindUFunction(this, FName("SingleSpawnWave"), spawnRowData->canShuffleSpawnPoints, spawnRowData->enemies, spawnRowData->spawnPoints, groupName);
