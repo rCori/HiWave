@@ -20,6 +20,7 @@ AEnemySpawnSystem::AEnemySpawnSystem()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	InitialSpawnWave = "Wave1";
 }
 
 // Called when the game starts or when spawned
@@ -30,7 +31,8 @@ void AEnemySpawnSystem::BeginPlay()
 	//Dummy spawning turned off to test "real" spawning from data table configuration
 	//DoDummySpawning();
 	if (SpawningDataTable != nullptr) {
-		WaveQueue.Add(FString(TEXT("Wave1")));
+		//WaveQueue.Add(FString(TEXT("Wave1")));
+		WaveQueue.Add(InitialSpawnWave);
 		SpawnFromDatatable();
 
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);

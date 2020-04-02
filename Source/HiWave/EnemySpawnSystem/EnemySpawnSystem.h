@@ -32,6 +32,13 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
 	TMap<ESpawnPoints, AEnemySpawnPoint*> SpawnerCollection;
 
+	/* 
+	 * This is the name of the first wave to spawn. This wave will be responsible for starting the chain of spawns.
+	 * I will know what I intend to be the true "first" spawn, but for testing it's good to be able to change it around
+	 */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
+	FString InitialSpawnWave;
+
 	/* Keeps a count of how many enemies are left in any given enemy group */
 	UPROPERTY(BlueprintReadOnly)
 	TMap<FString, int> EnemyGroupCounter;
