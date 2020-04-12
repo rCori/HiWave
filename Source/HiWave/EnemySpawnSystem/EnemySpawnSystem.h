@@ -110,4 +110,11 @@ private:
 
 	/* Does the reverse of what createNewGroupNameForWave does */
 	const FString getWaveNameFromGroupTag(FString groupName) const;
+
+	/* Add a constant factor of increased difficulty to the game by tweaking the spawns */
+	void increaseGameDifficulty();
+
+	int difficultyIncrease;
+	float spawnTimerDecrease;
+	int spawnCountIncrease;
 };

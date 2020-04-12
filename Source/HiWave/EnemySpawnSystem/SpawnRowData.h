@@ -133,4 +133,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int spawnCount;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool incraseDifficulty;
 };

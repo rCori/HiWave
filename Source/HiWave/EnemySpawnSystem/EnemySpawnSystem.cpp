@@ -21,6 +21,10 @@ AEnemySpawnSystem::AEnemySpawnSystem()
 	PrimaryActorTick.bCanEverTick = true;
 
 	InitialSpawnWave = "Wave1";
+	difficultyIncrease = 0;
+	spawnTimerDecrease = 0.0;
+	spawnCountIncrease = 0;
+
 }
 
 // Called when the game starts or when spawned
@@ -31,7 +35,6 @@ void AEnemySpawnSystem::BeginPlay()
 	//Dummy spawning turned off to test "real" spawning from data table configuration
 	//DoDummySpawning();
 	if (SpawningDataTable != nullptr) {
-		//WaveQueue.Add(FString(TEXT("Wave1")));
 		WaveQueue.Add(InitialSpawnWave);
 		SpawnFromDatatable();
 
@@ -47,7 +50,6 @@ void AEnemySpawnSystem::BeginPlay()
 void AEnemySpawnSystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 
@@ -93,7 +95,7 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	}
 	else {
 		//Otherwise we must set up a series of timers to spawn every internal wave at the correct time
-		for (int i = 1; i <= spawnRowData->spawnCount; i++) {
+		for (int i = 1; i <= spawnRowData->spawnCount + spawnCountIncrease; i++) {
 			FTimerHandle singleSpawnHandle;
 			//Time to spawn current wave will be the timer * spawn index
 			//Example: If your timer is 0.5 seconds, first spawn is at 0.0 seconds, second at 0.5, third at 1.0, fourth at 1.5 and so on
@@ -150,9 +152,18 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 		FTimerDelegate SpawnTimerDelegate;
 		FTimerHandle SpawnTimerHandle;
 		SpawnTimerDelegate.BindUFunction(this, FName("SpawnFromDatatable"));
-		GetWorld()->GetTimerManager().SetTimer(SpawnTimerHandle, SpawnTimerDelegate, spawnRowData->nextSpawnRowTimer, false);
+		float spawnTime = spawnRowData->nextSpawnRowTimer - spawnTimerDecrease;
+		if (spawnTime < 0.2) {
+			spawnTime = 0.2;
+		}
+		GetWorld()->GetTimerManager().SetTimer(SpawnTimerHandle, SpawnTimerDelegate, spawnTime, false);
 		//Store the FTimerHandle so we can stop and clear it if the player dies in ClearAllSpawnTimers()
 		spawnTimerCollection.Add(SpawnTimerHandle);
+	}
+
+	//If this wave was set to increase the difficulty, we must apply that difficulty increase
+	if (spawnRowData->incraseDifficulty) {
+		increaseGameDifficulty();
 	}
 }
 
@@ -278,6 +289,20 @@ const FString AEnemySpawnSystem::getWaveNameFromGroupTag(FString groupName) cons
 	groupName = groupName.Left(charIndex);
 	return groupName;
 }
+
+void AEnemySpawnSystem::increaseGameDifficulty()
+{
+	difficultyIncrease++;
+	int randomInt = FMath::Rand() % 5;
+
+	if (randomInt < 4) {
+		spawnTimerDecrease += 0.15;
+	}
+	else {
+		spawnCountIncrease++;
+	}
+}
+
 
 /*
 void AEnemySpawnSystem::DoSpawn(FString spawnerTag, FString groupTag) {
