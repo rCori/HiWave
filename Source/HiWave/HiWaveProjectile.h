@@ -8,6 +8,7 @@
 
 class UProjectileMovementComponent;
 class UStaticMeshComponent;
+class UParticleSystemComponent;
 
 UCLASS(config=Game)
 class AHiWaveProjectile : public AActor
@@ -33,5 +34,14 @@ public:
 	FORCEINLINE UStaticMeshComponent* GetProjectileMesh() const { return ProjectileMesh; }
 	/** Returns ProjectileMovement subobject **/
 	FORCEINLINE UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
+
+
+	/** Particle to emit when this enemy dies */
+	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
+	UParticleSystem* HitSpark;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	UParticleSystemComponent* spawnedParticle;
+
 };
 

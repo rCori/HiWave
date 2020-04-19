@@ -4,7 +4,9 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Components/StaticMeshComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "GameFramework/ProjectileMovementComponent.h"
+#include "Particles/ParticleSystemComponent.h"
 #include "Engine/StaticMesh.h"
 #include "EnemyPawns/EnemyPawn.h"
 
@@ -13,6 +15,13 @@ AHiWaveProjectile::AHiWaveProjectile()
 	// Static reference to the mesh to use for the projectile
 	//static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("/Game/TwinStick/Meshes/TwinStickProjectile.TwinStickProjectile"));
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("/Game/Geometry/Meshes/PlayerBullet.PlayerBullet"));
+
+	//Load the HitSpark particle
+	static ConstructorHelpers::FObjectFinder<UParticleSystem> ParticleAsset(TEXT("/Game/Particles/PS_BasicEnemyHit.PS_BasicEnemyHit"));
+	if (ParticleAsset.Succeeded())
+	{
+		HitSpark = ParticleAsset.Object;
+	}
 
 	// Create mesh component for the projectile sphere
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));
@@ -32,6 +41,8 @@ AHiWaveProjectile::AHiWaveProjectile()
 	ProjectileMovement->bShouldBounce = false;
 	ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
 
+	
+
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
 }
@@ -44,9 +55,22 @@ void AHiWaveProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, 
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
 	}
 
-	AEnemyPawn *enemyActor = Cast<AEnemyPawn>(OtherActor);
-	if (enemyActor != NULL) {
-		enemyActor->EnemyTakeDamage(10.0f);
+	AEnemyPawn *enemyPawn = Cast<AEnemyPawn>(OtherActor);
+	if (enemyPawn != NULL) {
+
+		enemyPawn->EnemyTakeDamage(10.0f);
+
+		if (HitSpark != nullptr) {
+			FRotator rotation = FRotator::ZeroRotator;
+			FTransform transform = FTransform();
+			transform.SetLocation(Hit.Location);
+			FQuat rotQuaternion = FQuat(rotation);
+			transform.SetRotation(rotQuaternion);
+			transform.SetScale3D(FVector::OneVector);
+			spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitSpark, transform, true, EPSCPoolMethod::AutoRelease);
+			spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		}
+
 	}
 
 	Destroy();
