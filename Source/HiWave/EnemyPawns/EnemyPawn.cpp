@@ -93,8 +93,6 @@ void AEnemyPawn::EnemyDeath() {
 void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
 	if (playerActor != NULL){
-		UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn] OnHit"));
-		
 		playerActor->TakeHit();
 	}
 }

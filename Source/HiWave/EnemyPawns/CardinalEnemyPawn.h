@@ -3,8 +3,20 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
 #include "EnemyPawns/EnemyPawn.h"
+#include "HiWavePawn.h"
 #include "CardinalEnemyPawn.generated.h"
+
+
+UENUM(BlueprintType)		//"BlueprintType" is essential to include
+enum class ECurrentDirection : uint8
+{
+	VE_Left		UMETA(DisplayName = "Left"),
+	VE_Right	UMETA(DisplayName = "Right"),
+	VE_Up		UMETA(DisplayName = "Up"),
+	VE_Down		UMETA(DisplayName = "Down"),
+};
 
 /**
  * 
@@ -27,5 +39,20 @@ public:
 	virtual void EnemyDeath() override;
 
 	virtual void BurstOverlap() override;
-	
+
+
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	class AHiWavePawn* playerPawn;
+
+private:
+	float zRotationTarget;
+	float rotationDegreesRemaining;
+	float timeToMove;
+	int movingStatus;
+	FRotator directionToRotate;
+	ECurrentDirection currentDirection;
+	ECurrentDirection nextDirection;
+
 };
+
+
