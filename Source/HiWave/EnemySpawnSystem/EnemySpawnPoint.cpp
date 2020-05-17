@@ -5,7 +5,6 @@
 #include "EnemyPawns/EnemyPawn.h"
 #include "Components/BoxComponent.h"
 #include "Engine/CollisionProfile.h"
-#include "EnemyAI/EnemyAI.h"
 #include "TimerManager.h"
 #include "GameFramework/Pawn.h"
 #include "SpawnRowData.h"

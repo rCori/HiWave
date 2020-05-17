@@ -9,7 +9,6 @@
 #include "BehaviorTree/BehaviorTree.h"
 #include "Kismet/GameplayStatics.h"
 #include "CollidingPawnMovementComponent.h"
-#include "EnemyAI/EnemyAI.h"
 #include "TimerManager.h"
 #include "Engine/World.h"
 #include "Particles/ParticleSystemComponent.h"
@@ -22,11 +21,11 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 
 	//Set the default AI controller class.
 	//When spawning use this->SpawnDefaultController()
-	AIControllerClass = AEnemyAI::StaticClass();
+	//AIControllerClass = AEnemyAI::StaticClass();
 
 	//Assign bot behavior by grabbing the BehaviorTree object in content
-	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
-	BotBehavior = BTob.Object;
+	//static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
+	//BotBehavior = BTob.Object;
 
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
@@ -55,7 +54,6 @@ void ABasicEnemy::Tick(float DeltaTime)
 // Called when the game starts or when spawned
 void ABasicEnemy::BeginPlay()
 {
-
 	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
 	auto material = staticMesh->GetMaterial(0);
 

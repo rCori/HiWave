@@ -7,6 +7,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Blueprint/UserWidget.h"
 #include "EnemyPawns/EnemyPawn.h"
+#include "HiWaveGameState.h"
+#include "HiWaveGameInstance.h"
 
 void AHiWaveGameMode::BeginPlay()
 {
@@ -62,6 +64,13 @@ void AHiWaveGameMode::DestroyAndRespawnPlayer()
 			playerController->Possess(spawnedPlayer);
 		}
 	} else {
+		AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+		UHiWaveGameInstance *gameInstance = Cast<UHiWaveGameInstance>(GetWorld()->GetGameInstance());
+
+		if (gameState != nullptr && gameInstance != nullptr) {
+			gameInstance->SubmitHiScore(gameState->playerScore);
+		}
+
 		UGameplayStatics::OpenLevel(GetWorld(), "MainMenuMap");
 	}
 }

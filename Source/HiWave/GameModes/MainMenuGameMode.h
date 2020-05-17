@@ -27,4 +27,7 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "MainMenu")
 	TSubclassOf<UUserWidget> MainMenuButtonsWidgetClass;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "MainMenu")
+	TSubclassOf<UUserWidget> HiScoreWidgetClass;
 };

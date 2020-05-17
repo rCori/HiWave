@@ -61,8 +61,8 @@ public:
 	UFUNCTION()
 	float GetSpeed() { return speed; }
 
-	UPROPERTY(EditAnywhere, Category = Behavior)
-	class UBehaviorTree *BotBehavior;
+	//UPROPERTY(EditAnywhere, Category = Behavior)
+	//class UBehaviorTree *BotBehavior;
 
 	UPROPERTY(EditAnywhere, Category = Behavior)
 	class UCollidingPawnMovementComponent* OurMovementComponent;

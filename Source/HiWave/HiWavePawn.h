@@ -41,6 +41,14 @@ public:
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* FireSound;
 
+	/** Sound to play each time enemy is hit */
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+	class USoundBase* DeathSound;
+
+	/** Sound to play when burst attack is used */
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+	class USoundBase* BurstSound;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Mesh)
 	class USphereComponent* SphereComponent;
 

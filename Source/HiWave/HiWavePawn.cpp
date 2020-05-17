@@ -130,11 +130,8 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 	// If non-zero size, move this actor
 	if (CurrentSpeed.SizeSquared() > 0.0f)
 	{
-		//const FRotator NewRotation = Movement.Rotation();
 		FHitResult Hit(1.f);
 		RootComponent->MoveComponent(CurrentSpeed*DeltaSeconds, NewRotation, true, &Hit);
-		
-		//RotateWithMouse();
 
 		if (Hit.IsValidBlockingHit())
 		{
@@ -196,31 +193,18 @@ void AHiWavePawn::DoBurst()
 		burstProgress = 0.0f;
 		bBurstAvailable = false;
 		UE_LOG(LogTemp, Warning, TEXT("Did burst attack!"));
-		//CapsuleComponent->SetCapsuleSize(capsuleRadius, capsuleHalfHeight, true);
-		//BoxComponent->SetBoxExtent(boxExtent, true);
-		//BurstComponent->SetWorldScale3D(burstComponentRelativeScale);
 		ExpandBurstComponent();
 
 		//Spawn the death particle
 		if (BurstParticle != nullptr) {
 			FRotator rotation = GetActorRotation();
 			spawnedBurstParticle = UGameplayStatics::SpawnEmitterAttached(BurstParticle,RootComponent,NAME_None, FVector::ZeroVector, rotation, EAttachLocation::KeepRelativeOffset);
-			//spawnedBurstParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), BurstParticle, GetActorLocation(), rotation);
 			spawnedBurstParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		}
-
-		//FTimerDelegate TimerResetBurstCollision;
-		//FTimerHandle TimerHandleResetBurstCollision;
-		//TimerResetBurstCollision.BindUFunction(this, FName("ResetBurstCollision"));
-
-		//GetWorld()->GetTimerManager().SetTimer(TimerHandleResetBurstCollision, TimerResetBurstCollision, burstCollisionTimer, false);
-
-
-		//FTimerDelegate TimerResetBurstAvailability;
-		//FTimerHandle TimerHandleResetBurstAvailability;
-		//TimerResetBurstAvailability.BindUFunction(this, FName("ResetBurstAvailability"));
-
-		//GetWorld()->GetTimerManager().SetTimer(TimerHandleResetBurstAvailability, TimerResetBurstAvailability, burstAvailabilityTimer, false);
+		//Play burst sound
+		if (BurstSound != nullptr) {
+			UGameplayStatics::PlaySoundAtLocation(this, BurstSound, GetActorLocation());
+		}
 	}
 	else {
 		UE_LOG(LogTemp, Warning, TEXT("Burst attack not available"));
@@ -235,8 +219,6 @@ void AHiWavePawn::OnBurstOverlap(UPrimitiveComponent * OverlappedComp, AActor * 
 {
 	AEnemyPawn *enemyPawn = Cast<AEnemyPawn>(OtherActor);
 	if (enemyPawn != NULL) {
-		//UE_LOG(LogPlayerDeath, Warning, TEXT("[AHiWavePawn with enemy pawn %s] OnBurstOverlap"), *(enemyPawn->GetActorLabel()));
-		//enemyPawn->TakeHit();
 		enemyPawn->BurstOverlap();
 	}
 }
@@ -269,6 +251,10 @@ void AHiWavePawn::TakeHit() {
 		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
 	}
 
+	if (DeathSound != nullptr) {
+		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
+	}
+
 	//Destroy all the enemies and get ready to go through player respawn process.
 	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAllEnemies();
 	bIsDead = true;
@@ -277,8 +263,6 @@ void AHiWavePawn::TakeHit() {
 
 void AHiWavePawn::ResetBurstCollision()
 {	
-	//CapsuleComponent->SetCapsuleSize(0, 0, false);
-	//BoxComponent->SetBoxExtent(FVector::ZeroVector, false);
 	BurstComponent->SetRelativeScale3D(FVector::ZeroVector);
 }
 
@@ -299,11 +283,8 @@ void AHiWavePawn::DoDeathAndRespawn() const {
 
 void AHiWavePawn::BeginPlay()
 {	
-
 	burstComponentRelativeScale = BurstComponent->GetComponentScale();
 	BurstComponent->SetWorldScale3D(FVector::ZeroVector);
-
-
 	Super::BeginPlay();
 }
 
@@ -328,8 +309,6 @@ const FRotator AHiWavePawn::RotateWithMouse() {
 		FVector End = mouseWorldLocation + (mouseWorldDirection*3400.0f);
 		FCollisionQueryParams CollisionParams;
 		FVector Start = mouseWorldLocation;
-
-		//DrawDebugLine(GetWorld(), Start, End, FColor::Green, true, 2.f, false, 4.f);
 
 		GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, CollisionParams);
 

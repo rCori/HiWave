@@ -6,13 +6,13 @@
 #include "Engine/CollisionProfile.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
-#include "EnemyAI/EnemyAI.h"
 #include "CollidingPawnMovementComponent.h"
 #include "HiWavePawn.h"
 #include "Components/SphereComponent.h"
 #include "HiWaveGameState.h"
 #include "Sound/SoundBase.h"
 #include "Kismet/GameplayStatics.h"
+#include "HiWaveGameInstance.h"
 
 // Sets default values
 AEnemyPawn::AEnemyPawn()
@@ -81,7 +81,12 @@ void AEnemyPawn::EnemyDeath() {
 	AHiWaveGameState* hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (hiWaveGameState) {
 		hiWaveGameState->IncreasePlayerScore(pointsAwarded);
+		UHiWaveGameInstance *hiWaveGameInstance = Cast<UHiWaveGameInstance>(GetWorld()->GetGameInstance());
+		if (hiWaveGameInstance) {
+			hiWaveGameInstance->SubmitHiScore(hiWaveGameState->playerScore);
+		}
 	}
+	
 	AHiWavePawn* hiWavePawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	if (hiWavePawn) {
 		hiWavePawn->IncreaseBurst(burstAwarded);

@@ -7,7 +7,7 @@
 #include "CollidingPawnMovementComponent.h"
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "EnemyAI/EnemyAI.h"
+//#include "EnemyAI/EnemyAI.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Math/UnrealMathUtility.h"
@@ -89,5 +89,7 @@ void ASpinningEnemy::EnemyDeath() {
 }
 
 void ASpinningEnemy::BurstOverlap() {
+	dynamicBodyMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	dynamicArmMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	damageRatio = 2.0;
 }

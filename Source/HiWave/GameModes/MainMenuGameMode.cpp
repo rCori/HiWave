@@ -23,6 +23,14 @@ void AMainMenuGameMode::BeginPlay()
 	{
 		MainMenuButtonsWidget->AddToViewport();
 	}
+
+
+	UUserWidget* HiScoreWidget = CreateWidget<UUserWidget>(GetWorld(), HiScoreWidgetClass);
+
+	if (HiScoreWidget != nullptr)
+	{
+		HiScoreWidget->AddToViewport();
+	}
 }
 
 void AMainMenuGameMode::StartGameButton()

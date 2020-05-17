@@ -8,7 +8,6 @@
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "CollidingPawnMovementComponent.h"
-#include "EnemyAI/DashingEnemyAI.h"
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
@@ -18,11 +17,11 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 
 	//Set the default AI controller class.
 	//When spawning use this->SpawnDefaultController()
-	AIControllerClass = ADashingEnemyAI::StaticClass();
+	//AIControllerClass = ADashingEnemyAI::StaticClass();
 
 	//Assign bot behavior by grabbing the BehaviorTree object in content
-	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
-	BotBehavior = BTob.Object;
+	//static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
+	//BotBehavior = BTob.Object;
 
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));

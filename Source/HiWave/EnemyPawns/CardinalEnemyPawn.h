@@ -44,6 +44,25 @@ public:
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	class AHiWavePawn* playerPawn;
 
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	UParticleSystemComponent* spawnedParticle;
+
+	UPROPERTY(Category = Visual, BlueprintReadWrite)
+	UMaterialInstanceDynamic *dynamicWingMaterial;
+
+	UPROPERTY(Category = Visual, BlueprintReadWrite)
+	UMaterialInstanceDynamic *dynamicCockpitMaterial;
+
+	UPROPERTY(Category = Visual, BlueprintReadWrite)
+	UMaterialInstanceDynamic *dynamicShipMaterial;
+
+	UPROPERTY(Category = Visual, BlueprintReadWrite)
+	UMaterialInstanceDynamic *dynamicEngineMaterial;
+
+	/** Particle to emit when an enemy hits us */
+	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
+	UParticleSystem* HitParticle;
+
 private:
 	float zRotationTarget;
 	float rotationDegreesRemaining;

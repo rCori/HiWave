@@ -6,7 +6,9 @@
 #include "CollidingPawnMovementComponent.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Kismet/GameplayStatics.h"
 #include "Engine/World.h"
+#include "Materials/MaterialInstanceDynamic.h"
 #include "Kismet/KismetMathLibrary.h"
 
 ACardinalEnemyPawn::ACardinalEnemyPawn() : AEnemyPawn() {
@@ -15,8 +17,8 @@ ACardinalEnemyPawn::ACardinalEnemyPawn() : AEnemyPawn() {
 	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
 
 	//Assign bot behavior by grabbing the BehaviorTree object in content
-	static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
-	BotBehavior = BTob.Object;
+	//static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
+	//BotBehavior = BTob.Object;
 
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
@@ -51,7 +53,7 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 		float newDirY = UKismetMathLibrary::Abs(newDirection.Y);
 		//ECurrentDirection canditateDirection;
 		if (newDirX > newDirY) {
-			if (newDirection.X < 0/* && currentDirection != ECurrentDirection::VE_Down*/) {
+			if (newDirection.X < 0) {
 				switch (currentDirection) {
 				case ECurrentDirection::VE_Right:
 					rotationDegreesRemaining = 90.0;
@@ -67,9 +69,8 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 				}
 
 				nextDirection = ECurrentDirection::VE_Down;
-				//movingStatus = 1;
 			}
-			else if(newDirection.X >= 0/* && currentDirection != ECurrentDirection::VE_Up*/) {
+			else if(newDirection.X >= 0) {
 				switch (currentDirection) {
 				case ECurrentDirection::VE_Right:
 					rotationDegreesRemaining = -90.0;
@@ -85,11 +86,10 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 				}
 
 				nextDirection = ECurrentDirection::VE_Up;
-				//movingStatus = 1;
 			}
 		}
 		else {
-			if (newDirection.Y < 0/* && currentDirection != ECurrentDirection::VE_Left*/) {
+			if (newDirection.Y < 0) {
 				switch (currentDirection) {
 				case ECurrentDirection::VE_Up:
 					rotationDegreesRemaining = -90.0;
@@ -105,9 +105,8 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 				}
 
 				nextDirection = ECurrentDirection::VE_Left;
-				//movingStatus = 1;
 			}
-			else if(newDirection.Y >= 0/* && currentDirection != ECurrentDirection::VE_Right*/) {
+			else if(newDirection.Y >= 0) {
 				switch (currentDirection) {
 				case ECurrentDirection::VE_Up:
 					rotationDegreesRemaining = 90.0;
@@ -123,7 +122,6 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 				}
 
 				nextDirection = ECurrentDirection::VE_Right;
-				//movingStatus = 1;
 			}
 		}
 		//You will move if the nextDirection is equal to the current or the minimum time to move has not yet elapsed.
@@ -190,43 +188,53 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 		rotationDegreesRemaining -= rotationAmount;
 
 	}
-	/*
-	else if (movingStatus == 2) {
-		//Now we are moving for awhile
-		FVector movementDirection = FVector::ZeroVector;
-		switch (currentDirection) {
-		case ECurrentDirection::VE_Up:
-			movementDirection = FVector(1, 0, 0);
-			break;
-		case ECurrentDirection::VE_Down:
-			movementDirection = FVector(-1, 0, 0);
-			break;
-		case ECurrentDirection::VE_Left:
-			movementDirection = FVector(0, -1, 0);
-			break;
-		case ECurrentDirection::VE_Right:
-			movementDirection = FVector(0, 1, 0);
-			break;
-		}
-		AddMovementInput(movementDirection, 1.0f);
-		timeToMove -= DeltaTime;
-		if (timeToMove <= 0.0) {
-			movingStatus = 0;
-		}
-	}
-	*/
 }
 
 
 void ACardinalEnemyPawn::BeginPlay() {
+
+	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
+	auto wingMaterial = staticMesh->GetMaterial(0);
+	auto cockpitMaterial = staticMesh->GetMaterial(1);
+	auto shipMaterial = staticMesh->GetMaterial(2);
+	auto engineMaterial = staticMesh->GetMaterial(3);
+
+	dynamicWingMaterial = UMaterialInstanceDynamic::Create(wingMaterial, NULL);
+	staticMesh->SetMaterial(0, dynamicWingMaterial);
+
+	dynamicCockpitMaterial = UMaterialInstanceDynamic::Create(cockpitMaterial, NULL);
+	staticMesh->SetMaterial(1, dynamicCockpitMaterial);
+
+	dynamicShipMaterial = UMaterialInstanceDynamic::Create(shipMaterial, NULL);
+	staticMesh->SetMaterial(1, dynamicShipMaterial);
+
+	dynamicEngineMaterial = UMaterialInstanceDynamic::Create(engineMaterial, NULL);
+	staticMesh->SetMaterial(1, dynamicEngineMaterial);
+
 	Super::BeginPlay();
 }
 
 void ACardinalEnemyPawn::EnemyDeath(){
+	if (HitParticle != nullptr) {
+		FRotator rotation = FRotator::ZeroRotator;
+		FTransform transform = FTransform();
+		transform.SetLocation(GetActorLocation());
+		FQuat rotQuaternion = FQuat(rotation);
+		transform.SetRotation(rotQuaternion);
+		transform.SetScale3D(FVector::OneVector);
+		//spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
+		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	}
 	Super::EnemyDeath();
 }
 
 void ACardinalEnemyPawn::BurstOverlap()
 {
+	dynamicWingMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	dynamicCockpitMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	dynamicShipMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	dynamicEngineMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	UE_LOG(LogTemp, Warning, TEXT("BurstOverlap on CardinalEnemy"));
 	damageRatio = 2.0;
 }
