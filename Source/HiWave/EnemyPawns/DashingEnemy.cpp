@@ -80,12 +80,16 @@ void ADashingEnemy::BeginPlay() {
 	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
 	auto frontMaterial = staticMesh->GetMaterial(0);
 	auto sizeMaterial = staticMesh->GetMaterial(1);
+	auto engineMaterial = staticMesh->GetMaterial(3);
 
 	dynamicFrontMaterial = UMaterialInstanceDynamic::Create(frontMaterial, NULL);
 	staticMesh->SetMaterial(0, dynamicFrontMaterial);
 
 	dynamicSideMaterial = UMaterialInstanceDynamic::Create(sizeMaterial, NULL);
 	staticMesh->SetMaterial(1, dynamicSideMaterial);
+
+	dynamicEngineMaterial = UMaterialInstanceDynamic::Create(engineMaterial, NULL);
+	staticMesh->SetMaterial(3, dynamicEngineMaterial);
 
 	Super::BeginPlay();
 }
@@ -111,5 +115,6 @@ void ADashingEnemy::BurstOverlap()
 {
 	dynamicFrontMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	dynamicSideMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	dynamicEngineMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	damageRatio = 2.0;
 }

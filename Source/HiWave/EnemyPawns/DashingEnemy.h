@@ -47,6 +47,9 @@ public:
 	UPROPERTY(Category = Visual, BlueprintReadWrite)
 	UMaterialInstanceDynamic *dynamicSideMaterial;
 
+	UPROPERTY(Category = Visual, BlueprintReadWrite)
+	UMaterialInstanceDynamic *dynamicEngineMaterial;
+
 private:
 
 	float yawDifference;

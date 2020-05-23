@@ -1,681 +1,671 @@
 "../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/MainMenuSequence.uasset" 0
 "../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/SpawningDataTable.uasset" 1
 "../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/NewDataTable.uasset" 2
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/CirclingEnemyPawnBB.uasset" 3
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/BTTask_SetRotatePoint.uasset" 4
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/CirclingEnemyPawnBT.uasset" 5
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/DashingEnemyPawnBB.uasset" 6
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/DashingEnemyPawnBT.uasset" 7
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/EnemyPawnBB.uasset" 8
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/EnemyPawnBT.uasset" 9
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/RedEnemyPawnBB.uasset" 10
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/RedEnemyPawnBT.uasset" 11
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/AI/SpinningEnemyPawnBT.uasset" 12
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Zodik_-_Future_Travel.uasset" 13
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/Zodik_-_Future_Travel.uasset" 14
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Zodik_-_Future_Travel_Cue.uasset" 15
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/Zodik_-_Future_Travel_Cue.uasset" 16
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Close.uasset" 17
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyDeathSound3_Cue.uasset" 18
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyHitSound2.uasset" 19
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyHitSound2_Cue.uasset" 20
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Equip.uasset" 21
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Error.uasset" 22
-"../../../Engine/Content/EngineSounds/Master.uasset" 23
-"../../../Engine/Content/EngineSounds/Normal_Attack.uasset" 24
-"../../../Engine/Content/EngineSounds/Duck_Normal_Attack_MixMod.uasset" 25
-"../../../Engine/Content/EngineSounds/Special_Attack_PSM.uasset" 26
-"../../../Engine/Content/EngineSounds/SFX.uasset" 27
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explodemini.uasset" 28
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explodemini_Cue.uasset" 29
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explosion06.uasset" 30
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explosion06_Cue.uasset" 31
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_001.uasset" 32
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_002.uasset" 33
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_003.uasset" 34
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_004.uasset" 35
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_000.uasset" 36
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_001.uasset" 37
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_002.uasset" 38
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_003.uasset" 39
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_004.uasset" 40
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_000.uasset" 41
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_001.uasset" 42
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_002.uasset" 43
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_003.uasset" 44
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_004.uasset" 45
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/LoadSave.uasset" 46
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Open.uasset" 47
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Purchase.uasset" 48
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/qubodup-crash.uasset" 49
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/qubodup-crash_Cue.uasset" 50
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uasset" 51
-"../../../Engine/Content/VREditor/Devices/Vive/T_VivePreController_EM.uasset" 52
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreController_MasksA.uasset" 53
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreController_MasksB.uasset" 54
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerDiffuse.uasset" 55
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerSpec.uasset" 56
-"../../../Engine/Content/VREditor/LaserPointer/VR_LaserPower_01.uasset" 57
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerMaterial.uasset" 58
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemyPawn.uasset" 59
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/PlayerProjectileMaterial.uasset" 60
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/TwinStickProjectile.uasset" 61
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_RedEnemyProjectile.uasset" 62
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/RotatingCamera.uasset" 63
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CubeMaterial.uasset" 64
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CubeMaterial.uasset" 65
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/1M_Cube_Chamfer.uasset" 66
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy2FrontMaterial.uasset" 67
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Enemy2FrontMaterial.uasset" 68
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/LevelIlluminationMaterial.uasset" 69
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/LevelIlluminationMaterial.uasset" 70
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/PlayerBullet.uasset" 71
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TemplateFloor.uasset" 72
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/TopStencilAlpha.uasset" 73
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/TopTexture.uasset" 74
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/TopMaterial.uasset" 75
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopMaterial.uasset" 76
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopStencilAlpha.uasset" 77
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopTexture.uasset" 78
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Cockpit.uasset" 79
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Engine.uasset" 80
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Guns.uasset" 81
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/ShipBody.uasset" 82
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/CockpitEnemy5Material.uasset" 83
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/EngineEnemy5Material.uasset" 84
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy1FrontMaterial.uasset" 85
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/ShipEnemy5Material.uasset" 86
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/WingEnemy5Material.uasset" 87
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Enemy5.uasset" 88
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/spaceshipIThink.uasset" 89
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Wing.uasset" 90
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradient.uasset" 91
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Radial_Gradient.uasset" 92
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PlayerHitParticle.uasset" 93
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BasicEnemyHit.uasset" 94
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Basic_Wall.uasset" 95
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Pillar_50x500.uasset" 96
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_400x300.uasset" 97
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_400x400.uasset" 98
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_500x500.uasset" 99
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_Door_400x400.uasset" 100
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_Window_400x400.uasset" 101
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Collapse01.uasset" 102
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Collapse02.uasset" 103
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Explosion01.uasset" 104
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Explosion02.uasset" 105
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Fire01.uasset" 106
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Fire_Sparks01.uasset" 107
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Light01.uasset" 108
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Light01_Cue.uasset" 109
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Light02.uasset" 110
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Light02_Cue.uasset" 111
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Smoke01.uasset" 112
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Birds01.uasset" 113
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Music01.uasset" 114
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Wind05.uasset" 115
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Wind06.uasset" 116
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Steam01.uasset" 117
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Explosion_Cue.uasset" 118
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Burst_M.uasset" 119
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Burst.uasset" 120
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Explosion_SubUV.uasset" 121
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_explosion_subUV.uasset" 122
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/m_flare_01.uasset" 123
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_radial_ramp.uasset" 124
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Smoke_SubUV.uasset" 125
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Smoke_Tiled_D.uasset" 126
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_smoke_subUV.uasset" 127
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Explosion.uasset" 128
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Explosion.uasset" 129
-"../../../Engine/Content/EditorMeshes/ColorCalibrator/T_ColorGrid.uasset" 130
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_ColorGrid_LowSpec.uasset" 131
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Bush_D.uasset" 132
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Bush_N.uasset" 133
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Bush.uasset" 134
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Bush.uasset" 135
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Chair_M.uasset" 136
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Chair_N.uasset" 137
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Chair.uasset" 138
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Couch.uasset" 139
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Glass.uasset" 140
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Door_M.uasset" 141
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Door_N.uasset" 142
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Door.uasset" 143
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Door.uasset" 144
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_MaterialSphere.uasset" 145
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_MaterialSphere_Plain.uasset" 146
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_MatPreviewMesh_02.uasset" 147
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.uasset" 148
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Detail_Rocky_N.uasset" 149
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Basalt_D.uasset" 150
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_RockMesh_M.uasset" 151
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_RockMesh_N.uasset" 152
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Rock.uasset" 153
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Rock.uasset" 154
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Shelf_M.uasset" 155
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Shelf_N.uasset" 156
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Shelf.uasset" 157
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Shelf.uasset" 158
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Basic_Floor.uasset" 159
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Stairs.uasset" 160
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Cone.uasset" 161
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Cylinder.uasset" 162
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_NarrowCapsule.uasset" 163
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Pipe.uasset" 164
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Pipe_180.uasset" 165
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Pipe_90.uasset" 166
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Plane.uasset" 167
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Torus.uasset" 168
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Trim.uasset" 169
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Trim_90_In.uasset" 170
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Trim_90_Out.uasset" 171
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_TriPyramid.uasset" 172
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Tube.uasset" 173
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Wedge_A.uasset" 174
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Wedge_B.uasset" 175
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_WideCapsule.uasset" 176
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StaticImages/blue-universe-9.uasset" 177
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StaticImages/purple-and-brown-colored-planet-39561.uasset" 178
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StaticImages/blue-universe-956981.uasset" 179
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StaticImages/casey-horner-k5wvrWws8MQ-unsplash.uasset" 180
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StaticImages/purple-and-brown-colored-planet-39561_Mat.uasset" 181
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Audio/TwinStickFire.uasset" 182
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/BaseMaterial.uasset" 183
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/OrangeMaterial.uasset" 184
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/BlueMaterial.uasset" 185
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/TwinStickUFO.uasset" 186
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/RedMaterial.uasset" 187
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/TwinStickUFO_Red.uasset" 188
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/TwinStickOverview.uasset" 189
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/BurstUI.uasset" 190
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/Cursor1.uasset" 191
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/CustomCursor.uasset" 192
-"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 193
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/zero_hour.uasset" 194
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/zero_hour_Font.uasset" 195
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_boxCross.uasset" 196
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button00.uasset" 197
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button01.uasset" 198
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button02.uasset" 199
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_sliderLeft.uasset" 200
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_sliderRight.uasset" 201
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/grey_box.uasset" 202
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Confirm.uasset" 203
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Confirm_Cue.uasset" 204
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuInitialUI.uasset" 205
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuSettingsUI.uasset" 206
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/InGameSettingsUI.uasset" 207
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuBackGround.uasset" 208
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuUI.uasset" 209
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button03.uasset" 210
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button04.uasset" 211
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button05.uasset" 212
-"../../../Engine/Content/Animation/DefaultAnimCurveCompressionSettings.uasset" 213
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Opacity/CameraDepthFade.uasset" 214
-"../../../Engine/Content/EngineMaterials/T_Default_Material_Grid_M.uasset" 215
-"../../../Engine/Content/EngineMaterials/T_Default_Material_Grid_N.uasset" 216
-"../../../Engine/Content/EngineMaterials/WorldGridMaterial.uasset" 217
-"../../../Engine/Content/ArtTools/RenderToTexture/Meshes/S_1_Unit_Plane.uasset" 218
-"../../../Engine/Content/EngineMaterials/DefaultMaterial.uasset" 219
-"../../../Engine/Content/BasicShapes/Cone.uasset" 220
-"../../../Engine/Content/BasicShapes/Cylinder.uasset" 221
-"../../../Engine/Content/BasicShapes/Sphere.uasset" 222
-"../../../Engine/Content/EditorLandscapeResources/DataLayer.uasset" 223
-"../../../Engine/Content/EditorMaterials/GizmoMaterial.uasset" 224
-"../../../Engine/Content/EditorMaterials/MAT_Groups_Toggle.uasset" 225
-"../../../Engine/Content/EditorMaterials/MAT_Groups_Visibility.uasset" 226
-"../../../Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset" 227
-"../../../Engine/Content/EditorMaterials/PreviewShadowIndicatorMaterial.uasset" 228
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_ColorTrack.uasset" 229
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Anim.uasset" 230
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_AudioMaster.uasset" 231
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Director.uasset" 232
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Event.uasset" 233
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Fade.uasset" 234
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Float.uasset" 235
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Move.uasset" 236
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Slomo.uasset" 237
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Sound.uasset" 238
-"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Vector.uasset" 239
-"../../../Engine/Content/EditorMaterials/ParticleSystems/PSysThumbnail_NoImage.uasset" 240
-"../../../Engine/Content/EditorMaterials/ParticleSystems/PSysThumbnail_OOD.uasset" 241
-"../../../Engine/Content/EditorMaterials/Camera/CineMat.uasset" 242
-"../../../Engine/Content/EditorMaterials/Camera/MI_CineMat_Rig.uasset" 243
-"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Arm.uasset" 244
-"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Base.uasset" 245
-"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Body.uasset" 246
-"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Mount.uasset" 247
-"../../../Engine/Content/EditorMeshes/Camera/SM_RailRig_Mount.uasset" 248
-"../../../Engine/Content/EditorMeshes/Camera/SM_RailRig_Track.uasset" 249
-"../../../Engine/Content/EditorResources/BSPVertex.uasset" 250
-"../../../Engine/Content/EditorResources/EmptyActor.uasset" 251
-"../../../Engine/Content/EditorResources/S_Actor.uasset" 252
-"../../../Engine/Content/EditorResources/S_Note.uasset" 253
-"../../../Engine/Content/EditorResources/S_Trigger.uasset" 254
-"../../../Engine/Content/EditorResources/AudioIcons/S_AudioComponent_AutoActivate.uasset" 255
-"../../../Engine/Content/EditorResources/LightIcons/S_LightError.uasset" 256
-"../../../Engine/Content/EditorResources/SequenceRecorder/Countdown.uasset" 257
-"../../../Engine/Content/EditorResources/SequenceRecorder/RecordingIndicator.uasset" 258
-"../../../Engine/Content/EditorSounds/Notifications/CompileFailed.uasset" 259
-"../../../Engine/Content/EditorSounds/Notifications/CompileFailed_Cue.uasset" 260
-"../../../Engine/Content/EditorSounds/Notifications/CompileSuccess.uasset" 261
-"../../../Engine/Content/EditorSounds/Notifications/CompileStart_Cue.uasset" 262
-"../../../Engine/Content/EditorSounds/Notifications/CompileSuccess_Cue.uasset" 263
-"../../../Engine/Content/EngineDamageTypes/DmgTypeBP_Environmental.uasset" 264
-"../../../Engine/Content/EngineDebugMaterials/HeatmapGradient.uasset" 265
-"../../../Engine/Content/EngineDebugMaterials/BoneWeightMaterial.uasset" 266
-"../../../Engine/Content/EngineDebugMaterials/ClothMaterial.uasset" 267
-"../../../Engine/Content/EngineDebugMaterials/ClothMaterial_WF.uasset" 268
-"../../../Engine/Content/EngineDebugMaterials/DebugEditorMaterial.uasset" 269
-"../../../Engine/Content/EngineDebugMaterials/DebugMeshMaterial.uasset" 270
-"../../../Engine/Content/EngineDebugMaterials/GeomMaterial.uasset" 271
-"../../../Engine/Content/EngineDebugMaterials/M_SimpleTranslucent.uasset" 272
-"../../../Engine/Content/EngineFonts/Faces/RobotoBold.uasset" 273
-"../../../Engine/Content/EngineFonts/Faces/RobotoBoldItalic.uasset" 274
-"../../../Engine/Content/EngineFonts/Faces/RobotoItalic.uasset" 275
-"../../../Engine/Content/EngineFonts/Faces/RobotoLight.uasset" 276
-"../../../Engine/Content/EngineFonts/Faces/RobotoRegular.uasset" 277
-"../../../Engine/Content/EngineFonts/Roboto.uasset" 278
-"../../../Engine/Content/EngineFonts/Faces/RobotoTiny.uasset" 279
-"../../../Engine/Content/EngineFonts/RobotoTiny.uasset" 280
-"../../../Engine/Content/EngineMaterials/BaseFlattenDiffuseMap.uasset" 281
-"../../../Engine/Content/EngineMaterials/BaseFlattenEmissiveMap.uasset" 282
-"../../../Engine/Content/EngineMaterials/BaseFlattenGrayscaleMap.uasset" 283
-"../../../Engine/Content/EngineMaterials/BaseFlattenNormalMap.uasset" 284
-"../../../Engine/Content/EngineMaterials/BaseFlattenMaterial.uasset" 285
-"../../../Engine/Content/EngineMaterials/DefaultBloomKernel.uasset" 286
-"../../../Engine/Content/EngineMaterials/DefaultBokeh.uasset" 287
-"../../../Engine/Content/EngineMaterials/DefaultDiffuse.uasset" 288
-"../../../Engine/Content/EngineMaterials/DefaultDeferredDecalMaterial.uasset" 289
-"../../../Engine/Content/EngineMaterials/DefaultLightFunctionMaterial.uasset" 290
-"../../../Engine/Content/EngineMaterials/DefaultPhysicalMaterial.uasset" 291
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.uasset" 292
-"../../../Engine/Content/EngineMaterials/DefaultPostProcessMaterial.uasset" 293
-"../../../Engine/Content/EngineFonts/RobotoDistanceField.uasset" 294
-"../../../Engine/Content/EngineMaterials/DefaultTextMaterialOpaque.uasset" 295
-"../../../Engine/Content/EngineMaterials/DefaultWhiteGrid.uasset" 296
-"../../../Engine/Content/EngineMaterials/EditorBrushMaterial.uasset" 297
-"../../../Engine/Content/EngineMaterials/Good64x64TilingNoiseHighFreq.uasset" 298
-"../../../Engine/Content/EngineMaterials/MiniFont.uasset" 299
-"../../../Engine/Content/EngineMaterials/InvalidLightmapSettings.uasset" 300
-"../../../Engine/Content/EngineMaterials/M_InvalidLightmapSettings.uasset" 301
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/CameraOffset.uasset" 302
-"../../../Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset" 303
-"../../../Engine/Content/EngineMaterials/PreintegratedSkinBRDF.uasset" 304
-"../../../Engine/Content/EngineMaterials/RemoveSurfaceMaterial.uasset" 305
-"../../../Engine/Content/EngineMaterials/WeightMapPlaceholderTexture.uasset" 306
-"../../../Engine/Content/EngineResources/WhiteSquareTexture.uasset" 307
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough.uasset" 308
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Masked.uasset" 309
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Opaque.uasset" 310
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Masked_OneSided.uasset" 311
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Opaque_OneSided.uasset" 312
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Translucent.uasset" 313
-"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Translucent_OneSided.uasset" 314
-"../../../Engine/Content/EngineMeshes/Cylinder.uasset" 315
-"../../../Engine/Content/EngineMeshes/Sphere.uasset" 316
-"../../../Engine/Content/EngineResources/Black.uasset" 317
-"../../../Engine/Content/EngineResources/DefaultTexture.uasset" 318
-"../../../Engine/Content/EngineResources/DefaultTextureCube.uasset" 319
-"../../../Engine/Content/EngineResources/DefaultVolumeTexture2D.uasset" 320
-"../../../Engine/Content/EngineResources/DefaultVolumeTexture.uasset" 321
-"../../../Engine/Content/EngineResources/GradientTexture0.uasset" 322
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec.uasset" 323
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness.uasset" 324
-"../../../Engine/Content/Maps/Templates/Thumbnails/Default.uasset" 325
-"../../../Engine/Content/Maps/Templates/Thumbnails/VR-Basic.uasset" 326
-"../../../Engine/Content/MobileResources/T_MobileControls_texture.uasset" 327
-"../../../Engine/Content/MobileResources/T_MobileMenu2.uasset" 328
-"../../../Engine/Content/MobileResources/HUD/AnalogHat.uasset" 329
-"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset" 330
-"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset" 331
-"../../../Engine/Content/MobileResources/HUD/DefaultVirtualJoysticks.uasset" 332
-"../../../Engine/Content/MobileResources/HUD/LeftVirtualJoystickOnly.uasset" 333
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_off.uasset" 334
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_on.uasset" 335
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_off.uasset" 336
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_on.uasset" 337
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton3.uasset" 338
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButtonFire.uasset" 339
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad.uasset" 340
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad2.uasset" 341
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad3.uasset" 342
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionStick.uasset" 343
-"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickInner.uasset" 344
-"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickOutter.uasset" 345
-"../../../Engine/Content/Tutorial/ContentIntroCurve.uasset" 346
-"../../../Engine/Content/Tutorial/Basics/LevelEditorAttract.uasset" 347
-"../../../Engine/Content/Tutorial/Basics/TutorialAssets/icon_tab_Levels_40x.uasset" 348
-"../../../Engine/Content/Tutorial/Basics/LevelEditorOverview.uasset" 349
-"../../../Engine/Content/Tutorial/BlueprintTutorials/TutorialAssets/Blueprint_64x.uasset" 350
-"../../../Engine/Content/Tutorial/BlueprintTutorials/BlueprintEditorTutorial.uasset" 351
-"../../../Engine/Content/VREditor/TransformGizmo/TransformGizmoMaterial.uasset" 352
-"../../../Engine/Content/VREditor/TransformGizmo/TranslucentTransformGizmoMaterial.uasset" 353
-"../../../Engine/Content/VREditor/TransformGizmo/BoundingBoxCorner.uasset" 354
-"../../../Engine/Content/VREditor/TransformGizmo/BoundingBoxEdge.uasset" 355
-"../../../Engine/Content/VREditor/TransformGizmo/PlaneTranslationHandle.uasset" 356
-"../../../Engine/Content/VREditor/TransformGizmo/Main.uasset" 357
-"../../../Engine/Content/VREditor/TransformGizmo/Xray.uasset" 358
-"../../../Engine/Content/VREditor/TransformGizmo/SM_Sequencer_Key.uasset" 359
-"../../../Engine/Content/VREditor/TransformGizmo/SM_Sequencer_Node.uasset" 360
-"../../Plugins/2D/Paper2D/Content/PlaceholderTextures/DummySpriteTexture.uasset" 361
-"../../Plugins/2D/Paper2D/Content/DummySprite.uasset" 362
-"../../Plugins/2D/Paper2D/Content/DefaultPaperTerrainMaterial.uasset" 363
-"../../Plugins/2D/Paper2D/Content/DummySpriteTexture.uasset" 364
-"../../Plugins/2D/Paper2D/Content/DefaultSpriteMaterial.uasset" 365
-"../../Plugins/2D/Paper2D/Content/MaskedUnlitSpriteMaterial.uasset" 366
-"../../Plugins/2D/Paper2D/Content/OpaqueUnlitSpriteMaterial.uasset" 367
-"../../Plugins/Runtime/Oculus/OculusVR/Content/OculusMR_RenderTarget.uasset" 368
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat4Components.uasset" 369
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.uasset" 370
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat3.uasset" 371
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey.uasset" 372
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey_Lit.uasset" 373
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_OpaqueColoredMaterial.uasset" 374
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_WhiteMaterial.uasset" 375
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/PokeAHoleMaterial.uasset" 376
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_AO.uasset" 377
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_Color.uasset" 378
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_Normal.uasset" 379
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/GearVRControllerMaterial.uasset" 380
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/GearVrController.uasset" 381
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/touchController_albedo.uasset" 382
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/touchController_controlmap.uasset" 383
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/touchController_mat.uasset" 384
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/LeftTouchController.uasset" 385
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/RiftHMD.uasset" 386
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/RightTouchController.uasset" 387
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/FogBrightnessLUT.uasset" 388
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/SunlightColorLUT.uasset" 389
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Arrows.uasset" 390
-"../../../Engine/Content/MapTemplates/Sky/DaylightAmbientCubemap.uasset" 391
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Master.uasset" 392
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Black.uasset" 393
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_HDRI.uasset" 394
-"../../../Engine/Content/EditorMaterials/Thumbnails/SkySphereMaterial.uasset" 395
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/Skybox.uasset" 396
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/SM_Arrows.uasset" 397
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" 398
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/BP_LightStudio.uasset" 399
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/Advanced_Lighting_BuiltData.uasset" 400
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_AssetPlatform.uasset" 401
-"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_ChromeBall.uasset" 402
-"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_ClearCoat.uasset" 403
-"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_ClearCoatBlack.uasset" 404
-"../../../Engine/Content/EditorMeshes/ColorCalibrator/Color_checker.uasset" 405
-"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_ColorGrid.uasset" 406
-"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_GreyBall.uasset" 407
-"../../../Engine/Content/EditorMeshes/ColorCalibrator/SM_ColorCalibrator.uasset" 408
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/SM_AssetPlatform.uasset" 409
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/Advanced_Lighting.umap" 410
-"../../../Engine/Content/EngineSky/C_Sky_Cloud_Color.uasset" 411
-"../../../Engine/Content/EngineSky/C_Sky_Horizon_Color.uasset" 412
-"../../../Engine/Content/EngineSky/C_Sky_Zenith_Color.uasset" 413
-"../../../Engine/Content/EngineSky/T_Sky_Blue.uasset" 414
-"../../../Engine/Content/EngineSky/T_Sky_Clouds_M.uasset" 415
-"../../../Engine/Content/EngineSky/T_Sky_Stars.uasset" 416
-"../../../Engine/Content/EngineSky/M_Sky_Panning_Clouds2.uasset" 417
-"../../../Engine/Content/EngineSky/SM_SkySphere.uasset" 418
-"../../../Engine/Content/EngineSky/BP_Sky_Sphere.uasset" 419
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/Minimal_Default_BuiltData.uasset" 420
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_MacroVariation.uasset" 421
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Brushed_Nickel.uasset" 422
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Aluminum_D.uasset" 423
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Gold_N.uasset" 424
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Burnished_Steel.uasset" 425
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Copper_D.uasset" 426
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Copper.uasset" 427
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Statue_M.uasset" 428
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Statue_N.uasset" 429
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_StatueGlass.uasset" 430
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Floor_400x400.uasset" 431
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Background_Cue.uasset" 432
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Chair.uasset" 433
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Statue.uasset" 434
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Statue.uasset" 435
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_TableRound_M.uasset" 436
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_TableRound_N.uasset" 437
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_TableRound.uasset" 438
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_TableRound.uasset" 439
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/Minimal_Default.umap" 440
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Fire01_Cue.uasset" 441
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Fire_SubUV.uasset" 442
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Fire_Tiled_D.uasset" 443
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Fire_SubUV.uasset" 444
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Water_N.uasset" 445
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Heat_Distortion.uasset" 446
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Fire.uasset" 447
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Fire.uasset" 448
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Smoke01_Cue.uasset" 449
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Smoke.uasset" 450
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Smoke.uasset" 451
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Fire_Sparks01_Cue.uasset" 452
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Spark_Core.uasset" 453
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Spark.uasset" 454
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Sparks.uasset" 455
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Sparks.uasset" 456
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Steam01_Cue.uasset" 457
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Steam_Lit.uasset" 458
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Steam.uasset" 459
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Lamp_M.uasset" 460
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Lamp_N.uasset" 461
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Lamp.uasset" 462
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Lamp_Ceiling.uasset" 463
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_CeilingLight.uasset" 464
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Lamp_Wall.uasset" 465
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_WallSconce.uasset" 466
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/StarterMap_BuiltData.uasset" 467
-"../../../Engine/Content/Functions/Engine_MaterialFunctions03/Procedurals/ComputeFilterWidth.uasset" 468
-"../../../Engine/Content/EngineMaterials/AntiAliasedTextMaterialTranslucent.uasset" 469
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_D.uasset" 470
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_M.uasset" 471
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_N.uasset" 472
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Clay_Beveled.uasset" 473
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_D.uasset" 474
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_M.uasset" 475
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_N.uasset" 476
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Clay_New.uasset" 477
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Old_D.uasset" 478
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Old_N.uasset" 479
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Perlin_Noise_M.uasset" 480
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Clay_Old.uasset" 481
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Cut_Stone_D.uasset" 482
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Cut_Stone_N.uasset" 483
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Cut_Stone.uasset" 484
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_D.uasset" 485
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_M.uasset" 486
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_N.uasset" 487
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Hewn_Stone.uasset" 488
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ceramic_Tile_M.uasset" 489
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ceramic_Tile_N.uasset" 490
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Marble_Polished_D.uasset" 491
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Ceramic_Tile_Checker.uasset" 492
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_D.uasset" 493
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_M.uasset" 494
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_N.uasset" 495
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_CobbleStone_Pebble.uasset" 496
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Rough_D.uasset" 497
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Rough_N.uasset" 498
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Gradinet_01.uasset" 499
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Smooth_Granite_D.uasset" 500
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_CobbleStone_Rough.uasset" 501
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_D.uasset" 502
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_M.uasset" 503
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_N.uasset" 504
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_CobbleStone_Smooth.uasset" 505
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Grime_D.uasset" 506
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Rust_N.uasset" 507
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Concrete_Grime.uasset" 508
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Panels_D.uasset" 509
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Panels_N.uasset" 510
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Concrete_Panels.uasset" 511
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Poured_D.uasset" 512
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Poured_N.uasset" 513
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Concrete_Poured.uasset" 514
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_D.uasset" 515
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_M.uasset" 516
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_N.uasset" 517
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_Variation_M.uasset" 518
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Concrete_Tiles.uasset" 519
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Grass_D.uasset" 520
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Grass_N.uasset" 521
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Ground_Grass.uasset" 522
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Gravel_D.uasset" 523
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Gravel_N.uasset" 524
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Ground_Gravel.uasset" 525
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_ground_Moss_D.uasset" 526
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Moss_N.uasset" 527
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Ground_Moss.uasset" 528
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Chrome.uasset" 529
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Gold_D.uasset" 530
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Gold.uasset" 531
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Rust_D.uasset" 532
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Rust.uasset" 533
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Steel_D.uasset" 534
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Steel_N.uasset" 535
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Steel.uasset" 536
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Basalt_N.uasset" 537
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Rock_Basalt.uasset" 538
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Rock_Marble_Polished.uasset" 539
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Sandstone_D.uasset" 540
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Sandstone_N.uasset" 541
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Rock_Sandstone.uasset" 542
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Slate_D.uasset" 543
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Slate_N.uasset" 544
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Rock_Slate.uasset" 545
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Checker_Noise_M.uasset" 546
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Single_Tile_N.uasset" 547
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Dot_M.uasset" 548
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Dot_N.uasset" 549
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Tech_Checker_Dot.uasset" 550
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Hex_Tile_M.uasset" 551
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Hex_Tile_N.uasset" 552
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Tech_Hex_Tile.uasset" 553
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Tech_Hex_Tile_Pulse.uasset" 554
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Panel_M.uasset" 555
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Panel_N.uasset" 556
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Tech_Panel.uasset" 557
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Water_Lake.uasset" 558
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Water_M.uasset" 559
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Water_Ocean.uasset" 560
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_D.uasset" 561
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_M.uasset" 562
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_N.uasset" 563
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Floor_Walnut_Polished.uasset" 564
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Opacity/AlphaOffset.uasset" 565
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Floor_Walnut_Worn.uasset" 566
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Oak_D.uasset" 567
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Oak_N.uasset" 568
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Oak.uasset" 569
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Pine_D.uasset" 570
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Pine_N.uasset" 571
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Pine.uasset" 572
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Walnut_D.uasset" 573
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Walnut_N.uasset" 574
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Walnut.uasset" 575
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_400x200.uasset" 576
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_Door_400x300.uasset" 577
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_Window_400x300.uasset" 578
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Collapse_Cue.uasset" 579
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Music_Cue.uasset" 580
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Dust_Particle_D.uasset" 581
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Dust_Particle.uasset" 582
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Ambient_Dust.uasset" 583
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/MaterialSphere.uasset" 584
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Frame_M.uasset" 585
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Frame_N.uasset" 586
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Frame.uasset" 587
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_CornerFrame.uasset" 588
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_DoorFrame.uasset" 589
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_GlassWindow.uasset" 590
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_PillarFrame.uasset" 591
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_PillarFrame300.uasset" 592
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_WindowFrame.uasset" 593
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Cube.uasset" 594
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_QuadPyramid.uasset" 595
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Sphere.uasset" 596
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/StarterMap.umap" 597
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyDeathSound2_Cue.uasset" 598
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyHitSound3_Cue.uasset" 599
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy1.uasset" 600
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.uasset" 601
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.uasset" 602
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_SparkParticle.uasset" 603
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BasicEnemyDown.uasset" 604
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_BasicEnemy.uasset" 605
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_CardinalEnemyDown.uasset" 606
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_CardinalEnemy.uasset" 607
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/WingMaterial.uasset" 608
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy3.uasset" 609
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_DashEnemyDown.uasset" 610
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_DashingEnemy.uasset" 611
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Enemy2SideMaterial.uasset" 612
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy2.uasset" 613
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_RedParticle.uasset" 614
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_RedEnemyDown.uasset" 615
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_RedEnemy.uasset" 616
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy5BodyMat.uasset" 617
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy5ArmMat.uasset" 618
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy5.uasset" 619
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SpinningEnemy.uasset" 620
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemySpawnPoint.uasset" 621
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemySpawnSystem.uasset" 622
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/3PointLevels.uasset" 623
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Skybox_Params.uasset" 624
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/SpacescapePurpleNebulaComplex.uasset" 625
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/SpaceSkyboxMaterial.uasset" 626
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/SpaceSkyboxMaterial_Inst.uasset" 627
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SpaceSkybox.uasset" 628
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/GameMapDataTable.uasset" 629
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/GameMap_BuiltData.uasset" 630
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/GroundTexture.uasset" 631
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGroundMaterial.uasset" 632
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGlassMaterial.uasset" 633
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGlassMaterial_Inst.uasset" 634
-"../../../Engine/Content/BasicShapes/Plane.uasset" 635
-"../../../Engine/Content/VREditor/Devices/Generic/GenericHMDMaterial.uasset" 636
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/LevelMesh.uasset" 637
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/GameMap.umap" 638
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/RotatingCameraPawn.uasset" 639
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_MainMenuGameMode.uasset" 640
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Sequences/MainMenuSequence.uasset" 641
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/MainMenuMap_BuiltData.uasset" 642
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Loveshadow_-_SUPERPOWER__feat_Siobhan_Dakay_.uasset" 643
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Loveshadow_-_SUPERPOWER__feat_Siobhan_Dakay__Cue.uasset" 644
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/MainMenuMap.umap" 645
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/SpaceSkyboxMap.umap" 646
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox_Skeleton.uasset" 647
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox_Anim.uasset" 648
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/BodyMaterial.uasset" 649
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/BurstAttackRing.uasset" 650
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/BodyMaterial.uasset" 651
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/WingMaterial.uasset" 652
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWavePlayer.uasset" 653
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_SparkParticle_GreenInst.uasset" 654
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PlayerHitParticle2.uasset" 655
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BurstAttack.uasset" 656
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Audio/laserfire01.uasset" 657
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWavePawn.uasset" 658
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.uasset" 659
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CircularMeterMat.uasset" 660
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CircularMeterMat_Inst.uasset" 661
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveHUD.uasset" 662
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/LivesUI.uasset" 663
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/ScoreUI.uasset" 664
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/GameplayUI.uasset" 665
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Cursor.uasset" 666
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Cursor_Cue.uasset" 667
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/PauseUI.uasset" 668
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveGameMode.uasset" 669
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/TwinStickExampleMap_BuiltData.uasset" 670
-"../../../Engine/Content/BasicShapes/BasicShapeMaterial.uasset" 671
-"../../../Engine/Content/BasicShapes/Cube.uasset" 672
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/1M_Cube.uasset" 673
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/RedBoxEnemyMaterial.uasset" 674
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/RedBoxEnemyMaterial.uasset" 675
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox_PhysicsAsset.uasset" 676
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox.uasset" 677
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/TwinStickExampleMap.umap" 678
-"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 679
-"../../../Engine/Content/Maps/Entry.umap" 680
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Zodik_-_Future_Travel.uasset" 3
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/Zodik_-_Future_Travel.uasset" 4
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Zodik_-_Future_Travel_Cue.uasset" 5
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/Zodik_-_Future_Travel_Cue.uasset" 6
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Close.uasset" 7
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyDeathSound3_Cue.uasset" 8
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyHitSound2.uasset" 9
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyHitSound2_Cue.uasset" 10
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Equip.uasset" 11
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Error.uasset" 12
+"../../../Engine/Content/EngineSounds/Master.uasset" 13
+"../../../Engine/Content/EngineSounds/Normal_Attack.uasset" 14
+"../../../Engine/Content/EngineSounds/Duck_Normal_Attack_MixMod.uasset" 15
+"../../../Engine/Content/EngineSounds/Special_Attack_PSM.uasset" 16
+"../../../Engine/Content/EngineSounds/SFX.uasset" 17
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explodemini.uasset" 18
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explodemini_Cue.uasset" 19
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explosion06.uasset" 20
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explosion06_Cue.uasset" 21
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_001.uasset" 22
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_002.uasset" 23
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_003.uasset" 24
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_004.uasset" 25
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_000.uasset" 26
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_001.uasset" 27
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_002.uasset" 28
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_003.uasset" 29
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_004.uasset" 30
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_000.uasset" 31
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_001.uasset" 32
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_002.uasset" 33
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_003.uasset" 34
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_004.uasset" 35
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/LoadSave.uasset" 36
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Open.uasset" 37
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Purchase.uasset" 38
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/qubodup-crash.uasset" 39
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/qubodup-crash_Cue.uasset" 40
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uasset" 41
+"../../../Engine/Content/VREditor/Devices/Vive/T_VivePreController_EM.uasset" 42
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreController_MasksA.uasset" 43
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreController_MasksB.uasset" 44
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerDiffuse.uasset" 45
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerSpec.uasset" 46
+"../../../Engine/Content/VREditor/LaserPointer/VR_LaserPower_01.uasset" 47
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerMaterial.uasset" 48
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemyPawn.uasset" 49
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/PlayerProjectileMaterial.uasset" 50
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/TwinStickProjectile.uasset" 51
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_RedEnemyProjectile.uasset" 52
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/RotatingCamera.uasset" 53
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CubeMaterial.uasset" 54
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CubeMaterial.uasset" 55
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/1M_Cube_Chamfer.uasset" 56
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy2FrontMaterial.uasset" 57
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Enemy2FrontMaterial.uasset" 58
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/LevelIlluminationMaterial.uasset" 59
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/LevelIlluminationMaterial.uasset" 60
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/PlayerBullet.uasset" 61
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TemplateFloor.uasset" 62
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/TopStencilAlpha.uasset" 63
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/TopTexture.uasset" 64
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/TopMaterial.uasset" 65
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopMaterial.uasset" 66
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopStencilAlpha.uasset" 67
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopTexture.uasset" 68
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Cockpit.uasset" 69
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Engine.uasset" 70
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Guns.uasset" 71
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/ShipBody.uasset" 72
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/CockpitEnemy5Material.uasset" 73
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/EngineEnemy5Material.uasset" 74
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy1FrontMaterial.uasset" 75
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/ShipEnemy5Material.uasset" 76
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/WingEnemy5Material.uasset" 77
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Enemy5.uasset" 78
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/spaceshipIThink.uasset" 79
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/NewShipMeshment/Wing.uasset" 80
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradient.uasset" 81
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Radial_Gradient.uasset" 82
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PlayerHitParticle.uasset" 83
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BasicEnemyHit.uasset" 84
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Basic_Wall.uasset" 85
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Pillar_50x500.uasset" 86
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_400x300.uasset" 87
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_400x400.uasset" 88
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_500x500.uasset" 89
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_Door_400x400.uasset" 90
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_Window_400x400.uasset" 91
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Collapse01.uasset" 92
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Collapse02.uasset" 93
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Explosion01.uasset" 94
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Explosion02.uasset" 95
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Fire01.uasset" 96
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Fire_Sparks01.uasset" 97
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Light01.uasset" 98
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Light01_Cue.uasset" 99
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Light02.uasset" 100
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Light02_Cue.uasset" 101
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Smoke01.uasset" 102
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Birds01.uasset" 103
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Music01.uasset" 104
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Wind05.uasset" 105
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Wind06.uasset" 106
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Steam01.uasset" 107
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Explosion_Cue.uasset" 108
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Burst_M.uasset" 109
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Burst.uasset" 110
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Explosion_SubUV.uasset" 111
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_explosion_subUV.uasset" 112
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/m_flare_01.uasset" 113
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_radial_ramp.uasset" 114
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Smoke_SubUV.uasset" 115
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Smoke_Tiled_D.uasset" 116
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_smoke_subUV.uasset" 117
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Explosion.uasset" 118
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Explosion.uasset" 119
+"../../../Engine/Content/EditorMeshes/ColorCalibrator/T_ColorGrid.uasset" 120
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_ColorGrid_LowSpec.uasset" 121
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Bush_D.uasset" 122
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Bush_N.uasset" 123
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Bush.uasset" 124
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Bush.uasset" 125
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Chair_M.uasset" 126
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Chair_N.uasset" 127
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Chair.uasset" 128
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Couch.uasset" 129
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Glass.uasset" 130
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Door_M.uasset" 131
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Door_N.uasset" 132
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Door.uasset" 133
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Door.uasset" 134
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_MaterialSphere.uasset" 135
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_MaterialSphere_Plain.uasset" 136
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_MatPreviewMesh_02.uasset" 137
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.uasset" 138
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Detail_Rocky_N.uasset" 139
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Basalt_D.uasset" 140
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_RockMesh_M.uasset" 141
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_RockMesh_N.uasset" 142
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Rock.uasset" 143
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Rock.uasset" 144
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Shelf_M.uasset" 145
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Shelf_N.uasset" 146
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Shelf.uasset" 147
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Shelf.uasset" 148
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Basic_Floor.uasset" 149
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Stairs.uasset" 150
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Cone.uasset" 151
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Cylinder.uasset" 152
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_NarrowCapsule.uasset" 153
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Pipe.uasset" 154
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Pipe_180.uasset" 155
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Pipe_90.uasset" 156
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Plane.uasset" 157
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Torus.uasset" 158
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Trim.uasset" 159
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Trim_90_In.uasset" 160
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Trim_90_Out.uasset" 161
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_TriPyramid.uasset" 162
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Tube.uasset" 163
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Wedge_A.uasset" 164
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Wedge_B.uasset" 165
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_WideCapsule.uasset" 166
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Audio/TwinStickFire.uasset" 167
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/BaseMaterial.uasset" 168
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/OrangeMaterial.uasset" 169
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/BlueMaterial.uasset" 170
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/TwinStickUFO.uasset" 171
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/RedMaterial.uasset" 172
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/TwinStickUFO_Red.uasset" 173
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/TwinStickOverview.uasset" 174
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/BurstUI.uasset" 175
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/Cursor1.uasset" 176
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/CustomCursor.uasset" 177
+"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 178
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/zero_hour.uasset" 179
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/zero_hour_Font.uasset" 180
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_boxCross.uasset" 181
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button00.uasset" 182
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button01.uasset" 183
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button02.uasset" 184
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_sliderLeft.uasset" 185
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_sliderRight.uasset" 186
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/grey_box.uasset" 187
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuInitialUI.uasset" 188
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuSettingsUI.uasset" 189
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/InGameSettingsUI.uasset" 190
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuBackGround.uasset" 191
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuUI.uasset" 192
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button03.uasset" 193
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button04.uasset" 194
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button05.uasset" 195
+"../../../Engine/Content/Animation/DefaultAnimCurveCompressionSettings.uasset" 196
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Opacity/CameraDepthFade.uasset" 197
+"../../../Engine/Content/EngineMaterials/T_Default_Material_Grid_M.uasset" 198
+"../../../Engine/Content/EngineMaterials/T_Default_Material_Grid_N.uasset" 199
+"../../../Engine/Content/EngineMaterials/WorldGridMaterial.uasset" 200
+"../../../Engine/Content/ArtTools/RenderToTexture/Meshes/S_1_Unit_Plane.uasset" 201
+"../../../Engine/Content/EngineMaterials/DefaultMaterial.uasset" 202
+"../../../Engine/Content/BasicShapes/Cone.uasset" 203
+"../../../Engine/Content/BasicShapes/Cylinder.uasset" 204
+"../../../Engine/Content/BasicShapes/Sphere.uasset" 205
+"../../../Engine/Content/EditorLandscapeResources/DataLayer.uasset" 206
+"../../../Engine/Content/EditorMaterials/GizmoMaterial.uasset" 207
+"../../../Engine/Content/EditorMaterials/MAT_Groups_Toggle.uasset" 208
+"../../../Engine/Content/EditorMaterials/MAT_Groups_Visibility.uasset" 209
+"../../../Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset" 210
+"../../../Engine/Content/EditorMaterials/PreviewShadowIndicatorMaterial.uasset" 211
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_ColorTrack.uasset" 212
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Anim.uasset" 213
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_AudioMaster.uasset" 214
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Director.uasset" 215
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Event.uasset" 216
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Fade.uasset" 217
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Float.uasset" 218
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Move.uasset" 219
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Slomo.uasset" 220
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Sound.uasset" 221
+"../../../Engine/Content/EditorMaterials/MatineeGroups/MAT_Groups_Vector.uasset" 222
+"../../../Engine/Content/EditorMaterials/ParticleSystems/PSysThumbnail_NoImage.uasset" 223
+"../../../Engine/Content/EditorMaterials/ParticleSystems/PSysThumbnail_OOD.uasset" 224
+"../../../Engine/Content/EditorMaterials/Camera/CineMat.uasset" 225
+"../../../Engine/Content/EditorMaterials/Camera/MI_CineMat_Rig.uasset" 226
+"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Arm.uasset" 227
+"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Base.uasset" 228
+"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Body.uasset" 229
+"../../../Engine/Content/EditorMeshes/Camera/SM_CraneRig_Mount.uasset" 230
+"../../../Engine/Content/EditorMeshes/Camera/SM_RailRig_Mount.uasset" 231
+"../../../Engine/Content/EditorMeshes/Camera/SM_RailRig_Track.uasset" 232
+"../../../Engine/Content/EditorResources/BSPVertex.uasset" 233
+"../../../Engine/Content/EditorResources/EmptyActor.uasset" 234
+"../../../Engine/Content/EditorResources/S_Actor.uasset" 235
+"../../../Engine/Content/EditorResources/S_Note.uasset" 236
+"../../../Engine/Content/EditorResources/S_Trigger.uasset" 237
+"../../../Engine/Content/EditorResources/AudioIcons/S_AudioComponent_AutoActivate.uasset" 238
+"../../../Engine/Content/EditorResources/LightIcons/S_LightError.uasset" 239
+"../../../Engine/Content/EditorResources/SequenceRecorder/Countdown.uasset" 240
+"../../../Engine/Content/EditorResources/SequenceRecorder/RecordingIndicator.uasset" 241
+"../../../Engine/Content/EditorSounds/Notifications/CompileFailed.uasset" 242
+"../../../Engine/Content/EditorSounds/Notifications/CompileFailed_Cue.uasset" 243
+"../../../Engine/Content/EditorSounds/Notifications/CompileSuccess.uasset" 244
+"../../../Engine/Content/EditorSounds/Notifications/CompileStart_Cue.uasset" 245
+"../../../Engine/Content/EditorSounds/Notifications/CompileSuccess_Cue.uasset" 246
+"../../../Engine/Content/EngineDamageTypes/DmgTypeBP_Environmental.uasset" 247
+"../../../Engine/Content/EngineDebugMaterials/HeatmapGradient.uasset" 248
+"../../../Engine/Content/EngineDebugMaterials/BoneWeightMaterial.uasset" 249
+"../../../Engine/Content/EngineDebugMaterials/ClothMaterial.uasset" 250
+"../../../Engine/Content/EngineDebugMaterials/ClothMaterial_WF.uasset" 251
+"../../../Engine/Content/EngineDebugMaterials/DebugEditorMaterial.uasset" 252
+"../../../Engine/Content/EngineDebugMaterials/DebugMeshMaterial.uasset" 253
+"../../../Engine/Content/EngineDebugMaterials/GeomMaterial.uasset" 254
+"../../../Engine/Content/EngineDebugMaterials/M_SimpleTranslucent.uasset" 255
+"../../../Engine/Content/EngineFonts/Faces/RobotoBold.uasset" 256
+"../../../Engine/Content/EngineFonts/Faces/RobotoBoldItalic.uasset" 257
+"../../../Engine/Content/EngineFonts/Faces/RobotoItalic.uasset" 258
+"../../../Engine/Content/EngineFonts/Faces/RobotoLight.uasset" 259
+"../../../Engine/Content/EngineFonts/Faces/RobotoRegular.uasset" 260
+"../../../Engine/Content/EngineFonts/Roboto.uasset" 261
+"../../../Engine/Content/EngineFonts/Faces/RobotoTiny.uasset" 262
+"../../../Engine/Content/EngineFonts/RobotoTiny.uasset" 263
+"../../../Engine/Content/EngineMaterials/BaseFlattenDiffuseMap.uasset" 264
+"../../../Engine/Content/EngineMaterials/BaseFlattenEmissiveMap.uasset" 265
+"../../../Engine/Content/EngineMaterials/BaseFlattenGrayscaleMap.uasset" 266
+"../../../Engine/Content/EngineMaterials/BaseFlattenNormalMap.uasset" 267
+"../../../Engine/Content/EngineMaterials/BaseFlattenMaterial.uasset" 268
+"../../../Engine/Content/EngineMaterials/DefaultBloomKernel.uasset" 269
+"../../../Engine/Content/EngineMaterials/DefaultBokeh.uasset" 270
+"../../../Engine/Content/EngineMaterials/DefaultDiffuse.uasset" 271
+"../../../Engine/Content/EngineMaterials/DefaultDeferredDecalMaterial.uasset" 272
+"../../../Engine/Content/EngineMaterials/DefaultLightFunctionMaterial.uasset" 273
+"../../../Engine/Content/EngineMaterials/DefaultPhysicalMaterial.uasset" 274
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat2Components.uasset" 275
+"../../../Engine/Content/EngineMaterials/DefaultPostProcessMaterial.uasset" 276
+"../../../Engine/Content/EngineFonts/RobotoDistanceField.uasset" 277
+"../../../Engine/Content/EngineMaterials/DefaultTextMaterialOpaque.uasset" 278
+"../../../Engine/Content/EngineMaterials/DefaultWhiteGrid.uasset" 279
+"../../../Engine/Content/EngineMaterials/EditorBrushMaterial.uasset" 280
+"../../../Engine/Content/EngineMaterials/Good64x64TilingNoiseHighFreq.uasset" 281
+"../../../Engine/Content/EngineMaterials/MiniFont.uasset" 282
+"../../../Engine/Content/EngineMaterials/InvalidLightmapSettings.uasset" 283
+"../../../Engine/Content/EngineMaterials/M_InvalidLightmapSettings.uasset" 284
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/CameraOffset.uasset" 285
+"../../../Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset" 286
+"../../../Engine/Content/EngineMaterials/PreintegratedSkinBRDF.uasset" 287
+"../../../Engine/Content/EngineMaterials/RemoveSurfaceMaterial.uasset" 288
+"../../../Engine/Content/EngineMaterials/WeightMapPlaceholderTexture.uasset" 289
+"../../../Engine/Content/EngineResources/WhiteSquareTexture.uasset" 290
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough.uasset" 291
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Masked.uasset" 292
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Opaque.uasset" 293
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Masked_OneSided.uasset" 294
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Opaque_OneSided.uasset" 295
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Translucent.uasset" 296
+"../../../Engine/Content/EngineMaterials/Widget3DPassThrough_Translucent_OneSided.uasset" 297
+"../../../Engine/Content/EngineMeshes/Cylinder.uasset" 298
+"../../../Engine/Content/EngineMeshes/Sphere.uasset" 299
+"../../../Engine/Content/EngineResources/Black.uasset" 300
+"../../../Engine/Content/EngineResources/DefaultTexture.uasset" 301
+"../../../Engine/Content/EngineResources/DefaultTextureCube.uasset" 302
+"../../../Engine/Content/EngineResources/DefaultVolumeTexture2D.uasset" 303
+"../../../Engine/Content/EngineResources/DefaultVolumeTexture.uasset" 304
+"../../../Engine/Content/EngineResources/GradientTexture0.uasset" 305
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/ConvertFromDiffSpec.uasset" 306
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Shading/PowerToRoughness.uasset" 307
+"../../../Engine/Content/Maps/Templates/Thumbnails/Default.uasset" 308
+"../../../Engine/Content/Maps/Templates/Thumbnails/VR-Basic.uasset" 309
+"../../../Engine/Content/MobileResources/T_MobileControls_texture.uasset" 310
+"../../../Engine/Content/MobileResources/T_MobileMenu2.uasset" 311
+"../../../Engine/Content/MobileResources/HUD/AnalogHat.uasset" 312
+"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset" 313
+"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset" 314
+"../../../Engine/Content/MobileResources/HUD/DefaultVirtualJoysticks.uasset" 315
+"../../../Engine/Content/MobileResources/HUD/LeftVirtualJoystickOnly.uasset" 316
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_off.uasset" 317
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_on.uasset" 318
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_off.uasset" 319
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_on.uasset" 320
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton3.uasset" 321
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButtonFire.uasset" 322
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad.uasset" 323
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad2.uasset" 324
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad3.uasset" 325
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionStick.uasset" 326
+"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickInner.uasset" 327
+"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickOutter.uasset" 328
+"../../../Engine/Content/Tutorial/ContentIntroCurve.uasset" 329
+"../../../Engine/Content/Tutorial/Basics/LevelEditorAttract.uasset" 330
+"../../../Engine/Content/Tutorial/Basics/TutorialAssets/icon_tab_Levels_40x.uasset" 331
+"../../../Engine/Content/Tutorial/Basics/LevelEditorOverview.uasset" 332
+"../../../Engine/Content/Tutorial/BlueprintTutorials/TutorialAssets/Blueprint_64x.uasset" 333
+"../../../Engine/Content/Tutorial/BlueprintTutorials/BlueprintEditorTutorial.uasset" 334
+"../../../Engine/Content/VREditor/TransformGizmo/TransformGizmoMaterial.uasset" 335
+"../../../Engine/Content/VREditor/TransformGizmo/TranslucentTransformGizmoMaterial.uasset" 336
+"../../../Engine/Content/VREditor/TransformGizmo/BoundingBoxCorner.uasset" 337
+"../../../Engine/Content/VREditor/TransformGizmo/BoundingBoxEdge.uasset" 338
+"../../../Engine/Content/VREditor/TransformGizmo/PlaneTranslationHandle.uasset" 339
+"../../../Engine/Content/VREditor/TransformGizmo/Main.uasset" 340
+"../../../Engine/Content/VREditor/TransformGizmo/Xray.uasset" 341
+"../../../Engine/Content/VREditor/TransformGizmo/SM_Sequencer_Key.uasset" 342
+"../../../Engine/Content/VREditor/TransformGizmo/SM_Sequencer_Node.uasset" 343
+"../../Plugins/2D/Paper2D/Content/PlaceholderTextures/DummySpriteTexture.uasset" 344
+"../../Plugins/2D/Paper2D/Content/DummySprite.uasset" 345
+"../../Plugins/2D/Paper2D/Content/DefaultPaperTerrainMaterial.uasset" 346
+"../../Plugins/2D/Paper2D/Content/DummySpriteTexture.uasset" 347
+"../../Plugins/2D/Paper2D/Content/DefaultSpriteMaterial.uasset" 348
+"../../Plugins/2D/Paper2D/Content/MaskedUnlitSpriteMaterial.uasset" 349
+"../../Plugins/2D/Paper2D/Content/OpaqueUnlitSpriteMaterial.uasset" 350
+"../../Plugins/Runtime/Oculus/OculusVR/Content/OculusMR_RenderTarget.uasset" 351
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat4Components.uasset" 352
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.uasset" 353
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat3.uasset" 354
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey.uasset" 355
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey_Lit.uasset" 356
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_OpaqueColoredMaterial.uasset" 357
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_WhiteMaterial.uasset" 358
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/PokeAHoleMaterial.uasset" 359
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_AO.uasset" 360
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_Color.uasset" 361
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_Normal.uasset" 362
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/GearVRControllerMaterial.uasset" 363
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/GearVrController.uasset" 364
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/touchController_albedo.uasset" 365
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/touchController_controlmap.uasset" 366
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/touchController_mat.uasset" 367
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/LeftTouchController.uasset" 368
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/RiftHMD.uasset" 369
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/RightTouchController.uasset" 370
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/FogBrightnessLUT.uasset" 371
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/SunlightColorLUT.uasset" 372
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Arrows.uasset" 373
+"../../../Engine/Content/MapTemplates/Sky/DaylightAmbientCubemap.uasset" 374
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Master.uasset" 375
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Black.uasset" 376
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_HDRI.uasset" 377
+"../../../Engine/Content/EditorMaterials/Thumbnails/SkySphereMaterial.uasset" 378
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/Skybox.uasset" 379
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/SM_Arrows.uasset" 380
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" 381
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/BP_LightStudio.uasset" 382
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/Advanced_Lighting_BuiltData.uasset" 383
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_AssetPlatform.uasset" 384
+"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_ChromeBall.uasset" 385
+"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_ClearCoat.uasset" 386
+"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_ClearCoatBlack.uasset" 387
+"../../../Engine/Content/EditorMeshes/ColorCalibrator/Color_checker.uasset" 388
+"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_ColorGrid.uasset" 389
+"../../../Engine/Content/EditorMeshes/ColorCalibrator/M_GreyBall.uasset" 390
+"../../../Engine/Content/EditorMeshes/ColorCalibrator/SM_ColorCalibrator.uasset" 391
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/SM_AssetPlatform.uasset" 392
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/Advanced_Lighting.umap" 393
+"../../../Engine/Content/EngineSky/C_Sky_Cloud_Color.uasset" 394
+"../../../Engine/Content/EngineSky/C_Sky_Horizon_Color.uasset" 395
+"../../../Engine/Content/EngineSky/C_Sky_Zenith_Color.uasset" 396
+"../../../Engine/Content/EngineSky/T_Sky_Blue.uasset" 397
+"../../../Engine/Content/EngineSky/T_Sky_Clouds_M.uasset" 398
+"../../../Engine/Content/EngineSky/T_Sky_Stars.uasset" 399
+"../../../Engine/Content/EngineSky/M_Sky_Panning_Clouds2.uasset" 400
+"../../../Engine/Content/EngineSky/SM_SkySphere.uasset" 401
+"../../../Engine/Content/EngineSky/BP_Sky_Sphere.uasset" 402
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/Minimal_Default_BuiltData.uasset" 403
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_MacroVariation.uasset" 404
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Brushed_Nickel.uasset" 405
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Aluminum_D.uasset" 406
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Gold_N.uasset" 407
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Burnished_Steel.uasset" 408
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Copper_D.uasset" 409
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Copper.uasset" 410
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Statue_M.uasset" 411
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Statue_N.uasset" 412
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_StatueGlass.uasset" 413
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Floor_400x400.uasset" 414
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Background_Cue.uasset" 415
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Chair.uasset" 416
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Statue.uasset" 417
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Statue.uasset" 418
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_TableRound_M.uasset" 419
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_TableRound_N.uasset" 420
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_TableRound.uasset" 421
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_TableRound.uasset" 422
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/Minimal_Default.umap" 423
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Fire01_Cue.uasset" 424
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Fire_SubUV.uasset" 425
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Fire_Tiled_D.uasset" 426
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Fire_SubUV.uasset" 427
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Water_N.uasset" 428
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Heat_Distortion.uasset" 429
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Fire.uasset" 430
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Fire.uasset" 431
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Smoke01_Cue.uasset" 432
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Smoke.uasset" 433
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Smoke.uasset" 434
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Fire_Sparks01_Cue.uasset" 435
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Spark_Core.uasset" 436
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Spark.uasset" 437
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Sparks.uasset" 438
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Sparks.uasset" 439
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Steam01_Cue.uasset" 440
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Steam_Lit.uasset" 441
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_Effect_Steam.uasset" 442
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Lamp_M.uasset" 443
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Lamp_N.uasset" 444
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Lamp.uasset" 445
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Lamp_Ceiling.uasset" 446
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_CeilingLight.uasset" 447
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Lamp_Wall.uasset" 448
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_WallSconce.uasset" 449
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/StarterMap_BuiltData.uasset" 450
+"../../../Engine/Content/Functions/Engine_MaterialFunctions03/Procedurals/ComputeFilterWidth.uasset" 451
+"../../../Engine/Content/EngineMaterials/AntiAliasedTextMaterialTranslucent.uasset" 452
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_D.uasset" 453
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_M.uasset" 454
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_N.uasset" 455
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Clay_Beveled.uasset" 456
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_D.uasset" 457
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_M.uasset" 458
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_N.uasset" 459
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Clay_New.uasset" 460
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Old_D.uasset" 461
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Old_N.uasset" 462
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Perlin_Noise_M.uasset" 463
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Clay_Old.uasset" 464
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Cut_Stone_D.uasset" 465
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Cut_Stone_N.uasset" 466
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Cut_Stone.uasset" 467
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_D.uasset" 468
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_M.uasset" 469
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_N.uasset" 470
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Brick_Hewn_Stone.uasset" 471
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ceramic_Tile_M.uasset" 472
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ceramic_Tile_N.uasset" 473
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Marble_Polished_D.uasset" 474
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Ceramic_Tile_Checker.uasset" 475
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_D.uasset" 476
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_M.uasset" 477
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_N.uasset" 478
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_CobbleStone_Pebble.uasset" 479
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Rough_D.uasset" 480
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Rough_N.uasset" 481
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Gradinet_01.uasset" 482
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Smooth_Granite_D.uasset" 483
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_CobbleStone_Rough.uasset" 484
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_D.uasset" 485
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_M.uasset" 486
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_N.uasset" 487
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_CobbleStone_Smooth.uasset" 488
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Grime_D.uasset" 489
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Rust_N.uasset" 490
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Concrete_Grime.uasset" 491
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Panels_D.uasset" 492
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Panels_N.uasset" 493
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Concrete_Panels.uasset" 494
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Poured_D.uasset" 495
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Poured_N.uasset" 496
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Concrete_Poured.uasset" 497
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_D.uasset" 498
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_M.uasset" 499
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_N.uasset" 500
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_Variation_M.uasset" 501
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Concrete_Tiles.uasset" 502
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Grass_D.uasset" 503
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Grass_N.uasset" 504
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Ground_Grass.uasset" 505
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Gravel_D.uasset" 506
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Gravel_N.uasset" 507
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Ground_Gravel.uasset" 508
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_ground_Moss_D.uasset" 509
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Moss_N.uasset" 510
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Ground_Moss.uasset" 511
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Chrome.uasset" 512
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Gold_D.uasset" 513
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Gold.uasset" 514
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Rust_D.uasset" 515
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Rust.uasset" 516
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Steel_D.uasset" 517
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Steel_N.uasset" 518
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Metal_Steel.uasset" 519
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Basalt_N.uasset" 520
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Rock_Basalt.uasset" 521
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Rock_Marble_Polished.uasset" 522
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Sandstone_D.uasset" 523
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Sandstone_N.uasset" 524
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Rock_Sandstone.uasset" 525
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Slate_D.uasset" 526
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Slate_N.uasset" 527
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Rock_Slate.uasset" 528
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Checker_Noise_M.uasset" 529
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Single_Tile_N.uasset" 530
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Dot_M.uasset" 531
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Dot_N.uasset" 532
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Tech_Checker_Dot.uasset" 533
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Hex_Tile_M.uasset" 534
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Hex_Tile_N.uasset" 535
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Tech_Hex_Tile.uasset" 536
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Tech_Hex_Tile_Pulse.uasset" 537
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Panel_M.uasset" 538
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Panel_N.uasset" 539
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Tech_Panel.uasset" 540
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Water_Lake.uasset" 541
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Water_M.uasset" 542
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Water_Ocean.uasset" 543
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_D.uasset" 544
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_M.uasset" 545
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_N.uasset" 546
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Floor_Walnut_Polished.uasset" 547
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Opacity/AlphaOffset.uasset" 548
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Floor_Walnut_Worn.uasset" 549
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Oak_D.uasset" 550
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Oak_N.uasset" 551
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Oak.uasset" 552
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Pine_D.uasset" 553
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Pine_N.uasset" 554
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Pine.uasset" 555
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Walnut_D.uasset" 556
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Walnut_N.uasset" 557
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Wood_Walnut.uasset" 558
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_400x200.uasset" 559
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_Door_400x300.uasset" 560
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Architecture/Wall_Window_400x300.uasset" 561
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Collapse_Cue.uasset" 562
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Audio/Starter_Music_Cue.uasset" 563
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Dust_Particle_D.uasset" 564
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Dust_Particle.uasset" 565
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Ambient_Dust.uasset" 566
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/MaterialSphere.uasset" 567
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Frame_M.uasset" 568
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Frame_N.uasset" 569
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Frame.uasset" 570
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_CornerFrame.uasset" 571
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_DoorFrame.uasset" 572
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_GlassWindow.uasset" 573
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_PillarFrame.uasset" 574
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_PillarFrame300.uasset" 575
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_WindowFrame.uasset" 576
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Cube.uasset" 577
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_QuadPyramid.uasset" 578
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Shapes/Shape_Sphere.uasset" 579
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Maps/StarterMap.umap" 580
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyDeathSound2_Cue.uasset" 581
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyHitSound3_Cue.uasset" 582
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy1.uasset" 583
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.uasset" 584
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.uasset" 585
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_SparkParticle.uasset" 586
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BasicEnemyDown.uasset" 587
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_BasicEnemy.uasset" 588
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_CardinalEnemyDown.uasset" 589
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_CardinalEnemy.uasset" 590
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/WingMaterial.uasset" 591
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy3.uasset" 592
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_DashEnemyDown.uasset" 593
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_DashingEnemy.uasset" 594
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Enemy2SideMaterial.uasset" 595
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy2.uasset" 596
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_RedParticle.uasset" 597
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_RedEnemyDown.uasset" 598
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_RedEnemy.uasset" 599
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy5BodyMat.uasset" 600
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy5ArmMat.uasset" 601
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy5.uasset" 602
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SpinningEnemy.uasset" 603
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemySpawnPoint.uasset" 604
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemySpawnSystem.uasset" 605
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/3PointLevels.uasset" 606
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Skybox_Params.uasset" 607
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/SpacescapePurpleNebulaComplex.uasset" 608
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/SpaceSkyboxMaterial.uasset" 609
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/SpaceSkyboxMaterial_Inst.uasset" 610
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SpaceSkybox.uasset" 611
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/GameMapDataTable.uasset" 612
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/GameMap_BuiltData.uasset" 613
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/GroundTexture.uasset" 614
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGroundMaterial.uasset" 615
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGlassMaterial.uasset" 616
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGlassMaterial_Inst.uasset" 617
+"../../../Engine/Content/BasicShapes/Plane.uasset" 618
+"../../../Engine/Content/VREditor/Devices/Generic/GenericHMDMaterial.uasset" 619
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/LevelMesh.uasset" 620
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/GameMap.umap" 621
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/RotatingCameraPawn.uasset" 622
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/HiScoreUI.uasset" 623
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_MainMenuGameMode.uasset" 624
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Sequences/MainMenuSequence.uasset" 625
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/MainMenuMap_BuiltData.uasset" 626
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Loveshadow_-_SUPERPOWER__feat_Siobhan_Dakay_.uasset" 627
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Loveshadow_-_SUPERPOWER__feat_Siobhan_Dakay__Cue.uasset" 628
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/MainMenuMap.umap" 629
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/SpaceSkyboxMap.umap" 630
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox_Skeleton.uasset" 631
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox_Anim.uasset" 632
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/BurstSFX.uasset" 633
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/BurstSFX_Cue.uasset" 634
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerDeath.uasset" 635
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerDeath_Cue.uasset" 636
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/BodyMaterial.uasset" 637
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/BurstAttackRing.uasset" 638
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/BodyMaterial.uasset" 639
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/WingMaterial.uasset" 640
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWavePlayer.uasset" 641
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_SparkParticle_GreenInst.uasset" 642
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PlayerHitParticle2.uasset" 643
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BurstAttack.uasset" 644
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Audio/laserfire01.uasset" 645
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWavePawn.uasset" 646
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.uasset" 647
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CircularMeterMat.uasset" 648
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CircularMeterMat_Inst.uasset" 649
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveHUD.uasset" 650
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/LivesUI.uasset" 651
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/ScoreUI.uasset" 652
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/GameplayUI.uasset" 653
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Confirm.uasset" 654
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Confirm_Cue.uasset" 655
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Cursor.uasset" 656
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Cursor_Cue.uasset" 657
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/PauseUI.uasset" 658
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveGameMode.uasset" 659
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/TwinStickExampleMap_BuiltData.uasset" 660
+"../../../Engine/Content/BasicShapes/BasicShapeMaterial.uasset" 661
+"../../../Engine/Content/BasicShapes/Cube.uasset" 662
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/1M_Cube.uasset" 663
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/RedBoxEnemyMaterial.uasset" 664
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/RedBoxEnemyMaterial.uasset" 665
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox_PhysicsAsset.uasset" 666
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox.uasset" 667
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/TwinStickExampleMap.umap" 668
+"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 669
+"../../../Engine/Content/Maps/Entry.umap" 670
