@@ -23,6 +23,7 @@
 #include "Components/BoxComponent.h"
 #include "EnemyPawns/EnemyPawn.h"
 #include "Components/SphereComponent.h"
+#include "HiWaveGameState.h"
 #include <EngineGlobals.h>
 #include <Runtime/Engine/Classes/Engine/Engine.h>
 
@@ -158,6 +159,12 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 			bBurstAvailable = true;
 		}
 	}
+
+	if (hiWaveGameState == nullptr) {
+		hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+	}
+
+	hiWaveGameState->IncreaseMultiplier(-0.25*DeltaSeconds);
 }
 
 void AHiWavePawn::FireShot()

@@ -8,6 +8,7 @@
 #include "Particles/ParticleSystemComponent.h"
 #include "HiWavePawn.generated.h"
 
+class AHiWaveGameState;
 
 //Logging during game startup
 DECLARE_LOG_CATEGORY_EXTERN(LogPlayerDeath, Log, All);
@@ -120,7 +121,7 @@ public:
 	 */
 	UFUNCTION(Category = SpawnSystem, BlueprintCallable)
 	void DoDeathAndRespawn() const;
-	
+
 
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
@@ -202,6 +203,8 @@ private:
 
 	/* Is the game in pause state */
 	bool bIsPaused;
+
+	AHiWaveGameState* hiWaveGameState;
 
 public:
 	/** Returns ShipMeshComponent subobject **/

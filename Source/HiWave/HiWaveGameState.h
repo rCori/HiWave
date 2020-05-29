@@ -18,7 +18,16 @@ public:
 	UFUNCTION(BlueprintCallable)
 	int IncreasePlayerScore(int amount);
 
+	UFUNCTION(BlueprintCallable)
+	void IncreaseMultiplier(float amount);
+
+	UFUNCTION(BlueprintCallable)
+	float GetMultiplier();
+
 	UPROPERTY(BlueprintReadOnly)
 	int playerScore = 0;
+
+	UPROPERTY(BlueprintReadOnly)
+	float currentMultiplier = 1.0;
 
 };

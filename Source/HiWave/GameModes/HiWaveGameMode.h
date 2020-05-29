@@ -11,6 +11,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDestroyAndRespawnPlayer);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDestroyAllEnemies);
 
 class UUserWidget;
+class AHiWaveGameState;
 
 UCLASS(MinimalAPI)
 class AHiWaveGameMode : public AGameModeBase
@@ -18,6 +19,8 @@ class AHiWaveGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 	virtual void BeginPlay() override; //Override beginplay from the base class
+
+	
 
 public:
 	AHiWaveGameMode();
@@ -45,6 +48,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable, Category = "Spawning")
 	FOnDestroyAllEnemies OnDestroyAllEnemies;
+
 private:
 	bool bIsPaused;
 

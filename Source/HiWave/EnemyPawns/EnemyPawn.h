@@ -8,7 +8,10 @@
 #include "EnemyPawn.generated.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogEnemyPawn, Warning, All);
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEnemyDeathDelegate, FString, groupTag);
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnIncreaseMultiplierDelegate, float, amount);
 
 class UBehaviorTree;
 
@@ -79,6 +82,9 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = Delegates)
 	FOnEnemyDeathDelegate OnEnemyDeathDelegate;
 
+	UPROPERTY(BlueprintAssignable, Category = Delegates)
+	FOnIncreaseMultiplierDelegate OnIncreaseMultiplierDelegate;
+
 	UPROPERTY(EditDefaultsOnly, Category = Score)
 	int pointsAwarded;
 
@@ -103,5 +109,8 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
 	float speed;
+
+	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
+	float multiplierIncrease;
 
 };

@@ -9,6 +9,7 @@
 #include "EnemyPawns/EnemyPawn.h"
 #include "EnemySpawnSystem/EnemySpawnPoint.h"
 #include "GameModes/HiWaveGameMode.h"
+#include "HiWaveGameState.h"
 #include <string>
 
 //Logging for Critical Errors that must always be addressed
@@ -181,6 +182,8 @@ void AEnemySpawnSystem::SingleSpawnWave(const bool &canShuffleSpawnPoints, const
 		//Actually grab the AEnemySpawnPoint to use with getSpawner
 		AEnemySpawnPoint* spawnerToUse = SpawnerCollection[spawnPoints[spawnPointIndex]];
 
+		AHiWaveGameState* hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+
 		//AEnemySpawnPoint will allow us to spawn the enemy actor
 		APawn* pawn = spawnerToUse->DoEnemyPawnSpawn(enemy);
 		AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
@@ -191,6 +194,7 @@ void AEnemySpawnSystem::SingleSpawnWave(const bool &canShuffleSpawnPoints, const
 			//So far this is the best way I can  find to give enemies a callback for when they are destroyed. They all have the same event
 			//Later if we want different enemies to have different events this could be it's own small function
 			enemyPawn->OnEnemyDeathDelegate.AddDynamic(this, &AEnemySpawnSystem::EnemyPawnDeathEventCallback);
+			enemyPawn->OnIncreaseMultiplierDelegate.AddDynamic(hiWaveGameState, &AHiWaveGameState::IncreaseMultiplier);
 
 			//Each enemy is given a group. That group contains a count of how many in that group are left
 			//We need to have this because we want to know when all enemies from a group are destroyed.

@@ -13,6 +13,7 @@
 #include "Sound/SoundBase.h"
 #include "Kismet/GameplayStatics.h"
 #include "HiWaveGameInstance.h"
+#include "HiWaveGameState.h"
 
 // Sets default values
 AEnemyPawn::AEnemyPawn()
@@ -42,7 +43,6 @@ void AEnemyPawn::OnHitEffect_Implementation() {
 void AEnemyPawn::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -93,6 +93,9 @@ void AEnemyPawn::EnemyDeath() {
 	}
 
 	OnEnemyDeathDelegate.Broadcast(SpawningGroupTag);
+	if (damageRatio > 1.0) {
+		OnIncreaseMultiplierDelegate.Broadcast(multiplierIncrease);
+	}
 }
 
 void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
