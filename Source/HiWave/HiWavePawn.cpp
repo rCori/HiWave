@@ -44,11 +44,9 @@ AHiWavePawn::AHiWavePawn()
 	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
 	RootComponent = SphereComponent;
 	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
-	//SphereComponent->SetupAttachment(RootComponent);
 
 	// Create the mesh component
 	ShipMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-	//RootComponent = ShipMeshComponent;
 	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 	ShipMeshComponent->SetupAttachment(RootComponent);
 
@@ -84,6 +82,9 @@ AHiWavePawn::AHiWavePawn()
 	CurrentSpeed = FVector::ZeroVector;
 	burstProgress = 20.0f;
 	maxBurst = 20.0f;
+	multiplierDecayRate = -0.80;
+	multiplierPauseTime = 0.1f;
+	currentMultiplierDecayRate = multiplierDecayRate;
 
 }
 
@@ -164,7 +165,7 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 		hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	}
 
-	hiWaveGameState->IncreaseMultiplier(-0.25*DeltaSeconds);
+	hiWaveGameState->IncreaseMultiplier(currentMultiplierDecayRate*DeltaSeconds);
 }
 
 void AHiWavePawn::FireShot()
@@ -283,8 +284,25 @@ void AHiWavePawn::IncreaseBurst(float amount)
 	burstProgress += amount;
 }
 
+void AHiWavePawn::HaltMultiplierDecay()
+{
+	currentMultiplierDecayRate = 0.0;
+	//Clear the old timer
+	if (multiplierDecayResetHandle.IsValid()) {
+		GetWorld()->GetTimerManager().ClearTimer(multiplierDecayResetHandle);
+	}
+	//Start a timer to call RestartMultiplierDecay
+	multiplierDecayResetDelegate.BindUFunction(this, FName("RestartMultiplierDecay"));
+	GetWorld()->GetTimerManager().SetTimer(multiplierDecayResetHandle, multiplierDecayResetDelegate, multiplierPauseTime, false);
+
+}
+
+void AHiWavePawn::RestartMultiplierDecay()
+{
+	currentMultiplierDecayRate = multiplierDecayRate;
+}
+
 void AHiWavePawn::DoDeathAndRespawn() const {
-	UE_LOG(LogPlayerDeath, Warning, TEXT("[HiWavePawn] DoDeathAndRespawn"));
 	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
 }
 

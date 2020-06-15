@@ -6,7 +6,9 @@
 #include "GameFramework/Character.h"
 #include "Particles/ParticleSystem.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "TimerManager.h"
 #include "HiWavePawn.generated.h"
+
 
 class AHiWaveGameState;
 
@@ -91,11 +93,9 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void ExpandBurstComponent();
 
-
 	/* Overlap function for the burst collision */
 	UFUNCTION()
 	void OnBurstOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
 
 	/* Call when hit by the enemy */
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
@@ -113,6 +113,14 @@ public:
 	UFUNCTION(Category = Burst)
 	void IncreaseBurst(float amount);
 
+	/* Temporarily stop the multiplier value from decreasing */
+	UFUNCTION(Category = Gameplay)
+	void HaltMultiplierDecay();
+
+	/* continue multiplier being decayed */
+	UFUNCTION()
+	void RestartMultiplierDecay();
+
 	/* 
 	 * Called on a Timer from TakeHit()
 	 * All this does is get the game mode AHiWaveGameMode from the world and
@@ -121,7 +129,6 @@ public:
 	 */
 	UFUNCTION(Category = SpawnSystem, BlueprintCallable)
 	void DoDeathAndRespawn() const;
-
 
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
@@ -183,6 +190,14 @@ protected:
 	UPROPERTY(Category = Burst, EditDefaultsOnly, BlueprintReadOnly)
 	float maxBurst;
 
+	/* Multiplier decay rate */
+	UPROPERTY(Category = Burst, EditDefaultsOnly, BlueprintReadOnly)
+	float multiplierDecayRate;
+
+	/* Multiplier decay pause time */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	float multiplierPauseTime;
+
 private:
 
 	/* Only for internal use to point the player in the direction of the mouse */
@@ -192,11 +207,10 @@ private:
 	void HoldFire();
 	void ReleaseFire();
 
+
+
 	/* Modified by HoldFire() and ReleaseFire() which are bound to 'FireBinding' action */
 	bool bFireHeld;
-
-	
-
 
 	/* Keeps track of last shot fired. Once larger than fireRate player can shoot again. */
 	float fireTimer;
@@ -204,7 +218,13 @@ private:
 	/* Is the game in pause state */
 	bool bIsPaused;
 
+	/* current rate the multiplier is decaying at */
+	float currentMultiplierDecayRate;
+
 	AHiWaveGameState* hiWaveGameState;
+
+	FTimerDelegate multiplierDecayResetDelegate;
+	FTimerHandle multiplierDecayResetHandle;
 
 public:
 	/** Returns ShipMeshComponent subobject **/

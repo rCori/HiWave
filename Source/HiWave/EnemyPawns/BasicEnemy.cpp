@@ -19,14 +19,6 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
 
-	//Set the default AI controller class.
-	//When spawning use this->SpawnDefaultController()
-	//AIControllerClass = AEnemyAI::StaticClass();
-
-	//Assign bot behavior by grabbing the BehaviorTree object in content
-	//static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
-	//BotBehavior = BTob.Object;
-
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
@@ -36,6 +28,7 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	pointsAwarded = 10;
 	damageRatio = 1.0;
 	burstAwarded = 0.2;
+	damageRatioOnBurst = 2.0;
 }
 
 void ABasicEnemy::Tick(float DeltaTime)
@@ -73,7 +66,6 @@ void ABasicEnemy::EnemyDeath()
 		FQuat rotQuaternion = FQuat(rotation);
 		transform.SetRotation(rotQuaternion);
 		transform.SetScale3D(FVector::OneVector);
-		//spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
 		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
 		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
@@ -86,5 +78,5 @@ void ABasicEnemy::EnemyDeath()
 void ABasicEnemy::BurstOverlap()
 {
 	dynamicMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
-	damageRatio = 2.0;
+	Super::BurstOverlap();
 }

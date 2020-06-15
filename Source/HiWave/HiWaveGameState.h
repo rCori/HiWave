@@ -22,6 +22,9 @@ public:
 	void IncreaseMultiplier(float amount);
 
 	UFUNCTION(BlueprintCallable)
+	void ResetMultiplier();
+
+	UFUNCTION(BlueprintCallable)
 	float GetMultiplier();
 
 	UPROPERTY(BlueprintReadOnly)

@@ -24,19 +24,11 @@ AEnemyPawn::AEnemyPawn()
 	SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("HitDetection"));
 	SphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AEnemyPawn::OnOverlap);
 	RootComponent = SphereComponent;
-	//SphereComponent->SetupAttachment(RootComponent);
 
-	//static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	// Create the mesh component
 	StaticMeshComponentPtr = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	StaticMeshComponentPtr->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
-	//RootComponent = StaticMeshComponentPtr;
 	StaticMeshComponentPtr->SetupAttachment(RootComponent);
-
-	
-}
-
-void AEnemyPawn::OnHitEffect_Implementation() {
 }
 
 // Called when the game starts or when spawned
@@ -93,9 +85,21 @@ void AEnemyPawn::EnemyDeath() {
 	}
 
 	OnEnemyDeathDelegate.Broadcast(SpawningGroupTag);
+	//Damage ratio is over 1.0 if it has been hit with burst
 	if (damageRatio > 1.0) {
 		OnIncreaseMultiplierDelegate.Broadcast(multiplierIncrease);
+		//Stop the multiplier from couting down for awhile
+		if (hiWavePawn) {
+			hiWavePawn->HaltMultiplierDecay();
+		}
 	}
+}
+
+void AEnemyPawn::BurstOverlap() {
+	damageRatio = damageRatioOnBurst;
+}
+
+void AEnemyPawn::OnHitEffect_Implementation() {
 }
 
 void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
@@ -109,14 +113,6 @@ void AEnemyPawn::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AAct
 {
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
 	if (playerActor != NULL && OtherComp->ComponentHasTag("ShipMesh")) {
-		//UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn %s] OnOverlap"), *GetActorLabel());
-		/*
-		UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn] OverlappedComp->GetFName: %s"), *(OtherComp->GetFName().ToString()));
-		
-		for (FName tagName : OtherComp->ComponentTags) {
-			UE_LOG(LogPlayerDeath, Warning, TEXT("[AEnemyPawn] TagName: %s"), *(tagName.ToString()));
-		}
-		*/
 		playerActor->TakeHit();
 	}
 }

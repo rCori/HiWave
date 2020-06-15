@@ -7,7 +7,6 @@
 #include "CollidingPawnMovementComponent.h"
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
-//#include "EnemyAI/EnemyAI.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Math/UnrealMathUtility.h"
@@ -36,6 +35,7 @@ ASpinningEnemy::ASpinningEnemy() : AEnemyPawn() {
 	PrimaryActorTick.bCanEverTick = true;
 	circleNumber = 1.0;
 	rotationSpeed = 1.0;
+	damageRatioOnBurst = 2.0;
 }
 
 void ASpinningEnemy::Tick(float DeltaTime)
@@ -91,5 +91,5 @@ void ASpinningEnemy::EnemyDeath() {
 void ASpinningEnemy::BurstOverlap() {
 	dynamicBodyMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	dynamicArmMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
-	damageRatio = 2.0;
+	Super::BurstOverlap();
 }

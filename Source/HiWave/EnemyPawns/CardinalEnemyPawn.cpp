@@ -16,10 +16,6 @@ ACardinalEnemyPawn::ACardinalEnemyPawn() : AEnemyPawn() {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
 
-	//Assign bot behavior by grabbing the BehaviorTree object in content
-	//static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
-	//BotBehavior = BTob.Object;
-
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
@@ -32,6 +28,7 @@ ACardinalEnemyPawn::ACardinalEnemyPawn() : AEnemyPawn() {
 	movingStatus = 0;
 	rotationDegreesRemaining = 0.0;
 	timeToMove = 0.0;
+	damageRatioOnBurst = 2.0;
 	directionToRotate = FRotator::ZeroRotator;
 	currentDirection = ECurrentDirection::VE_Left;
 	nextDirection = ECurrentDirection::VE_Left;
@@ -186,7 +183,6 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 		directionToRotate.Yaw = rotationAmount;
 		AddActorLocalRotation(directionToRotate);
 		rotationDegreesRemaining -= rotationAmount;
-
 	}
 }
 
@@ -206,10 +202,10 @@ void ACardinalEnemyPawn::BeginPlay() {
 	staticMesh->SetMaterial(1, dynamicCockpitMaterial);
 
 	dynamicShipMaterial = UMaterialInstanceDynamic::Create(shipMaterial, NULL);
-	staticMesh->SetMaterial(1, dynamicShipMaterial);
+	staticMesh->SetMaterial(2, dynamicShipMaterial);
 
 	dynamicEngineMaterial = UMaterialInstanceDynamic::Create(engineMaterial, NULL);
-	staticMesh->SetMaterial(1, dynamicEngineMaterial);
+	staticMesh->SetMaterial(3, dynamicEngineMaterial);
 
 	Super::BeginPlay();
 }
@@ -235,6 +231,5 @@ void ACardinalEnemyPawn::BurstOverlap()
 	dynamicCockpitMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	dynamicShipMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	dynamicEngineMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
-	UE_LOG(LogTemp, Warning, TEXT("BurstOverlap on CardinalEnemy"));
-	damageRatio = 2.0;
+	Super::BurstOverlap();
 }

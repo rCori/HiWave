@@ -5,13 +5,12 @@
 
 int AHiWaveGameState::IncreasePlayerScore(int amount)
 {
-	playerScore += amount;
+	playerScore += FMath::FloorToInt(currentMultiplier) * amount;
 	return playerScore;
 }
 
 void AHiWaveGameState::IncreaseMultiplier(float amount)
 {
-	UE_LOG(LogTemp, Warning, TEXT("changing multiplier by: %f"), amount);
 	currentMultiplier += amount;
 	if (currentMultiplier >= 4.0) {
 		currentMultiplier = 4.0;
@@ -20,6 +19,11 @@ void AHiWaveGameState::IncreaseMultiplier(float amount)
 	if (currentMultiplier < 1.0) {
 		currentMultiplier = 1.0;
 	}
+}
+
+void AHiWaveGameState::ResetMultiplier()
+{
+	currentMultiplier = 1.0;
 }
 
 float AHiWaveGameState::GetMultiplier()

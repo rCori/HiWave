@@ -50,11 +50,9 @@ void AHiWaveGameMode::DestroyAndRespawnPlayer()
 
 	--playerLives;
 
+	AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (playerLives > 0) {
-
-		//FVector Location(-520.0f, 10.0f, 330.0f);
-		//FRotator Rotation(0.0f, 0.0f, 0.0f);
-
+		gameState->ResetMultiplier();
 		AActor* playerStart = K2_FindPlayerStart(playerController);
 		FActorSpawnParameters SpawnInfo;
 		SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
@@ -65,9 +63,7 @@ void AHiWaveGameMode::DestroyAndRespawnPlayer()
 			playerController->Possess(spawnedPlayer);
 		}
 	} else {
-		AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 		UHiWaveGameInstance *gameInstance = Cast<UHiWaveGameInstance>(GetWorld()->GetGameInstance());
-
 		if (gameState != nullptr && gameInstance != nullptr) {
 			gameInstance->SubmitHiScore(gameState->playerScore);
 		}

@@ -41,8 +41,6 @@ AHiWaveProjectile::AHiWaveProjectile()
 	ProjectileMovement->bShouldBounce = false;
 	ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
 
-	
-
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
 }
@@ -70,8 +68,6 @@ void AHiWaveProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, 
 			spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitSpark, transform, true, EPSCPoolMethod::AutoRelease);
 			spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		}
-
 	}
-
 	Destroy();
 }

@@ -20,18 +20,9 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
 	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
 
-	//Set the default AI controller class.
-	//When spawning use this->SpawnDefaultController()
-	//AIControllerClass = AEnemyAI::StaticClass();
-
-	//Assign bot behavior by grabbing the BehaviorTree object in content
-	//static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
-	//BotBehavior = BTob.Object;
-
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
-
 
 	gunOffset = FVector(90.0f, 100.0f, 0.0f);
 
@@ -49,6 +40,7 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	rotationSpeed = 200.0;
 	fireRate = 5.0;
 	fireTimer = 0.0;
+	damageRatioOnBurst = 2.0;
 
 	yawDifference = MAX_FLT;
 	bFacingPlayer = false;
@@ -89,10 +81,8 @@ void ARedEnemy::Tick(float DeltaTime)
 	fireTimer += DeltaTime;
 
 	if (fireTimer >= fireRate) {
-
 		//Get the rotation of the projectile
 		const FRotator FireRotation = GetActorRotation();
-
 		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(gunOffset);
 
 		//In order to spawn anything we need reference to the world
@@ -100,7 +90,6 @@ void ARedEnemy::Tick(float DeltaTime)
 		if (World != NULL)
 		{
 			// spawn the projectile
-			//World->SpawnActor<ARedEnemyProjectile>(SpawnLocation, FireRotation);
 			World->SpawnActor<AActor>(redEnemyProjectile, SpawnLocation, FireRotation);
 		}
 
@@ -145,6 +134,6 @@ void ARedEnemy::BurstOverlap()
 {
 	dynamicFrontMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	dynamicSideMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
-	damageRatio = 3.0;
+	Super::BurstOverlap();
 }
 

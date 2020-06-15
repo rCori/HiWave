@@ -15,14 +15,6 @@
 
 ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 
-	//Set the default AI controller class.
-	//When spawning use this->SpawnDefaultController()
-	//AIControllerClass = ADashingEnemyAI::StaticClass();
-
-	//Assign bot behavior by grabbing the BehaviorTree object in content
-	//static ConstructorHelpers::FObjectFinder<UBehaviorTree> BTob(TEXT("BehaviorTree'/Game/AI/EnemyPawnBT.EnemyPawnBT'"));
-	//BotBehavior = BTob.Object;
-
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
@@ -32,6 +24,7 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 	pointsAwarded = 50;
 	damageRatio = 1.0;
 	burstAwarded = 0.5;
+	damageRatioOnBurst = 1.5;
 }
 
 void ADashingEnemy::Tick(float DeltaTime)
@@ -116,5 +109,5 @@ void ADashingEnemy::BurstOverlap()
 	dynamicFrontMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	dynamicSideMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	dynamicEngineMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
-	damageRatio = 2.0;
+	Super::BurstOverlap();
 }

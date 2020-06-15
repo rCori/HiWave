@@ -45,7 +45,7 @@ public:
 	virtual void EnemyDeath();
 
 	UFUNCTION(BlueprintCallable)
-	virtual void BurstOverlap() {};
+	virtual void BurstOverlap();
 
 	UFUNCTION(BlueprintNativeEvent, meta = (DisplayName = "Make the enemy's material flash some color for a second on a timeline"))
 	void OnHitEffect();
@@ -104,8 +104,11 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
 	float health;
 
-	UPROPERTY(EditDefaultsOnly, Category = Burst)
+	UPROPERTY(BlueprintReadOnly, Category = Gameplay)
 	float damageRatio;
+
+	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
+	float damageRatioOnBurst;
 
 	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
 	float speed;
