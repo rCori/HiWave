@@ -14,12 +14,20 @@ AHiWavePlayerController::AHiWavePlayerController()
 //... custom code ...
 
 void AHiWavePlayerController::Tick(float DeltaTime) {
+	const float prevMouseX = mouseX;
+	const float prevMouseY = mouseY;
 	GetMousePosition(mouseX, mouseY);
 	APlayerController::Tick(DeltaTime);
+
+	bMouseIsMoving = !FMath::IsNearlyZero(prevMouseX - mouseX) || !FMath::IsNearlyZero(prevMouseY - mouseY);
+	//UE_LOG(LogTemp, Warning, TEXT("bMouseIsMoving %s"), bMouseIsMoving ? TEXT("True") : TEXT("False"));
 }
 
 void AHiWavePlayerController::BeginPlay() {
 	bShowMouseCursor = true;
+	FInputModeGameOnly inputMode;
+	inputMode.SetConsumeCaptureMouseDown(false);
+	SetInputMode(inputMode);
 }
 
 const float& AHiWavePlayerController::GetMouseLocationX() const {
@@ -28,4 +36,8 @@ const float& AHiWavePlayerController::GetMouseLocationX() const {
 
 const float& AHiWavePlayerController::GetMouseLocationY() const{
 	return mouseY;
+}
+
+const bool& AHiWavePlayerController::GetIsMouseMoving() const {
+	return bMouseIsMoving;
 }

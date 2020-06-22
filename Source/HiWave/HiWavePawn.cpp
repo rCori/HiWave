@@ -35,6 +35,10 @@ const FName AHiWavePawn::FireBinding("Fire");
 const FName AHiWavePawn::BurstBinding("Burst");
 const FName AHiWavePawn::PauseBinding("Pause");
 
+//Only used for gamepad controls
+const FName AHiWavePawn::AimForwardBinding("AimForward");
+const FName AHiWavePawn::AimRightBinding("AimRight");
+
 DEFINE_LOG_CATEGORY(LogPlayerDeath);
 
 AHiWavePawn::AHiWavePawn()
@@ -85,6 +89,8 @@ AHiWavePawn::AHiWavePawn()
 	multiplierDecayRate = -0.80;
 	multiplierPauseTime = 0.1f;
 	currentMultiplierDecayRate = multiplierDecayRate;
+	bCursorIsShowing = true;
+	currentRotation = GetActorRotation();
 
 }
 
@@ -95,6 +101,8 @@ void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	// set up gameplay key bindings
 	PlayerInputComponent->BindAxis(MoveForwardBinding);
 	PlayerInputComponent->BindAxis(MoveRightBinding);
+	PlayerInputComponent->BindAxis(AimForwardBinding);
+	PlayerInputComponent->BindAxis(AimRightBinding);
 	PlayerInputComponent->BindAction(FireBinding, IE_Pressed, this, &AHiWavePawn::HoldFire);
 	PlayerInputComponent->BindAction(FireBinding, IE_Released, this, &AHiWavePawn::ReleaseFire);
 	PlayerInputComponent->BindAction(BurstBinding, IE_Released, this, &AHiWavePawn::DoBurst);
@@ -104,6 +112,7 @@ void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 
 void AHiWavePawn::Tick(float DeltaSeconds)
 {
+
 	//Can't fire if you are dead
 	if (bIsDead) return;
 	// Find movement direction
@@ -126,20 +135,58 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 		CurrentSpeed = MoveDirection * MaxSpeed * DeltaSeconds;
 	}
 
-	FRotator NewRotation = RotateWithMouse();
-	RootComponent->SetRelativeRotation(NewRotation);
+	//Test to see if the mouse is moving
+	float mouseMoveX, mouseMoveY;
+	pc->GetInputMouseDelta(mouseMoveX, mouseMoveY);
+
+	//UE_LOG(LogTemp, Warning, TEXT("mouse move status (%f, %f)"), mouseMoveX, mouseMoveY);
+
+	float thumbstickForward = GetInputAxisValue(AimForwardBinding);
+	float thumbstickRight = GetInputAxisValue(AimRightBinding);
+
+	//UE_LOG(LogTemp, Warning, TEXT("Thumbstick status (%f, %f)"), thumbstickForward, thumbstickRight);
+
+	bool movingThumbstick = !(FMath::IsNearlyZero(GetInputAxisValue(AimForwardBinding)) && FMath::IsNearlyZero(GetInputAxisValue(AimRightBinding)));
+
+	//FRotator NewRotation;
+	if (movingThumbstick) {
+		//UE_LOG(LogTemp, Warning, TEXT("Moving thumbstick"));
+		currentRotation = RotateWithGamepad();
+		//RootComponent->SetRelativeRotation(currentRotation);
+		if (bCursorIsShowing) {
+			UE_LOG(LogTemp, Warning, TEXT("Hide mouse cursor"));
+			bCursorIsShowing = false;
+			pc->bShowMouseCursor = false;
+			FInputModeGameOnly inputMode;
+			inputMode.SetConsumeCaptureMouseDown(true);
+			pc->SetInputMode(inputMode);
+		}
+	} else if(pc->GetIsMouseMoving()) {
+		//UE_LOG(LogTemp, Warning, TEXT("Moving mouse"));
+		currentRotation = RotateWithMouse();
+		//RootComponent->SetRelativeRotation(currentRotation);
+		if (!bCursorIsShowing) {
+			UE_LOG(LogTemp, Warning, TEXT("Show mouse cursor"));
+			bCursorIsShowing = true;
+			pc->bShowMouseCursor = true;
+			FInputModeGameOnly inputMode;
+			inputMode.SetConsumeCaptureMouseDown(false);
+			pc->SetInputMode(inputMode);
+		}
+	}
+	RootComponent->SetRelativeRotation(currentRotation);
 
 	// If non-zero size, move this actor
 	if (CurrentSpeed.SizeSquared() > 0.0f)
 	{
 		FHitResult Hit(1.f);
-		RootComponent->MoveComponent(CurrentSpeed*DeltaSeconds, NewRotation, true, &Hit);
+		RootComponent->MoveComponent(CurrentSpeed*DeltaSeconds, currentRotation, true, &Hit);
 
 		if (Hit.IsValidBlockingHit())
 		{
 			const FVector Normal2D = Hit.Normal.GetSafeNormal2D();
 			const FVector Deflection = FVector::VectorPlaneProject(CurrentSpeed, Normal2D) * (1.f - Hit.Time);
-			RootComponent->MoveComponent(Deflection*DeltaSeconds, NewRotation, true);
+			RootComponent->MoveComponent(Deflection*DeltaSeconds, currentRotation, true);
 		}
 	}
 
@@ -310,12 +357,13 @@ void AHiWavePawn::BeginPlay()
 {	
 	burstComponentRelativeScale = BurstComponent->GetComponentScale();
 	BurstComponent->SetWorldScale3D(FVector::ZeroVector);
+	pc = Cast<AHiWavePlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
 	Super::BeginPlay();
 }
 
 
 const FRotator AHiWavePawn::RotateWithMouse() {
-	AHiWavePlayerController* pc = Cast<AHiWavePlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
+	//AHiWavePlayerController* pc = Cast<AHiWavePlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
 	FRotator newRotator;
 	if (pc != nullptr) {
 		FVector actorLocation = GetActorLocation();
@@ -349,5 +397,21 @@ const FRotator AHiWavePawn::RotateWithMouse() {
 	else {
 		newRotator = FRotator();
 	}
+	return newRotator;
+}
+
+
+const FRotator AHiWavePawn::RotateWithGamepad() {
+	FRotator newRotator;
+
+	const float ForwardValue = GetInputAxisValue(AimForwardBinding);
+	const float RightValue = GetInputAxisValue(AimRightBinding);
+
+	if (ForwardValue != 0.0f || RightValue != 0.0f) {
+		FVector newRotationVector = FVector(-ForwardValue, RightValue, 0.0f);
+		newRotator = newRotationVector.Rotation();
+	}
+
+	//newRotator = FRotator();
 	return newRotator;
 }

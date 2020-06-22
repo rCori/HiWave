@@ -11,6 +11,7 @@
 
 
 class AHiWaveGameState;
+class AHiWavePlayerController;
 
 //Logging during game startup
 DECLARE_LOG_CATEGORY_EXTERN(LogPlayerDeath, Log, All);
@@ -133,6 +134,8 @@ public:
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
 	static const FName MoveRightBinding;
+	static const FName AimForwardBinding;
+	static const FName AimRightBinding;
 	static const FName FireForwardBinding;
 	static const FName FireRightBinding;
 	static const FName FireBinding;
@@ -203,6 +206,9 @@ private:
 	/* Only for internal use to point the player in the direction of the mouse */
 	const FRotator RotateWithMouse();
 
+	/* POint the cursor with the gamepad right thumbstick */
+	const FRotator RotateWithGamepad();
+
 	/* Bound to pressing and releasing the 'FireBinding' action*/
 	void HoldFire();
 	void ReleaseFire();
@@ -218,13 +224,20 @@ private:
 	/* Is the game in pause state */
 	bool bIsPaused;
 
+	/* know if cursor is showing or not */
+	bool bCursorIsShowing;
+
 	/* current rate the multiplier is decaying at */
 	float currentMultiplierDecayRate;
 
 	AHiWaveGameState* hiWaveGameState;
 
+	AHiWavePlayerController* pc;
+
 	FTimerDelegate multiplierDecayResetDelegate;
 	FTimerHandle multiplierDecayResetHandle;
+
+	FRotator currentRotation;
 
 public:
 	/** Returns ShipMeshComponent subobject **/

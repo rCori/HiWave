@@ -22,17 +22,27 @@ private:
 	virtual void BeginPlay() override;
 
 	/* The X location in screen space of the mouse */
+	
 	UPROPERTY(Category = Gameplay, EditAnywhere)
 	float mouseX;
 
 	/* The Y location in screen space of the mouse */
 	UPROPERTY(Category = Gameplay, EditAnywhere)
 	float mouseY;
+	
+	UPROPERTY(Category = Gameplay, EditAnywhere)
+	bool bMouseIsMoving;
 
 public:
+	
 	UFUNCTION()
 	const float& GetMouseLocationX() const;
 
 	UFUNCTION()
 	const float& GetMouseLocationY() const;
+
+	UFUNCTION()
+	const bool& GetIsMouseMoving() const;
+
+
 };
