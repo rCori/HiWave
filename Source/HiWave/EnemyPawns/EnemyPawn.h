@@ -116,4 +116,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
 	float multiplierIncrease;
 
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<UCameraShake> EnemyDeathCameraShake;
+
+	UPROPERTY(BlueprintReadOnly)
+	APlayerCameraManager* cameraManager;
+
 };

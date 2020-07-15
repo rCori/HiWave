@@ -43,7 +43,6 @@ void AEnemySpawnSystem::BeginPlay()
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAllEnemies.AddDynamic(this, &AEnemySpawnSystem::ClearAllSpawnTimers);
 
 	}
-	//UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::BeginPlay"));
 	spawnTimerCollection = TArray<FTimerHandle>();
 }
 

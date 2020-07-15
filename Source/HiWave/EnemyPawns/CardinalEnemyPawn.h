@@ -72,6 +72,13 @@ private:
 	ECurrentDirection currentDirection;
 	ECurrentDirection nextDirection;
 
+	FVector newDirection;
+	FVector movementDirection;
+	float currentYaw;
+	float newDirX;
+	float newDirY;
+	float newRotationAmount;
+
 };
 
 

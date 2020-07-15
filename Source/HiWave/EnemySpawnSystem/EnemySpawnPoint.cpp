@@ -4,11 +4,15 @@
 #include "EnemySpawnPoint.h"
 #include "EnemyPawns/EnemyPawn.h"
 #include "Components/BoxComponent.h"
+#include "Components/AudioComponent.h"
+#include "Sound/SoundCue.h"
 #include "Engine/CollisionProfile.h"
+#include "Kismet/GameplayStatics.h"
 #include "TimerManager.h"
 #include "GameFramework/Pawn.h"
 #include "SpawnRowData.h"
 #include "HiWavePawn.h"
+
 
 // Sets default values
 AEnemySpawnPoint::AEnemySpawnPoint()
@@ -23,12 +27,19 @@ AEnemySpawnPoint::AEnemySpawnPoint()
 	BoxComponent->OnComponentBeginOverlap.AddDynamic(this, &AEnemySpawnPoint::OnOverlapBegin);
 	BoxComponent->OnComponentEndOverlap.AddDynamic(this, &AEnemySpawnPoint::OnOverlapEnd);
 
+	//Setup audio component
+	spawnAudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("SpawnSoundComponent"));
+	spawnAudioComponent->bAutoActivate = false;
+	spawnAudioComponent->AttachTo(RootComponent);
+	spawnAudioComponent->SetRelativeLocation(FVector::ZeroVector);
+
 }
 
 // Called when the game starts or when spawned
 void AEnemySpawnPoint::BeginPlay()
 {
 	Super::BeginPlay();
+	spawnAudioComponent->SetSound(SpawnSound);
 }
 
 // Called every frame
@@ -52,11 +63,6 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(EEnemyType enemyType)
 	//FVector extent = BoxComponent->GetScaledBoxExtent();
 	FVector origin = GetActorLocation();
 
-	//float xLoc = FMath::FRandRange(origin.X - (extent.X / 2.0f), origin.X + (extent.X / 2.0f));
-	//float yLoc = FMath::FRandRange(origin.Y - (extent.Y / 2.0f), origin.Y + (extent.Y / 2.0f));
-	//float zLoc = FMath::FRandRange(origin.Z - (extent.Z / 2.0f), origin.Z + (extent.Z / 2.0f));
-	//float zLoc = origin.Z;
-
 	//FVector actorSpawnLocation = FVector(xLoc, yLoc, zLoc);
 	FVector actorSpawnLocation = SpawnLocation + origin;
 
@@ -64,7 +70,6 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(EEnemyType enemyType)
 	FActorSpawnParameters ActorSpawnParameters;
 	ActorSpawnParameters.Owner = this;
 	ActorSpawnParameters.Instigator = Instigator;
-	//ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	if (GetWorld()) { 
 		//Spawn the enemy type passed at the location we got from the extent
@@ -73,8 +78,22 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(EEnemyType enemyType)
 			//This has our enemy AI actually possess the pawn. Otherwise it will have no AI.
 			//It uses the default for that pawn class so it works for all enemy types
 			spawnedActor->SpawnDefaultController();
+			//Play the particle animation
+			if (SpawnParticle != nullptr) {	
+				UE_LOG(LogTemp, Warning, TEXT("Spawn point particle play"));
+				FRotator rotation = FRotator::ZeroRotator;
+				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SpawnParticle, origin, rotation);
+			}
+			//Stop the spawn sound if it is playing
+			if (spawnAudioComponent->IsPlaying()) {
+				spawnAudioComponent->Stop();
+			}
+			//Play the spawn sound
+			spawnAudioComponent->Play();
 			return spawnedActor;
 		}
+		
+
 	}
 	//If the pointer to UWorld was null then this should return nullptr.
 	return nullptr;

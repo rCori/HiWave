@@ -12,10 +12,6 @@
 #include "Kismet/KismetMathLibrary.h"
 
 ACardinalEnemyPawn::ACardinalEnemyPawn() : AEnemyPawn() {
-	//Create the static mesh for this specific pawn
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
-	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
-
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
@@ -32,6 +28,8 @@ ACardinalEnemyPawn::ACardinalEnemyPawn() : AEnemyPawn() {
 	directionToRotate = FRotator::ZeroRotator;
 	currentDirection = ECurrentDirection::VE_Left;
 	nextDirection = ECurrentDirection::VE_Left;
+
+	currentYaw = 0.0;
 }
 
 
@@ -42,13 +40,12 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 		if (playerPawn == nullptr) return;
 	}
 
-	FVector newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+	newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
 	if (movingStatus == 0) {
-		float currentYaw = GetActorRotation().Yaw;
+		currentYaw = GetActorRotation().Yaw;
 		//Get which component difference is greater
-		float newDirX = UKismetMathLibrary::Abs(newDirection.X);
-		float newDirY = UKismetMathLibrary::Abs(newDirection.Y);
-		//ECurrentDirection canditateDirection;
+		newDirX = UKismetMathLibrary::Abs(newDirection.X);
+		newDirY = UKismetMathLibrary::Abs(newDirection.Y);
 		if (newDirX > newDirY) {
 			if (newDirection.X < 0) {
 				switch (currentDirection) {
@@ -64,7 +61,6 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 				default:
 					break;
 				}
-
 				nextDirection = ECurrentDirection::VE_Down;
 			}
 			else if(newDirection.X >= 0) {
@@ -124,7 +120,7 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 		//You will move if the nextDirection is equal to the current or the minimum time to move has not yet elapsed.
 		if (nextDirection == currentDirection || timeToMove < 0.3f) {
 			//Now we are moving for awhile
-			FVector movementDirection = FVector::ZeroVector;
+			movementDirection = FVector::ZeroVector;
 			switch (currentDirection) {
 			case ECurrentDirection::VE_Up:
 				movementDirection = FVector(1, 0, 0);
@@ -150,10 +146,9 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 	
 	//Moving status 1 means we are in the middle of rotation to our zRotationTarget
 	else if (movingStatus == 1) {
-		float rotationAmount = DeltaTime * 350.0f;
-		if (UKismetMathLibrary::Abs(rotationDegreesRemaining) < UKismetMathLibrary::Abs(rotationAmount)) {
-			rotationAmount = rotationDegreesRemaining;
-			//movingStatus = 2;
+		newRotationAmount = DeltaTime * 350.0f;
+		if (UKismetMathLibrary::Abs(rotationDegreesRemaining) < UKismetMathLibrary::Abs(newRotationAmount)) {
+			newRotationAmount = rotationDegreesRemaining;
 			movingStatus = 0;
 			currentDirection = nextDirection;
 			switch (currentDirection) {
@@ -177,12 +172,12 @@ void ACardinalEnemyPawn::Tick(float DeltaTime){
 			return;
 		}
 		if (rotationDegreesRemaining < 0) {
-			rotationAmount *= -1.0;
+			newRotationAmount *= -1.0;
 		}
 
-		directionToRotate.Yaw = rotationAmount;
+		directionToRotate.Yaw = newRotationAmount;
 		AddActorLocalRotation(directionToRotate);
-		rotationDegreesRemaining -= rotationAmount;
+		rotationDegreesRemaining -= newRotationAmount;
 	}
 }
 

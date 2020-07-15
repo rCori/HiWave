@@ -15,10 +15,6 @@
 #include "Materials/MaterialInstanceDynamic.h"
 
 ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
-	//Create the static mesh for this specific pawn
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
-	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
-
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;

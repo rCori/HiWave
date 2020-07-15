@@ -201,6 +201,9 @@ protected:
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
 	float multiplierPauseTime;
 
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<UCameraShake> PlayerDeathCameraShake;
+
 private:
 
 	/* Only for internal use to point the player in the direction of the mouse */
@@ -231,13 +234,11 @@ private:
 	float currentMultiplierDecayRate;
 
 	AHiWaveGameState* hiWaveGameState;
-
 	AHiWavePlayerController* pc;
-
 	FTimerDelegate multiplierDecayResetDelegate;
 	FTimerHandle multiplierDecayResetHandle;
-
 	FRotator currentRotation;
+	APlayerCameraManager* cameraManager;
 
 public:
 	/** Returns ShipMeshComponent subobject **/

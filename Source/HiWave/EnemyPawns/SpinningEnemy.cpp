@@ -45,15 +45,15 @@ void ASpinningEnemy::Tick(float DeltaTime)
 	if (circleCounter > 2.0 * PI) { 
 		circleCounter = (circleCounter - (2.0* PI));
 	}
-	float moveX = FMath::Cos(circleCounter);
-	float moveY = FMath::Sin(circleCounter);
+	moveX = FMath::Cos(circleCounter);
+	moveY = FMath::Sin(circleCounter);
 
-	FVector newMovementDirection = FVector(moveX, moveY, 0);
+	newMovementDirection = FVector(moveX, moveY, 0);
 
 	AddMovementInput(newMovementDirection, 1.0f);
 
-	FRotator NewRotation = FRotator(0.0f, rotationSpeed*DeltaTime, 0.0f);
-	FQuat QuatRotation = FQuat(NewRotation);
+	NewRotation = FRotator(0.0f, rotationSpeed*DeltaTime, 0.0f);
+	QuatRotation = FQuat(NewRotation);
 	AddActorLocalRotation(QuatRotation, false, 0, ETeleportType::None);
 }
 

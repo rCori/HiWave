@@ -88,13 +88,6 @@ public:
 	UFUNCTION()
 	void EnemyPawnDeathEventCallback(FString enemyTag);
 
-	/**
-	 * Used this function previously to test spawning enemies before we were reading from the DataTable
-	UFUNCTION(BlueprintCallable)
-	void DoDummySpawning();
-	*/
-
-
 
 protected:
 	// Called when the game starts or when spawned

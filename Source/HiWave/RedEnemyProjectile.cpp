@@ -32,22 +32,24 @@ ARedEnemyProjectile::ARedEnemyProjectile()
 	ProjectileMovement->bShouldBounce = false;
 	ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
 
-	// Die after 3 seconds by default
-	InitialLifeSpan = 90.0f;
-
+	lifespan = 2.0;
 }
 
 // Called when the game starts or when spawned
 void ARedEnemyProjectile::BeginPlay()
 {
 	Super::BeginPlay();
+	FTimerDelegate destroyTimerDelegate;
+	FTimerHandle destroyTimerHandle;
+	destroyTimerDelegate.BindUFunction(this, FName("DestroySelf"));
+
+	GetWorld()->GetTimerManager().SetTimer(destroyTimerHandle, destroyTimerDelegate, lifespan, false);
 }
 
 // Called every frame
 void ARedEnemyProjectile::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 
@@ -72,4 +74,8 @@ void ARedEnemyProjectile::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, A
 	if (enemy == nullptr) {
 		Destroy();
 	}
+}
+
+void ARedEnemyProjectile::DestroySelf() {
+	Destroy();
 }

@@ -65,4 +65,6 @@ private:
 	float fireTimer;
 
 	UClass *redEnemyProjectile;
+
+	UWorld* worldRef;
 };

@@ -25,8 +25,10 @@ void AHiWavePlayerController::Tick(float DeltaTime) {
 
 void AHiWavePlayerController::BeginPlay() {
 	bShowMouseCursor = true;
-	FInputModeGameOnly inputMode;
-	inputMode.SetConsumeCaptureMouseDown(false);
+	FInputModeGameAndUI inputMode;
+	//FInputModeGameOnly inputMode;
+	//inputMode.SetConsumeCaptureMouseDown(false);
+	inputMode.SetHideCursorDuringCapture(false);
 	SetInputMode(inputMode);
 }
 

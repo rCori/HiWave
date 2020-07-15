@@ -53,9 +53,17 @@ public:
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
 	float rotationSpeed;
 
+	
+
+private:
 	float arcCurrTime;
 	float arcTimer;
 	float circleCounter;
 	FVector currentMovementDirection;
 
+	float moveX;
+	float moveY;
+	FVector newMovementDirection;
+	FRotator NewRotation;
+	FQuat QuatRotation;
 };

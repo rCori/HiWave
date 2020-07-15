@@ -16,10 +16,6 @@
 #include "Kismet/KismetMathLibrary.h"
 
 ARedEnemy::ARedEnemy() : AEnemyPawn() {
-	//Create the static mesh for this specific pawn
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("/Game/TwinStick/Meshes/TwinStickUFO.TwinStickUFO"));
-	StaticMeshComponentPtr->SetStaticMesh(ShipMesh.Object);
-
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
@@ -86,11 +82,16 @@ void ARedEnemy::Tick(float DeltaTime)
 		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(gunOffset);
 
 		//In order to spawn anything we need reference to the world
-		UWorld* const World = GetWorld();
-		if (World != NULL)
+		if (worldRef == nullptr) {
+			worldRef = GetWorld();
+			if (worldRef == nullptr) return;
+		}
+
+		//rfUWorld* const World = GetWorld();
+		if (worldRef != NULL)
 		{
 			// spawn the projectile
-			World->SpawnActor<AActor>(redEnemyProjectile, SpawnLocation, FireRotation);
+			worldRef->SpawnActor<AActor>(redEnemyProjectile, SpawnLocation, FireRotation);
 		}
 
 		fireTimer = 0.0;

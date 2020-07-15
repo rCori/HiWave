@@ -35,6 +35,7 @@ AEnemyPawn::AEnemyPawn()
 void AEnemyPawn::BeginPlay()
 {
 	Super::BeginPlay();
+	cameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
 }
 
 // Called every frame
@@ -93,6 +94,9 @@ void AEnemyPawn::EnemyDeath() {
 			hiWavePawn->HaltMultiplierDecay();
 		}
 	}
+
+	//Play camera shake on enemy death
+	cameraManager->PlayCameraShake(EnemyDeathCameraShake, 1.0f);
 }
 
 void AEnemyPawn::BurstOverlap() {

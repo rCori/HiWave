@@ -41,8 +41,7 @@ public:
 	UFUNCTION()
 	const float& GetMouseLocationY() const;
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	const bool& GetIsMouseMoving() const;
-
 
 };

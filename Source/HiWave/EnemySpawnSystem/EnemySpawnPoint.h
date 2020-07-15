@@ -10,6 +10,9 @@
 class UBoxComponent;
 class APawn;
 class AEnemyPawn;
+class UParticleSystem;
+class UAudioComponent;
+class USoundCue;
 
 UCLASS()
 class HIWAVE_API AEnemySpawnPoint : public AActor
@@ -62,8 +65,18 @@ public:
 	UPROPERTY(EditAnywhere)
 	TArray<AEnemySpawnPoint*> NeighborSpawnPoints;
 
+	/* A particle system to play when an enemy spawns */
+	UPROPERTY(EditDefaultsOnly)
+	UParticleSystem* SpawnParticle;
+
+	/* A sound to play when an enemy spawns */
+	UPROPERTY(EditDefaultsOnly)
+	USoundCue* SpawnSound;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+private:
+	UAudioComponent* spawnAudioComponent;
 };
