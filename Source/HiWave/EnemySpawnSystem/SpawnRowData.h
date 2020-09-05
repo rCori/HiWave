@@ -27,6 +27,7 @@ enum class EEnemyType : uint8
 	VE_DashingPawn	UMETA(DisplayName = "DashingPawn"),
 	VE_SpinningPawn UMETA(DisplayName = "SpinningPawn"),
 	VE_CardinalPawn	UMETA(DisplayName = "CardinalPawn"),
+	VE_XPawn		UMETA(DisplayName = "XPawn"),
 
 };
 

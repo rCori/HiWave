@@ -53,6 +53,10 @@ public:
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* BurstSound;
 
+	/** Sound to play when current life starts */
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+	class USoundBase* PlayerSpawnSound;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Mesh)
 	class USphereComponent* SphereComponent;
 
@@ -215,8 +219,6 @@ private:
 	/* Bound to pressing and releasing the 'FireBinding' action*/
 	void HoldFire();
 	void ReleaseFire();
-
-
 
 	/* Modified by HoldFire() and ReleaseFire() which are bound to 'FireBinding' action */
 	bool bFireHeld;

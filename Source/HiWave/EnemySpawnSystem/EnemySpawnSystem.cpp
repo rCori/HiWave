@@ -34,7 +34,6 @@ void AEnemySpawnSystem::BeginPlay()
 	Super::BeginPlay();
 	WaveQueueRandomized = false;
 	//Dummy spawning turned off to test "real" spawning from data table configuration
-	//DoDummySpawning();
 	if (SpawningDataTable != nullptr) {
 		WaveQueue.Add(InitialSpawnWave);
 		SpawnFromDatatable();

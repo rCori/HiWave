@@ -101,6 +101,12 @@ void AHiWavePawn::BeginPlay()
 	BurstComponent->SetWorldScale3D(FVector::ZeroVector);
 	pc = Cast<AHiWavePlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
 	cameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
+
+	//Play spawning sound
+	if (PlayerSpawnSound != nullptr) {
+		UGameplayStatics::PlaySoundAtLocation(this, PlayerSpawnSound, GetActorLocation());
+	}
+
 	Super::BeginPlay();
 }
 
