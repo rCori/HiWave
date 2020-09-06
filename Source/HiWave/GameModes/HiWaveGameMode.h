@@ -34,6 +34,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OpenPauseMenu();
 
+	UFUNCTION(BlueprintCallable)
+	void RestartGame();
+
+	UFUNCTION(BlueprintCallable)
+	void PlayerDeath();
+
 	UPROPERTY(BlueprintReadWrite)
 	int playerLives;
 
@@ -43,6 +49,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
 	TSubclassOf<UUserWidget> PauseWidgetClass;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
+	TSubclassOf<UUserWidget> PlayerDeathWidgetClass;
+
 	UPROPERTY(BlueprintAssignable, Category = "Spawning")
 	FOnDestroyAndRespawnPlayer OnDestroyAndRespawnPlayer;
 
@@ -51,6 +60,7 @@ public:
 
 private:
 	bool bIsPaused;
+	bool bIsDead;
 
 	UUserWidget* PauseWidget;
 };

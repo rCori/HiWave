@@ -13,6 +13,7 @@
 void AHiWaveGameMode::BeginPlay()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	bIsDead = false;
 	UUserWidget* GameplayWidget = CreateWidget<UUserWidget>(GetWorld(), GameplayWidgetClass);
 	if (GameplayWidget != nullptr)
 	{
@@ -108,5 +109,21 @@ void AHiWaveGameMode::OpenPauseMenu() {
 			PauseWidget->RemoveFromViewport();
 		}
 		UGameplayStatics::SetGamePaused(GetWorld(), false);
+	}
+}
+
+
+void AHiWaveGameMode::RestartGame() {
+	if (bIsDead) {
+		UGameplayStatics::OpenLevel(GetWorld(), "GameMap");
+	}
+}
+
+void AHiWaveGameMode::PlayerDeath(){
+	bIsDead = true;
+	UUserWidget* PlayerDeathWidget = CreateWidget<UUserWidget>(GetWorld(), PlayerDeathWidgetClass);
+	if (PlayerDeathWidget != nullptr)
+	{
+		PlayerDeathWidget->AddToViewport();
 	}
 }

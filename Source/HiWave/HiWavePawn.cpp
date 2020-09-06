@@ -35,6 +35,7 @@ const FName AHiWavePawn::FireRightBinding("FireRight");
 const FName AHiWavePawn::FireBinding("Fire");
 const FName AHiWavePawn::BurstBinding("Burst");
 const FName AHiWavePawn::PauseBinding("Pause");
+const FName AHiWavePawn::RestartBinding("Restart");
 
 //Only used for gamepad controls
 const FName AHiWavePawn::AimForwardBinding("AimForward");
@@ -123,6 +124,7 @@ void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAction(FireBinding, IE_Released, this, &AHiWavePawn::ReleaseFire);
 	PlayerInputComponent->BindAction(BurstBinding, IE_Released, this, &AHiWavePawn::DoBurst);
 	PlayerInputComponent->BindAction(PauseBinding, IE_Pressed, this, &AHiWavePawn::PauseFunction);
+	PlayerInputComponent->BindAction(RestartBinding, IE_Pressed, this, &AHiWavePawn::RestartFunction);
 
 }
 
@@ -272,6 +274,10 @@ void AHiWavePawn::PauseFunction() {
 	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OpenPauseMenu();
 }
 
+void AHiWavePawn::RestartFunction() {
+	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->RestartGame();
+}
+
 void AHiWavePawn::OnBurstOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
 	AEnemyPawn *enemyPawn = Cast<AEnemyPawn>(OtherActor);
@@ -289,6 +295,20 @@ void AHiWavePawn::ReleaseFire() {
 	bFireHeld = false;
 }
 
+
+void AHiWavePawn::TakeHit() {
+	//Turn off collision
+	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	ShipMeshComponent->SetVisibility(false);
+
+	//The player is dead so show the screen to restart
+	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->PlayerDeath();
+
+	//Play player death camera shake
+	cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);
+}
+
+/*
 void AHiWavePawn::TakeHit() {
 
 	//Turn off collision
@@ -318,6 +338,7 @@ void AHiWavePawn::TakeHit() {
 	//Play player death camera shake
 	cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);
 }
+*/
 
 void AHiWavePawn::ResetBurstCollision()
 {	
@@ -355,8 +376,6 @@ void AHiWavePawn::RestartMultiplierDecay()
 void AHiWavePawn::DoDeathAndRespawn() const {
 	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
 }
-
-
 
 
 const FRotator AHiWavePawn::RotateWithMouse() {

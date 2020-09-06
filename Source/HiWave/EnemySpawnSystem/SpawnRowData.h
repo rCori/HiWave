@@ -34,13 +34,6 @@ enum class EEnemyType : uint8
 UENUM(BlueprintType)		//"BlueprintType" is essential to include
 enum class ESpawnPoints : uint8
 {
-	VE_Left1 	UMETA(DisplayName = "Left1"),
-	VE_Left2 	UMETA(DisplayName = "Left2"),
-	VE_Left3 	UMETA(DisplayName = "Left3"),
-	VE_Right1 	UMETA(DisplayName = "Right1"),
-	VE_Right2 	UMETA(DisplayName = "Right2"),
-	VE_Right3 	UMETA(DisplayName = "Right3"),
-
 	VE_00		UMETA(DisplayName = "[0,0]"),
 	VE_10		UMETA(DisplayName = "[1,0]"),
 	VE_20		UMETA(DisplayName = "[2,0]"),
@@ -136,5 +129,8 @@ public:
 	int spawnCount;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool incraseDifficulty;
+	bool increaseDifficulty;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool lastWave;
 };

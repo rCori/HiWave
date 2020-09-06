@@ -25,6 +25,7 @@ AEnemySpawnSystem::AEnemySpawnSystem()
 	difficultyIncrease = 0;
 	spawnTimerDecrease = 0.0;
 	spawnCountIncrease = 0;
+	currentChapter = 0;
 
 }
 
@@ -33,9 +34,11 @@ void AEnemySpawnSystem::BeginPlay()
 {
 	Super::BeginPlay();
 	WaveQueueRandomized = false;
+	ChangeChapters(0);
 	//Dummy spawning turned off to test "real" spawning from data table configuration
-	if (SpawningDataTable != nullptr) {
-		WaveQueue.Add(InitialSpawnWave);
+	//if (SpawningDataTable != nullptr) {
+	if (CurrentSpawningDataTable != nullptr) {
+		//WaveQueue.Add(InitialSpawnWave);
 		SpawnFromDatatable();
 
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
@@ -54,6 +57,7 @@ void AEnemySpawnSystem::Tick(float DeltaTime)
 
 void AEnemySpawnSystem::SpawnFromDatatable()
 {
+	UE_LOG(LogSpawnSystem, Warning, TEXT("SpawnFromDatatable"));
 	//If we have nothing to spawn then just return
 	if (WaveQueue.Num() == 0) return;
 	int indexToGet = 0;
@@ -78,7 +82,8 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	LastWaveSpawned = rowName;
 
 	//Get the actual data table row we care about
-	FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*rowName), TEXT(""), true);
+	//FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*rowName), TEXT(""), true);
+	FSpawnRowData* spawnRowData = CurrentSpawningDataTable->FindRow<FSpawnRowData>(FName(*rowName), TEXT(""), true);
 
 	//Find the new name
 	const FString groupName = createNewGroupNameForWave(rowName);
@@ -161,8 +166,11 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	}
 
 	//If this wave was set to increase the difficulty, we must apply that difficulty increase
-	if (spawnRowData->incraseDifficulty) {
+	if (spawnRowData->increaseDifficulty) {
 		increaseGameDifficulty();
+	}
+	//If this wave was the last one for this chapter, go to the next chapter
+	if (spawnRowData->lastWave) {
 	}
 }
 
@@ -245,7 +253,8 @@ void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)
 		//UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::EnemyPawnDeathEventCallback(%s). There are now only %d enemies left in that group"), *enemyTag, EnemyGroupCounter[enemyTag]);
 		if (EnemyGroupCounter[enemyTag] == 0) {
 			const FString waveName = getWaveNameFromGroupTag(enemyTag);
-			FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*waveName), TEXT(""), true);
+			//FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*waveName), TEXT(""), true);
+			FSpawnRowData* spawnRowData = CurrentSpawningDataTable->FindRow<FSpawnRowData>(FName(*waveName), TEXT(""), true);
 			if (spawnRowData->nextSpawnTiming == ENextSpawnTiming::VE_AfterClear) {
 				SpawnFromDatatable();
 			}
@@ -254,6 +263,20 @@ void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)
 	else {
 		//We need a special kind of log if this happens. Not sure if this will cause issues down the line but looks potentially problematic.
 		UE_LOG(LogSpawnSystem, Log, TEXT("EnemyPawnDeathEventCallback called on non-existant tag"));
+	}
+}
+
+void AEnemySpawnSystem::ChangeChapters(int chapterIndex) {
+	FString chapterTitle = ChapterOrder[chapterIndex];
+	UDataTable* spawningDataTable = SpawnChapters[chapterTitle];
+	UE_LOG(LogSpawnSystem, Warning, TEXT("ChangeChapters"));
+	UE_LOG(LogSpawnSystem, Warning, TEXT("Chapter Title: %s") , *chapterTitle);
+	if (spawningDataTable != nullptr) {
+		currentChapter = chapterIndex;
+		CurrentSpawningDataTable = spawningDataTable;
+		UE_LOG(LogSpawnSystem, Warning, TEXT("CurrentSpawningDataTable is changing"));
+		WaveQueue.Empty();
+		WaveQueue.Add(InitialSpawnWave);
 	}
 }
 

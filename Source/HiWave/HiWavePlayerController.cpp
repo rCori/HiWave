@@ -20,14 +20,11 @@ void AHiWavePlayerController::Tick(float DeltaTime) {
 	APlayerController::Tick(DeltaTime);
 
 	bMouseIsMoving = !FMath::IsNearlyZero(prevMouseX - mouseX) || !FMath::IsNearlyZero(prevMouseY - mouseY);
-	//UE_LOG(LogTemp, Warning, TEXT("bMouseIsMoving %s"), bMouseIsMoving ? TEXT("True") : TEXT("False"));
 }
 
 void AHiWavePlayerController::BeginPlay() {
 	bShowMouseCursor = true;
 	FInputModeGameAndUI inputMode;
-	//FInputModeGameOnly inputMode;
-	//inputMode.SetConsumeCaptureMouseDown(false);
 	inputMode.SetHideCursorDuringCapture(false);
 	SetInputMode(inputMode);
 }

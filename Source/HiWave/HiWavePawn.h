@@ -95,6 +95,10 @@ public:
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void PauseFunction();
 
+	/* Restart the game if the player is dead*/
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	void RestartFunction();
+
 	UFUNCTION(BlueprintImplementableEvent)
 	void ExpandBurstComponent();
 
@@ -145,6 +149,7 @@ public:
 	static const FName FireBinding;
 	static const FName BurstBinding;
 	static const FName PauseBinding;
+	static const FName RestartBinding;
 
 protected:
 

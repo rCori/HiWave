@@ -28,6 +28,12 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
 	class UDataTable* SpawningDataTable;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
+	TMap<FString, class UDataTable*> SpawnChapters;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
+	TArray<FString> ChapterOrder;
+
 	/* This points to the DataTable we are going to base our spawns off of */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
 	TMap<ESpawnPoints, AEnemySpawnPoint*> SpawnerCollection;
@@ -88,6 +94,8 @@ public:
 	UFUNCTION()
 	void EnemyPawnDeathEventCallback(FString enemyTag);
 
+	UFUNCTION()
+	void ChangeChapters(int chapterIndex);
 
 protected:
 	// Called when the game starts or when spawned
@@ -107,7 +115,11 @@ private:
 	/* Add a constant factor of increased difficulty to the game by tweaking the spawns */
 	void increaseGameDifficulty();
 
+	/* The current chapter of spawns */
+	class UDataTable* CurrentSpawningDataTable;
+
 	int difficultyIncrease;
 	float spawnTimerDecrease;
 	int spawnCountIncrease;
+	int currentChapter;
 };
