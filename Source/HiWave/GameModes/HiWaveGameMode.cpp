@@ -121,6 +121,7 @@ void AHiWaveGameMode::RestartGame() {
 
 void AHiWaveGameMode::PlayerDeath(){
 	bIsDead = true;
+
 	UUserWidget* PlayerDeathWidget = CreateWidget<UUserWidget>(GetWorld(), PlayerDeathWidgetClass);
 	if (PlayerDeathWidget != nullptr)
 	{

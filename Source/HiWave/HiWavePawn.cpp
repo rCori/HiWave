@@ -297,12 +297,24 @@ void AHiWavePawn::ReleaseFire() {
 
 
 void AHiWavePawn::TakeHit() {
+	//Prevent movement and shooting
+	bIsDead = true;
 	//Turn off collision
 	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 	ShipMeshComponent->SetVisibility(false);
 
 	//The player is dead so show the screen to restart
 	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->PlayerDeath();
+
+	//Spawn the death particle
+	if (HitParticle != nullptr) {
+		FRotator rotation = FRotator::ZeroRotator;
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+	}
+
+	if (DeathSound != nullptr) {
+		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
+	}
 
 	//Play player death camera shake
 	cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);

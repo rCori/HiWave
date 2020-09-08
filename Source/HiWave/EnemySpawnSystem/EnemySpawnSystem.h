@@ -110,7 +110,10 @@ private:
 	const FString createNewGroupNameForWave(FString rowName) const;
 
 	/* Does the reverse of what createNewGroupNameForWave does */
-	const FString getWaveNameFromGroupTag(FString groupName) const;
+	//const FString getWaveNameFromGroupTag(FString groupName) const;
+
+	/* With the multi chapter approach we need to be able to get full spawn data and not just the name */
+	const FSpawnRowData& getSpawnRowFromGroupTag(const FString &groupName) const;
 
 	/* Add a constant factor of increased difficulty to the game by tweaking the spawns */
 	void increaseGameDifficulty();
