@@ -30,7 +30,7 @@ AEnemySpawnPoint::AEnemySpawnPoint()
 	//Setup audio component
 	spawnAudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("SpawnSoundComponent"));
 	spawnAudioComponent->bAutoActivate = false;
-	spawnAudioComponent->AttachTo(RootComponent);
+	spawnAudioComponent->AttachToComponent(RootComponent,FAttachmentTransformRules::KeepWorldTransform);
 	spawnAudioComponent->SetRelativeLocation(FVector::ZeroVector);
 
 }
@@ -80,7 +80,6 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(EEnemyType enemyType)
 			spawnedActor->SpawnDefaultController();
 			//Play the particle animation
 			if (SpawnParticle != nullptr) {	
-				UE_LOG(LogTemp, Warning, TEXT("Spawn point particle play"));
 				FRotator rotation = FRotator::ZeroRotator;
 				UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), SpawnParticle, origin, rotation);
 			}
