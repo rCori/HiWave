@@ -4,14 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "PoolableActor.h"
 #include "HiWaveProjectile.generated.h"
 
 class UProjectileMovementComponent;
 class UStaticMeshComponent;
 class UParticleSystemComponent;
 
-UCLASS(config=Game)
-class AHiWaveProjectile : public AActor
+UCLASS(config = Game)
+class AHiWaveProjectile : public APoolableActor
 {
 	GENERATED_BODY()
 
@@ -30,6 +31,9 @@ public:
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
+	UFUNCTION()
+	void OnStop(const FHitResult& Hit);
+
 	/** Returns ProjectileMesh subobject **/
 	FORCEINLINE UStaticMeshComponent* GetProjectileMesh() const { return ProjectileMesh; }
 	/** Returns ProjectileMovement subobject **/
@@ -43,5 +47,7 @@ public:
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	UParticleSystemComponent* spawnedParticle;
 
+	virtual void SetActive(bool IsActive) override;
+	void SetLocationAndRotation(FVector location, FRotator rotation);
 };
 

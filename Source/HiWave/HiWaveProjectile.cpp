@@ -37,9 +37,10 @@ AHiWaveProjectile::AHiWaveProjectile()
 	ProjectileMovement->UpdatedComponent = ProjectileMesh;
 	ProjectileMovement->InitialSpeed = 3000.f;
 	ProjectileMovement->MaxSpeed = 3000.f;
-	ProjectileMovement->bRotationFollowsVelocity = true;
+	ProjectileMovement->bRotationFollowsVelocity = false;
 	ProjectileMovement->bShouldBounce = false;
 	ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
+	ProjectileMovement->OnProjectileStop.AddDynamic(this, &AHiWaveProjectile::OnStop);
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
@@ -69,5 +70,44 @@ void AHiWaveProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, 
 			spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		}
 	}
-	Destroy();
+	//Destroy();
+	Deactivate();
+}
+
+void AHiWaveProjectile::OnStop(const FHitResult & Hit)
+{
+	ProjectileMovement->SetUpdatedComponent(ProjectileMesh);
+	ProjectileMovement->Velocity = FVector(0.0f, 0.0f, 0.0f);
+	ProjectileMovement->UpdateComponentVelocity();
+}
+
+void AHiWaveProjectile::SetActive(bool IsActive)
+{
+	Super::SetActive(IsActive);
+	
+	if (IsActive) {
+		ProjectileMovement->InitialSpeed = 3000.f;
+		ProjectileMovement->MaxSpeed = 3000.f;
+		SetLifeSpan(Lifespan);
+	}
+	else {
+		//SetActorHiddenInGame(true);
+		GetRootComponent()->SetVisibility(false);
+		SetActorLocation(FVector(0.0, 0.0, 2000.0));
+		SetActorRotation(FRotator::ZeroRotator);
+		ProjectileMovement->InitialSpeed = 0;
+		ProjectileMovement->MaxSpeed = 0;
+		ProjectileMovement->Velocity = FVector::ZeroVector;
+	}
+}
+
+void AHiWaveProjectile::SetLocationAndRotation(FVector location, FRotator rotation)
+{
+	SetActorRotation(rotation);
+	SetActorLocation(location);
+	ProjectileMovement->InitialSpeed = 3000.f;
+	ProjectileMovement->MaxSpeed = 3000.f;
+	ProjectileMovement->Velocity = rotation.RotateVector(FVector::ForwardVector).GetSafeNormal() * 3000.f;
+	//SetActorHiddenInGame(false);
+	GetRootComponent()->SetVisibility(true);
 }

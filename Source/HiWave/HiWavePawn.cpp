@@ -4,6 +4,9 @@
 #include "HiWaveProjectile.h"
 #include "HiWavePlayerController.h"
 #include "GameModes/HiWaveGameMode.h"
+#include "PoolableActor.h"
+#include "PoolableTypes.h"
+#include "ItemPool.h"
 
 #include "TimerManager.h"
 #include "UObject/ConstructorHelpers.h"
@@ -232,11 +235,25 @@ void AHiWavePawn::FireShot()
 		// Spawn projectile at an offset from this pawn
 		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
 
+		/*
 		UWorld* const World = GetWorld();
 		if (World != NULL)
 		{
 			// spawn the projectile
 			World->SpawnActor<AHiWaveProjectile>(SpawnLocation, FireRotation);
+		}
+		*/
+
+		if (bulletPool == nullptr) {
+			TArray<AActor*> FoundActors;
+			UGameplayStatics::GetAllActorsOfClass(GetWorld(), AItemPool::StaticClass(), FoundActors);
+			bulletPool = Cast<AItemPool>(FoundActors[0]);
+		}
+
+		AHiWaveProjectile* bullet = Cast<AHiWaveProjectile>(bulletPool->GetPooledObject(EPoolableType::VE_PlayerBullet));
+		if (bullet != nullptr) {
+			bullet->SetActive(true);
+			bullet->SetLocationAndRotation(SpawnLocation, FireRotation);
 		}
 
 		//Reset timer after successful fire

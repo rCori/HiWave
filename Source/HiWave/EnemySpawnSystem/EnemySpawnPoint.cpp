@@ -30,8 +30,8 @@ AEnemySpawnPoint::AEnemySpawnPoint()
 	//Setup audio component
 	spawnAudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("SpawnSoundComponent"));
 	spawnAudioComponent->bAutoActivate = false;
-	spawnAudioComponent->AttachToComponent(RootComponent,FAttachmentTransformRules::KeepWorldTransform);
-	spawnAudioComponent->SetRelativeLocation(FVector::ZeroVector);
+	//spawnAudioComponent->AttachToComponent(RootComponent,FAttachmentTransformRules::KeepWorldTransform);
+	//spawnAudioComponent->SetRelativeLocation(FVector::ZeroVector);
 
 }
 

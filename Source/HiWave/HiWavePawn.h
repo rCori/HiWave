@@ -12,6 +12,7 @@
 
 class AHiWaveGameState;
 class AHiWavePlayerController;
+class AItemPool;
 
 //Logging during game startup
 DECLARE_LOG_CATEGORY_EXTERN(LogPlayerDeath, Log, All);
@@ -246,6 +247,8 @@ private:
 	FTimerHandle multiplierDecayResetHandle;
 	FRotator currentRotation;
 	APlayerCameraManager* cameraManager;
+
+	AItemPool* bulletPool;
 
 public:
 	/** Returns ShipMeshComponent subobject **/
