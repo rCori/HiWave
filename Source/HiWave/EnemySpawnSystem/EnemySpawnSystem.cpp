@@ -179,7 +179,7 @@ void AEnemySpawnSystem::SingleSpawnWave(const bool &canShuffleSpawnPoints, const
 {
 	int32 enemyCount = 0;
 	for (EEnemyType enemy : enemies) {
-
+		
 		//default spawn point index in the row data's list of spawn points is the same as the current enemy index in row data's list of enemies
 		int32 spawnPointIndex = enemyCount;
 		if (canShuffleSpawnPoints) {

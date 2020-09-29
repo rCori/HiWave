@@ -47,7 +47,11 @@ public:
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	UParticleSystemComponent* spawnedParticle;
 
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
+	float BulletVelocity;
+
 	virtual void SetActive(bool IsActive) override;
 	void SetLocationAndRotation(FVector location, FRotator rotation);
+
 };
 

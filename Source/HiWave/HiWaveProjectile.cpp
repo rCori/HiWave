@@ -1,6 +1,7 @@
 // Copyright 1998-2019 Epic Games, Inc. All Rights Reserve
 
 #include "HiWaveProjectile.h"
+#include "TimerManager.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Components/StaticMeshComponent.h"
@@ -23,6 +24,8 @@ AHiWaveProjectile::AHiWaveProjectile()
 		HitSpark = ParticleAsset.Object;
 	}
 
+	BulletVelocity = 3000.0f;
+
 	// Create mesh component for the projectile sphere
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));
 	ProjectileMesh->SetStaticMesh(ProjectileMeshAsset.Object);
@@ -35,8 +38,8 @@ AHiWaveProjectile::AHiWaveProjectile()
 	// Use a ProjectileMovementComponent to govern this projectile's movement
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
 	ProjectileMovement->UpdatedComponent = ProjectileMesh;
-	ProjectileMovement->InitialSpeed = 3000.f;
-	ProjectileMovement->MaxSpeed = 3000.f;
+	ProjectileMovement->InitialSpeed = 2500.0f;
+	ProjectileMovement->MaxSpeed = 2500.0f;
 	ProjectileMovement->bRotationFollowsVelocity = false;
 	ProjectileMovement->bShouldBounce = false;
 	ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
@@ -86,12 +89,11 @@ void AHiWaveProjectile::SetActive(bool IsActive)
 	Super::SetActive(IsActive);
 	
 	if (IsActive) {
-		ProjectileMovement->InitialSpeed = 3000.f;
-		ProjectileMovement->MaxSpeed = 3000.f;
+		ProjectileMovement->InitialSpeed = BulletVelocity;
+		ProjectileMovement->MaxSpeed = BulletVelocity;
 		SetLifeSpan(Lifespan);
 	}
 	else {
-		//SetActorHiddenInGame(true);
 		GetRootComponent()->SetVisibility(false);
 		SetActorLocation(FVector(0.0, 0.0, 2000.0));
 		SetActorRotation(FRotator::ZeroRotator);
@@ -103,11 +105,11 @@ void AHiWaveProjectile::SetActive(bool IsActive)
 
 void AHiWaveProjectile::SetLocationAndRotation(FVector location, FRotator rotation)
 {
-	SetActorRotation(rotation);
-	SetActorLocation(location);
-	ProjectileMovement->InitialSpeed = 3000.f;
-	ProjectileMovement->MaxSpeed = 3000.f;
-	ProjectileMovement->Velocity = rotation.RotateVector(FVector::ForwardVector).GetSafeNormal() * 3000.f;
-	//SetActorHiddenInGame(false);
+	SetActorRotation(rotation, ETeleportType::TeleportPhysics);
+	SetActorLocation(location, false, nullptr, ETeleportType::TeleportPhysics);
+	ProjectileMovement->InitialSpeed = BulletVelocity;
+	ProjectileMovement->MaxSpeed = BulletVelocity;
+	ProjectileMovement->Velocity = rotation.RotateVector(FVector::ForwardVector).GetSafeNormal() * BulletVelocity;
 	GetRootComponent()->SetVisibility(true);
 }
+
