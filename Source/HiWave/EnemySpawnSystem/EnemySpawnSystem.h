@@ -12,6 +12,9 @@
 
 //Logging for Critical Errors that must always be addressed
 DECLARE_LOG_CATEGORY_EXTERN(LogSpawnSystem, Log, All);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeChapter, FString, chapterName);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnWaveSpawn, FString, waveName);
+
 
 UCLASS()
 class HIWAVE_API AEnemySpawnSystem : public AActor
@@ -97,6 +100,12 @@ public:
 	UFUNCTION()
 	void ChangeChapters(int chapterIndex);
 
+	UPROPERTY(BlueprintAssignable, Category="Spawn Events")
+	FOnChangeChapter OnChangeChapterEvent;
+
+	UPROPERTY(BlueprintAssignable, Category = "Spawn Events")
+	FOnWaveSpawn OnWaveSpawn;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -125,4 +134,5 @@ private:
 	float spawnTimerDecrease;
 	int spawnCountIncrease;
 	int currentChapter;
+	bool chapterTransition;
 };

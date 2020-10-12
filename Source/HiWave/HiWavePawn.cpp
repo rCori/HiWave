@@ -312,7 +312,7 @@ void AHiWavePawn::ReleaseFire() {
 	bFireHeld = false;
 }
 
-
+/*
 void AHiWavePawn::TakeHit() {
 	//Prevent movement and shooting
 	bIsDead = true;
@@ -336,8 +336,9 @@ void AHiWavePawn::TakeHit() {
 	//Play player death camera shake
 	cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);
 }
+*/
 
-/*
+
 void AHiWavePawn::TakeHit() {
 
 	//Turn off collision
@@ -367,7 +368,7 @@ void AHiWavePawn::TakeHit() {
 	//Play player death camera shake
 	cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);
 }
-*/
+
 
 void AHiWavePawn::ResetBurstCollision()
 {	

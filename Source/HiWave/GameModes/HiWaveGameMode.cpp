@@ -14,12 +14,13 @@ void AHiWaveGameMode::BeginPlay()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	bIsDead = false;
+
 	UUserWidget* GameplayWidget = CreateWidget<UUserWidget>(GetWorld(), GameplayWidgetClass);
 	if (GameplayWidget != nullptr)
 	{
 		GameplayWidget->AddToViewport();
 	}
-
+	
 	GEngine->GameViewport->Viewport->LockMouseToViewport(true);
 }
 

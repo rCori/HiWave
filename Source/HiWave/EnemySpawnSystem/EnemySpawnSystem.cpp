@@ -26,6 +26,7 @@ AEnemySpawnSystem::AEnemySpawnSystem()
 	spawnTimerDecrease = 0.0;
 	spawnCountIncrease = 0;
 	currentChapter = 0;
+	chapterTransition = false;
 
 }
 
@@ -74,11 +75,19 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 
 	PreviousWaveQueue = WaveQueue;
 
+	//If this is the first wave of the next chapter, then clear out all previous enemies
+	if (chapterTransition) {
+		chapterTransition = false;
+		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAllEnemies();
+	}
+
+	FSpawnRowData* lastSpawnRowData = CurrentSpawningDataTable->FindRow<FSpawnRowData>(FName(*LastWaveSpawned), TEXT(""), true);
+
 	//Pull the name of the row out and remove it, we are about to spawn and "use it up"
 	FString rowName = WaveQueue[0];
 	WaveQueue.RemoveAt(0);
 
-	//Save this rowName so we can spawn it agai if the player dies
+	//Save this rowName so we can spawn it again if the player dies
 	LastWaveSpawned = rowName;
 
 	//Get the actual data table row we care about
@@ -172,7 +181,10 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	//If this wave was the last one for this chapter, go to the next chapter
 	if (spawnRowData->lastWave) {
 		ChangeChapters(currentChapter + 1);
+		chapterTransition = true;
 	}
+	//Broadcast the event that the wave name is changing.
+	OnWaveSpawn.Broadcast(rowName);
 }
 
 void AEnemySpawnSystem::SingleSpawnWave(const bool &canShuffleSpawnPoints, const TArray<EEnemyType> &enemies, const TArray<ESpawnPoints> &spawnPoints, const FString &groupName)
@@ -276,6 +288,10 @@ void AEnemySpawnSystem::ChangeChapters(int chapterIndex) {
 		UE_LOG(LogSpawnSystem, Warning, TEXT("CurrentSpawningDataTable is changing"));
 		WaveQueue.Empty();
 		WaveQueue.Add(InitialSpawnWave);
+		//Broadcast that the chapter name is changing
+		OnChangeChapterEvent.Broadcast(chapterTitle);
+		//Now that we are changing chapters we can also destroy all enemies on screen
+		
 	}
 }
 
