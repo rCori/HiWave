@@ -46,7 +46,9 @@ AHiWaveProjectile::AHiWaveProjectile()
 	ProjectileMovement->OnProjectileStop.AddDynamic(this, &AHiWaveProjectile::OnStop);
 
 	// Die after 3 seconds by default
-	InitialLifeSpan = 3.0f;
+	//InitialLifeSpan = 3.0f;
+	Lifespan = 5.0f;
+	Active = false;
 }
 
 void AHiWaveProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -74,7 +76,8 @@ void AHiWaveProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, 
 		}
 	}
 	//Destroy();
-	Deactivate();
+	IPoolableObjectInterface::Execute_Deactivate(this);
+	//Deactivate_Implementation();
 }
 
 void AHiWaveProjectile::OnStop(const FHitResult & Hit)
@@ -84,24 +87,6 @@ void AHiWaveProjectile::OnStop(const FHitResult & Hit)
 	ProjectileMovement->UpdateComponentVelocity();
 }
 
-void AHiWaveProjectile::SetActive(bool IsActive)
-{
-	Super::SetActive(IsActive);
-	
-	if (IsActive) {
-		ProjectileMovement->InitialSpeed = BulletVelocity;
-		ProjectileMovement->MaxSpeed = BulletVelocity;
-		SetLifeSpan(Lifespan);
-	}
-	else {
-		GetRootComponent()->SetVisibility(false);
-		SetActorLocation(FVector(0.0, 0.0, 2000.0));
-		SetActorRotation(FRotator::ZeroRotator);
-		ProjectileMovement->InitialSpeed = 0;
-		ProjectileMovement->MaxSpeed = 0;
-		ProjectileMovement->Velocity = FVector::ZeroVector;
-	}
-}
 
 void AHiWaveProjectile::SetLocationAndRotation(FVector location, FRotator rotation)
 {
@@ -113,3 +98,51 @@ void AHiWaveProjectile::SetLocationAndRotation(FVector location, FRotator rotati
 	GetRootComponent()->SetVisibility(true);
 }
 
+void AHiWaveProjectile::DeactivateEvent()
+{
+	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
+	IPoolableObjectInterface::Execute_Deactivate(this);
+}
+
+
+void AHiWaveProjectile::SetObjectLifeSpan_Implementation(float InLifespan)
+{
+	Lifespan = InLifespan;
+	GetWorldTimerManager().SetTimer(LifespanTimer, this, &AHiWaveProjectile::DeactivateEvent, Lifespan, false);
+}
+
+void AHiWaveProjectile::SetActive_Implementation(bool IsActive)
+{
+	//Super::SetActive(IsActive);
+	Active = IsActive;
+	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation"));
+	if (IsActive) {
+		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
+		ProjectileMovement->InitialSpeed = BulletVelocity;
+		ProjectileMovement->MaxSpeed = BulletVelocity;
+		//SetObjectLifeSpan_Implementation(Lifespan);
+		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
+		GetRootComponent()->SetVisibility(false);
+		SetActorLocation(FVector(0.0, 0.0, 2000.0));
+		SetActorRotation(FRotator::ZeroRotator);
+		ProjectileMovement->InitialSpeed = 0;
+		ProjectileMovement->MaxSpeed = 0;
+		ProjectileMovement->Velocity = FVector::ZeroVector;
+	}
+}
+
+bool AHiWaveProjectile::IsActive_Implementation()
+{
+	return Active;
+}
+
+void AHiWaveProjectile::Deactivate_Implementation()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Deactivate_Implementation"));
+	//SetActive_Implementation(false);
+	IPoolableObjectInterface::Execute_SetActive(this, false);
+	GetWorldTimerManager().ClearTimer(LifespanTimer);
+}

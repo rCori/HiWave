@@ -252,7 +252,8 @@ void AHiWavePawn::FireShot()
 
 		AHiWaveProjectile* bullet = Cast<AHiWaveProjectile>(bulletPool->GetPooledObject(EPoolableType::VE_PlayerBullet));
 		if (bullet != nullptr) {
-			bullet->SetActive(true);
+			IPoolableObjectInterface::Execute_SetActive(bullet, true);
+			//bullet->SetActive(true);
 			bullet->SetLocationAndRotation(SpawnLocation, FireRotation);
 		}
 

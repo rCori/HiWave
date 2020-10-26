@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
-
 #include "EnemyPawn.generated.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogEnemyPawn, Warning, All);
@@ -98,6 +97,7 @@ public:
 	/** Sound to play each time we fire */
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* DeathSound;
+
 
 protected:
 

@@ -5,6 +5,7 @@
 
 #include "HiWaveProjectile.h"
 #include "PoolableTypes.h"
+#include "PoolableObjectInterface.h"
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
@@ -30,17 +31,24 @@ public:
 	//UPROPERTY(EditAnywhere, Category = "ObjectPooler")
 	//TSubclassOf<AHiWaveProjectile> PooledObjectSubclass;
 
+	/*
 	UFUNCTION()
 	APoolableActor* GetPooledObject(EPoolableType type);
+	*/
+	IPoolableObjectInterface* GetPooledObject(EPoolableType type);
 
+	/*
 	UPROPERTY(EditDefaultsOnly, Category = "ObjectPooler")
 	TMap<EPoolableType, TSubclassOf<APoolableActor>> PoolItemMap;
+	*/
+	UPROPERTY(EditDefaultsOnly, Category = "ObjectPooler")
+	TMap<EPoolableType, TSubclassOf<UObject>> PoolItemMap;
 
 	UPROPERTY(EditDefaultsOnly, Category = "ObjectPooler")
 	TMap<EPoolableType, int> InitialPooledItemCount;
 
 private:
 
-	TMap<EPoolableType, TArray<APoolableActor*>> pooledItemCollection;
+	TMap<EPoolableType, TArray<IPoolableObjectInterface*>> pooledItemCollection;
 
 };

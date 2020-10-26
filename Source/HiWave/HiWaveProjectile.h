@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "PoolableActor.h"
+#include "PoolableObjectInterface.h"
 #include "HiWaveProjectile.generated.h"
 
 class UProjectileMovementComponent;
@@ -12,7 +12,7 @@ class UStaticMeshComponent;
 class UParticleSystemComponent;
 
 UCLASS(config = Game)
-class AHiWaveProjectile : public APoolableActor
+class AHiWaveProjectile : public AActor, public IPoolableObjectInterface
 {
 	GENERATED_BODY()
 
@@ -50,8 +50,23 @@ public:
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
 	float BulletVelocity;
 
-	virtual void SetActive(bool IsActive) override;
+	
 	void SetLocationAndRotation(FVector location, FRotator rotation);
+
+	void DeactivateEvent();
+
+	/* Implementation of PoolableObjectInterface */
+	void SetObjectLifeSpan_Implementation(float InLifespan) override;
+
+	void SetActive_Implementation(bool IsActive) override;
+
+	bool IsActive_Implementation() override;
+
+	void Deactivate_Implementation() override;
+private:
+	float Lifespan = 5.0f;
+	bool Active;
+	FTimerHandle LifespanTimer;
 
 };
 

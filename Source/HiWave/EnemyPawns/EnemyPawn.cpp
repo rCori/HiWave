@@ -70,7 +70,7 @@ void AEnemyPawn::EnemyTakeDamage(float damage) {
 }
 
 void AEnemyPawn::EnemyDeath() {
-	Destroy();
+	APawn::Destroy();
 	AHiWaveGameState* hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (hiWaveGameState) {
 		hiWaveGameState->IncreasePlayerScore(pointsAwarded);
