@@ -250,6 +250,8 @@ private:
 
 	AItemPool* bulletPool;
 
+	
+
 public:
 	/** Returns ShipMeshComponent subobject **/
 	FORCEINLINE class UStaticMeshComponent* GetShipMeshComponent() const { return ShipMeshComponent; }

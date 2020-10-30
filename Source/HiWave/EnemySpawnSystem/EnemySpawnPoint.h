@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "SpawnRowData.h"
+#include "PoolableTypes.h"
 #include "EnemySpawnPoint.generated.h"
 
 class UBoxComponent;
@@ -13,6 +14,7 @@ class AEnemyPawn;
 class UParticleSystem;
 class UAudioComponent;
 class USoundCue;
+class AItemPool;
 
 UCLASS()
 class HIWAVE_API AEnemySpawnPoint : public AActor
@@ -61,6 +63,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = SpawningCharacter)
 	TMap<EEnemyType, TSubclassOf<AEnemyPawn>> EnemyTypeMap;
 
+	UPROPERTY(EditDefaultsOnly, Category = SpawningCharacter)
+	TMap<EEnemyType, EPoolableType> SpawnEnemyTypeMap;
+
 	/* DoEnemyPawnSpawn will spawn an enemy in the center of this box */
 	UPROPERTY(EditAnywhere)
 	TArray<AEnemySpawnPoint*> NeighborSpawnPoints;
@@ -72,6 +77,9 @@ public:
 	/* A sound to play when an enemy spawns */
 	UPROPERTY(EditDefaultsOnly)
 	USoundCue* SpawnSound;
+
+	UPROPERTY(EditAnywhere)
+	AItemPool* ItemPool;
 
 protected:
 	// Called when the game starts or when spawned

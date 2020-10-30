@@ -19,8 +19,9 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
-	health = 30.0;
-	speed = 1050.0;
+	//startingHealth = 30.0;
+	health = startingHealth;
+	speed = 500.0;
 	pointsAwarded = 10;
 	damageRatio = 1.0;
 	burstAwarded = 0.2;
@@ -73,9 +74,67 @@ void ABasicEnemy::EnemyDeath()
 }
 
 
-
 void ABasicEnemy::BurstOverlap()
 {
 	dynamicMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	Super::BurstOverlap();
+}
+
+
+/*
+void ABasicEnemy::DeactivateEvent()
+{
+	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
+	IPoolableObjectInterface::Execute_Deactivate(this);
+}
+
+void ABasicEnemy::SetObjectLifeSpan_Implementation(float InLifespan)
+{
+	Lifespan = InLifespan;
+	GetWorldTimerManager().SetTimer(LifespanTimer, this, &ABasicEnemy::DeactivateEvent, Lifespan, false);
+}
+
+bool ABasicEnemy::IsActive_Implementation()
+{
+	return Active;
+}
+
+void ABasicEnemy::Deactivate_Implementation()
+{
+	IPoolableObjectInterface::Execute_SetActive(this, false);
+	GetWorldTimerManager().ClearTimer(LifespanTimer);
+}
+*/
+
+void ABasicEnemy::SetActive_Implementation(bool IsActive)
+{
+	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in BasicEnemy"));
+	Active = IsActive;
+	if (IsActive) {
+		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
+		// Hides visible components
+		SetActorHiddenInGame(false);
+		// Disables collision components
+		SetActorEnableCollision(true);
+		// Stops the Actor from ticking
+		SetActorTickEnabled(true);
+		health = startingHealth;
+		damageRatio = 1.0;
+		dynamicMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 0.0);
+		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
+		// Hides visible components
+		SetActorHiddenInGame(true);
+		// Disables collision components
+		SetActorEnableCollision(false);
+		// Stops the Actor from ticking
+		SetActorTickEnabled(false);
+		playerPawn = nullptr;
+		OnEnemyDeathDelegate.Clear();
+		OnIncreaseMultiplierDelegate.Clear();
+		SetActorLocation(FVector(0.0, 0.0, 10000.0f));
+		SetActorRotation(FRotator::ZeroRotator);
+	}
 }

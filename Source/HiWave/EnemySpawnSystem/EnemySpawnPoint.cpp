@@ -11,6 +11,7 @@
 #include "TimerManager.h"
 #include "GameFramework/Pawn.h"
 #include "SpawnRowData.h"
+#include "ItemPool.h"
 #include "HiWavePawn.h"
 
 
@@ -60,10 +61,8 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(EEnemyType enemyType)
 
 	//From the box extent, select the point in the middle of the box
 	//We may want to randomize a bit or ignore the box and use a Vector to place the spawn
-	//FVector extent = BoxComponent->GetScaledBoxExtent();
 	FVector origin = GetActorLocation();
 
-	//FVector actorSpawnLocation = FVector(xLoc, yLoc, zLoc);
 	FVector actorSpawnLocation = SpawnLocation + origin;
 
 	//Set spawn parameters for call to GetWorld()->SpawnActor
@@ -73,7 +72,19 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(EEnemyType enemyType)
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	if (GetWorld()) { 
 		//Spawn the enemy type passed at the location we got from the extent
-		APawn* spawnedActor = GetWorld()->SpawnActor<APawn>(EnemyTypeMap[enemyType], actorSpawnLocation, FRotator::ZeroRotator, ActorSpawnParameters);
+		//APawn* spawnedActor = GetWorld()->SpawnActor<APawn>(EnemyTypeMap[enemyType], actorSpawnLocation, FRotator::ZeroRotator, ActorSpawnParameters);
+		//APawn* spawnedActor = ItemPool
+		/*
+		if (ItemPool == nullptr) {
+			TArray<AActor*> FoundActors;
+			UGameplayStatics::GetAllActorsOfClass(GetWorld(), AItemPool::StaticClass(), FoundActors);
+			ItemPool = Cast<AItemPool>(FoundActors[0]);
+		}
+		*/
+		IPoolableObjectInterface *poolableObject = ItemPool->GetPooledObject(SpawnEnemyTypeMap[enemyType]);
+		APawn* spawnedActor = Cast<APawn>(poolableObject);
+		IPoolableObjectInterface::Execute_SetActive(spawnedActor, true);
+		spawnedActor->SetActorLocationAndRotation(actorSpawnLocation, FRotator::ZeroRotator);
 		if (spawnedActor != nullptr) {
 			//This has our enemy AI actually possess the pawn. Otherwise it will have no AI.
 			//It uses the default for that pawn class so it works for all enemy types

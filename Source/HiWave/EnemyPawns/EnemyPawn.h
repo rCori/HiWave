@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "PoolableObjectInterface.h"
 #include "EnemyPawn.generated.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogEnemyPawn, Warning, All);
@@ -15,7 +16,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnIncreaseMultiplierDelegate, float
 class UBehaviorTree;
 
 UCLASS()
-class HIWAVE_API AEnemyPawn : public APawn
+class HIWAVE_API AEnemyPawn : public APawn, public IPoolableObjectInterface
 {
 	GENERATED_BODY()
 
@@ -98,8 +99,22 @@ public:
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* DeathSound;
 
+	virtual void DeactivateEvent();
+
+	/* Implementation of PoolableObjectInterface */
+	void SetObjectLifeSpan_Implementation(float InLifespan) override;
+	
+	virtual void SetActive_Implementation(bool IsActive) override;
+
+	bool IsActive_Implementation() override;
+
+	void Deactivate_Implementation() override;
+	
 
 protected:
+
+	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
+	float startingHealth;
 
 	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
 	float health;
@@ -121,5 +136,9 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly)
 	APlayerCameraManager* cameraManager;
+
+	float Lifespan = 600.0f;
+	bool Active;
+	FTimerHandle LifespanTimer;
 
 };

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "EnemyPawn.h"
+#include "PoolableObjectInterface.h"
 #include "BasicEnemy.generated.h"
 
 class UParticleSystemComponent;
@@ -13,7 +14,7 @@ class UMaterialInstanceDynamic;
  * 
  */
 UCLASS()
-class HIWAVE_API ABasicEnemy : public AEnemyPawn
+class HIWAVE_API ABasicEnemy : public AEnemyPawn/*, public IPoolableObjectInterface*/
 {
 	GENERATED_BODY()
 
@@ -34,6 +35,16 @@ public:
 	virtual void EnemyDeath() override;
 
 	virtual void BurstOverlap() override;
+
+	//void DeactivateEvent();
+	/* Implementation of PoolableObjectInterface */
+	//void SetObjectLifeSpan_Implementation(float InLifespan) override;
+
+	virtual void SetActive_Implementation(bool IsActive) override;
+
+	//bool IsActive_Implementation() override;
+
+	//void Deactivate_Implementation() override;
 
 	/** Particle to emit when an enemy hits us */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)

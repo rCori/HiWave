@@ -34,12 +34,13 @@ AEnemySpawnSystem::AEnemySpawnSystem()
 void AEnemySpawnSystem::BeginPlay()
 {
 	Super::BeginPlay();
+	
 	WaveQueueRandomized = false;
 	ChangeChapters(0);
 	//Dummy spawning turned off to test "real" spawning from data table configuration
 	//if (SpawningDataTable != nullptr) {
 	if (CurrentSpawningDataTable != nullptr) {
-		//WaveQueue.Add(InitialSpawnWave);
+		WaveQueue.Add(InitialSpawnWave);
 		SpawnFromDatatable();
 
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
@@ -47,6 +48,7 @@ void AEnemySpawnSystem::BeginPlay()
 
 	}
 	spawnTimerCollection = TArray<FTimerHandle>();
+	
 }
 
 // Called every frame

@@ -49,6 +49,8 @@ public:
 
 private:
 
+	FVector poolItemLocation;
+
 	TMap<EPoolableType, TArray<IPoolableObjectInterface*>> pooledItemCollection;
 
 };

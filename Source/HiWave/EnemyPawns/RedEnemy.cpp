@@ -28,7 +28,7 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 		redEnemyProjectile = redProjectileClassFinder.Class;
 	}
 
-	health = 100.0;
+	health = startingHealth;
 	speed = 400.0;
 	pointsAwarded = 100;
 	damageRatio = 1.0;
@@ -138,3 +138,63 @@ void ARedEnemy::BurstOverlap()
 	Super::BurstOverlap();
 }
 
+/*
+void ARedEnemy::DeactivateEvent()
+{
+	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
+	IPoolableObjectInterface::Execute_Deactivate(this);
+}
+
+void ARedEnemy::SetObjectLifeSpan_Implementation(float InLifespan)
+{
+	Lifespan = InLifespan;
+	GetWorldTimerManager().SetTimer(LifespanTimer, this, &ARedEnemy::DeactivateEvent, Lifespan, false);
+}
+
+bool ARedEnemy::IsActive_Implementation()
+{
+	return Active;
+}
+
+void ARedEnemy::Deactivate_Implementation()
+{
+	IPoolableObjectInterface::Execute_SetActive(this, false);
+	GetWorldTimerManager().ClearTimer(LifespanTimer);
+}
+*/
+
+void ARedEnemy::SetActive_Implementation(bool IsActive)
+{
+	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in RedEnemy"));
+	Active = IsActive;
+	if (IsActive) {
+		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
+		// Hides visible components
+		SetActorHiddenInGame(false);
+		// Disables collision components
+		SetActorEnableCollision(true);
+		// Stops the Actor from ticking
+		SetActorTickEnabled(true);
+		health = startingHealth;
+		yawDifference = MAX_FLT;
+		bFacingPlayer = false;
+		damageRatio = 1.0;
+		dynamicFrontMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 0.0);
+		dynamicSideMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 0.0);
+		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
+		// Hides visible components
+		SetActorHiddenInGame(true);
+		// Disables collision components
+		SetActorEnableCollision(false);
+		// Stops the Actor from ticking
+		SetActorTickEnabled(false);
+		playerPawn = nullptr;
+		OnEnemyDeathDelegate.Clear();
+		OnIncreaseMultiplierDelegate.Clear();
+		SetActorLocation(FVector(0.0, 0.0, 10000.0f));
+		SetActorRotation(FRotator::ZeroRotator);
+	}
+}

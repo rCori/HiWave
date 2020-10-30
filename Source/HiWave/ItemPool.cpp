@@ -12,6 +12,7 @@ AItemPool::AItemPool()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	poolItemLocation = FVector(0, 0, 10000.0f);
 }
 
 // Called when the game starts or when spawned
@@ -28,11 +29,15 @@ void AItemPool::BeginPlay()
 			//TSubclassOf<APoolableActor> typeToSpawn = pair.Value;
 			TSubclassOf<UObject> typeToSpawn = pair.Value;
 			bool implementsInterface = typeToSpawn.Get()->GetClass()->ImplementsInterface(UPoolableObjectInterface::StaticClass());
-			if (typeToSpawn != NULL && implementsInterface) {
+			if (typeToSpawn != NULL) {
 				int countToSpawn = InitialPooledItemCount[currentType];
 				pooledItemCollection.Add(currentType,TArray<IPoolableObjectInterface*>());
 				for (int i = 0; i < countToSpawn; i++) {
-					IPoolableObjectInterface* PoolableActor = GetWorld()->SpawnActor<IPoolableObjectInterface>(typeToSpawn, FVector().ZeroVector, FRotator().ZeroRotator);
+					FActorSpawnParameters ActorSpawnParameters;
+					ActorSpawnParameters.Owner = this;
+					ActorSpawnParameters.Instigator = Instigator;
+					ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+					IPoolableObjectInterface* PoolableActor = GetWorld()->SpawnActor<IPoolableObjectInterface>(typeToSpawn, poolItemLocation, FRotator().ZeroRotator, ActorSpawnParameters);
 					UObject* PoolableActorObject = Cast<UObject>(PoolableActor);
 					IPoolableObjectInterface::Execute_SetActive(PoolableActorObject,false);
 					pooledItemCollection[currentType].Add(PoolableActor);
@@ -53,6 +58,7 @@ void AItemPool::Tick(float DeltaTime)
 
 IPoolableObjectInterface* AItemPool::GetPooledObject(EPoolableType type)
 {
+	UE_LOG(LogTemp, Warning, TEXT("GetPooledObject"));
 	if (pooledItemCollection.Contains(type)) {
 		//TArray<APoolableActor*> poolableActorArray = pooledItemCollection[type];
 		TArray<IPoolableObjectInterface*> poolableActorArray = pooledItemCollection[type];
@@ -60,6 +66,7 @@ IPoolableObjectInterface* AItemPool::GetPooledObject(EPoolableType type)
 		for (IPoolableObjectInterface* PoolableActor : poolableActorArray) {
 			UObject* PoolableActorObject = Cast<UObject>(PoolableActor);
 			if (!IPoolableObjectInterface::Execute_IsActive(PoolableActorObject)) {
+				UE_LOG(LogTemp, Warning, TEXT("Returning item from the pool"));
 				return PoolableActor;
 			}
 		}
@@ -70,10 +77,17 @@ IPoolableObjectInterface* AItemPool::GetPooledObject(EPoolableType type)
 	}
 	//There were no active items so generate one and add it to the pool
 	//APoolableActor* PoolableActor = GetWorld()->SpawnActor<APoolableActor>(PoolItemMap[type], FVector().ZeroVector, FRotator().ZeroRotator);
-	IPoolableObjectInterface* PoolableActor = GetWorld()->SpawnActor<IPoolableObjectInterface>(PoolItemMap[type], FVector().ZeroVector, FRotator().ZeroRotator);
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.Owner = this;
+	ActorSpawnParameters.Instigator = Instigator;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	IPoolableObjectInterface* PoolableActor = GetWorld()->SpawnActor<IPoolableObjectInterface>(PoolItemMap[type], poolItemLocation, FRotator().ZeroRotator, ActorSpawnParameters);
+	
 	UObject* PoolableActorObject = Cast<UObject>(PoolableActor);
 	//PoolableActor->SetActive(false);
 	IPoolableObjectInterface::Execute_SetActive(PoolableActorObject, false);
 	pooledItemCollection[type].Add(PoolableActor);
+	UE_LOG(LogTemp, Warning, TEXT("Making a new item and adding it to the pool"));
 	return PoolableActor;
+
 }

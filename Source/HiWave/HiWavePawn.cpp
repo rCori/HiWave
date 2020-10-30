@@ -244,6 +244,7 @@ void AHiWavePawn::FireShot()
 		}
 		*/
 
+		
 		if (bulletPool == nullptr) {
 			TArray<AActor*> FoundActors;
 			UGameplayStatics::GetAllActorsOfClass(GetWorld(), AItemPool::StaticClass(), FoundActors);
@@ -367,7 +368,7 @@ void AHiWavePawn::TakeHit() {
 	GetWorld()->GetTimerManager().SetTimer(TimerHandleDeathAndRespawn, TimerDeathAndRespawn, 2.f, false);
 
 	//Play player death camera shake
-	cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);
+	//cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);
 }
 
 

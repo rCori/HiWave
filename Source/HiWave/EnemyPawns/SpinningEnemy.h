@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class HIWAVE_API ASpinningEnemy : public AEnemyPawn
+class HIWAVE_API ASpinningEnemy : public AEnemyPawn/*, public IPoolableObjectInterface*/
 {
 
 	GENERATED_BODY()
@@ -31,6 +31,16 @@ public:
 
 	virtual void BurstOverlap() override;
 
+	//void DeactivateEvent();
+	/* Implementation of PoolableObjectInterface */
+	//void SetObjectLifeSpan_Implementation(float InLifespan) override;
+
+	void SetActive_Implementation(bool IsActive) override;
+
+	//bool IsActive_Implementation() override;
+
+	//void Deactivate_Implementation() override;
+
 	/** Particle to emit when this enemy dies */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;
@@ -46,6 +56,12 @@ public:
 
 	UPROPERTY(Category = Visual, BlueprintReadWrite)
 	class UMaterialInstanceDynamic *dynamicArmMaterial;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
+	float startingCircleNumber;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
+	float startingRotationSpeed;
 
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
 	float circleNumber;

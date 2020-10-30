@@ -10,7 +10,7 @@
  * 
  */
 UCLASS()
-class HIWAVE_API AXEnemyPawn : public AEnemyPawn
+class HIWAVE_API AXEnemyPawn : public AEnemyPawn/*, public IPoolableObjectInterface*/
 {
 	GENERATED_BODY()
 
@@ -30,6 +30,16 @@ public:
 	virtual void EnemyDeath() override;
 
 	virtual void BurstOverlap() override;
+
+	//void DeactivateEvent();
+	/* Implementation of PoolableObjectInterface */
+	//void SetObjectLifeSpan_Implementation(float InLifespan) override;
+
+	void SetActive_Implementation(bool IsActive) override;
+
+	//bool IsActive_Implementation() override;
+
+	//void Deactivate_Implementation() override;
 
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	class AHiWavePawn* playerPawn;

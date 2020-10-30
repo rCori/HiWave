@@ -84,7 +84,8 @@ void AHiWaveGameMode::DestroyAllEnemies() {
 		AEnemyPawn *castedEnemyPawn = Cast<AEnemyPawn>(enemyActor);
 		if (castedEnemyPawn) {
 			//castedEnemyPawn->EnemyDeath();
-			castedEnemyPawn->Destroy();
+			//castedEnemyPawn->Destroy();
+			IPoolableObjectInterface::Execute_Deactivate(castedEnemyPawn);
 		}
 		else {
 			UE_LOG(LogTemp, Warning, TEXT("AHiWaveGameMode::DestroyAndRespawnPlayer. Cast to destroy an enemy from world has failed"));

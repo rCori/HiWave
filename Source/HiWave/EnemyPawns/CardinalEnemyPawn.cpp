@@ -16,7 +16,8 @@ ACardinalEnemyPawn::ACardinalEnemyPawn() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
-	health = 20.0;
+
+	health = startingHealth;
 	speed = 1250.0;
 	pointsAwarded = 50;
 	damageRatio = 1.0;
@@ -28,7 +29,6 @@ ACardinalEnemyPawn::ACardinalEnemyPawn() : AEnemyPawn() {
 	directionToRotate = FRotator::ZeroRotator;
 	currentDirection = ECurrentDirection::VE_Left;
 	nextDirection = ECurrentDirection::VE_Left;
-
 	currentYaw = 0.0;
 }
 
@@ -227,4 +227,73 @@ void ACardinalEnemyPawn::BurstOverlap()
 	dynamicShipMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	dynamicEngineMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	Super::BurstOverlap();
+}
+
+/*
+void ACardinalEnemyPawn::DeactivateEvent()
+{
+	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
+	IPoolableObjectInterface::Execute_Deactivate(this);
+}
+
+void ACardinalEnemyPawn::SetObjectLifeSpan_Implementation(float InLifespan)
+{
+	Lifespan = InLifespan;
+	GetWorldTimerManager().SetTimer(LifespanTimer, this, &ACardinalEnemyPawn::DeactivateEvent, Lifespan, false);
+}
+
+bool ACardinalEnemyPawn::IsActive_Implementation()
+{
+	return Active;
+}
+
+void ACardinalEnemyPawn::Deactivate_Implementation()
+{
+	IPoolableObjectInterface::Execute_SetActive(this, false);
+	GetWorldTimerManager().ClearTimer(LifespanTimer);
+}
+*/
+
+void ACardinalEnemyPawn::SetActive_Implementation(bool IsActive)
+{
+	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in ACardinalEnemyPawn"));
+	Active = IsActive;
+	if (IsActive) {
+		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
+		// Hides visible components
+		SetActorHiddenInGame(false);
+		// Disables collision components
+		SetActorEnableCollision(true);
+		// Stops the Actor from ticking
+		SetActorTickEnabled(true);
+		health = startingHealth;
+		rotationDegreesRemaining = 0.0;
+		timeToMove = 0.0;
+		damageRatioOnBurst = 2.0;
+		directionToRotate = FRotator::ZeroRotator;
+		currentDirection = ECurrentDirection::VE_Left;
+		nextDirection = ECurrentDirection::VE_Left;
+		currentYaw = 0.0;
+		damageRatio = 1.0;
+		dynamicWingMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 0.0);
+		dynamicCockpitMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 0.0);
+		dynamicShipMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 0.0);
+		dynamicEngineMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 0.0);
+		
+		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
+		// Hides visible components
+		SetActorHiddenInGame(true);
+		// Disables collision components
+		SetActorEnableCollision(false);
+		// Stops the Actor from ticking
+		SetActorTickEnabled(false);
+		playerPawn = nullptr;
+		OnEnemyDeathDelegate.Clear();
+		OnIncreaseMultiplierDelegate.Clear();
+		SetActorLocation(FVector(0.0, 0.0, 10000.0f));
+		SetActorRotation(FRotator::ZeroRotator);
+	}
 }

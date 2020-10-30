@@ -29,6 +29,8 @@ AEnemyPawn::AEnemyPawn()
 	StaticMeshComponentPtr = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	StaticMeshComponentPtr->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 	StaticMeshComponentPtr->SetupAttachment(RootComponent);
+
+	Active = false;
 }
 
 // Called when the game starts or when spawned
@@ -70,7 +72,9 @@ void AEnemyPawn::EnemyTakeDamage(float damage) {
 }
 
 void AEnemyPawn::EnemyDeath() {
-	APawn::Destroy();
+	//APawn::Destroy();
+	//IPoolableObjectInterface::Execute_Deactivate(this);
+	DeactivateEvent();
 	AHiWaveGameState* hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (hiWaveGameState) {
 		hiWaveGameState->IncreasePlayerScore(pointsAwarded);
@@ -124,4 +128,35 @@ void AEnemyPawn::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AAct
 void AEnemyPawn::SetSpawningGroupTag(FString groupTag) {
 	this->SpawningGroupTag = groupTag;
 }
+
+
+void AEnemyPawn::DeactivateEvent()
+{
+	//UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent in EnemyPawn please overwrite me"));
+	IPoolableObjectInterface::Execute_Deactivate(this);
+}
+
+void AEnemyPawn::SetObjectLifeSpan_Implementation(float InLifespan)
+{
+	Lifespan = InLifespan;
+	GetWorldTimerManager().SetTimer(LifespanTimer, this, &AEnemyPawn::DeactivateEvent, Lifespan, false);
+}
+
+void AEnemyPawn::SetActive_Implementation(bool IsActive)
+{
+	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in EnemyPawn please overwrite me"));
+}
+
+bool AEnemyPawn::IsActive_Implementation()
+{
+	UE_LOG(LogTemp,Warning, TEXT("IsActive_Implementation in EnemyPawn will return %s"), Active ? TEXT("true") : TEXT("false"));
+	return Active;
+}
+
+void AEnemyPawn::Deactivate_Implementation()
+{
+	IPoolableObjectInterface::Execute_SetActive(this, false);
+	GetWorldTimerManager().ClearTimer(LifespanTimer);
+}
+
 
