@@ -22,13 +22,13 @@ class HIWAVE_API USpawnRowData : public UObject
 UENUM(BlueprintType)		//"BlueprintType" is essential to include
 enum class EEnemyType : uint8
 {
-	VE_NormalPawn	UMETA(DisplayName = "NormalPawn"),
-	VE_RedPawn		UMETA(DisplayName = "RedPawn"),
-	VE_DashingPawn	UMETA(DisplayName = "DashingPawn"),
-	VE_SpinningPawn UMETA(DisplayName = "SpinningPawn"),
-	VE_CardinalPawn	UMETA(DisplayName = "CardinalPawn"),
-	VE_XPawn		UMETA(DisplayName = "XPawn"),
-
+	VE_NormalPawn		UMETA(DisplayName = "NormalPawn"),
+	VE_RedPawn			UMETA(DisplayName = "RedPawn"),
+	VE_DashingPawn		UMETA(DisplayName = "DashingPawn"),
+	VE_SpinningPawn		UMETA(DisplayName = "SpinningPawn"),
+	VE_CardinalPawn		UMETA(DisplayName = "CardinalPawn"),
+	VE_XPawn			UMETA(DisplayName = "XPawn"),
+	VE_SkullMinePawn	UMETA(DisplayName = "SkullMinePawn"),
 };
 
 UENUM(BlueprintType)		//"BlueprintType" is essential to include

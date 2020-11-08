@@ -14,7 +14,7 @@ class UMaterialInstanceDynamic;
  * 
  */
 UCLASS()
-class HIWAVE_API ABasicEnemy : public AEnemyPawn/*, public IPoolableObjectInterface*/
+class HIWAVE_API ABasicEnemy : public AEnemyPawn
 {
 	GENERATED_BODY()
 

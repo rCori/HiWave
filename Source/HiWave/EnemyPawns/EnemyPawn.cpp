@@ -29,6 +29,9 @@ AEnemyPawn::AEnemyPawn()
 	StaticMeshComponentPtr = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	StaticMeshComponentPtr->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 	StaticMeshComponentPtr->SetupAttachment(RootComponent);
+	//StaticMeshComponentPtr->SetSimulatePhysics(true);
+	//StaticMeshComponentPtr->SetNotifyRigidBodyCollision(true);
+	//StaticMeshComponentPtr->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);
 
 	Active = false;
 }
@@ -99,7 +102,7 @@ void AEnemyPawn::EnemyDeath() {
 		}
 	}
 
-	//Play camera shake on enemy death
+	//Play camera shake on enemy deaths
 	cameraManager->PlayCameraShake(EnemyDeathCameraShake, 1.0f);
 }
 
@@ -111,18 +114,27 @@ void AEnemyPawn::OnHitEffect_Implementation() {
 }
 
 void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
+	UE_LOG(LogTemp, Warning, TEXT("EnemyPawn OnHit"));
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
 	if (playerActor != NULL){
 		playerActor->TakeHit();
 	}
+	else if (OtherComp->ComponentHasTag("StageMesh")) {
+		UE_LOG(LogTemp, Warning, TEXT("EnemyPawn has hit the edge of the stage"));
+	}
 }
 
-void AEnemyPawn::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
+void AEnemyPawn::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult){
+	UE_LOG(LogTemp, Warning, TEXT("EnemyPawn OnOverlap"));
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
 	if (playerActor != NULL && OtherComp->ComponentHasTag("ShipMesh")) {
 		playerActor->TakeHit();
 	}
+	/*
+	else if (OtherComp->ComponentHasTag("StageMesh") || OtherActor->ActorHasTag("StageMesh")) {
+		UE_LOG(LogTemp, Warning, TEXT("EnemyPawn has hit the edge of the stage"));
+	}
+	*/
 }
 
 void AEnemyPawn::SetSpawningGroupTag(FString groupTag) {

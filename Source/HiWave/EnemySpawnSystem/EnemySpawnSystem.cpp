@@ -42,10 +42,8 @@ void AEnemySpawnSystem::BeginPlay()
 	if (CurrentSpawningDataTable != nullptr) {
 		WaveQueue.Add(InitialSpawnWave);
 		SpawnFromDatatable();
-
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAllEnemies.AddDynamic(this, &AEnemySpawnSystem::ClearAllSpawnTimers);
-
 	}
 	spawnTimerCollection = TArray<FTimerHandle>();
 	

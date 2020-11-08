@@ -59,7 +59,6 @@ void ARedEnemyProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 	if (enemy == nullptr) {
 		Destroy();
 	}
-
 }
 
 
