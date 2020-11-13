@@ -4,10 +4,13 @@
 #include "SkullMineEnemy.h"
 #include "EnemyPawn.h"
 #include "CollidingPawnMovementComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "EnemyBarrierMarker.h"
 #include "SkullMineWeapon.h"
 #include "Kismet/GameplayStatics.h"
 #include "ItemPool.h"
+#include "Particles/ParticleSystemComponent.h"
+#include "Materials/MaterialInstanceDynamic.h"
 #include "Components/SphereComponent.h"
 
 
@@ -36,6 +39,21 @@ ASkullMineEnemy::ASkullMineEnemy() : AEnemyPawn() {
 	initializeDirectionalMap();
 }
 
+void ASkullMineEnemy::BeginPlay()
+{
+
+	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
+	auto baseMaterial = staticMesh->GetMaterial(0);
+	auto socketMaterial = staticMesh->GetMaterial(1);
+
+	dynamicBaseMaterial = UMaterialInstanceDynamic::Create(baseMaterial, NULL);
+	staticMesh->SetMaterial(0, dynamicBaseMaterial);
+
+	dynamicSocketMaterial = UMaterialInstanceDynamic::Create(socketMaterial, NULL);
+	staticMesh->SetMaterial(1, dynamicSocketMaterial);
+
+	Super::BeginPlay();
+}
 
 void ASkullMineEnemy::Tick(float DeltaTime) {
 	moveTimer -= DeltaTime;
@@ -85,11 +103,23 @@ void ASkullMineEnemy::Tick(float DeltaTime) {
 }
 
 void ASkullMineEnemy::EnemyDeath() {
+	if (HitParticle != nullptr) {
+		FRotator rotation = FRotator::ZeroRotator;
+		FTransform transform = FTransform();
+		transform.SetLocation(GetActorLocation());
+		FQuat rotQuaternion = FQuat(rotation);
+		transform.SetRotation(rotQuaternion);
+		transform.SetScale3D(FVector::OneVector);
+		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
+		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	}
 	Super::EnemyDeath();
 }
 
 void ASkullMineEnemy::BurstOverlap()
 {
+	dynamicBaseMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	dynamicSocketMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	Super::BurstOverlap();
 }
 

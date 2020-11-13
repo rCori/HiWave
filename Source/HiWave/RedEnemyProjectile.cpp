@@ -4,7 +4,8 @@
 #include "RedEnemyProjectile.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/StaticMeshComponent.h"
-#include "GameFramework/ProjectileMovementComponent.h"
+#include "Particles/ParticleSystemComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "HiWavePawn.h"
 #include "EnemyPawns/EnemyPawn.h"
 
@@ -57,6 +58,16 @@ void ARedEnemyProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 {
 	AEnemyPawn *enemy = Cast<AEnemyPawn>(OtherActor);
 	if (enemy == nullptr) {
+		if (DestroyParticle != nullptr) {
+			UE_LOG(LogTemp, Warning, TEXT("OnOverlapBegin ARedEnemyProjectile OnHit"));
+			FTransform transform = FTransform();
+			transform.SetLocation(GetActorLocation());
+			transform.SetRotation(FQuat::Identity);
+			transform.SetScale3D(FVector::OneVector);
+
+			spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), DestroyParticle, transform, true, EPSCPoolMethod::AutoRelease);
+			spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		}
 		Destroy();
 	}
 }
@@ -71,6 +82,15 @@ void ARedEnemyProjectile::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, A
 
 	AEnemyPawn *enemy = Cast<AEnemyPawn>(OtherActor);
 	if (enemy == nullptr) {
+		if (DestroyParticle != nullptr) {
+			FTransform transform = FTransform();
+			transform.SetLocation(GetActorLocation());
+			transform.SetRotation(FQuat::Identity);
+			transform.SetScale3D(FVector::OneVector);
+
+			spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), DestroyParticle, transform, true, EPSCPoolMethod::AutoRelease);
+			spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		}
 		Destroy();
 	}
 }

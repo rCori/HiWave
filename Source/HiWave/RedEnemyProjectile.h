@@ -40,6 +40,11 @@ public:
 	UFUNCTION()
 	void DestroySelf();
 
+	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
+	UParticleSystem* DestroyParticle;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	UParticleSystemComponent* spawnedParticle;
 
 protected:
 	// Called when the game starts or when spawned

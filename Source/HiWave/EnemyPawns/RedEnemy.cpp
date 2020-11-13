@@ -42,6 +42,23 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 	bFacingPlayer = false;
 }
 
+// Called when the game starts or when spawned
+void ARedEnemy::BeginPlay()
+{
+
+	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
+	auto frontMaterial = staticMesh->GetMaterial(0);
+	auto sizeMaterial = staticMesh->GetMaterial(1);
+
+	dynamicFrontMaterial = UMaterialInstanceDynamic::Create(frontMaterial, NULL);
+	staticMesh->SetMaterial(0, dynamicFrontMaterial);
+
+	dynamicSideMaterial = UMaterialInstanceDynamic::Create(sizeMaterial, NULL);
+	staticMesh->SetMaterial(1, dynamicSideMaterial);
+
+	Super::BeginPlay();
+}
+
 void ARedEnemy::Tick(float DeltaTime)
 {
 
@@ -97,23 +114,6 @@ void ARedEnemy::Tick(float DeltaTime)
 		fireTimer = 0.0;
 	}
 
-}
-
-// Called when the game starts or when spawned
-void ARedEnemy::BeginPlay()
-{
-
-	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
-	auto frontMaterial = staticMesh->GetMaterial(0);
-	auto sizeMaterial = staticMesh->GetMaterial(1);
-
-	dynamicFrontMaterial = UMaterialInstanceDynamic::Create(frontMaterial, NULL);
-	staticMesh->SetMaterial(0, dynamicFrontMaterial);
-
-	dynamicSideMaterial = UMaterialInstanceDynamic::Create(sizeMaterial, NULL);
-	staticMesh->SetMaterial(1, dynamicSideMaterial);
-
-	Super::BeginPlay();
 }
 
 void ARedEnemy::EnemyDeath()

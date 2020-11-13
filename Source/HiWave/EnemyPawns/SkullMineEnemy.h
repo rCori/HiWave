@@ -32,6 +32,9 @@ class HIWAVE_API ASkullMineEnemy : public AEnemyPawn
 {
 	GENERATED_BODY()
 	
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 public:
 	// Sets default values for this pawn's properties
@@ -61,7 +64,18 @@ public:
 	UPROPERTY(EditAnywhere, Category = Mesh)
 	class USphereComponent* BarrierCollisionComponent;
 
+	UPROPERTY(Category = Visual, BlueprintReadWrite)
+	class UMaterialInstanceDynamic *dynamicBaseMaterial;
 
+	UPROPERTY(Category = Visual, BlueprintReadWrite)
+	class UMaterialInstanceDynamic *dynamicSocketMaterial;
+
+	/** Particle to emit when an enemy hits us */
+	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
+	class UParticleSystem* HitParticle;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadonly)
+	class UParticleSystemComponent* spawnedParticle;
 
 
 private:
