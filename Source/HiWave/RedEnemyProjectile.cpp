@@ -67,6 +67,9 @@ void ARedEnemyProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 
 			spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), DestroyParticle, transform, true, EPSCPoolMethod::AutoRelease);
 			spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			if (DestroySound != nullptr) {
+				UGameplayStatics::PlaySoundAtLocation(this, DestroySound, GetActorLocation());
+			}
 		}
 		Destroy();
 	}

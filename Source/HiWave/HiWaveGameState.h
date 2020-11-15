@@ -27,10 +27,16 @@ public:
 	UFUNCTION(BlueprintCallable)
 	float GetMultiplier();
 
+	UFUNCTION(BlueprintCallable)
+	int GetMultiplierIndex();
+
 	UPROPERTY(BlueprintReadOnly)
 	int playerScore = 0;
 
 	UPROPERTY(BlueprintReadOnly)
 	float currentMultiplier = 1.0;
+
+	UPROPERTY(BlueprintReadOnly)
+	int multiplierIndex = 0;
 
 };

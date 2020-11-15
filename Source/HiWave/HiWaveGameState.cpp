@@ -12,13 +12,15 @@ int AHiWaveGameState::IncreasePlayerScore(int amount)
 void AHiWaveGameState::IncreaseMultiplier(float amount)
 {
 	currentMultiplier += amount;
-	if (currentMultiplier >= 4.0) {
-		currentMultiplier = 4.0;
+	if (currentMultiplier >= 3.999) {
+		currentMultiplier = 3.999;
 	}
 
 	if (currentMultiplier < 1.0) {
 		currentMultiplier = 1.0;
 	}
+
+	multiplierIndex = currentMultiplier - 1;
 }
 
 void AHiWaveGameState::ResetMultiplier()
@@ -29,4 +31,9 @@ void AHiWaveGameState::ResetMultiplier()
 float AHiWaveGameState::GetMultiplier()
 {
 	return currentMultiplier;
+}
+
+int AHiWaveGameState::GetMultiplierIndex()
+{
+	return multiplierIndex;
 }

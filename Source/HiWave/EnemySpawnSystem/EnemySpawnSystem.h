@@ -41,6 +41,10 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
 	TMap<ESpawnPoints, AEnemySpawnPoint*> SpawnerCollection;
 
+	/* This is a reference to the item pool because we need an event from it */
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Item Pool Reference")
+	class AItemPool *itemPool;
+
 	/* 
 	 * This is the name of the first wave to spawn. This wave will be responsible for starting the chain of spawns.
 	 * I will know what I intend to be the true "first" spawn, but for testing it's good to be able to change it around

@@ -60,7 +60,6 @@ void ASkullMineWeapon::Explode() {
 void ASkullMineWeapon::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
 	if (playerActor != NULL && OtherComp->ComponentHasTag("ShipMesh")) {
-		UE_LOG(LogTemp, Warning, TEXT("Player hit a mine"));
 		playerActor->TakeHit();
 		Explode();
 	}
@@ -69,6 +68,9 @@ void ASkullMineWeapon::OnOverlap(class UPrimitiveComponent* OverlappedComp, clas
 	AHiWaveProjectile *playerProjectile = Cast<AHiWaveProjectile>(OtherActor);
 	if (playerProjectile != nullptr) {
 		UE_LOG(LogTemp, Warning, TEXT("Player shot a mine and blew it up"));
+		if (DestroySound != nullptr) {
+			UGameplayStatics::PlaySoundAtLocation(this, DestroySound, GetActorLocation());
+		}
 		Explode();
 		IPoolableObjectInterface::Execute_Deactivate(playerProjectile);
 	}

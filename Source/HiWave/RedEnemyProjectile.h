@@ -9,6 +9,7 @@
 
 class UProjectileMovementComponent;
 class UStaticMeshComponent;
+class USoundBase;
 
 UCLASS()
 class HIWAVE_API ARedEnemyProjectile : public AActor
@@ -45,6 +46,10 @@ public:
 
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	UParticleSystemComponent* spawnedParticle;
+
+	/** Sound to play each time enemy is hit */
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+	USoundBase* DestroySound;
 
 protected:
 	// Called when the game starts or when spawned

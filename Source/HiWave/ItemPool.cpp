@@ -13,13 +13,24 @@ AItemPool::AItemPool()
 	PrimaryActorTick.bCanEverTick = true;
 
 	poolItemLocation = FVector(0, 0, 10000.0f);
+	referenceCount = 0;
+	totalReferences = 1;
 }
 
 // Called when the game starts or when spawned
 void AItemPool::BeginPlay()
 {
 	Super::BeginPlay();
+}
 
+void AItemPool::IncreaseReferenceCountToSpawn() {
+	referenceCount++;
+	if (referenceCount == totalReferences) {
+		DoInitialSpawns();
+	}
+}
+
+void AItemPool::DoInitialSpawns() {
 	UWorld* const World = GetWorld();
 	if (World) {
 		//for (const TPair<EPoolableType, TSubclassOf<APoolableActor>>& pair : PoolItemMap)
@@ -31,7 +42,7 @@ void AItemPool::BeginPlay()
 			bool implementsInterface = typeToSpawn.Get()->GetClass()->ImplementsInterface(UPoolableObjectInterface::StaticClass());
 			if (typeToSpawn != NULL) {
 				int countToSpawn = InitialPooledItemCount[currentType];
-				pooledItemCollection.Add(currentType,TArray<IPoolableObjectInterface*>());
+				pooledItemCollection.Add(currentType, TArray<IPoolableObjectInterface*>());
 				for (int i = 0; i < countToSpawn; i++) {
 					FActorSpawnParameters ActorSpawnParameters;
 					ActorSpawnParameters.Owner = this;
@@ -39,12 +50,12 @@ void AItemPool::BeginPlay()
 					ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 					IPoolableObjectInterface* PoolableActor = GetWorld()->SpawnActor<IPoolableObjectInterface>(typeToSpawn, poolItemLocation, FRotator().ZeroRotator, ActorSpawnParameters);
 					UObject* PoolableActorObject = Cast<UObject>(PoolableActor);
-					IPoolableObjectInterface::Execute_SetActive(PoolableActorObject,false);
+					IPoolableObjectInterface::Execute_SetActive(PoolableActorObject, false);
 					pooledItemCollection[currentType].Add(PoolableActor);
 				}
 			}
-
 		}
+		InitialItemSpawnsFinished.Broadcast();
 	}
 }
 

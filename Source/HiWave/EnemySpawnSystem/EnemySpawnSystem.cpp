@@ -9,6 +9,7 @@
 #include "EnemyPawns/EnemyPawn.h"
 #include "EnemySpawnSystem/EnemySpawnPoint.h"
 #include "GameModes/HiWaveGameMode.h"
+#include "ItemPool.h"
 #include "HiWaveGameState.h"
 #include <string>
 
@@ -25,9 +26,9 @@ AEnemySpawnSystem::AEnemySpawnSystem()
 	difficultyIncrease = 0;
 	spawnTimerDecrease = 0.0;
 	spawnCountIncrease = 0;
+	spawnCountIncrease = 0;
 	currentChapter = 0;
 	chapterTransition = false;
-
 }
 
 // Called when the game starts or when spawned
@@ -37,15 +38,19 @@ void AEnemySpawnSystem::BeginPlay()
 	
 	WaveQueueRandomized = false;
 	ChangeChapters(0);
-	//Dummy spawning turned off to test "real" spawning from data table configuration
-	//if (SpawningDataTable != nullptr) {
 	if (CurrentSpawningDataTable != nullptr) {
 		WaveQueue.Add(InitialSpawnWave);
-		SpawnFromDatatable();
+		//SpawnFromDatatable();
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAllEnemies.AddDynamic(this, &AEnemySpawnSystem::ClearAllSpawnTimers);
+		
+		
 	}
 	spawnTimerCollection = TArray<FTimerHandle>();
+	if (itemPool != nullptr) {
+		itemPool->InitialItemSpawnsFinished.AddDynamic(this, &AEnemySpawnSystem::SpawnFromDatatable);
+		itemPool->IncreaseReferenceCountToSpawn();
+	}
 	
 }
 
@@ -325,17 +330,6 @@ const FString AEnemySpawnSystem::createNewGroupNameForWave(FString rowName) cons
 	return currName;
 }
 
-/*
-const FString AEnemySpawnSystem::getWaveNameFromGroupTag(FString groupName) const
-{
-	int charIndex = 0;
-	FString waveName = groupName;
-	groupName.FindLastChar('_', charIndex);
-	groupName = groupName.Left(charIndex);
-	return groupName;
-}
-*/
-
 const FSpawnRowData& AEnemySpawnSystem::getSpawnRowFromGroupTag(const FString &groupName) const
 {
 	int charIndex = 0;
@@ -367,59 +361,3 @@ void AEnemySpawnSystem::increaseGameDifficulty()
 		spawnCountIncrease++;
 	}
 }
-
-
-/*
-void AEnemySpawnSystem::DoSpawn(FString spawnerTag, FString groupTag) {
-	//Check if the requested spawner even exists
-	bool contains = SpawnerCollection.Contains(spawnerTag);
-	if (contains) {
-		APawn* pawn = SpawnerCollection[spawnerTag]->DoEnemyPawnSpawn(EEnemyType::VE_NormalPawn);
-		AEnemyPawn* enemyPawn = Cast<AEnemyPawn>(pawn);
-		if (enemyPawn != nullptr) {
-			//UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoSpawn reference to AEnemyPawn was valid"));
-			//We have to add the Spawn system's callback to the delegate that is called when an individual enemy dies.
-			//Cannot do this before enemy spawn as part of the constructor, it must be added at spawn time.
-			enemyPawn->OnEnemyDeathDelegate.AddDynamic(this, &AEnemySpawnSystem::EnemyPawnDeathEventCallback);
-			//The spawning group tag relates an enemy to the group of enemies in a wave it spawned with.
-			//EnemyPawnDeathEventCallback uses this to check when an enemy dies how many of it's group are remaining
-			enemyPawn->SetSpawningGroupTag(groupTag);
-			//If this is the first enemy in this group, add the group tag to the EnemyGroupCounter which keeps track of how many of each
-			//wave there are.
-			if (!EnemyGroupCounter.Contains(groupTag)) {
-				EnemyGroupCounter.Add(groupTag, 0);
-			}
-			//Increase the count of enemies that exist in this group
-			EnemyGroupCounter[groupTag]++;
-		}
-	}
-}
-*/
-
-/*
-void AEnemySpawnSystem::DoDummySpawning() {
-	FTimerDelegate TimerDelLeft;
-	FTimerDelegate TimerDelCenter;
-	FTimerDelegate TimerDelRight;
-	FTimerHandle TimerHandle1;
-	FTimerHandle TimerHandle2;
-	FTimerHandle TimerHandle3;
-	FTimerHandle TimerHandle4;
-	FTimerHandle TimerHandle5;
-	FTimerHandle TimerHandle6;
-	//UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::DoDummySpawning"));
-	FString leftFString = "left";
-	FString centerFString = "center";
-	FString rightFString = "right";
-	FString groupTag = "testGroup";
-	TimerDelLeft.BindUFunction(this, FName("DoSpawn"), leftFString, groupTag);
-	TimerDelCenter.BindUFunction(this, FName("DoSpawn"), centerFString, groupTag);
-	TimerDelRight.BindUFunction(this, FName("DoSpawn"), rightFString, groupTag);
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle1, TimerDelLeft, 2.f, false);
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle2, TimerDelLeft, 4.f, false);
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle3, TimerDelCenter, 2.f, false);
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle4, TimerDelCenter, 4.f, false);
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle5, TimerDelRight, 2.f, false);
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle6, TimerDelRight, 4.f, false);
-}
-*/

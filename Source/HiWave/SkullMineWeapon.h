@@ -41,6 +41,10 @@ public:
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	UParticleSystemComponent* spawnedParticle;
 
+	/** Sound to play each time enemy is hit */
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+	USoundBase* DestroySound;
+
 	void DeactivateEvent();
 
 	/* Implementation of PoolableObjectInterface */

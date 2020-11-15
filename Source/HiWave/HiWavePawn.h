@@ -159,7 +159,7 @@ protected:
 
 	/* How fast the weapon will fire */
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
-	float fireRate;
+	TArray<float> fireRate;
 
 	/* How long between player being hit and spawning again */
 	UPROPERTY(Category = SpawnSystem, EditDefaultsOnly, BlueprintReadOnly)

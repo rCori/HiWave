@@ -75,9 +75,7 @@ void AEnemyPawn::EnemyTakeDamage(float damage) {
 }
 
 void AEnemyPawn::EnemyDeath() {
-	//APawn::Destroy();
-	//IPoolableObjectInterface::Execute_Deactivate(this);
-	DeactivateEvent();
+	
 	AHiWaveGameState* hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (hiWaveGameState) {
 		hiWaveGameState->IncreasePlayerScore(pointsAwarded);
@@ -104,6 +102,7 @@ void AEnemyPawn::EnemyDeath() {
 
 	//Play camera shake on enemy deaths
 	cameraManager->PlayCameraShake(EnemyDeathCameraShake, 1.0f);
+	DeactivateEvent();
 }
 
 void AEnemyPawn::BurstOverlap() {
@@ -130,11 +129,6 @@ void AEnemyPawn::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AAct
 	if (playerActor != NULL && OtherComp->ComponentHasTag("ShipMesh")) {
 		playerActor->TakeHit();
 	}
-	/*
-	else if (OtherComp->ComponentHasTag("StageMesh") || OtherActor->ActorHasTag("StageMesh")) {
-		UE_LOG(LogTemp, Warning, TEXT("EnemyPawn has hit the edge of the stage"));
-	}
-	*/
 }
 
 void AEnemyPawn::SetSpawningGroupTag(FString groupTag) {

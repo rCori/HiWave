@@ -80,7 +80,7 @@ AHiWavePawn::AHiWavePawn()
 
 	// Weapon
 	GunOffset = FVector(90.f, 0.f, 0.f);
-	fireRate = 0.1f;
+	fireRate = { 0.1f, 0.08, 0.06 };
 	fireTimer = 0.0f;
 	burstCollisionTimer = 0.4f;
 	burstAvailabilityTimer = 1.5f;
@@ -136,6 +136,11 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 
 	//Can't fire if you are dead
 	if (bIsDead) return;
+
+	if (hiWaveGameState == nullptr) {
+		hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+	}
+
 	// Find movement direction
 	const float ForwardValue = GetInputAxisValue(MoveForwardBinding);
 	const float RightValue = GetInputAxisValue(MoveRightBinding);
@@ -202,7 +207,7 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 	}
 
 	//Update timer to when we can fire again
-	if (fireTimer < fireRate) {
+	if (fireTimer < fireRate[hiWaveGameState->GetMultiplierIndex()]) {
 		fireTimer += DeltaSeconds;
 	}
 
@@ -219,31 +224,17 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 		}
 	}
 
-	if (hiWaveGameState == nullptr) {
-		hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
-	}
-
 	hiWaveGameState->IncreaseMultiplier(currentMultiplierDecayRate*DeltaSeconds);
 }
 
 void AHiWavePawn::FireShot()
 {
 	// If it's ok to fire again
-	if (fireTimer>= fireRate)
+	if (fireTimer>= fireRate[hiWaveGameState->GetMultiplierIndex()])
 	{
 		const FRotator FireRotation = GetActorRotation();
 		// Spawn projectile at an offset from this pawn
 		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
-
-		/*
-		UWorld* const World = GetWorld();
-		if (World != NULL)
-		{
-			// spawn the projectile
-			World->SpawnActor<AHiWaveProjectile>(SpawnLocation, FireRotation);
-		}
-		*/
-
 		
 		if (bulletPool == nullptr) {
 			TArray<AActor*> FoundActors;
@@ -254,7 +245,6 @@ void AHiWavePawn::FireShot()
 		AHiWaveProjectile* bullet = Cast<AHiWaveProjectile>(bulletPool->GetPooledObject(EPoolableType::VE_PlayerBullet));
 		if (bullet != nullptr) {
 			IPoolableObjectInterface::Execute_SetActive(bullet, true);
-			//bullet->SetActive(true);
 			bullet->SetLocationAndRotation(SpawnLocation, FireRotation);
 		}
 
@@ -314,31 +304,6 @@ void AHiWavePawn::ReleaseFire() {
 	bFireHeld = false;
 }
 
-/*
-void AHiWavePawn::TakeHit() {
-	//Prevent movement and shooting
-	bIsDead = true;
-	//Turn off collision
-	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
-	ShipMeshComponent->SetVisibility(false);
-
-	//The player is dead so show the screen to restart
-	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->PlayerDeath();
-
-	//Spawn the death particle
-	if (HitParticle != nullptr) {
-		FRotator rotation = FRotator::ZeroRotator;
-		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
-	}
-
-	if (DeathSound != nullptr) {
-		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
-	}
-
-	//Play player death camera shake
-	cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);
-}
-*/
 
 
 void AHiWavePawn::TakeHit() {

@@ -11,6 +11,8 @@
 #include "GameFramework/Actor.h"
 #include "ItemPool.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FInitialItemSpawnsFinished);
+
 UCLASS()
 class HIWAVE_API AItemPool : public AActor
 {
@@ -31,6 +33,12 @@ public:
 	//UPROPERTY(EditAnywhere, Category = "ObjectPooler")
 	//TSubclassOf<AHiWaveProjectile> PooledObjectSubclass;
 
+	UFUNCTION()
+	void IncreaseReferenceCountToSpawn();
+
+	UFUNCTION()
+	void DoInitialSpawns();
+
 	/*
 	UFUNCTION()
 	APoolableActor* GetPooledObject(EPoolableType type);
@@ -47,10 +55,16 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "ObjectPooler")
 	TMap<EPoolableType, int> InitialPooledItemCount;
 
+	UPROPERTY(BlueprintAssignable, Category = Delegates)
+	FInitialItemSpawnsFinished InitialItemSpawnsFinished;
+
 private:
 
 	FVector poolItemLocation;
 
 	TMap<EPoolableType, TArray<IPoolableObjectInterface*>> pooledItemCollection;
+
+	int referenceCount;
+	int totalReferences;
 
 };
