@@ -37,6 +37,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
 	TArray<FString> ChapterOrder;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
+	TArray<FString> RandomChapters;
+
 	/* This points to the DataTable we are going to base our spawns off of */
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
 	TMap<ESpawnPoints, AEnemySpawnPoint*> SpawnerCollection;
@@ -102,7 +105,10 @@ public:
 	void EnemyPawnDeathEventCallback(FString enemyTag);
 
 	UFUNCTION()
-	void ChangeChapters(int chapterIndex);
+	void ChangeChapters(int chapterIndex, bool random);
+
+	UFUNCTION(BlueprintCallable)
+	int GetOrderedChapterCount();
 
 	UPROPERTY(BlueprintAssignable, Category="Spawn Events")
 	FOnChangeChapter OnChangeChapterEvent;

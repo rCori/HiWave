@@ -37,7 +37,7 @@ void AEnemySpawnSystem::BeginPlay()
 	Super::BeginPlay();
 	
 	WaveQueueRandomized = false;
-	ChangeChapters(0);
+	ChangeChapters(0, false);
 	if (CurrentSpawningDataTable != nullptr) {
 		WaveQueue.Add(InitialSpawnWave);
 		//SpawnFromDatatable();
@@ -185,8 +185,14 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	}
 	//If this wave was the last one for this chapter, go to the next chapter
 	if (spawnRowData->lastWave) {
-		ChangeChapters(currentChapter + 1);
-		chapterTransition = true;
+		if (currentChapter < GetOrderedChapterCount() - 1) {
+			ChangeChapters(currentChapter + 1, false);
+			chapterTransition = true;
+		}
+		else {
+			ChangeChapters(currentChapter + 1, true);
+			chapterTransition = true;
+		}
 	}
 	//Broadcast the event that the wave name is changing.
 	OnWaveSpawn.Broadcast(rowName);
@@ -282,8 +288,17 @@ void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)
 	}
 }
 
-void AEnemySpawnSystem::ChangeChapters(int chapterIndex) {
-	FString chapterTitle = ChapterOrder[chapterIndex];
+
+//TODO: Make it so it can spawn random chapters. Probably it's an else clause
+void AEnemySpawnSystem::ChangeChapters(int chapterIndex, bool random) {
+	FString chapterTitle = "";
+	if (random) {
+		int randomChapterInteger = FMath::RandRange(0, RandomChapters.Num() - 1);
+		chapterTitle = RandomChapters[randomChapterInteger];
+	}
+	else {
+		chapterTitle = ChapterOrder[chapterIndex];
+	}
 	UDataTable* spawningDataTable = SpawnChapters[chapterTitle];
 	UE_LOG(LogSpawnSystem, Warning, TEXT("ChangeChapters"));
 	UE_LOG(LogSpawnSystem, Warning, TEXT("Chapter Title: %s") , *chapterTitle);
@@ -295,9 +310,13 @@ void AEnemySpawnSystem::ChangeChapters(int chapterIndex) {
 		WaveQueue.Add(InitialSpawnWave);
 		//Broadcast that the chapter name is changing
 		OnChangeChapterEvent.Broadcast(chapterTitle);
-		//Now that we are changing chapters we can also destroy all enemies on screen
-		
 	}
+}
+
+
+
+int AEnemySpawnSystem::GetOrderedChapterCount() {
+	return ChapterOrder.Num();
 }
 
 const FString AEnemySpawnSystem::createNewGroupNameForWave(FString rowName) const
