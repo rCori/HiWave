@@ -3,6 +3,7 @@
 #include "HiWaveGameMode.h"
 #include "HiWavePlayerController.h"
 #include "HiWavePawn.h"
+#include "TimerManager.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Kismet/GameplayStatics.h"
 #include "Blueprint/UserWidget.h"
@@ -38,6 +39,7 @@ AHiWaveGameMode::AHiWaveGameMode()
 	PlayerControllerClass = AHiWavePlayerController::StaticClass();
 
 	playerLives = 3;
+	respawnTime = 2.0;
 }
 
 void AHiWaveGameMode::DestroyAndRespawnPlayer()
@@ -54,16 +56,7 @@ void AHiWaveGameMode::DestroyAndRespawnPlayer()
 
 	AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (playerLives > 0) {
-		gameState->ResetMultiplier();
-		AActor* playerStart = K2_FindPlayerStart(playerController);
-		FActorSpawnParameters SpawnInfo;
-		SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
-		SpawnInfo.Owner = this;
-		SpawnInfo.Instigator = Instigator;
-		APawn *spawnedPlayer = GetWorld()->SpawnActor<APawn>(DefaultPawnClass, playerStart->GetActorLocation(), playerStart->GetActorRotation(), SpawnInfo);
-		if (spawnedPlayer != nullptr) {
-			playerController->Possess(spawnedPlayer);
-		}
+		RespawnPlayer();
 	} else {
 		UHiWaveGameInstance *gameInstance = Cast<UHiWaveGameInstance>(GetWorld()->GetGameInstance());
 		if (gameState != nullptr && gameInstance != nullptr) {
@@ -128,5 +121,25 @@ void AHiWaveGameMode::PlayerDeath(){
 	if (PlayerDeathWidget != nullptr)
 	{
 		PlayerDeathWidget->AddToViewport();
+	}
+}
+
+
+void AHiWaveGameMode::RespawnPlayer() {
+	APlayerController *playerController = UGameplayStatics::GetPlayerController(this, 0);
+	AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+	gameState->ResetMultiplier();
+	AActor* playerStart = K2_FindPlayerStart(playerController);
+	FActorSpawnParameters SpawnInfo;
+	SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+	SpawnInfo.Owner = this;
+	SpawnInfo.Instigator = Instigator;
+	APawn *spawnedPlayer = GetWorld()->SpawnActor<APawn>(DefaultPawnClass, playerStart->GetActorLocation(), playerStart->GetActorRotation(), SpawnInfo);
+	if (spawnedPlayer != nullptr) {
+		playerController->Possess(spawnedPlayer);
+	}
+	AHiWavePawn *hiWavePawn = Cast<AHiWavePawn>(spawnedPlayer);
+	if (hiWavePawn != nullptr) {
+		hiWavePawn->SpawnInvincibility();
 	}
 }

@@ -79,6 +79,16 @@ public:
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	bool bIsDead;
 
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* DefaultBodyMaterial;
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* BlinkingBodyMaterial;
+
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* DefaultWingMaterial;
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* BlinkingWingMaterial;
+
 	// Begin Actor Interface
 	virtual void Tick(float DeltaSeconds) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
@@ -139,6 +149,12 @@ public:
 	 */
 	UFUNCTION(Category = SpawnSystem, BlueprintCallable)
 	void DoDeathAndRespawn() const;
+
+	UFUNCTION(Category = SpawnSystem, BlueprintCallable)
+	void SpawnInvincibility();
+	
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	void SetInvincible(bool isInvincible);
 
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
@@ -214,6 +230,9 @@ protected:
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<UCameraShake> PlayerDeathCameraShake;
 
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	float InvincibilityTimeLimit;
+
 private:
 
 	/* Only for internal use to point the player in the direction of the mouse */
@@ -240,6 +259,11 @@ private:
 
 	/* current rate the multiplier is decaying at */
 	float currentMultiplierDecayRate;
+
+	/* Is the player invincible */
+	bool bIsInvincible;
+
+
 
 	AHiWaveGameState* hiWaveGameState;
 	AHiWavePlayerController* pc;

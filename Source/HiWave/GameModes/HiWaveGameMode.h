@@ -40,8 +40,14 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void PlayerDeath();
 
+	UFUNCTION(BlueprintCallable)
+	void RespawnPlayer();
+
 	UPROPERTY(BlueprintReadWrite)
 	int playerLives;
+
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
+	float respawnTime;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "UI")
 	TSubclassOf<UUserWidget> GameplayWidgetClass;

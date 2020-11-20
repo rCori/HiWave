@@ -97,6 +97,9 @@ AHiWavePawn::AHiWavePawn()
 	bCursorIsShowing = true;
 	currentRotation = GetActorRotation();
 
+	DefaultBodyMaterial = CreateDefaultSubobject<UMaterial>(TEXT("DefaultBodyMaterial"));
+	BlinkingBodyMaterial = CreateDefaultSubobject<UMaterial>(TEXT("BlinkingBodyMaterial"));
+
 }
 
 void AHiWavePawn::BeginPlay()
@@ -308,6 +311,10 @@ void AHiWavePawn::ReleaseFire() {
 
 void AHiWavePawn::TakeHit() {
 
+	if (bIsInvincible) {
+		return;
+	}
+
 	//Turn off collision
 	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
 	ShipMeshComponent->SetVisibility(false);
@@ -374,6 +381,25 @@ void AHiWavePawn::DoDeathAndRespawn() const {
 	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
 }
 
+
+void AHiWavePawn::SpawnInvincibility() {
+	ShipMeshComponent->SetMaterial(0, BlinkingBodyMaterial);
+	ShipMeshComponent->SetMaterial(1, BlinkingWingMaterial);
+	bIsInvincible = true;
+	FTimerDelegate SetInvincibleTimerDelegate;
+	FTimerHandle SetInvincibleTimerHandle;
+	SetInvincibleTimerDelegate.BindUFunction(this, FName("SetInvincible"),false);
+	GetWorld()->GetTimerManager().SetTimer(SetInvincibleTimerHandle, SetInvincibleTimerDelegate, InvincibilityTimeLimit, false);
+
+}
+
+void AHiWavePawn::SetInvincible(bool isInvincible) {
+	bIsInvincible = isInvincible;
+	if (!isInvincible) {
+		ShipMeshComponent->SetMaterial(0, DefaultBodyMaterial);
+		ShipMeshComponent->SetMaterial(1, DefaultWingMaterial);
+	}
+}
 
 const FRotator AHiWavePawn::RotateWithMouse() {
 	FRotator newRotator;
