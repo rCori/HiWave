@@ -36,15 +36,7 @@ public:
 
 	virtual void BurstOverlap() override;
 
-	//void DeactivateEvent();
-	/* Implementation of PoolableObjectInterface */
-	//void SetObjectLifeSpan_Implementation(float InLifespan) override;
-
 	virtual void SetActive_Implementation(bool IsActive) override;
-
-	//bool IsActive_Implementation() override;
-
-	//void Deactivate_Implementation() override;
 
 	/** Particle to emit when an enemy hits us */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)

@@ -81,37 +81,10 @@ void ABasicEnemy::BurstOverlap()
 }
 
 
-/*
-void ABasicEnemy::DeactivateEvent()
-{
-	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
-	IPoolableObjectInterface::Execute_Deactivate(this);
-}
-
-void ABasicEnemy::SetObjectLifeSpan_Implementation(float InLifespan)
-{
-	Lifespan = InLifespan;
-	GetWorldTimerManager().SetTimer(LifespanTimer, this, &ABasicEnemy::DeactivateEvent, Lifespan, false);
-}
-
-bool ABasicEnemy::IsActive_Implementation()
-{
-	return Active;
-}
-
-void ABasicEnemy::Deactivate_Implementation()
-{
-	IPoolableObjectInterface::Execute_SetActive(this, false);
-	GetWorldTimerManager().ClearTimer(LifespanTimer);
-}
-*/
-
 void ABasicEnemy::SetActive_Implementation(bool IsActive)
 {
-	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in BasicEnemy"));
 	Active = IsActive;
 	if (IsActive) {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
 		// Hides visible components
 		SetActorHiddenInGame(false);
 		// Disables collision components
@@ -124,7 +97,6 @@ void ABasicEnemy::SetActive_Implementation(bool IsActive)
 		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
 		// Hides visible components
 		SetActorHiddenInGame(true);
 		// Disables collision components

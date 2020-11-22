@@ -114,6 +114,8 @@ void AHiWavePawn::BeginPlay()
 		UGameplayStatics::PlaySoundAtLocation(this, PlayerSpawnSound, GetActorLocation());
 	}
 
+	SpawnInvincibility();
+
 	Super::BeginPlay();
 }
 

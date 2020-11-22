@@ -97,37 +97,10 @@ void ASpinningEnemy::BurstOverlap() {
 	Super::BurstOverlap();
 }
 
-/*
-void ASpinningEnemy::DeactivateEvent()
-{
-	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
-	IPoolableObjectInterface::Execute_Deactivate(this);
-}
-
-void ASpinningEnemy::SetObjectLifeSpan_Implementation(float InLifespan)
-{
-	Lifespan = InLifespan;
-	GetWorldTimerManager().SetTimer(LifespanTimer, this, &ASpinningEnemy::DeactivateEvent, Lifespan, false);
-}
-
-bool ASpinningEnemy::IsActive_Implementation()
-{
-	return Active;
-}
-
-void ASpinningEnemy::Deactivate_Implementation()
-{
-	IPoolableObjectInterface::Execute_SetActive(this, false);
-	GetWorldTimerManager().ClearTimer(LifespanTimer);
-}
-*/
-
 void ASpinningEnemy::SetActive_Implementation(bool IsActive)
 {
-	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in ASpinningEnemy"));
 	Active = IsActive;
 	if (IsActive) {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
 		// Hides visible components
 		SetActorHiddenInGame(false);
 		// Disables collision components
@@ -147,7 +120,6 @@ void ASpinningEnemy::SetActive_Implementation(bool IsActive)
 		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
 		// Hides visible components
 		SetActorHiddenInGame(true);
 		// Disables collision components

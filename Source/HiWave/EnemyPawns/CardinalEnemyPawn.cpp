@@ -213,7 +213,6 @@ void ACardinalEnemyPawn::EnemyDeath(){
 		FQuat rotQuaternion = FQuat(rotation);
 		transform.SetRotation(rotQuaternion);
 		transform.SetScale3D(FVector::OneVector);
-		//spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
 		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
 		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
@@ -229,37 +228,10 @@ void ACardinalEnemyPawn::BurstOverlap()
 	Super::BurstOverlap();
 }
 
-/*
-void ACardinalEnemyPawn::DeactivateEvent()
-{
-	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
-	IPoolableObjectInterface::Execute_Deactivate(this);
-}
-
-void ACardinalEnemyPawn::SetObjectLifeSpan_Implementation(float InLifespan)
-{
-	Lifespan = InLifespan;
-	GetWorldTimerManager().SetTimer(LifespanTimer, this, &ACardinalEnemyPawn::DeactivateEvent, Lifespan, false);
-}
-
-bool ACardinalEnemyPawn::IsActive_Implementation()
-{
-	return Active;
-}
-
-void ACardinalEnemyPawn::Deactivate_Implementation()
-{
-	IPoolableObjectInterface::Execute_SetActive(this, false);
-	GetWorldTimerManager().ClearTimer(LifespanTimer);
-}
-*/
-
 void ACardinalEnemyPawn::SetActive_Implementation(bool IsActive)
 {
-	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in ACardinalEnemyPawn"));
 	Active = IsActive;
 	if (IsActive) {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
 		// Hides visible components
 		SetActorHiddenInGame(false);
 		// Disables collision components
@@ -283,7 +255,6 @@ void ACardinalEnemyPawn::SetActive_Implementation(bool IsActive)
 		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
 		// Hides visible components
 		SetActorHiddenInGame(true);
 		// Disables collision components

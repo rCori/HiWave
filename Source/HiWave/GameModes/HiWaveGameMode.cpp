@@ -139,7 +139,9 @@ void AHiWaveGameMode::RespawnPlayer() {
 		playerController->Possess(spawnedPlayer);
 	}
 	AHiWavePawn *hiWavePawn = Cast<AHiWavePawn>(spawnedPlayer);
+	/*
 	if (hiWavePawn != nullptr) {
 		hiWavePawn->SpawnInvincibility();
 	}
+	*/
 }

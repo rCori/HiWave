@@ -74,13 +74,11 @@ void ASkullMineEnemy::Tick(float DeltaTime) {
 			moveTimer = timeToMove;
 			currentMovementDirection = directionalMap[directionChosen];
 			moveState = ESkullEnemyState::VE_Move;
-			UE_LOG(LogTemp, Warning, TEXT("SkullMineEnemy VE_Move"));
 			break;
 		case ESkullEnemyState::VE_Move:
 			currentMovementDirection = FVector::ZeroVector;
 			moveTimer = timeToStop;
 			moveState = ESkullEnemyState::VE_Stop;
-			UE_LOG(LogTemp, Warning, TEXT("SkullMineEnemy VE_Stop"));
 			break;
 		case ESkullEnemyState::VE_Stop:
 			if (itemPool == nullptr) {
@@ -91,11 +89,9 @@ void ASkullMineEnemy::Tick(float DeltaTime) {
 			ASkullMineWeapon* mine = Cast<ASkullMineWeapon>(itemPool->GetPooledObject(EPoolableType::VE_SkullMineWeapon));
 			if (mine != nullptr) {
 				IPoolableObjectInterface::Execute_SetActive(mine, true);
-				//bullet->SetActive(true);
 				mine->SetActorLocationAndRotation(GetActorLocation(), FRotator::ZeroRotator);
 			}
 			moveState = ESkullEnemyState::VE_Bomb;
-			UE_LOG(LogTemp, Warning, TEXT("SkullMineEnemy VE_Bomb"));
 			break;
 		}
 	}
@@ -125,10 +121,8 @@ void ASkullMineEnemy::BurstOverlap()
 
 void ASkullMineEnemy::SetActive_Implementation(bool IsActive)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in ASkullMineEnemy"));
 	Active = IsActive;
 	if (IsActive) {
-		//UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
 		// Hides visible components
 		SetActorHiddenInGame(false);
 		// Disables collision components
@@ -138,7 +132,6 @@ void ASkullMineEnemy::SetActive_Implementation(bool IsActive)
 		health = startingHealth;
 	}
 	else {
-		//UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
 		// Hides visible components
 		SetActorHiddenInGame(true);
 		// Disables collision components
@@ -155,7 +148,6 @@ void ASkullMineEnemy::SetActive_Implementation(bool IsActive)
 void ASkullMineEnemy::OnBarrierOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 	AEnemyBarrierMarker *enemyBarrierMarker = Cast<AEnemyBarrierMarker>(OtherActor);
 	if (enemyBarrierMarker != nullptr) {
-		//UE_LOG(LogTemp, Warning, TEXT("SkullMineEnemy OnBarrierOverlap"));
 		moveTimer = timeToMove;
 		EDiagonalDirection validDirs[2] = { EDiagonalDirection::VE_None };
 		EBarrierPosition barrierPosition = enemyBarrierMarker->GetBarrierPosition();

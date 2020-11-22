@@ -96,7 +96,6 @@ void ADashingEnemy::EnemyDeath()
 		FQuat rotQuaternion = FQuat(rotation);
 		transform.SetRotation(rotQuaternion);
 		transform.SetScale3D(FVector::OneVector);
-		//spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
 		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
 		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
@@ -112,37 +111,10 @@ void ADashingEnemy::BurstOverlap()
 	Super::BurstOverlap();
 }
 
-/*
-void ADashingEnemy::DeactivateEvent()
-{
-	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
-	IPoolableObjectInterface::Execute_Deactivate(this);
-}
-
-void ADashingEnemy::SetObjectLifeSpan_Implementation(float InLifespan)
-{
-	Lifespan = InLifespan;
-	GetWorldTimerManager().SetTimer(LifespanTimer, this, &ADashingEnemy::DeactivateEvent, Lifespan, false);
-}
-
-bool ADashingEnemy::IsActive_Implementation()
-{
-	return Active;
-}
-
-void ADashingEnemy::Deactivate_Implementation()
-{
-	IPoolableObjectInterface::Execute_SetActive(this, false);
-	GetWorldTimerManager().ClearTimer(LifespanTimer);
-}
-*/
-
 void ADashingEnemy::SetActive_Implementation(bool IsActive)
 {
-	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in ADashingEnemy"));
 	Active = IsActive;
 	if (IsActive) {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
 		// Hides visible components
 		SetActorHiddenInGame(false);
 		// Disables collision components
@@ -163,7 +135,6 @@ void ADashingEnemy::SetActive_Implementation(bool IsActive)
 		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
 		// Hides visible components
 		SetActorHiddenInGame(true);
 		// Disables collision components

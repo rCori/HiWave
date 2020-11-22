@@ -29,9 +29,6 @@ AEnemyPawn::AEnemyPawn()
 	StaticMeshComponentPtr = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	StaticMeshComponentPtr->BodyInstance.SetCollisionProfileName(UCollisionProfile::Pawn_ProfileName);
 	StaticMeshComponentPtr->SetupAttachment(RootComponent);
-	//StaticMeshComponentPtr->SetSimulatePhysics(true);
-	//StaticMeshComponentPtr->SetNotifyRigidBodyCollision(true);
-	//StaticMeshComponentPtr->OnComponentHit.AddDynamic(this, &AEnemyPawn::OnHit);
 
 	Active = false;
 }
@@ -113,7 +110,6 @@ void AEnemyPawn::OnHitEffect_Implementation() {
 }
 
 void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit) {
-	UE_LOG(LogTemp, Warning, TEXT("EnemyPawn OnHit"));
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
 	if (playerActor != NULL){
 		playerActor->TakeHit();
@@ -124,7 +120,6 @@ void AEnemyPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimit
 }
 
 void AEnemyPawn::OnOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult){
-	UE_LOG(LogTemp, Warning, TEXT("EnemyPawn OnOverlap"));
 	AHiWavePawn *playerActor = Cast<AHiWavePawn>(OtherActor);
 	if (playerActor != NULL && OtherComp->ComponentHasTag("ShipMesh")) {
 		playerActor->TakeHit();
@@ -155,7 +150,7 @@ void AEnemyPawn::SetActive_Implementation(bool IsActive)
 
 bool AEnemyPawn::IsActive_Implementation()
 {
-	UE_LOG(LogTemp,Warning, TEXT("IsActive_Implementation in EnemyPawn will return %s"), Active ? TEXT("true") : TEXT("false"));
+	//UE_LOG(LogTemp,Warning, TEXT("IsActive_Implementation in EnemyPawn will return %s"), Active ? TEXT("true") : TEXT("false"));
 	return Active;
 }
 

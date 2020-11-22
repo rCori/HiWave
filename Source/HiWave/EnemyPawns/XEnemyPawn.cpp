@@ -74,37 +74,10 @@ void AXEnemyPawn::BurstOverlap()
 	Super::BurstOverlap();
 }
 
-/*
-void AXEnemyPawn::DeactivateEvent()
-{
-	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
-	IPoolableObjectInterface::Execute_Deactivate(this);
-}
-
-void AXEnemyPawn::SetObjectLifeSpan_Implementation(float InLifespan)
-{
-	Lifespan = InLifespan;
-	GetWorldTimerManager().SetTimer(LifespanTimer, this, &AXEnemyPawn::DeactivateEvent, Lifespan, false);
-}
-
-bool AXEnemyPawn::IsActive_Implementation()
-{
-	return Active;
-}
-
-void AXEnemyPawn::Deactivate_Implementation()
-{
-	IPoolableObjectInterface::Execute_SetActive(this, false);
-	GetWorldTimerManager().ClearTimer(LifespanTimer);
-}
-*/
-
 void AXEnemyPawn::SetActive_Implementation(bool IsActive)
 {
-	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in AXEnemyPawn"));
 	Active = IsActive;
 	if (IsActive) {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
 		// Hides visible components
 		SetActorHiddenInGame(false);
 		// Disables collision components
@@ -117,7 +90,6 @@ void AXEnemyPawn::SetActive_Implementation(bool IsActive)
 		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
 		// Hides visible components
 		SetActorHiddenInGame(true);
 		// Disables collision components

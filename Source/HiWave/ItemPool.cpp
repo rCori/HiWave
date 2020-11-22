@@ -69,7 +69,7 @@ void AItemPool::Tick(float DeltaTime)
 
 IPoolableObjectInterface* AItemPool::GetPooledObject(EPoolableType type)
 {
-	UE_LOG(LogTemp, Warning, TEXT("GetPooledObject"));
+	//UE_LOG(LogTemp, Warning, TEXT("GetPooledObject"));
 	if (pooledItemCollection.Contains(type)) {
 		//TArray<APoolableActor*> poolableActorArray = pooledItemCollection[type];
 		TArray<IPoolableObjectInterface*> poolableActorArray = pooledItemCollection[type];
@@ -77,7 +77,7 @@ IPoolableObjectInterface* AItemPool::GetPooledObject(EPoolableType type)
 		for (IPoolableObjectInterface* PoolableActor : poolableActorArray) {
 			UObject* PoolableActorObject = Cast<UObject>(PoolableActor);
 			if (!IPoolableObjectInterface::Execute_IsActive(PoolableActorObject)) {
-				UE_LOG(LogTemp, Warning, TEXT("Returning item from the pool"));
+				//UE_LOG(LogTemp, Warning, TEXT("Returning item from the pool"));
 				return PoolableActor;
 			}
 		}
