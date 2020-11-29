@@ -144,5 +144,6 @@ private:
 	float spawnTimerDecrease;
 	int spawnCountIncrease;
 	int currentChapter;
+	FString currentChapterTitle;
 	bool chapterTransition;
 };

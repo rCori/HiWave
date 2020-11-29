@@ -71,16 +71,6 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(EEnemyType enemyType)
 	ActorSpawnParameters.Instigator = Instigator;
 	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 	if (GetWorld()) { 
-		//Spawn the enemy type passed at the location we got from the extent
-		//APawn* spawnedActor = GetWorld()->SpawnActor<APawn>(EnemyTypeMap[enemyType], actorSpawnLocation, FRotator::ZeroRotator, ActorSpawnParameters);
-		//APawn* spawnedActor = ItemPool
-		/*
-		if (ItemPool == nullptr) {
-			TArray<AActor*> FoundActors;
-			UGameplayStatics::GetAllActorsOfClass(GetWorld(), AItemPool::StaticClass(), FoundActors);
-			ItemPool = Cast<AItemPool>(FoundActors[0]);
-		}
-		*/
 		IPoolableObjectInterface *poolableObject = ItemPool->GetPooledObject(SpawnEnemyTypeMap[enemyType]);
 		APawn* spawnedActor = Cast<APawn>(poolableObject);
 		IPoolableObjectInterface::Execute_SetActive(spawnedActor, true);

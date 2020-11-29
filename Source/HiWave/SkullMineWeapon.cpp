@@ -67,7 +67,7 @@ void ASkullMineWeapon::OnOverlap(class UPrimitiveComponent* OverlappedComp, clas
 	//Destroy mines that have been hit with a bullet
 	AHiWaveProjectile *playerProjectile = Cast<AHiWaveProjectile>(OtherActor);
 	if (playerProjectile != nullptr) {
-		UE_LOG(LogTemp, Warning, TEXT("Player shot a mine and blew it up"));
+		//UE_LOG(LogTemp, Warning, TEXT("Player shot a mine and blew it up"));
 		if (DestroySound != nullptr) {
 			UGameplayStatics::PlaySoundAtLocation(this, DestroySound, GetActorLocation());
 		}
@@ -78,7 +78,7 @@ void ASkullMineWeapon::OnOverlap(class UPrimitiveComponent* OverlappedComp, clas
 
 void ASkullMineWeapon::DeactivateEvent()
 {
-	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
+	//UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
 	IPoolableObjectInterface::Execute_Deactivate(this);
 }
 
@@ -90,10 +90,10 @@ void ASkullMineWeapon::SetObjectLifeSpan_Implementation(float InLifespan)
 
 void ASkullMineWeapon::SetActive_Implementation(bool IsActive)
 {
-	UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in SkullMineWeapon"));
+	//UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in SkullMineWeapon"));
 	Active = IsActive;
 	if (IsActive) {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
+		//UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
 		// Hides visible components
 		SetActorHiddenInGame(false);
 		// Disables collision components
@@ -103,7 +103,7 @@ void ASkullMineWeapon::SetActive_Implementation(bool IsActive)
 		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
 	}
 	else {
-		UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
+		//UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
 		// Hides visible components
 		SetActorHiddenInGame(true);
 		// Disables collision components

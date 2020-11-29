@@ -26,8 +26,8 @@ AEnemySpawnSystem::AEnemySpawnSystem()
 	difficultyIncrease = 0;
 	spawnTimerDecrease = 0.0;
 	spawnCountIncrease = 0;
-	spawnCountIncrease = 0;
 	currentChapter = 0;
+	currentChapterTitle = "";
 	chapterTransition = false;
 }
 
@@ -96,16 +96,12 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	LastWaveSpawned = rowName;
 
 	//Get the actual data table row we care about
-	//FSpawnRowData* spawnRowData = SpawningDataTable->FindRow<FSpawnRowData>(FName(*rowName), TEXT(""), true);
 	FSpawnRowData* spawnRowData = CurrentSpawningDataTable->FindRow<FSpawnRowData>(FName(*rowName), TEXT(""), true);
 
 	//Find the new name
 	const FString groupName = createNewGroupNameForWave(rowName);
 
 	UE_LOG(LogTemp, Warning, TEXT("Spawning group with groupName: %s"), *groupName);
-
-	FTimerDelegate singleSpawnDelegate;
-	singleSpawnDelegate.BindUFunction(this, FName("SingleSpawnWave"), spawnRowData->canShuffleSpawnPoints, spawnRowData->enemies, spawnRowData->spawnPoints, groupName);
 
 	//If we have an internal spawn count of 1 we can just spawn once right now
 	if (spawnRowData->spawnCount == 1) {
@@ -114,6 +110,10 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	else {
 		//Otherwise we must set up a series of timers to spawn every internal wave at the correct time
 		for (int i = 1; i <= spawnRowData->spawnCount + spawnCountIncrease; i++) {
+
+			FTimerDelegate singleSpawnDelegate;
+			singleSpawnDelegate.BindUFunction(this, FName("SingleSpawnWave"), spawnRowData->canShuffleSpawnPoints, spawnRowData->enemies, spawnRowData->spawnPoints, groupName);
+
 			FTimerHandle singleSpawnHandle;
 			//Time to spawn current wave will be the timer * spawn index
 			//Example: If your timer is 0.5 seconds, first spawn is at 0.0 seconds, second at 0.5, third at 1.0, fourth at 1.5 and so on
@@ -183,6 +183,7 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	if (spawnRowData->increaseDifficulty) {
 		increaseGameDifficulty();
 	}
+	
 	//If this wave was the last one for this chapter, go to the next chapter
 	if (spawnRowData->lastWave) {
 		if (currentChapter < GetOrderedChapterCount() - 1) {
@@ -194,6 +195,7 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 			chapterTransition = true;
 		}
 	}
+	
 	//Broadcast the event that the wave name is changing.
 	OnWaveSpawn.Broadcast(rowName);
 }
@@ -235,6 +237,7 @@ void AEnemySpawnSystem::SingleSpawnWave(const bool &canShuffleSpawnPoints, const
 				EnemyGroupCounter.Add(groupName, 0);
 			}
 			EnemyGroupCounter[groupName]++;
+
 		}
 		//Number of enemies spawned from this wave has increased by 1
 		++enemyCount;
@@ -274,7 +277,6 @@ void  AEnemySpawnSystem::EnemyPawnDeathEventCallback(FString enemyTag)
 {
 	if (EnemyGroupCounter.Contains(enemyTag)) {
 		EnemyGroupCounter[enemyTag]--;
-		//UE_LOG(LogTemp, Warning, TEXT("AEnemySpawnSystem::EnemyPawnDeathEventCallback(%s). There are now only %d enemies left in that group"), *enemyTag, EnemyGroupCounter[enemyTag]);
 		if (EnemyGroupCounter[enemyTag] == 0) {
 			const FSpawnRowData& spawnRowData = getSpawnRowFromGroupTag(enemyTag);
 			if(spawnRowData.nextSpawnTiming == ENextSpawnTiming::VE_AfterClear){
@@ -300,12 +302,11 @@ void AEnemySpawnSystem::ChangeChapters(int chapterIndex, bool random) {
 		chapterTitle = ChapterOrder[chapterIndex];
 	}
 	UDataTable* spawningDataTable = SpawnChapters[chapterTitle];
-	UE_LOG(LogSpawnSystem, Warning, TEXT("ChangeChapters"));
-	UE_LOG(LogSpawnSystem, Warning, TEXT("Chapter Title: %s") , *chapterTitle);
+	UE_LOG(LogSpawnSystem, Warning, TEXT("ChangeChapters to Chapter Title: %s") , *chapterTitle);
 	if (spawningDataTable != nullptr) {
 		currentChapter = chapterIndex;
+		currentChapterTitle = chapterTitle;
 		CurrentSpawningDataTable = spawningDataTable;
-		UE_LOG(LogSpawnSystem, Warning, TEXT("CurrentSpawningDataTable is changing"));
 		WaveQueue.Empty();
 		WaveQueue.Add(InitialSpawnWave);
 		//Broadcast that the chapter name is changing
@@ -330,7 +331,7 @@ const FString AEnemySpawnSystem::createNewGroupNameForWave(FString rowName) cons
 	currName.Append("_");
 	currName.Append(std::to_string(currGroupIndex).c_str());
 	currName.Append("_");
-	currName.Append(std::to_string(currentChapter).c_str());
+	currName.Append(currentChapterTitle);
 	while (!groupNameFound) {
 		//If the EnemyGroupCounter map does not contain this name yet then we found an untaken name
 		if (!EnemyGroupCounter.Contains(currName)) {
@@ -342,7 +343,7 @@ const FString AEnemySpawnSystem::createNewGroupNameForWave(FString rowName) cons
 			currName.Append("_");
 			currName.Append(std::to_string(++currGroupIndex).c_str());
 			currName.Append("_");
-			currName.Append(std::to_string(currentChapter).c_str());
+			currName.Append(currentChapterTitle);
 		}
 	}
 
@@ -355,14 +356,12 @@ const FSpawnRowData& AEnemySpawnSystem::getSpawnRowFromGroupTag(const FString &g
 	FString waveName = groupName;
 	//The chapter index will be after the last underscore
 	waveName.FindLastChar('_', charIndex);
-	const FString chapterIndex = waveName.Mid(charIndex,waveName.Len());
+	const FString chapterTitle = waveName.Mid(charIndex+1, waveName.Len());
 	waveName = groupName.Left(charIndex);
 	//Now we seperate the wave counter from the wave name by getting the last underscore position again
 	waveName.FindLastChar('_', charIndex);
 	waveName = groupName.Left(charIndex);
-	const int32 chapterIndexInt = FCString::Atoi(*chapterIndex);
-	const FString chapterName = ChapterOrder[chapterIndexInt];
-	UDataTable* dataTable = SpawnChapters[chapterName];
+	UDataTable * dataTable = SpawnChapters[chapterTitle];
 
 	FSpawnRowData* spawnRowData = dataTable->FindRow<FSpawnRowData>(FName(*waveName), TEXT(""), true);
 	return *spawnRowData;
