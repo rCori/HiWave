@@ -97,9 +97,6 @@ AHiWavePawn::AHiWavePawn()
 	bCursorIsShowing = true;
 	currentRotation = GetActorRotation();
 
-	DefaultBodyMaterial = CreateDefaultSubobject<UMaterial>(TEXT("DefaultBodyMaterial"));
-	BlinkingBodyMaterial = CreateDefaultSubobject<UMaterial>(TEXT("BlinkingBodyMaterial"));
-
 }
 
 void AHiWavePawn::BeginPlay()
