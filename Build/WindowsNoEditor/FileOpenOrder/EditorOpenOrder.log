@@ -1780,657 +1780,675 @@
 "../../../Engine/Content/EngineMaterials/DefaultMaterial.uasset" 1780
 "../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWavePawn.uasset" 1781
 "../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/PlayerDeathCameraShake.uasset" 1782
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/BurstSFX_Cue.uasset" 1783
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/BurstSFX.uasset" 1784
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/laserfire01.uasset" 1785
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerDeath_Cue.uasset" 1786
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerDeath.uasset" 1787
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerStart_Cue.uasset" 1788
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerStart.uasset" 1789
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/BurstAttackRing.uasset" 1790
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/BodyMaterial.uasset" 1791
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWavePlayer.uasset" 1792
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/BodyMaterial.uasset" 1793
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/WingMaterial.uasset" 1794
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/WingMaterial.uasset" 1795
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PlayerHitParticle2.uasset" 1796
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_SparkParticle_GreenInst.uasset" 1797
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_SparkParticle.uasset" 1798
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.uasset" 1799
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.uasset" 1800
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BurstAttack.uasset" 1801
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Radial_Gradient.uasset" 1802
-"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradient.uasset" 1803
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/PlayerBullet.uasset" 1804
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/PlayerProjectileMaterial.uasset" 1805
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BasicEnemyHit.uasset" 1806
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_RedEnemyProjectile.uasset" 1807
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/RedEnemyBulletDestroy_Cue.uasset" 1808
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/RedEnemyBulletDestroy.uasset" 1809
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/TwinStickProjectile.uasset" 1810
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_RedEnemyBulletHit.uasset" 1811
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/M_SimpleSpot.uasset" 1812
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/4.22/Saved/Config/Windows/SourceControlSettings.ini" 1813
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/SourceControlSettings.ini" 1814
-"C:/Users/Ryanc/Documents/Unreal Projects/HiWave/Saved/Config/Windows/SourceControlSettings.ini" 1815
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/Encryption.ini" 1816
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/Crypto.ini" 1817
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/UnitTestStats.ini" 1818
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/UnitTest.ini" 1819
-"../../../Engine/Content/EditorResources/S_Note.uasset" 1820
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/RiftHMD.uasset" 1821
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/GearVRController.uasset" 1822
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/GearVRControllerMaterial.uasset" 1823
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_AO.uasset" 1824
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_Color.uasset" 1825
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_Normal.uasset" 1826
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/LeftTouchController.uasset" 1827
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/touchController_mat.uasset" 1828
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/touchController_albedo.uasset" 1829
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/touchController_controlmap.uasset" 1830
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/RightTouchController.uasset" 1831
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/PokeAHoleMaterial.uasset" 1832
-"../../../Engine/Content/EngineMaterials/RemoveSurfaceMaterial.uasset" 1833
-"../../../Engine/Content/EngineDebugMaterials/DebugMeshMaterial.uasset" 1834
-"../../../Engine/Content/EngineMaterials/M_InvalidLightmapSettings.uasset" 1835
-"../../../Engine/Content/EngineMaterials/InvalidLightmapSettings.uasset" 1836
-"../../../Engine/Content/EditorMaterials/GizmoMaterial.uasset" 1837
-"../../../Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset" 1838
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/CameraOffset.uasset" 1839
-"../../../Engine/Content/EngineMaterials/Good64x64TilingNoiseHighFreq.uasset" 1840
-"../../../Engine/Content/EngineMaterials/DefaultBokeh.uasset" 1841
-"../../../Engine/Content/EngineMaterials/DefaultBloomKernel.uasset" 1842
-"../../../Engine/Content/EngineMaterials/PreintegratedSkinBRDF.uasset" 1843
-"../../../Engine/Content/EngineMaterials/MiniFont.uasset" 1844
-"../../../Engine/Content/EngineMaterials/WeightMapPlaceholderTexture.uasset" 1845
-"../../../Engine/Content/EngineMaterials/DefaultWhiteGrid.uasset" 1846
-"../../../Engine/Content/EngineMaterials/DefaultPhysicalMaterial.uasset" 1847
-"../../../Engine/Content/EngineFonts/RobotoTiny.uasset" 1848
-"../../../Engine/Content/EngineFonts/Faces/RobotoTiny.uasset" 1849
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/AssetRegistryCache/311563bb.bin" 1850
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/AssetRegistryCache/c90e3f55.bin" 1851
-"../../../Engine/Content/EditorResources/SequenceRecorder/Countdown.uasset" 1852
-"../../../Engine/Content/EditorResources/SequenceRecorder/RecordingIndicator.uasset" 1853
-"../../../Engine/Content/BasicShapes/Cube.uasset" 1854
-"../../../Engine/Content/BasicShapes/Sphere.uasset" 1855
-"../../../Engine/Content/BasicShapes/Cylinder.uasset" 1856
-"../../../Engine/Content/BasicShapes/Cone.uasset" 1857
-"../../../Engine/Content/BasicShapes/Plane.uasset" 1858
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_WhiteMaterial.uasset" 1859
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey.uasset" 1860
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat4Components.uasset" 1861
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.uasset" 1862
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat3.uasset" 1863
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey_Lit.uasset" 1864
-"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_OpaqueColoredMaterial.uasset" 1865
-"../../Plugins/Runtime/Oculus/OculusVR/Content/OculusMR_RenderTarget.uasset" 1866
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/AssetRegistryCache/5b8a58d9.bin" 1867
-"../../../Engine/Config/HTML5/HTML5Engine.ini" 1868
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/InvisibleCursor.uasset" 1869
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/Cursor1.uasset" 1870
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/CustomCursor.uasset" 1871
-"../../../Engine/Content/MobileResources/HUD/DefaultVirtualJoysticks.uasset" 1872
-"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset" 1873
-"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset" 1874
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/3/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_98439D14404778E247EC64802D53175__D0B536984B6E17A9BA24617AAB4C691D83ECD101.udd" 1875
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/7/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D2DC7BB03380DE332E6692F3770C3C650F816BB3.udd" 1876
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___C4A0B018E3E43CA3252EBF2953094CA93F49B2B0.udd" 1877
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/7/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_091EC1F0463D60958B36D2A394DCE97__CF785935C6A55750EBFC59BD984FCB2857AACC1D.udd" 1878
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/9/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___F1B3232E58AF8859BC72147B817C1AF4CB8FF0B2.udd" 1879
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/1/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___437154E79FC595DFCEC7580A9AB13C930E6A5D47.udd" 1880
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/7/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___CC1BEC7B1FA02C4D35B79B1D2E1C2EBA179624CC.udd" 1881
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/1/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___10E68F6BA0AA0C7B5155271D05E745AC677A5521.udd" 1882
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_FE007F98422DEFA8D71AD188D1CEF54__72DF085A8BDE06BE1046231246D364782B0A6FF1.udd" 1883
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D8D87B3F31FCCDF22A0557D06090B5FFE68B8B02.udd" 1884
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/4/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___5A8CF5EEDA6057E009F10B0199FC2F8B077C140F.udd" 1885
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/0/2/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_DC7D51A6487F735F1DF5DD86DF01089__3FA0900D0B88F94A331071598C7B0210B80F1DBF.udd" 1886
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D20E2AF8BACAC14A9B0C4D1E72FD1E6F0581D3DF.udd" 1887
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___FDD4363FA167F5735FEF7F0676052C97B905FD8A.udd" 1888
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveGameMode.uasset" 1889
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveHUD.uasset" 1890
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CircularMeterMat_Inst.uasset" 1891
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CircularMeterMat.uasset" 1892
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.uasset" 1893
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/GameplayUI.uasset" 1894
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/ChapterDisplayUI.uasset" 1895
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemySpawnSystem.uasset" 1896
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/zero_hour_Font.uasset" 1897
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/zero_hour.uasset" 1898
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/LivesUI.uasset" 1899
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MultiplierUI.uasset" 1900
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/GALSB_Font.uasset" 1901
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/GALSB.uasset" 1902
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierMeterBlue.uasset" 1903
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierMeterEmpty.uasset" 1904
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierMeterGreen.uasset" 1905
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierMeterPurple.uasset" 1906
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/ScoreUI.uasset" 1907
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/PauseUI.uasset" 1908
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/RestartUI.uasset" 1909
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_3D4B43A843B649EDF709C683AE2ACD6__CE8516E0D6778BAF175FED1869FFC0BC9F4875B2.udd" 1910
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_902500C44831D15AA41E89AE02EC1E9__F9FB2B51B8589EB026ADDEFDE19303E8AFB23865.udd" 1911
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_F9BDA274425386EA5CE183A19B3FF26__8DDD89400EB9F8BC8A8075238701978E996B52CF.udd" 1912
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_3981932C494A95E193168795A922E31__53C960A3D83706755121B30793B90228CD7D5705.udd" 1913
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/3/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___850484FCF8AC2965DB8838F4E34B36B7C812D439.udd" 1914
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/5/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___B9E82CDA0A6F3E48D0C39ED0DB9CAD71555A1F71.udd" 1915
-"../../../Engine/Content/Maps/Entry.umap" 1916
-"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 1917
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_16178AF74BD482EA544F28AC7EA0BD9__F73AC9B8C9CAFE4EA9CF530B43522A36998602BB.udd" 1918
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/MainMenuMap.umap" 1919
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_MainMenuGameMode.uasset" 1920
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/RotatingCameraPawn.uasset" 1921
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/HiScoreUI.uasset" 1922
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuBackGround.uasset" 1923
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuInitialUI.uasset" 1924
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuSettingsUI.uasset" 1925
-"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 1926
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_boxCross.uasset" 1927
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_sliderLeft.uasset" 1928
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_sliderRight.uasset" 1929
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/grey_box.uasset" 1930
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SpaceSkybox.uasset" 1931
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/SpaceSkyboxMaterial_Inst.uasset" 1932
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/SpaceSkyboxMaterial.uasset" 1933
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/3PointLevels.uasset" 1934
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Skybox_Params.uasset" 1935
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/SpacescapePurpleNebulaComplex.uasset" 1936
-"../../../Engine/Content/EngineSky/SM_SkySphere.uasset" 1937
-"../../../Engine/Content/EngineSky/M_Sky_Panning_Clouds2.uasset" 1938
-"../../../Engine/Content/EngineSky/T_Sky_Blue.uasset" 1939
-"../../../Engine/Content/EngineSky/T_Sky_Clouds_M.uasset" 1940
-"../../../Engine/Content/EngineSky/T_Sky_Stars.uasset" 1941
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Sequences/MainMenuSequence.uasset" 1942
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/MainMenuMap_BuiltData.uasset" 1943
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Loveshadow_-_SUPERPOWER__feat_Siobhan_Dakay__Cue.uasset" 1944
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Loveshadow_-_SUPERPOWER__feat_Siobhan_Dakay_.uasset" 1945
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/2/1/AUDIO_0005_0000_OGG_0002_CE2BC8E0492A718BC75992A09EA43A48.udd" 1946
-"../../../Engine/Content/EditorResources/EmptyActor.uasset" 1947
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/5/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D1B0CFB24675F537C067F1B57F90C14__D0A457D4AD37E4017BDECEA998DC25C51A67AA44.udd" 1948
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___B42A37F5E2E38FD672BC5C4D8807CEC369D17B1B.udd" 1949
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/6/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___C65207BBFC32B7C17C17375EA8C63D98F3B31912.udd" 1950
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_1FD82C4545523A7BD695048DE7B8A43__446C84A0D2746AE27CA3E082447D4B8E99142261.udd" 1951
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/8/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_486E615C4215FBBC255F4CAC68240D9__2DCA33E9AA735B8C16142069AA0B8485E524B9BE.udd" 1952
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/6/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D99EE65346597B7BE4A203BEF04697E__4DC7386E5D54F62F30F223E5C8E452770D915B5C.udd" 1953
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/1/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_023952B24078E77E90620C9EC1448A3__DB814958382D110D4691200C33C20724D73704DF.udd" 1954
-"../../../Engine/Content/EngineMaterials/EditorBrushMaterial.uasset" 1955
-"../../../Engine/Content/EditorMaterials/PreviewShadowIndicatorMaterial.uasset" 1956
-"../../../Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset" 1957
-"../../../Engine/Content/EngineDebugMaterials/DebugEditorMaterial.uasset" 1958
-"../../../Engine/Content/EngineDebugMaterials/ClothMaterial_WF.uasset" 1959
-"../../../Engine/Content/EngineDebugMaterials/ClothMaterial.uasset" 1960
-"../../../Engine/Content/EngineDebugMaterials/BoneWeightMaterial.uasset" 1961
-"../../../Engine/Content/EngineDebugMaterials/HeatmapGradient.uasset" 1962
-"../../../Engine/Content/EngineDebugMaterials/GeomMaterial.uasset" 1963
-"../../../Engine/Content/EditorResources/BSPVertex.uasset" 1964
-"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickOutter.uasset" 1965
-"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickInner.uasset" 1966
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionStick.uasset" 1967
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad3.uasset" 1968
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad2.uasset" 1969
-"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad.uasset" 1970
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButtonFire.uasset" 1971
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton3.uasset" 1972
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_on.uasset" 1973
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_off.uasset" 1974
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_on.uasset" 1975
-"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_off.uasset" 1976
-"../../../Engine/Content/MobileResources/HUD/LeftVirtualJoystickOnly.uasset" 1977
-"../../../Engine/Content/MobileResources/HUD/AnalogHat.uasset" 1978
-"../../../Engine/Content/MobileResources/T_MobileMenu2.uasset" 1979
-"../../../Engine/Content/MobileResources/T_MobileControls_texture.uasset" 1980
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierX.uasset" 1981
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/2/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_BBC655E04A24788BCE2136971122A__7183C9D424CC76FDF47877CCB1FE8822FC675605.udd" 1982
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/Multiplier3.uasset" 1983
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/8/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_98E90CB74EC6E462D3D0E18D967CF__E9EF92698915B5C6DE98663D9EBF52087852EFED.udd" 1984
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/Multiplier2.uasset" 1985
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_0156C15947BED472BD68C6A4EEE37__1AD1C9E0051435608377144B852AB7C864C7365C.udd" 1986
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/Multiplier1.uasset" 1987
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_820DBE2D4810AA376692D9AF32F6FCC__DE4D74DDF0F4DF8B94CA0D213B265D7910167FAD.udd" 1988
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button05.uasset" 1989
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/3/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A974029C4AE9E84544802CA3DEE4DCE__11F499634497A451C6D5B6A9DBDDA80DC1C67AC9.udd" 1990
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button04.uasset" 1991
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/4/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0C35699D4205AD4686986DB8FD59CEE__2EC8DE7642C1A0BBA7CD3C8F3BE17B0EBF35B134.udd" 1992
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button03.uasset" 1993
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/9/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6769879342F82EBD9EF5018CD4A3ADC__14FB65E3B33CF5D2C984FB22FE7A58C21260EA16.udd" 1994
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button02.uasset" 1995
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/5/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B6C062AC4CF785130A86CF85BE2BD39__FAE9F3192F0B7F517A6BDCF2737669A41B383F58.udd" 1996
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button01.uasset" 1997
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/6/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_656D912B4E20B1C5D50E898A750A205__A0DF3DBD7100C05131B6C1F52AC38C16CD0D4413.udd" 1998
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button00.uasset" 1999
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/2/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_719BFAD847483C55E880298477F3667__CEC56B33DFB32C87AA340276A06B2D41445ADFC9.udd" 2000
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuUI.uasset" 2001
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/InGameSettingsUI.uasset" 2002
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/BurstUI.uasset" 2003
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/SpaceSkyboxMap.umap" 2004
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/SpaceSkyboxMap_BuiltData.uasset" 2005
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/MainMenuSequence.uasset" 2006
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/GameMap_BuiltData.uasset" 2007
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/4/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_B2D2BF4B4941884BE67575A6A9222__CABC36D634A7B6970B0F2745B79BFD74CDF9D482.udd" 2008
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/5/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_107D16B346949DF4024786AF85FBD__1333014A628C1D651680C6B457935D7CD7515F60.udd" 2009
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/7/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_B2D2BF4B4941884BE67575A6A9222__630552F1907FD147149FC3D8C731707D2811118B.udd" 2010
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/5/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_107D16B346949DF4024786AF85FBD__854D0F0B570A77E76611D4C394654BF2BC23D890.udd" 2011
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/2/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_341BF2814024D62947FDE3B7FD41D__D37727B214F6C57050EE882CC46E7DF15C59EA65.udd" 2012
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/9/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_109FA8634ACB320C35B92B941EBCC87C__7A1C6C4F92D8C00C229B7DDABCF3C9DB328FD306.udd" 2013
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/4/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_9B9BC85F437A6B8FD57008B621300DAB__A93BE03488FC1C74ACA44AC98A4674E415B58D39.udd" 2014
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/2/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_109FA8634ACB320C35B92B941EBCC87C__6B519E9018E4F03B5B5DD6740353653F6D69FF8E.udd" 2015
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/5/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_9B9BC85F437A6B8FD57008B621300DAB__6EF0B48E190E822EFB8924446271A1F41C8C8856.udd" 2016
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/9/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_FBBF13804E8344958DF074B3A9C55C2F__0F5497D196D01F508616F11E383C0E5B20099BB8.udd" 2017
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/0/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_5AA1E11B44E9A8D00FF2A19D8A9DEDFE_0__B645331A266110BB38199F201C72124E8353F170.udd" 2018
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_999ECD4148802ACC99FE9D9ADEDE0AEB_0__C7BB95C8219A3835458F540ABC5F0C6A5E456897.udd" 2019
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_438C94D3476B03024332D2A83E563B12_0__48B5C1E4B1676FC1D4D1F7EC15D78550D84F1421.udd" 2020
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/7/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_6ADD307D4BB1564D1DF9ADB5CDB7F__9BB247A4E94034059096A91C90E72058A73BA6AD.udd" 2021
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/4/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_53B9763B409264B70AAFB69EC41BB__D110C69F25BDEA0ACB5C69AF6169E2AF29291175.udd" 2022
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/8/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_6ADD307D4BB1564D1DF9ADB5CDB7F__3BEDAAC6E237204D152B2EB5202841019CA4E2BC.udd" 2023
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/3/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_53B9763B409264B70AAFB69EC41BB__67DE8C9F66B7053F2DAA4BC7970D740EED15F9ED.udd" 2024
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/TwinStickOverview.uasset" 2025
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/6/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_EE3EA772442315EF065FF097E2F4D__EDFE6DDCFBCA281A2A8158BAD24FB9839B6ABCEF.udd" 2026
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/TwinStickProjectile.uasset" 2027
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Audio/TwinStickFire.uasset" 2028
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/TwinStickFire.uasset" 2029
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Audio/laserfire01.uasset" 2030
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/3/6/AUDIO_0005_0000_OGG_0002_2896812442E3068B24684CB5A60A349A.udd" 2031
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Walnut_N.uasset" 2032
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Walnut_D.uasset" 2033
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Pine_N.uasset" 2034
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Pine_D.uasset" 2035
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Oak_N.uasset" 2036
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Oak_D.uasset" 2037
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_N.uasset" 2038
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_M.uasset" 2039
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_D.uasset" 2040
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Water_N.uasset" 2041
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Water_M.uasset" 2042
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Panel_N.uasset" 2043
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Panel_M.uasset" 2044
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Hex_Tile_N.uasset" 2045
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Hex_Tile_M.uasset" 2046
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Dot_N.uasset" 2047
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Dot_M.uasset" 2048
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_TableRound_N.uasset" 2049
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_TableRound_M.uasset" 2050
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Statue_N.uasset" 2051
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Statue_M.uasset" 2052
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Spark_Core.uasset" 2053
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Smoke_Tiled_D.uasset" 2054
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Smoke_SubUV.uasset" 2055
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Single_Tile_N.uasset" 2056
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Shelf_N.uasset" 2057
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Shelf_M.uasset" 2058
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Smooth_Granite_D.uasset" 2059
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Slate_N.uasset" 2060
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Slate_D.uasset" 2061
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Sandstone_N.uasset" 2062
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Sandstone_D.uasset" 2063
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Marble_Polished_D.uasset" 2064
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Basalt_N.uasset" 2065
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Basalt_D.uasset" 2066
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_RockMesh_N.uasset" 2067
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_RockMesh_M.uasset" 2068
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Perlin_Noise_M.uasset" 2069
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Steel_N.uasset" 2070
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Steel_D.uasset" 2071
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Rust_N.uasset" 2072
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Rust_D.uasset" 2073
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Gold_N.uasset" 2074
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Gold_D.uasset" 2075
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Copper_D.uasset" 2076
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Aluminum_D.uasset" 2077
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_MacroVariation.uasset" 2078
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Lamp_N.uasset" 2079
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Lamp_M.uasset" 2080
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Moss_N.uasset" 2081
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_ground_Moss_D.uasset" 2082
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Gravel_N.uasset" 2083
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Gravel_D.uasset" 2084
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Grass_N.uasset" 2085
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Grass_D.uasset" 2086
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Gradinet_01.uasset" 2087
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Frame_N.uasset" 2088
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Frame_M.uasset" 2089
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Fire_Tiled_D.uasset" 2090
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Fire_SubUV.uasset" 2091
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Explosion_SubUV.uasset" 2092
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Dust_Particle_D.uasset" 2093
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Door_N.uasset" 2094
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Door_M.uasset" 2095
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Detail_Rocky_N.uasset" 2096
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_Variation_M.uasset" 2097
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_N.uasset" 2098
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_M.uasset" 2099
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_D.uasset" 2100
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Poured_N.uasset" 2101
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Poured_D.uasset" 2102
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Panels_N.uasset" 2103
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Panels_D.uasset" 2104
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Grime_D.uasset" 2105
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_N.uasset" 2106
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_M.uasset" 2107
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_D.uasset" 2108
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Rough_N.uasset" 2109
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Rough_D.uasset" 2110
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_N.uasset" 2111
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_M.uasset" 2112
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_D.uasset" 2113
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Checker_Noise_M.uasset" 2114
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Chair_N.uasset" 2115
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Chair_M.uasset" 2116
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ceramic_Tile_N.uasset" 2117
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ceramic_Tile_M.uasset" 2118
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Bush_N.uasset" 2119
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Bush_D.uasset" 2120
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Burst_M.uasset" 2121
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_N.uasset" 2122
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_M.uasset" 2123
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_D.uasset" 2124
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Cut_Stone_N.uasset" 2125
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Cut_Stone_D.uasset" 2126
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Old_N.uasset" 2127
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Old_D.uasset" 2128
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_N.uasset" 2129
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_M.uasset" 2130
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_D.uasset" 2131
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_N.uasset" 2132
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_M.uasset" 2133
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_D.uasset" 2134
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_StatueGlass.uasset" 2135
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Statue.uasset" 2136
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_MaterialSphere_Plain.uasset" 2137
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_MaterialSphere.uasset" 2138
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Lamp.uasset" 2139
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Statue.uasset" 2140
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_MatPreviewMesh_02.uasset" 2141
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Lamp_Wall.uasset" 2142
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Lamp_Ceiling.uasset" 2143
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_GlassWindow.uasset" 2144
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Glass.uasset" 2145
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/MaterialSphere.uasset" 2146
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Spark.uasset" 2147
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_smoke_subUV.uasset" 2148
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_radial_ramp.uasset" 2149
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Heat_Distortion.uasset" 2150
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/m_flare_01.uasset" 2151
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Fire_SubUV.uasset" 2152
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_explosion_subUV.uasset" 2153
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Dust_Particle.uasset" 2154
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Burst.uasset" 2155
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Steam_Lit.uasset" 2156
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Sparks.uasset" 2157
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Smoke.uasset" 2158
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Fire.uasset" 2159
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Explosion.uasset" 2160
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Ambient_Dust.uasset" 2161
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" 2162
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/SunlightColorLUT.uasset" 2163
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/SM_Arrows.uasset" 2164
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/Skybox.uasset" 2165
-"../../../Engine/Content/EditorMaterials/Thumbnails/SkySphereMaterial.uasset" 2166
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Master.uasset" 2167
-"../../../Engine/Content/MapTemplates/Sky/DaylightAmbientCubemap.uasset" 2168
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_HDRI.uasset" 2169
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Black.uasset" 2170
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Arrows.uasset" 2171
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/FogBrightnessLUT.uasset" 2172
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/BP_LightStudio.uasset" 2173
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_WallSconce.uasset" 2174
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_CeilingLight.uasset" 2175
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/GameMap.umap" 2176
-"../../../Engine/Content/EngineSky/BP_Sky_Sphere.uasset" 2177
-"../../../Engine/Content/EngineSky/C_Sky_Cloud_Color.uasset" 2178
-"../../../Engine/Content/EngineSky/C_Sky_Horizon_Color.uasset" 2179
-"../../../Engine/Content/EngineSky/C_Sky_Zenith_Color.uasset" 2180
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemyBarrierMarker.uasset" 2181
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemySpawnPoint.uasset" 2182
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_BasicEnemy.uasset" 2183
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/EnemyDeathCameraShake.uasset" 2184
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyDeathSound2_Cue.uasset" 2185
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyHitSound3_Cue.uasset" 2186
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy1.uasset" 2187
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy1FrontMaterial.uasset" 2188
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy2FrontMaterial.uasset" 2189
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/MainEnemyMaterial.uasset" 2190
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BasicEnemyDown.uasset" 2191
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_CardinalEnemy.uasset" 2192
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Enemy5.uasset" 2193
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/CockpitEnemy5Material.uasset" 2194
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/EngineEnemy5Material.uasset" 2195
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/ShipEnemy5Material.uasset" 2196
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/WingEnemy5Material.uasset" 2197
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_CardinalEnemyDown.uasset" 2198
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_DashingEnemy.uasset" 2199
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/HiWaveEnemy7.uasset" 2200
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/SpearMaterial.uasset" 2201
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/Enemy3EngineMaterial.uasset" 2202
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/Enemy3MainMaterial.uasset" 2203
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/Enemy3SideMaterial.uasset" 2204
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_DashEnemyDown.uasset" 2205
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_RedEnemy.uasset" 2206
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy2.uasset" 2207
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Enemy2SideMaterial.uasset" 2208
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_RedEnemyDown.uasset" 2209
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_RedParticle.uasset" 2210
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SkullMineEnemy.uasset" 2211
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/SkullEnemy.uasset" 2212
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/SkullMainMaterial.uasset" 2213
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/SkullSocketMaterial.uasset" 2214
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_SkullEnemyHit.uasset" 2215
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SpinningEnemy.uasset" 2216
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy5.uasset" 2217
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy5ArmMat.uasset" 2218
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy5BodyMat.uasset" 2219
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_XEnemyPawn.uasset" 2220
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/EnemyX/HiWaveXEnemy.uasset" 2221
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/EnemyX/XEnemyMat.uasset" 2222
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_XEnemyHit.uasset" 2223
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/SpawnSoundEffect.uasset" 2224
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Equip.uasset" 2225
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_EnemySpawn.uasset" 2226
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_ItemPool.uasset" 2227
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveProjectile.uasset" 2228
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SkullMineWeapon.uasset" 2229
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/SkullMineDestroy_Cue.uasset" 2230
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/SkullMineDestroy.uasset" 2231
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/MineWeaponMesh/SkullEnemyMine.uasset" 2232
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageSideMaterial.uasset" 2233
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/MineWeaponMesh/CenterMaterial.uasset" 2234
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Math/Pi.uasset" 2235
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_SkullMineShot.uasset" 2236
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_StageVisualControl.uasset" 2237
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGroundMaterial_Inst.uasset" 2238
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGroundMaterial.uasset" 2239
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/GroundTexture.uasset" 2240
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/GroundTextureAlphaMask.uasset" 2241
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/LevelMesh.uasset" 2242
-"../../../Engine/Content/VREditor/Devices/Generic/GenericHMDMaterial.uasset" 2243
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Chapter1Spawns.uasset" 2244
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Chapter2Spawns.uasset" 2245
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Chapter3Spawns.uasset" 2246
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TestChapter.uasset" 2247
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGlassMaterial_Inst.uasset" 2248
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGlassMaterial.uasset" 2249
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Zodik_-_Future_Travel_Cue.uasset" 2250
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Zodik_-_Future_Travel.uasset" 2251
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/1/AUDIO_0005_0000_OGG_0002_21FB967B42CE326E1BDF838CB2FF5677.udd" 2252
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_000.uasset" 2253
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_001.uasset" 2254
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_002.uasset" 2255
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_003.uasset" 2256
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_004.uasset" 2257
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/4/1/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__729162FABC79DE0A59C5DFADDD99C15422781BF0.udd" 2258
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/5/6/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_95F6C1184D37E9E23__67B50DE12E7834DC8FA5B9302C34BED41DD86575.udd" 2259
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/7/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_0D0618D9498C4B95915EAA91654F8A5B__1_0_0_0_2_13315_0.udd" 2260
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/8/6/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__F1DCBF1249095A2209B686D6FD91E73F51DFDE66.udd" 2261
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/7/7/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_3194983B4133547BA__09795B3974C04235761D5FD7445E57CD20DB9A56.udd" 2262
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/1/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_95F6C1184D37E9E23DE13BA2DBD73D7__F601FB02B6ED81635F0A387355AD9A9ECA2ED416.udd" 2263
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_001.uasset" 2264
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_002.uasset" 2265
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_003.uasset" 2266
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_004.uasset" 2267
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/7/2/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__F35EC5DF08DDFBF288D0B4BEC2C43B3B5BBDA726.udd" 2268
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/7/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_D0C0EDB442AC36647__E43590F66FB0605C6B65B1462F4C75549F853519.udd" 2269
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_D0C0EDB442AC36647C3658AF30E24F9__44DA49143CA3EEFB2BF9221B69883713FF4AA3AC.udd" 2270
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/5/1/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__11C9C45E2715EBB2C960926EC6D71ED8C3FEB896.udd" 2271
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/9/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_F3568F064C9E42239__546CE69718876E5E8E361848F00964A9D9877CA7.udd" 2272
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/0/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_F3568F064C9E4223981061956ABFE67__685300A07BE664FD8BE951F23142D7A5D337502D.udd" 2273
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/1/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__3DCFBAF4ED06E9E991D9CFEFAFA009D65B8279B9.udd" 2274
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/6/2/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_9E0AF2604864BEBD3__C65F3B81D143372B0C3873AB8AB40D6E69BF99F2.udd" 2275
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/2/6/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_9E0AF2604864BEBD31D9C89D38B6C11__8D9FADDF226DF8CFE18AD68AB251131C49E0F753.udd" 2276
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/9/0/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__5097868811D2D8536906F51E87E5A13AD2F62671.udd" 2277
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/1/5/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_7EB46BAD480DAF54C__0ABB9E60DADA358C794A322C90C109B11B242A99.udd" 2278
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/7/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_7EB46BAD480DAF54C56C90BABB01DB8__E2F97FC29078E46C318047C7344752BDCA561FBA.udd" 2279
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/5/2/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__CDEC94CE7BCD0A74FA1F2C68A3F96FD3841B962F.udd" 2280
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/6/1/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_F29E3DC34AA12A9DC__18E9FA22E2F00903D507B2AB12D590FFC9AED1CE.udd" 2281
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/8/3/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_F29E3DC34AA12A9DC8AD4F8BA4151F5__94424C89F24EB411284AB27AA37648D03B35F84C.udd" 2282
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/4/6/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__093226F01EA2E5C46197D05C1E9FF49886B56ED2.udd" 2283
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/9/8/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_9529507743F544E03__B2B429F8D1765835F072F61FB7B8F1F32940CA1B.udd" 2284
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/0/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_9529507743F544E031E8C4859AAB032__9AC5C535E0BA39B8E6846C38100B3AB496B973D9.udd" 2285
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/8/9/AUDIO_0005_0000_OGG_0002_6F9871D64BFD0385C7662F8A5A6CE5BB.udd" 2286
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/8/1/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__2FE6B29730226782BE2AF4D1B011DD63B3C68B49.udd" 2287
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/3/8/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_5B69C2974AD86F012__FF47F23478B4812CB1C72F4C0BFBB65DEF7C4F7C.udd" 2288
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_5B69C2974AD86F0120FC4D9C4C8BDFA__052A1BDE14C45ADD190EA8962B6C3F7FF4BF69AD.udd" 2289
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/3/2/AUDIO_0005_0000_OGG_0002_5489BF2B4136F07000423A865E88CB2B.udd" 2290
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/1/4/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_3194983B4133547BA62EC0BCAAD9E0D__4938E614C5F88062687F70AACEA3CB30F8F32810.udd" 2291
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/8/4/AUDIO_0005_0000_OGG_0002_E92B448448250935B41A3FAE57C8DDDF.udd" 2292
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/9/AUDIO_0005_0000_OGG_0002_E8950BC142C7A99BCC4A31BDE9B57F8E.udd" 2293
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/5/9/AUDIO_0005_0000_OGG_0002_09A762A148DB7DA5615EB293CA39AF61.udd" 2294
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/0/1/AUDIO_0005_0000_OGG_0002_3AC4F18842817A275C30ADA5A5380014.udd" 2295
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/5/9/AUDIO_0005_0000_OGG_0002_D974530B41F044475AA2A9B4AF8D313D.udd" 2296
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/0/4/AUDIO_0005_0000_OGG_0002_AE2F846F4F4FD66E61C798A5C98F9227.udd" 2297
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/9/9/AUDIO_0005_0000_OGG_0002_F4C5887A45AA611605E0C8B917E1D2EE.udd" 2298
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/5/3/AUDIO_0005_0000_OGG_0002_CD18A6824B8E28FDF822ADB7614E43A4.udd" 2299
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/9/5/AUDIO_0005_0000_OGG_0002_CD2A07A14B1D923B23A679A6FA5A17F5.udd" 2300
-"../../../Engine/Content/EditorResources/LightIcons/S_LightError.uasset" 2301
-"../../../Engine/Content/EditorResources/AudioIcons/S_AudioComponent.uasset" 2302
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/8/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___6029926244CA0D946F532FF06D6456684DDBCCC3.udd" 2303
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___1C877955B4CBDD6D861A4864A9A25FF444C19157.udd" 2304
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/0/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_08B6EF61434F0021B662ECB50CDF6__638648C10FB3988E6AD07BD2B8282CB7A73C0E19.udd" 2305
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/4/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_57BE22BE401DE512B5A9DAB883885__DF47B71FA8D4E07FE31B20071AF1C1384E210F90.udd" 2306
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/3/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_08B6EF61434F0021B662ECB50CDF6__A913A763748512D88DDA4FD8975FD357A18556F9.udd" 2307
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_57BE22BE401DE512B5A9DAB883885__3AF7548364370869CC910E942563CF70C8239EF2.udd" 2308
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_08B6EF61434F0021B662ECB50CDF6__9786E44D8A88D14A2AEF6593C408D7B2354108EF.udd" 2309
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/8/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_57BE22BE401DE512B5A9DAB883885__57AD7003E10B5DA867B09AF7108014347F588FCB.udd" 2310
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/0/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_08B6EF61434F0021B662ECB50CDF6__F35122FEBA9D12D7BE95EC4115C76704F378B3B0.udd" 2311
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/3/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_57BE22BE401DE512B5A9DAB883885__C68201A0FA62B6496D738A6B201981184D137C1B.udd" 2312
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/2/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___450142E6D15654459F19C6C64A991102692481ED.udd" 2313
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___BDE4BD313055AFC754F65AF4469D58AE0983516C.udd" 2314
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___C33C3387CA625AC80B7F3DC79146985813B6AAAA.udd" 2315
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/9/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___653DFB607697B4FC0EA73119D13C16AE864413A3.udd" 2316
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/7/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___3E413E68AA6E0D06D1023856B0AB2436E2057FD3.udd" 2317
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/6/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___EAE3B91DF1A20C15544075B3745A14EECCC4591E.udd" 2318
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/6/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___9FE504827ABB1BABCD234A6949254F09D83760A8.udd" 2319
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___781E9DAF31FAA87667605F06EEAC48E9E3D68D82.udd" 2320
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/0/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___F932F835D1782590F4CDFC1540E33405216F63FA.udd" 2321
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___2BBA6396915BAD2E2724955A9AFF3D82D607A82E.udd" 2322
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___295362144F777E1977B7A26DDA7F28A20010DE58.udd" 2323
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/1/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___13A67DCDCB96957562F2009D10E16697E052176B.udd" 2324
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___6B0FEFC1B1CD952B14631404294F4F5C4E2F2217.udd" 2325
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/9/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___2B64DD1EF3D59F2DB28F38DDD019A0E203CCF553.udd" 2326
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PlayerHitParticle.uasset" 2327
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/TopTexture.uasset" 2328
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0CE9024B46F179B5AEBBBF962F7B66E__F1CAF94820D350F8812EBB790EB488D67E7CDCC3.udd" 2329
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/TopStencilAlpha.uasset" 2330
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/5/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A7F312574A9D3085CD6F6EA54DDA6D7__52FDBDEB58E9D044F12D127647B96E3491A946A4.udd" 2331
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/MineWeaponMesh/SideMaterial.uasset" 2332
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/2/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___0C83A31CD8364A4B06D7A9D1AB26BE01A6CCFB97.udd" 2333
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___DC016ABF119A4AD0BC367E6A5109DE2DDBA9E5C0.udd" 2334
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/SocketMaterial.uasset" 2335
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___80B9F271D7E582C1B2E40AB3A79AEC7412EE7E81.udd" 2336
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___31084AB47DC2160303E73E33E0555A3345FD8646.udd" 2337
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/BoneMaterial.uasset" 2338
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___B003080F8721E4613DC7D3268E3472697604F5D4.udd" 2339
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/7/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___DE55D81B293F23A10DF9C702DBC7B6136CDFF659.udd" 2340
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/SideMaterial.uasset" 2341
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/2/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___BCA3467B51EC067E812A8EE2371EE895DD4C504A.udd" 2342
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/6/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___37D6AC25B1FBF2DE33A2D42108293EBD0E1697CA.udd" 2343
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/MainMaterial.uasset" 2344
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___270D2599F7C8D7E06B1CD11907CA23A72CE58E07.udd" 2345
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/5/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D116EBE34F5F09A322CE2CE7F6F959ABBBF8F94B.udd" 2346
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/EngineMaterial.uasset" 2347
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/1/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___0031A02E5F2B9D1A35259DA9BF776311BCAFF05A.udd" 2348
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___EB22E5E3E7C2AA0DBD35AA1A3FABB052E3B54C77.udd" 2349
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/Enemy3SpearMaterial.uasset" 2350
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Wing.uasset" 2351
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/6/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___84E8EB127051A7D9A90F739EEFA956F558871EF9.udd" 2352
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/8/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___732BB2A19A6F9DCE6910AE24B815BC5F4FDC8759.udd" 2353
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/spaceshipIThink.uasset" 2354
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/ShipBody.uasset" 2355
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/0/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D17C9371E70B29A56AF76239EFD69247A0766628.udd" 2356
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/1/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___CF5B4E5045A918D850BC8A905A07280E53E9CCC6.udd" 2357
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Guns.uasset" 2358
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Engine.uasset" 2359
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___F7290906F9D891FA1B796F3A9676675F3DD1B993.udd" 2360
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/8/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D2E031A977360E426D4D11BA6D731715320AF612.udd" 2361
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Cockpit.uasset" 2362
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/3/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___2153611948EDCDADCCCA6FA8096A905FB2D21AE6.udd" 2363
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___EA398F2FF212B4AA7F4A5D53BD928054B1EE062C.udd" 2364
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopTexture.uasset" 2365
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopStencilAlpha.uasset" 2366
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopMaterial.uasset" 2367
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/TopMaterial.uasset" 2368
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/4/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___4F1ABF73891DB2A35AA6CE5F9A7D3B1CDD7172C8.udd" 2369
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/5/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___CFB6D3B18BA7D074B18622CC9D690ABC325A2CBB.udd" 2370
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/RedBoxEnemyMaterial.uasset" 2371
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/LevelIlluminationMaterial.uasset" 2372
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/LevelIlluminationMaterial.uasset" 2373
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___52C00C28331B9EBC9DCD1626035AC91686B6BABC.udd" 2374
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___154C8EA184A1F21E26610808B92FACA8CA8E6936.udd" 2375
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox_Skeleton.uasset" 2376
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy3.uasset" 2377
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/2/3/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__7A38A634009C87FE51F5ADB0AFD9B9D89B35E504.udd" 2378
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/2/2/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_44C16EA943B17754B__67A8CC3FFAA48C69195F7531943BCC097C81E7E9.udd" 2379
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/6/5/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_44C16EA943B17754BF8329BE64D8B49__AA6EE8168AFCC1DA4B2B5D9434A34BAB10875070.udd" 2380
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Enemy2FrontMaterial.uasset" 2381
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CubeMaterial.uasset" 2382
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CubeMaterial.uasset" 2383
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/MineCenter_Inst.uasset" 2384
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/RotatingCamera.uasset" 2385
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemyPawn.uasset" 2386
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerMaterial.uasset" 2387
-"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uasset" 2388
-"../../../Engine/Content/VREditor/Devices/Vive/T_VivePreController_EM.uasset" 2389
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreController_MasksA.uasset" 2390
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreController_MasksB.uasset" 2391
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerDiffuse.uasset" 2392
-"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerSpec.uasset" 2393
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/qubodup-crash_Cue.uasset" 2394
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/qubodup-crash.uasset" 2395
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/3/AUDIO_0005_0000_OGG_0002_F497BEBF4C7F9690DAD76794A75B0AAA.udd" 2396
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Purchase.uasset" 2397
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/8/0/AUDIO_0005_0000_OGG_0002_AE39A5CF469DD2930AD5C38634E80EE5.udd" 2398
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Open.uasset" 2399
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/1/7/AUDIO_0005_0000_OGG_0002_4444BB5840E9B7B223132C8541CE83F6.udd" 2400
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/LoadSave.uasset" 2401
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/9/7/AUDIO_0005_0000_OGG_0002_12A3E29546029947B9D8759214E9D1AD.udd" 2402
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_004.uasset" 2403
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/0/9/AUDIO_0005_0000_OGG_0002_F55A1D5748B1CD0BF573568AA8B5CDE3.udd" 2404
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_003.uasset" 2405
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/2/2/AUDIO_0005_0000_OGG_0002_1B05CDD945D22AB69585EFB5B54CB68B.udd" 2406
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_002.uasset" 2407
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/2/8/AUDIO_0005_0000_OGG_0002_B76D1D60432072725ACBDAB6E6541007.udd" 2408
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_001.uasset" 2409
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/7/AUDIO_0005_0000_OGG_0002_9787D3324554EBC86B0D9E8593B8A4E2.udd" 2410
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_000.uasset" 2411
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/9/AUDIO_0005_0000_OGG_0002_7354317B4673BFB0AA94B78EBEAF56C9.udd" 2412
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explosion06_Cue.uasset" 2413
-"../../../Engine/Content/EngineSounds/SFX.uasset" 2414
-"../../../Engine/Content/EngineSounds/Normal_Attack.uasset" 2415
-"../../../Engine/Content/EngineSounds/Special_Attack_PSM.uasset" 2416
-"../../../Engine/Content/EngineSounds/Duck_Normal_Attack_MixMod.uasset" 2417
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explosion06.uasset" 2418
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/3/0/AUDIO_0005_0000_OGG_0002_88D352CE44E95BFAE502DF82C0B07CFE.udd" 2419
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explodemini_Cue.uasset" 2420
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explodemini.uasset" 2421
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/6/9/AUDIO_0005_0000_OGG_0002_9E4649C0405F5B007F6E3686F20B1EA6.udd" 2422
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Error.uasset" 2423
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/6/4/AUDIO_0005_0000_OGG_0002_F211CF80404F7E938436B78B7009A837.udd" 2424
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyDeathSound3_Cue.uasset" 2425
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Cursor_Cue.uasset" 2426
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Cursor.uasset" 2427
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/2/8/AUDIO_0005_0000_OGG_0002_D3F680BD4E26A4461B031D812C7D9518.udd" 2428
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Confirm_Cue.uasset" 2429
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Confirm.uasset" 2430
-"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/5/4/AUDIO_0005_0000_OGG_0002_E70E2D1045CA4B5C34A3989F62A57072.udd" 2431
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/Zodik_-_Future_Travel_Cue.uasset" 2432
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/Zodik_-_Future_Travel.uasset" 2433
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/SpawningDataTable.uasset" 2434
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/NewDataTable.uasset" 2435
-"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/GameMapDataTable.uasset" 2436
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/BodyMaterial.uasset" 1783
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/InvincibleBodyMaterial.uasset" 1784
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Math/Pi.uasset" 1785
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/WingMaterial.uasset" 1786
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/InvincibleWingMaterial.uasset" 1787
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/BurstSFX_Cue.uasset" 1788
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/BurstSFX.uasset" 1789
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/laserfire01.uasset" 1790
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerDeath_Cue.uasset" 1791
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerDeath.uasset" 1792
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerStart_Cue.uasset" 1793
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/PlayerStart.uasset" 1794
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/BurstAttackRing.uasset" 1795
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWavePlayer.uasset" 1796
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/BodyMaterial.uasset" 1797
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/WingMaterial.uasset" 1798
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PlayerHitParticle2.uasset" 1799
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_SparkParticle_GreenInst.uasset" 1800
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_SparkParticle.uasset" 1801
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Density/ExponentialDensity.uasset" 1802
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradientExponential.uasset" 1803
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BurstAttack.uasset" 1804
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Radial_Gradient.uasset" 1805
+"../../../Engine/Content/Functions/Engine_MaterialFunctions01/Gradient/RadialGradient.uasset" 1806
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/PlayerBullet.uasset" 1807
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/PlayerProjectileMaterial.uasset" 1808
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BasicEnemyHit.uasset" 1809
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_RedEnemyProjectile.uasset" 1810
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/RedEnemyBulletDestroy_Cue.uasset" 1811
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/RedEnemyBulletDestroy.uasset" 1812
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/TwinStickProjectile.uasset" 1813
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_RedEnemyBulletHit.uasset" 1814
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/M_SimpleSpot.uasset" 1815
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/4.22/Saved/Config/Windows/SourceControlSettings.ini" 1816
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/SourceControlSettings.ini" 1817
+"C:/Users/Ryanc/Documents/Unreal Projects/HiWave/Saved/Config/Windows/SourceControlSettings.ini" 1818
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/Encryption.ini" 1819
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/Crypto.ini" 1820
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/UnitTestStats.ini" 1821
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/Config/CoalescedSourceConfigs/UnitTest.ini" 1822
+"../../../Engine/Content/EditorResources/S_Note.uasset" 1823
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/RiftHMD.uasset" 1824
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/GearVRController.uasset" 1825
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/GearVRControllerMaterial.uasset" 1826
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_AO.uasset" 1827
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_Color.uasset" 1828
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/GearVRController_Normal.uasset" 1829
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/LeftTouchController.uasset" 1830
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/touchController_mat.uasset" 1831
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/touchController_albedo.uasset" 1832
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Textures/touchController_controlmap.uasset" 1833
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Meshes/RightTouchController.uasset" 1834
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/PokeAHoleMaterial.uasset" 1835
+"../../../Engine/Content/EngineMaterials/RemoveSurfaceMaterial.uasset" 1836
+"../../../Engine/Content/EngineDebugMaterials/DebugMeshMaterial.uasset" 1837
+"../../../Engine/Content/EngineMaterials/M_InvalidLightmapSettings.uasset" 1838
+"../../../Engine/Content/EngineMaterials/InvalidLightmapSettings.uasset" 1839
+"../../../Engine/Content/EditorMaterials/GizmoMaterial.uasset" 1840
+"../../../Engine/Content/EngineMaterials/PhAT_JointLimitMaterial.uasset" 1841
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/WorldPositionOffset/CameraOffset.uasset" 1842
+"../../../Engine/Content/EngineMaterials/Good64x64TilingNoiseHighFreq.uasset" 1843
+"../../../Engine/Content/EngineMaterials/DefaultBokeh.uasset" 1844
+"../../../Engine/Content/EngineMaterials/DefaultBloomKernel.uasset" 1845
+"../../../Engine/Content/EngineMaterials/PreintegratedSkinBRDF.uasset" 1846
+"../../../Engine/Content/EngineMaterials/MiniFont.uasset" 1847
+"../../../Engine/Content/EngineMaterials/WeightMapPlaceholderTexture.uasset" 1848
+"../../../Engine/Content/EngineMaterials/DefaultWhiteGrid.uasset" 1849
+"../../../Engine/Content/EngineMaterials/DefaultPhysicalMaterial.uasset" 1850
+"../../../Engine/Content/EngineFonts/RobotoTiny.uasset" 1851
+"../../../Engine/Content/EngineFonts/Faces/RobotoTiny.uasset" 1852
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/AssetRegistryCache/311563bb.bin" 1853
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/AssetRegistryCache/c90e3f55.bin" 1854
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_StageVisualControl.uasset" 1855
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/LevelMesh.uasset" 1856
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/GameMap.umap" 1857
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/GameMap_BuiltData.uasset" 1858
+"../../../Engine/Content/EditorResources/SequenceRecorder/Countdown.uasset" 1859
+"../../../Engine/Content/EditorResources/SequenceRecorder/RecordingIndicator.uasset" 1860
+"../../../Engine/Content/BasicShapes/Cube.uasset" 1861
+"../../../Engine/Content/BasicShapes/Sphere.uasset" 1862
+"../../../Engine/Content/BasicShapes/Cylinder.uasset" 1863
+"../../../Engine/Content/BasicShapes/Cone.uasset" 1864
+"../../../Engine/Content/BasicShapes/Plane.uasset" 1865
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_WhiteMaterial.uasset" 1866
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey.uasset" 1867
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat4Components.uasset" 1868
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat2.uasset" 1869
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/MakeFloat3.uasset" 1870
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_ChromaKey_Lit.uasset" 1871
+"../../Plugins/Runtime/Oculus/OculusVR/Content/Materials/OculusMR_OpaqueColoredMaterial.uasset" 1872
+"../../Plugins/Runtime/Oculus/OculusVR/Content/OculusMR_RenderTarget.uasset" 1873
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Intermediate/AssetRegistryCache/5b8a58d9.bin" 1874
+"../../../Engine/Config/HTML5/HTML5Engine.ini" 1875
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/InvisibleCursor.uasset" 1876
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/Cursor1.uasset" 1877
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/CustomCursor.uasset" 1878
+"../../../Engine/Content/MobileResources/HUD/DefaultVirtualJoysticks.uasset" 1879
+"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Background.uasset" 1880
+"../../../Engine/Content/MobileResources/HUD/VirtualJoystick_Thumb.uasset" 1881
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___97C899CF28CC95EA413454DEF1F870975F00D5AE.udd" 1882
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/7/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___2E3F71B8459DC157CC790241872E195A098B86D1.udd" 1883
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/3/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___0F42C86181F6F80EE2C3D5A79906BA87949BA125.udd" 1884
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/7/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___07B13C6E4D72DB466A969BB67E9CF775B4F69B64.udd" 1885
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/7/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___02000BF475DC1208989933DDA857E2A2101B7C8C.udd" 1886
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/3/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___A1ECFF237CE3D47292C656BCF9F6A9B35C283036.udd" 1887
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/3/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_98439D14404778E247EC64802D53175__D0B536984B6E17A9BA24617AAB4C691D83ECD101.udd" 1888
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/7/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_091EC1F0463D60958B36D2A394DCE97__CF785935C6A55750EBFC59BD984FCB2857AACC1D.udd" 1889
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/7/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___CC1BEC7B1FA02C4D35B79B1D2E1C2EBA179624CC.udd" 1890
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/1/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___10E68F6BA0AA0C7B5155271D05E745AC677A5521.udd" 1891
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_FE007F98422DEFA8D71AD188D1CEF54__72DF085A8BDE06BE1046231246D364782B0A6FF1.udd" 1892
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D8D87B3F31FCCDF22A0557D06090B5FFE68B8B02.udd" 1893
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/4/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___5A8CF5EEDA6057E009F10B0199FC2F8B077C140F.udd" 1894
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/0/2/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_DC7D51A6487F735F1DF5DD86DF01089__3FA0900D0B88F94A331071598C7B0210B80F1DBF.udd" 1895
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D20E2AF8BACAC14A9B0C4D1E72FD1E6F0581D3DF.udd" 1896
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___FDD4363FA167F5735FEF7F0676052C97B905FD8A.udd" 1897
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveGameMode.uasset" 1898
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveHUD.uasset" 1899
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CircularMeterMat_Inst.uasset" 1900
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CircularMeterMat.uasset" 1901
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/VectorToRadialValue.uasset" 1902
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/GameplayUI.uasset" 1903
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/ChapterDisplayUI.uasset" 1904
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemySpawnSystem.uasset" 1905
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/zero_hour_Font.uasset" 1906
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/zero_hour.uasset" 1907
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/LivesUI.uasset" 1908
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MultiplierUI.uasset" 1909
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/GALSB_Font.uasset" 1910
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Fonts/GALSB.uasset" 1911
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierMeterBlue.uasset" 1912
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierMeterEmpty.uasset" 1913
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierMeterGreen.uasset" 1914
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierMeterPurple.uasset" 1915
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/ScoreUI.uasset" 1916
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/PauseUI.uasset" 1917
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/RestartUI.uasset" 1918
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_3D4B43A843B649EDF709C683AE2ACD6__CE8516E0D6778BAF175FED1869FFC0BC9F4875B2.udd" 1919
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_902500C44831D15AA41E89AE02EC1E9__F9FB2B51B8589EB026ADDEFDE19303E8AFB23865.udd" 1920
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_F9BDA274425386EA5CE183A19B3FF26__8DDD89400EB9F8BC8A8075238701978E996B52CF.udd" 1921
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_3981932C494A95E193168795A922E31__53C960A3D83706755121B30793B90228CD7D5705.udd" 1922
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/3/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___850484FCF8AC2965DB8838F4E34B36B7C812D439.udd" 1923
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/5/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___B9E82CDA0A6F3E48D0C39ED0DB9CAD71555A1F71.udd" 1924
+"../../../Engine/Content/Maps/Entry.umap" 1925
+"../../../Engine/Content/Maps/Entry_BuiltData.uasset" 1926
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_16178AF74BD482EA544F28AC7EA0BD9__F73AC9B8C9CAFE4EA9CF530B43522A36998602BB.udd" 1927
+"C:/Users/Ryanc/AppData/Local/Temp/UnrealShaderWorkingDir/37326D814EC0F4930F7EA89CBAF43D55/2/WorkerOutputOnly.out" 1928
+"C:/Users/Ryanc/AppData/Local/Temp/UnrealShaderWorkingDir/37326D814EC0F4930F7EA89CBAF43D55/0/WorkerOutputOnly.out" 1929
+"C:/Users/Ryanc/AppData/Local/Temp/UnrealShaderWorkingDir/37326D814EC0F4930F7EA89CBAF43D55/1/WorkerOutputOnly.out" 1930
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/MainMenuMap.umap" 1931
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_MainMenuGameMode.uasset" 1932
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/RotatingCameraPawn.uasset" 1933
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/HiScoreUI.uasset" 1934
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuBackGround.uasset" 1935
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuInitialUI.uasset" 1936
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuSettingsUI.uasset" 1937
+"../../../Engine/Content/EditorBlueprintResources/StandardMacros.uasset" 1938
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_boxCross.uasset" 1939
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_sliderLeft.uasset" 1940
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_sliderRight.uasset" 1941
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/grey_box.uasset" 1942
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SpaceSkybox.uasset" 1943
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/SpaceSkyboxMaterial_Inst.uasset" 1944
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/SpaceSkyboxMaterial.uasset" 1945
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/3PointLevels.uasset" 1946
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Skybox_Params.uasset" 1947
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/SpacescapePurpleNebulaComplex.uasset" 1948
+"../../../Engine/Content/EngineSky/SM_SkySphere.uasset" 1949
+"../../../Engine/Content/EngineSky/M_Sky_Panning_Clouds2.uasset" 1950
+"../../../Engine/Content/EngineSky/T_Sky_Blue.uasset" 1951
+"../../../Engine/Content/EngineSky/T_Sky_Clouds_M.uasset" 1952
+"../../../Engine/Content/EngineSky/T_Sky_Stars.uasset" 1953
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Sequences/MainMenuSequence.uasset" 1954
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/MainMenuMap_BuiltData.uasset" 1955
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Loveshadow_-_SUPERPOWER__feat_Siobhan_Dakay__Cue.uasset" 1956
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Loveshadow_-_SUPERPOWER__feat_Siobhan_Dakay_.uasset" 1957
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/2/1/AUDIO_0005_0000_OGG_0002_CE2BC8E0492A718BC75992A09EA43A48.udd" 1958
+"../../../Engine/Content/EditorResources/EmptyActor.uasset" 1959
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/5/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D1B0CFB24675F537C067F1B57F90C14__D0A457D4AD37E4017BDECEA998DC25C51A67AA44.udd" 1960
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___B42A37F5E2E38FD672BC5C4D8807CEC369D17B1B.udd" 1961
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/6/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___C65207BBFC32B7C17C17375EA8C63D98F3B31912.udd" 1962
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_1FD82C4545523A7BD695048DE7B8A43__446C84A0D2746AE27CA3E082447D4B8E99142261.udd" 1963
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/6/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_D99EE65346597B7BE4A203BEF04697E__4DC7386E5D54F62F30F223E5C8E452770D915B5C.udd" 1964
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/8/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_486E615C4215FBBC255F4CAC68240D9__2DCA33E9AA735B8C16142069AA0B8485E524B9BE.udd" 1965
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/1/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_023952B24078E77E90620C9EC1448A3__DB814958382D110D4691200C33C20724D73704DF.udd" 1966
+"../../../Engine/Content/EngineMaterials/EditorBrushMaterial.uasset" 1967
+"../../../Engine/Content/EditorMaterials/PreviewShadowIndicatorMaterial.uasset" 1968
+"../../../Engine/Content/EditorMaterials/PreviewShadowIndicator.uasset" 1969
+"../../../Engine/Content/EngineDebugMaterials/DebugEditorMaterial.uasset" 1970
+"../../../Engine/Content/EngineDebugMaterials/ClothMaterial_WF.uasset" 1971
+"../../../Engine/Content/EngineDebugMaterials/ClothMaterial.uasset" 1972
+"../../../Engine/Content/EngineDebugMaterials/BoneWeightMaterial.uasset" 1973
+"../../../Engine/Content/EngineDebugMaterials/HeatmapGradient.uasset" 1974
+"../../../Engine/Content/EngineDebugMaterials/GeomMaterial.uasset" 1975
+"../../../Engine/Content/EditorResources/BSPVertex.uasset" 1976
+"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickOutter.uasset" 1977
+"../../../Engine/Content/MobileResources/HUD/T_Castle_ThumbstickInner.uasset" 1978
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionStick.uasset" 1979
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad3.uasset" 1980
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad2.uasset" 1981
+"../../../Engine/Content/MobileResources/HUD/MobileHUDDirectionPad.uasset" 1982
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButtonFire.uasset" 1983
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton3.uasset" 1984
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_on.uasset" 1985
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton2_off.uasset" 1986
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_on.uasset" 1987
+"../../../Engine/Content/MobileResources/HUD/MobileHUDButton1_off.uasset" 1988
+"../../../Engine/Content/MobileResources/HUD/LeftVirtualJoystickOnly.uasset" 1989
+"../../../Engine/Content/MobileResources/HUD/AnalogHat.uasset" 1990
+"../../../Engine/Content/MobileResources/T_MobileMenu2.uasset" 1991
+"../../../Engine/Content/MobileResources/T_MobileControls_texture.uasset" 1992
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/MultiplierX.uasset" 1993
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/2/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_BBC655E04A24788BCE2136971122A__7183C9D424CC76FDF47877CCB1FE8822FC675605.udd" 1994
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/Multiplier3.uasset" 1995
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/8/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_98E90CB74EC6E462D3D0E18D967CF__E9EF92698915B5C6DE98663D9EBF52087852EFED.udd" 1996
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/Multiplier2.uasset" 1997
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/Multiplier1.uasset" 1998
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button05.uasset" 1999
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button04.uasset" 2000
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button03.uasset" 2001
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button02.uasset" 2002
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button01.uasset" 2003
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/assets/blue_button00.uasset" 2004
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/MainMenuUI.uasset" 2005
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/6/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_656D912B4E20B1C5D50E898A750A205__A0DF3DBD7100C05131B6C1F52AC38C16CD0D4413.udd" 2006
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_0156C15947BED472BD68C6A4EEE37__1AD1C9E0051435608377144B852AB7C864C7365C.udd" 2007
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/4/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_820DBE2D4810AA376692D9AF32F6FCC__DE4D74DDF0F4DF8B94CA0D213B265D7910167FAD.udd" 2008
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/3/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A974029C4AE9E84544802CA3DEE4DCE__11F499634497A451C6D5B6A9DBDDA80DC1C67AC9.udd" 2009
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/4/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0C35699D4205AD4686986DB8FD59CEE__2EC8DE7642C1A0BBA7CD3C8F3BE17B0EBF35B134.udd" 2010
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/5/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_B6C062AC4CF785130A86CF85BE2BD39__FAE9F3192F0B7F517A6BDCF2737669A41B383F58.udd" 2011
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/9/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_6769879342F82EBD9EF5018CD4A3ADC__14FB65E3B33CF5D2C984FB22FE7A58C21260EA16.udd" 2012
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/2/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_719BFAD847483C55E880298477F3667__CEC56B33DFB32C87AA340276A06B2D41445ADFC9.udd" 2013
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/InGameSettingsUI.uasset" 2014
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/UI/BurstUI.uasset" 2015
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/SpaceSkyboxMap.umap" 2016
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/Maps/SpaceSkyboxMap_BuiltData.uasset" 2017
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/MainMenuSequence.uasset" 2018
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/0/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_F95F294E4EBA7E9A39ADBAA43B5D1__775C4712962197A75E5C0C77EE7C102F01DA42D3.udd" 2019
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/6/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_2103E5FA40C4E4D9F5B3CF8994AF5__ABC611A91AC82AB6DD808364B97A3F06AFFA8AD5.udd" 2020
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_F95F294E4EBA7E9A39ADBAA43B5D1__C9B31A3F5D76F66AB37789A97B954DD0A9680B5D.udd" 2021
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/0/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_2103E5FA40C4E4D9F5B3CF8994AF5__F8F7C60371183CAF7589117BD7B269ED8A26AF86.udd" 2022
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/8/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_C52D4E534D12B122D9468B9850121__7B47DDFA98D3913D58984AB99F1B17BC80E07AD5.udd" 2023
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/7/6/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_276049B846DF20D09EF6A7A372DDD7F1__DA3F17ED4F0E0372F347B024D3A9DB60024D05C4.udd" 2024
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/8/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_9CB0CDC048C7D95F92BD398958F8BEC8__AAE74302744002309C39934D8572DB81F88F9017.udd" 2025
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/5/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_276049B846DF20D09EF6A7A372DDD7F1__10370524384B3D7A51864044585B6D6763107884.udd" 2026
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/4/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_9CB0CDC048C7D95F92BD398958F8BEC8__729AC571B7EB18CA8D59C4D968AD0D1AE1B99724.udd" 2027
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/3/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_DXT1_190A8D6343E3E68B60F4778ED6E73CD4__1F4F1C7F8F26905DA0BB49EB2236E72A62850F0E.udd" 2028
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/5/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_F7AA1F3245D6E509A54BF7AFCE537DCD_0__857EA7305601A7DD5B9FDD26F011E7E9CD805585.udd" 2029
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/2/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_733E0E374758FEEA70F8788211C20CE1_0__F7441D6C1BF4E44A52C2C3D9231D1FAA7FA170D5.udd" 2030
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/4/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_G8_100B55114EAB9E0EC9FC82914085AE55_0__818F6ACD655E90329792123808B6395CAC6D4DEA.udd" 2031
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/3/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_5E3490F245462BF2579F278F96FF4__5D96414D333D79D68FD37D218C159FE973BA7BD2.udd" 2032
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/5/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_5E3490F245462BF2579F278F96FF4__B35C2054CF690899DF062427077D78E229D94EBC.udd" 2033
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/9/7/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_5A7E28F5496C1D271FBC4EA9917A6__FEF70B5653F5961C3513168005ADF478B47BFABB.udd" 2034
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/5/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_9A9A41FC41C789270DADE3897D1DC__CBF491F4DE38A8973F030E20FD5B0B1C5DA73698.udd" 2035
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/0/2/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_5A7E28F5496C1D271FBC4EA9917A6__3118A9368E3D969EC2DBD45490CD43F6D18DA2DE.udd" 2036
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStickCPP/TwinStickOverview.uasset" 2037
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Meshes/TwinStickProjectile.uasset" 2038
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Audio/TwinStickFire.uasset" 2039
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/TwinStickFire.uasset" 2040
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TwinStick/Audio/laserfire01.uasset" 2041
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/3/6/AUDIO_0005_0000_OGG_0002_2896812442E3068B24684CB5A60A349A.udd" 2042
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Walnut_N.uasset" 2043
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Walnut_D.uasset" 2044
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Pine_N.uasset" 2045
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Pine_D.uasset" 2046
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Oak_N.uasset" 2047
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Oak_D.uasset" 2048
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_N.uasset" 2049
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_M.uasset" 2050
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Wood_Floor_Walnut_D.uasset" 2051
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Water_N.uasset" 2052
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Water_M.uasset" 2053
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Panel_N.uasset" 2054
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Panel_M.uasset" 2055
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Hex_Tile_N.uasset" 2056
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Hex_Tile_M.uasset" 2057
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Dot_N.uasset" 2058
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Tech_Dot_M.uasset" 2059
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_TableRound_N.uasset" 2060
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_TableRound_M.uasset" 2061
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Statue_N.uasset" 2062
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Statue_M.uasset" 2063
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Spark_Core.uasset" 2064
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Smoke_Tiled_D.uasset" 2065
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Smoke_SubUV.uasset" 2066
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Single_Tile_N.uasset" 2067
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Shelf_N.uasset" 2068
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Shelf_M.uasset" 2069
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Smooth_Granite_D.uasset" 2070
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Slate_N.uasset" 2071
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Slate_D.uasset" 2072
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Sandstone_N.uasset" 2073
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Sandstone_D.uasset" 2074
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Marble_Polished_D.uasset" 2075
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Basalt_N.uasset" 2076
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Rock_Basalt_D.uasset" 2077
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_RockMesh_N.uasset" 2078
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_RockMesh_M.uasset" 2079
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Perlin_Noise_M.uasset" 2080
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Steel_N.uasset" 2081
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Steel_D.uasset" 2082
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Rust_N.uasset" 2083
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Rust_D.uasset" 2084
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Gold_N.uasset" 2085
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Gold_D.uasset" 2086
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Copper_D.uasset" 2087
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Metal_Aluminum_D.uasset" 2088
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_MacroVariation.uasset" 2089
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Lamp_N.uasset" 2090
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Lamp_M.uasset" 2091
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Moss_N.uasset" 2092
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_ground_Moss_D.uasset" 2093
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Gravel_N.uasset" 2094
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Gravel_D.uasset" 2095
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Grass_N.uasset" 2096
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ground_Grass_D.uasset" 2097
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Gradinet_01.uasset" 2098
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Frame_N.uasset" 2099
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Frame_M.uasset" 2100
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Fire_Tiled_D.uasset" 2101
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Fire_SubUV.uasset" 2102
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Explosion_SubUV.uasset" 2103
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Dust_Particle_D.uasset" 2104
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Door_N.uasset" 2105
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Door_M.uasset" 2106
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Detail_Rocky_N.uasset" 2107
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_Variation_M.uasset" 2108
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_N.uasset" 2109
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_M.uasset" 2110
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Tiles_D.uasset" 2111
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Poured_N.uasset" 2112
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Poured_D.uasset" 2113
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Panels_N.uasset" 2114
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Panels_D.uasset" 2115
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Concrete_Grime_D.uasset" 2116
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_N.uasset" 2117
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_M.uasset" 2118
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Smooth_D.uasset" 2119
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Rough_N.uasset" 2120
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Rough_D.uasset" 2121
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_N.uasset" 2122
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_M.uasset" 2123
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_CobbleStone_Pebble_D.uasset" 2124
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Checker_Noise_M.uasset" 2125
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Chair_N.uasset" 2126
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Chair_M.uasset" 2127
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ceramic_Tile_N.uasset" 2128
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Ceramic_Tile_M.uasset" 2129
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Bush_N.uasset" 2130
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Bush_D.uasset" 2131
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Burst_M.uasset" 2132
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_N.uasset" 2133
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_M.uasset" 2134
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Hewn_Stone_D.uasset" 2135
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Cut_Stone_N.uasset" 2136
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Cut_Stone_D.uasset" 2137
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Old_N.uasset" 2138
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Old_D.uasset" 2139
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_N.uasset" 2140
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_M.uasset" 2141
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_New_D.uasset" 2142
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_N.uasset" 2143
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_M.uasset" 2144
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Textures/T_Brick_Clay_Beveled_D.uasset" 2145
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_StatueGlass.uasset" 2146
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Statue.uasset" 2147
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_MaterialSphere_Plain.uasset" 2148
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_MaterialSphere.uasset" 2149
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/Materials/M_Lamp.uasset" 2150
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Statue.uasset" 2151
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_MatPreviewMesh_02.uasset" 2152
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Lamp_Wall.uasset" 2153
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_Lamp_Ceiling.uasset" 2154
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/SM_GlassWindow.uasset" 2155
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Materials/M_Glass.uasset" 2156
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Props/MaterialSphere.uasset" 2157
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Spark.uasset" 2158
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_smoke_subUV.uasset" 2159
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_radial_ramp.uasset" 2160
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Heat_Distortion.uasset" 2161
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/m_flare_01.uasset" 2162
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Fire_SubUV.uasset" 2163
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_explosion_subUV.uasset" 2164
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Dust_Particle.uasset" 2165
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/Materials/M_Burst.uasset" 2166
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Steam_Lit.uasset" 2167
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Sparks.uasset" 2168
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Smoke.uasset" 2169
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Fire.uasset" 2170
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Explosion.uasset" 2171
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Particles/P_Ambient_Dust.uasset" 2172
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" 2173
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/SunlightColorLUT.uasset" 2174
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/SM_Arrows.uasset" 2175
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/Skybox.uasset" 2176
+"../../../Engine/Content/EditorMaterials/Thumbnails/SkySphereMaterial.uasset" 2177
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Master.uasset" 2178
+"../../../Engine/Content/MapTemplates/Sky/DaylightAmbientCubemap.uasset" 2179
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_HDRI.uasset" 2180
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Skybox_Black.uasset" 2181
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/M_LightStage_Arrows.uasset" 2182
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Assets/FogBrightnessLUT.uasset" 2183
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/BP_LightStudio.uasset" 2184
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_WallSconce.uasset" 2185
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/StarterContent/Blueprints/Blueprint_CeilingLight.uasset" 2186
+"../../../Engine/Content/EngineSky/BP_Sky_Sphere.uasset" 2187
+"../../../Engine/Content/EngineSky/C_Sky_Cloud_Color.uasset" 2188
+"../../../Engine/Content/EngineSky/C_Sky_Horizon_Color.uasset" 2189
+"../../../Engine/Content/EngineSky/C_Sky_Zenith_Color.uasset" 2190
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemyBarrierMarker.uasset" 2191
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemySpawnPoint.uasset" 2192
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_BasicEnemy.uasset" 2193
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/EnemyDeathCameraShake.uasset" 2194
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyDeathSound2_Cue.uasset" 2195
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyHitSound3_Cue.uasset" 2196
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy1.uasset" 2197
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy1FrontMaterial.uasset" 2198
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy2FrontMaterial.uasset" 2199
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/MainEnemyMaterial.uasset" 2200
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_BasicEnemyDown.uasset" 2201
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_CardinalEnemy.uasset" 2202
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Enemy5.uasset" 2203
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/CockpitEnemy5Material.uasset" 2204
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/EngineEnemy5Material.uasset" 2205
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/ShipEnemy5Material.uasset" 2206
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/WingEnemy5Material.uasset" 2207
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_CardinalEnemyDown.uasset" 2208
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_DashingEnemy.uasset" 2209
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/HiWaveEnemy7.uasset" 2210
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/SpearMaterial.uasset" 2211
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/Enemy3EngineMaterial.uasset" 2212
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/Enemy3MainMaterial.uasset" 2213
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/Enemy3SideMaterial.uasset" 2214
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_DashEnemyDown.uasset" 2215
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_RedEnemy.uasset" 2216
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy2.uasset" 2217
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Enemy2SideMaterial.uasset" 2218
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_RedEnemyDown.uasset" 2219
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/M_RedParticle.uasset" 2220
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SkullMineEnemy.uasset" 2221
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/SkullEnemy.uasset" 2222
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/SkullMainMaterial.uasset" 2223
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/SkullSocketMaterial.uasset" 2224
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_SkullEnemyHit.uasset" 2225
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SpinningEnemy.uasset" 2226
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy5.uasset" 2227
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy5ArmMat.uasset" 2228
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/Enemy5BodyMat.uasset" 2229
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_XEnemyPawn.uasset" 2230
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/EnemyX/HiWaveXEnemy.uasset" 2231
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/EnemyX/XEnemyMat.uasset" 2232
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_XEnemyHit.uasset" 2233
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/SpawnSoundEffect.uasset" 2234
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Equip.uasset" 2235
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_EnemySpawn.uasset" 2236
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_ItemPool.uasset" 2237
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_HiWaveProjectile.uasset" 2238
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_SkullMineWeapon.uasset" 2239
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/SkullMineDestroy_Cue.uasset" 2240
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/SkullMineDestroy.uasset" 2241
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/MineWeaponMesh/SkullEnemyMine.uasset" 2242
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageSideMaterial.uasset" 2243
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/MineWeaponMesh/CenterMaterial.uasset" 2244
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PS_SkullMineShot.uasset" 2245
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGroundMaterial_Inst.uasset" 2246
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGroundMaterial.uasset" 2247
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/GroundTexture.uasset" 2248
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/GroundTextureAlphaMask.uasset" 2249
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Chapter1Spawns.uasset" 2250
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Chapter2Spawns.uasset" 2251
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Chapter3Spawns.uasset" 2252
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Chapter4Spawns.uasset" 2253
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Chapter5Spawns.uasset" 2254
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Random1Chapter.uasset" 2255
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Random2Chapter.uasset" 2256
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Random3Chapter.uasset" 2257
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Random4Chapter.uasset" 2258
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Random5Chapter.uasset" 2259
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TestChapter.uasset" 2260
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGlassMaterial_Inst.uasset" 2261
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/StageGlassMaterial.uasset" 2262
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Zodik_-_Future_Travel_Cue.uasset" 2263
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/BGM/Zodik_-_Future_Travel.uasset" 2264
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/1/AUDIO_0005_0000_OGG_0002_21FB967B42CE326E1BDF838CB2FF5677.udd" 2265
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/0/9/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__2A2088867BB5D315242D7C65C6EA04F3B636F22A.udd" 2266
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/8/4/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_8E63946A44C4FEC25__6B4F66B30B63E2C3E6BE9E35D1E975AF4F4D170A.udd" 2267
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/2/5/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_8E63946A44C4FEC25CEB6D9D3A5BC86__80D74D300B804A69B5D7EDD8B04BABDE909CEE76.udd" 2268
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/8/1/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__2FE6B29730226782BE2AF4D1B011DD63B3C68B49.udd" 2269
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/3/8/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_5B69C2974AD86F012__FF47F23478B4812CB1C72F4C0BFBB65DEF7C4F7C.udd" 2270
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/4/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_5B69C2974AD86F0120FC4D9C4C8BDFA__052A1BDE14C45ADD190EA8962B6C3F7FF4BF69AD.udd" 2271
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/3/2/AUDIO_0005_0000_OGG_0002_5489BF2B4136F07000423A865E88CB2B.udd" 2272
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/8/9/AUDIO_0005_0000_OGG_0002_6F9871D64BFD0385C7662F8A5A6CE5BB.udd" 2273
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/4/6/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__093226F01EA2E5C46197D05C1E9FF49886B56ED2.udd" 2274
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/9/8/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_9529507743F544E03__B2B429F8D1765835F072F61FB7B8F1F32940CA1B.udd" 2275
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/0/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_9529507743F544E031E8C4859AAB032__9AC5C535E0BA39B8E6846C38100B3AB496B973D9.udd" 2276
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/9/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_B4AF81C44D1197025D2C2295F85B3BA1__1_0_0_0_2_13315_0.udd" 2277
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/4/1/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__729162FABC79DE0A59C5DFADDD99C15422781BF0.udd" 2278
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/5/6/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_95F6C1184D37E9E23__67B50DE12E7834DC8FA5B9302C34BED41DD86575.udd" 2279
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/1/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_95F6C1184D37E9E23DE13BA2DBD73D7__F601FB02B6ED81635F0A387355AD9A9ECA2ED416.udd" 2280
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_001.uasset" 2281
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_002.uasset" 2282
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_003.uasset" 2283
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactGeneric_light_004.uasset" 2284
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_000.uasset" 2285
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_001.uasset" 2286
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_002.uasset" 2287
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_003.uasset" 2288
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactMining_004.uasset" 2289
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/7/2/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__F35EC5DF08DDFBF288D0B4BEC2C43B3B5BBDA726.udd" 2290
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/1/7/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_D0C0EDB442AC36647__E43590F66FB0605C6B65B1462F4C75549F853519.udd" 2291
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/6/1/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_D0C0EDB442AC36647C3658AF30E24F9__44DA49143CA3EEFB2BF9221B69883713FF4AA3AC.udd" 2292
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/5/1/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__11C9C45E2715EBB2C960926EC6D71ED8C3FEB896.udd" 2293
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/9/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_F3568F064C9E42239__546CE69718876E5E8E361848F00964A9D9877CA7.udd" 2294
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/0/9/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_F3568F064C9E4223981061956ABFE67__685300A07BE664FD8BE951F23142D7A5D337502D.udd" 2295
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/1/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__3DCFBAF4ED06E9E991D9CFEFAFA009D65B8279B9.udd" 2296
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/6/2/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_9E0AF2604864BEBD3__C65F3B81D143372B0C3873AB8AB40D6E69BF99F2.udd" 2297
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/2/6/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_9E0AF2604864BEBD31D9C89D38B6C11__8D9FADDF226DF8CFE18AD68AB251131C49E0F753.udd" 2298
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/9/0/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__5097868811D2D8536906F51E87E5A13AD2F62671.udd" 2299
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/1/5/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_7EB46BAD480DAF54C__0ABB9E60DADA358C794A322C90C109B11B242A99.udd" 2300
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/7/8/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_7EB46BAD480DAF54C56C90BABB01DB8__E2F97FC29078E46C318047C7344752BDCA561FBA.udd" 2301
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/5/2/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__CDEC94CE7BCD0A74FA1F2C68A3F96FD3841B962F.udd" 2302
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/6/1/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_F29E3DC34AA12A9DC__18E9FA22E2F00903D507B2AB12D590FFC9AED1CE.udd" 2303
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/8/3/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_F29E3DC34AA12A9DC8AD4F8BA4151F5__94424C89F24EB411284AB27AA37648D03B35F84C.udd" 2304
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/5/9/AUDIO_0005_0000_OGG_0002_D974530B41F044475AA2A9B4AF8D313D.udd" 2305
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/0/4/AUDIO_0005_0000_OGG_0002_AE2F846F4F4FD66E61C798A5C98F9227.udd" 2306
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/9/9/AUDIO_0005_0000_OGG_0002_F4C5887A45AA611605E0C8B917E1D2EE.udd" 2307
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/5/3/AUDIO_0005_0000_OGG_0002_CD18A6824B8E28FDF822ADB7614E43A4.udd" 2308
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/9/5/AUDIO_0005_0000_OGG_0002_CD2A07A14B1D923B23A679A6FA5A17F5.udd" 2309
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/8/4/AUDIO_0005_0000_OGG_0002_E92B448448250935B41A3FAE57C8DDDF.udd" 2310
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/9/AUDIO_0005_0000_OGG_0002_E8950BC142C7A99BCC4A31BDE9B57F8E.udd" 2311
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/5/9/AUDIO_0005_0000_OGG_0002_09A762A148DB7DA5615EB293CA39AF61.udd" 2312
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/0/1/AUDIO_0005_0000_OGG_0002_3AC4F18842817A275C30ADA5A5380014.udd" 2313
+"../../../Engine/Content/EditorResources/LightIcons/S_LightError.uasset" 2314
+"../../../Engine/Content/EditorResources/AudioIcons/S_AudioComponent.uasset" 2315
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/8/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___6029926244CA0D946F532FF06D6456684DDBCCC3.udd" 2316
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___1C877955B4CBDD6D861A4864A9A25FF444C19157.udd" 2317
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/0/3/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_08B6EF61434F0021B662ECB50CDF6__638648C10FB3988E6AD07BD2B8282CB7A73C0E19.udd" 2318
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/3/8/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_08B6EF61434F0021B662ECB50CDF6__A913A763748512D88DDA4FD8975FD357A18556F9.udd" 2319
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_08B6EF61434F0021B662ECB50CDF6__9786E44D8A88D14A2AEF6593C408D7B2354108EF.udd" 2320
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/0/5/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_08B6EF61434F0021B662ECB50CDF6__F35122FEBA9D12D7BE95EC4115C76704F378B3B0.udd" 2321
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/4/9/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_57BE22BE401DE512B5A9DAB883885__DF47B71FA8D4E07FE31B20071AF1C1384E210F90.udd" 2322
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_57BE22BE401DE512B5A9DAB883885__3AF7548364370869CC910E942563CF70C8239EF2.udd" 2323
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/8/1/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_57BE22BE401DE512B5A9DAB883885__57AD7003E10B5DA867B09AF7108014347F588FCB.udd" 2324
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/3/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_AUTODXT_57BE22BE401DE512B5A9DAB883885__C68201A0FA62B6496D738A6B201981184D137C1B.udd" 2325
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/2/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___450142E6D15654459F19C6C64A991102692481ED.udd" 2326
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___BDE4BD313055AFC754F65AF4469D58AE0983516C.udd" 2327
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/7/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___3E413E68AA6E0D06D1023856B0AB2436E2057FD3.udd" 2328
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/6/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___EAE3B91DF1A20C15544075B3745A14EECCC4591E.udd" 2329
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___C33C3387CA625AC80B7F3DC79146985813B6AAAA.udd" 2330
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/9/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___653DFB607697B4FC0EA73119D13C16AE864413A3.udd" 2331
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/6/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___9FE504827ABB1BABCD234A6949254F09D83760A8.udd" 2332
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___781E9DAF31FAA87667605F06EEAC48E9E3D68D82.udd" 2333
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/0/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___F932F835D1782590F4CDFC1540E33405216F63FA.udd" 2334
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/1/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___2BBA6396915BAD2E2724955A9AFF3D82D607A82E.udd" 2335
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___295362144F777E1977B7A26DDA7F28A20010DE58.udd" 2336
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/1/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___13A67DCDCB96957562F2009D10E16697E052176B.udd" 2337
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Particles/PlayerHitParticle.uasset" 2338
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/7/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___6B0FEFC1B1CD952B14631404294F4F5C4E2F2217.udd" 2339
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/9/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___2B64DD1EF3D59F2DB28F38DDD019A0E203CCF553.udd" 2340
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/TopTexture.uasset" 2341
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/1/0/4/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_0CE9024B46F179B5AEBBBF962F7B66E__F1CAF94820D350F8812EBB790EB488D67E7CDCC3.udd" 2342
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Textures/TopStencilAlpha.uasset" 2343
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/5/0/TEXTURE_68A083899C6F4316B8CE0E2958EDE2C2_BGRA8_A7F312574A9D3085CD6F6EA54DDA6D7__52FDBDEB58E9D044F12D127647B96E3491A946A4.udd" 2344
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/MineWeaponMesh/SideMaterial.uasset" 2345
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/2/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___0C83A31CD8364A4B06D7A9D1AB26BE01A6CCFB97.udd" 2346
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/3/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___DC016ABF119A4AD0BC367E6A5109DE2DDBA9E5C0.udd" 2347
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/SocketMaterial.uasset" 2348
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/5/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___80B9F271D7E582C1B2E40AB3A79AEC7412EE7E81.udd" 2349
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/7/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___31084AB47DC2160303E73E33E0555A3345FD8646.udd" 2350
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/SkullEnemyMesh/BoneMaterial.uasset" 2351
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/6/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___B003080F8721E4613DC7D3268E3472697604F5D4.udd" 2352
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/7/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___DE55D81B293F23A10DF9C702DBC7B6136CDFF659.udd" 2353
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/SideMaterial.uasset" 2354
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/2/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___BCA3467B51EC067E812A8EE2371EE895DD4C504A.udd" 2355
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/6/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___37D6AC25B1FBF2DE33A2D42108293EBD0E1697CA.udd" 2356
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/MainMaterial.uasset" 2357
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___270D2599F7C8D7E06B1CD11907CA23A72CE58E07.udd" 2358
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/5/0/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D116EBE34F5F09A322CE2CE7F6F959ABBBF8F94B.udd" 2359
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/EngineMaterial.uasset" 2360
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/1/9/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___0031A02E5F2B9D1A35259DA9BF776311BCAFF05A.udd" 2361
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/6/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___EB22E5E3E7C2AA0DBD35AA1A3FABB052E3B54C77.udd" 2362
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Dash2EnemyRedo/Enemy3SpearMaterial.uasset" 2363
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Wing.uasset" 2364
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/6/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___84E8EB127051A7D9A90F739EEFA956F558871EF9.udd" 2365
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/8/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___732BB2A19A6F9DCE6910AE24B815BC5F4FDC8759.udd" 2366
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/spaceshipIThink.uasset" 2367
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/ShipBody.uasset" 2368
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/0/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D17C9371E70B29A56AF76239EFD69247A0766628.udd" 2369
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/1/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___CF5B4E5045A918D850BC8A905A07280E53E9CCC6.udd" 2370
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Guns.uasset" 2371
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Engine.uasset" 2372
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___F7290906F9D891FA1B796F3A9676675F3DD1B993.udd" 2373
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/8/4/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___D2E031A977360E426D4D11BA6D731715320AF612.udd" 2374
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CardinalEnemyMesh/Cockpit.uasset" 2375
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/3/1/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___2153611948EDCDADCCCA6FA8096A905FB2D21AE6.udd" 2376
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/1/6/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___EA398F2FF212B4AA7F4A5D53BD928054B1EE062C.udd" 2377
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopTexture.uasset" 2378
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopStencilAlpha.uasset" 2379
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/TopMaterial.uasset" 2380
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/TopMaterial.uasset" 2381
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/4/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___4F1ABF73891DB2A35AA6CE5F9A7D3B1CDD7172C8.udd" 2382
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/5/2/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___CFB6D3B18BA7D074B18622CC9D690ABC325A2CBB.udd" 2383
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/RedBoxEnemyMaterial.uasset" 2384
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/LevelIlluminationMaterial.uasset" 2385
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/LevelIlluminationMaterial.uasset" 2386
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/9/8/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM5_8__BC5N_NOCCBN_NOIRIS_DEV_SL___52C00C28331B9EBC9DCD1626035AC91686B6BABC.udd" 2387
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/0/0/3/MATSM_AD9DE195370D4C7DB112DF9967877D21_PCD3D_SM4_8__BC5N_NOCCBN_NOIRIS_DEV_SL___154C8EA184A1F21E26610808B92FACA8CA8E6936.udd" 2388
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemyBox_Skeleton.uasset" 2389
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/HiWaveEnemy3.uasset" 2390
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/2/3/STATICMESH_9891BF2FF72141F6921E24E347DB73C1_228332BAE0224DD294E232B87D83948FQU__7A38A634009C87FE51F5ADB0AFD9B9D89B35E504.udd" 2391
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/2/2/NAVCOLLISION_B89838347A4348138EE337A847529C5C_NAVCOLLISION_X_44C16EA943B17754B__67A8CC3FFAA48C69195F7531943BCC097C81E7E9.udd" 2392
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/6/5/PHYSX_A08609EF508D460CBB6710540B03AACF_PHYSXPC_44C16EA943B17754BF8329BE64D8B49__AA6EE8168AFCC1DA4B2B5D9434A34BAB10875070.udd" 2393
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/Enemy2FrontMaterial.uasset" 2394
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Meshes/CubeMaterial.uasset" 2395
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/CubeMaterial.uasset" 2396
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Geometry/Materials/MineCenter_Inst.uasset" 2397
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/RotatingCamera.uasset" 2398
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Blueprint/BP_EnemyPawn.uasset" 2399
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerMaterial.uasset" 2400
+"../../../Engine/Content/Functions/Engine_MaterialFunctions02/Utility/BreakOutFloat3Components.uasset" 2401
+"../../../Engine/Content/VREditor/Devices/Vive/T_VivePreController_EM.uasset" 2402
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreController_MasksA.uasset" 2403
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreController_MasksB.uasset" 2404
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerDiffuse.uasset" 2405
+"../../../Engine/Content/VREditor/Devices/Vive/VivePreControllerSpec.uasset" 2406
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/qubodup-crash_Cue.uasset" 2407
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/qubodup-crash.uasset" 2408
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/5/3/AUDIO_0005_0000_OGG_0002_F497BEBF4C7F9690DAD76794A75B0AAA.udd" 2409
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Purchase.uasset" 2410
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/8/0/AUDIO_0005_0000_OGG_0002_AE39A5CF469DD2930AD5C38634E80EE5.udd" 2411
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Open.uasset" 2412
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/1/7/AUDIO_0005_0000_OGG_0002_4444BB5840E9B7B223132C8541CE83F6.udd" 2413
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/LoadSave.uasset" 2414
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/9/7/AUDIO_0005_0000_OGG_0002_12A3E29546029947B9D8759214E9D1AD.udd" 2415
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_004.uasset" 2416
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/9/0/9/AUDIO_0005_0000_OGG_0002_F55A1D5748B1CD0BF573568AA8B5CDE3.udd" 2417
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_003.uasset" 2418
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/2/2/AUDIO_0005_0000_OGG_0002_1B05CDD945D22AB69585EFB5B54CB68B.udd" 2419
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_002.uasset" 2420
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/6/2/8/AUDIO_0005_0000_OGG_0002_B76D1D60432072725ACBDAB6E6541007.udd" 2421
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_001.uasset" 2422
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/4/9/7/AUDIO_0005_0000_OGG_0002_9787D3324554EBC86B0D9E8593B8A4E2.udd" 2423
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/impactPlate_heavy_000.uasset" 2424
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/2/3/9/AUDIO_0005_0000_OGG_0002_7354317B4673BFB0AA94B78EBEAF56C9.udd" 2425
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explosion06_Cue.uasset" 2426
+"../../../Engine/Content/EngineSounds/SFX.uasset" 2427
+"../../../Engine/Content/EngineSounds/Normal_Attack.uasset" 2428
+"../../../Engine/Content/EngineSounds/Special_Attack_PSM.uasset" 2429
+"../../../Engine/Content/EngineSounds/Duck_Normal_Attack_MixMod.uasset" 2430
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explosion06.uasset" 2431
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/5/3/0/AUDIO_0005_0000_OGG_0002_88D352CE44E95BFAE502DF82C0B07CFE.udd" 2432
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explodemini_Cue.uasset" 2433
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/explodemini.uasset" 2434
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/7/6/9/AUDIO_0005_0000_OGG_0002_9E4649C0405F5B007F6E3686F20B1EA6.udd" 2435
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Error.uasset" 2436
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/8/6/4/AUDIO_0005_0000_OGG_0002_F211CF80404F7E938436B78B7009A837.udd" 2437
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/EnemyDeathSound3_Cue.uasset" 2438
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Cursor_Cue.uasset" 2439
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Cursor.uasset" 2440
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/2/8/AUDIO_0005_0000_OGG_0002_D3F680BD4E26A4461B031D812C7D9518.udd" 2441
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Confirm_Cue.uasset" 2442
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/SFX/Confirm.uasset" 2443
+"C:/Users/Ryanc/AppData/Local/UnrealEngine/Common/DerivedDataCache/3/5/4/AUDIO_0005_0000_OGG_0002_E70E2D1045CA4B5C34A3989F62A57072.udd" 2444
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/Zodik_-_Future_Travel_Cue.uasset" 2445
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/Audio/Zodik_-_Future_Travel.uasset" 2446
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TestBugChapter5.uasset" 2447
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TestBugChapter4.uasset" 2448
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TestBugChapter3.uasset" 2449
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TestBugChapter2.uasset" 2450
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/TestBugChapter1.uasset" 2451
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/SpawningDataTable.uasset" 2452
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/NewDataTable.uasset" 2453
+"../../../../../../Users/Ryanc/Documents/Unreal Projects/HiWave/Content/GameMapDataTable.uasset" 2454

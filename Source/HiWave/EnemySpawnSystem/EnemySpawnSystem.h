@@ -138,6 +138,7 @@ private:
 	void increaseGameDifficulty();
 
 	/* The current chapter of spawns */
+	UPROPERTY()
 	class UDataTable* CurrentSpawningDataTable;
 
 	int difficultyIncrease;

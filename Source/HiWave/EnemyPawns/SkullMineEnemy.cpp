@@ -130,6 +130,10 @@ void ASkullMineEnemy::SetActive_Implementation(bool IsActive)
 		// Stops the Actor from ticking
 		SetActorTickEnabled(true);
 		health = startingHealth;
+		damageRatio = 1.0;
+		dynamicBaseMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 0.0);
+		dynamicSocketMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 0.0);
+		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
 	}
 	else {
 		// Hides visible components
