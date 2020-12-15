@@ -46,11 +46,13 @@ void AEnemySpawnSystem::BeginPlay()
 		
 		
 	}
+	
 	spawnTimerCollection = TArray<FTimerHandle>();
 	if (itemPool != nullptr) {
 		itemPool->InitialItemSpawnsFinished.AddDynamic(this, &AEnemySpawnSystem::SpawnFromDatatable);
 		itemPool->IncreaseReferenceCountToSpawn();
 	}
+	
 	
 }
 
