@@ -40,7 +40,7 @@ public:
 
 	/** Offset from the ships location to spawn projectiles */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
-	FVector GunOffset;
+	TArray<FVector> GunOffset;
 
 	/** Sound to play each time we fire */
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
@@ -154,7 +154,10 @@ public:
 	void SpawnInvincibility();
 	
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
-	void SetInvincible(bool isInvincible);
+	void SetInvincible(const bool &isInvincible);
+
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	void ChangeBulletLevel(const int &bulletLevel);
 
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
@@ -263,8 +266,6 @@ private:
 	/* Is the player invincible */
 	bool bIsInvincible;
 
-
-
 	AHiWaveGameState* hiWaveGameState;
 	AHiWavePlayerController* pc;
 	FTimerDelegate multiplierDecayResetDelegate;
@@ -274,7 +275,7 @@ private:
 
 	AItemPool* bulletPool;
 
-	
+	FVector currentGunOffset;
 
 public:
 	/** Returns ShipMeshComponent subobject **/

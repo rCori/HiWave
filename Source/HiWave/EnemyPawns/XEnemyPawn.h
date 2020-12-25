@@ -51,5 +51,4 @@ public:
 private:
 	FRotator NewRotation;
 	FQuat QuatRotation;
-
 };

@@ -79,7 +79,7 @@ AHiWavePawn::AHiWavePawn()
 	BurstComponent->ComponentTags.Add("BurstHitbox");
 
 	// Weapon
-	GunOffset = FVector(90.f, 0.f, 0.f);
+	GunOffset = { FVector(110.f, 0.f, 0.f), FVector(150.f, 0.f, 0.f), FVector(150.f, 0.f, 0.f) };
 	fireRate = { 0.1f, 0.08, 0.06 };
 	fireTimer = 0.0f;
 	burstCollisionTimer = 0.4f;
@@ -110,7 +110,7 @@ void AHiWavePawn::BeginPlay()
 	if (PlayerSpawnSound != nullptr) {
 		UGameplayStatics::PlaySoundAtLocation(this, PlayerSpawnSound, GetActorLocation());
 	}
-
+	currentGunOffset = GunOffset[0];
 	SpawnInvincibility();
 
 	Super::BeginPlay();
@@ -141,6 +141,7 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 
 	if (hiWaveGameState == nullptr) {
 		hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+		hiWaveGameState->OnMultiplierLevelChanged.AddDynamic(this, &AHiWavePawn::ChangeBulletLevel);
 	}
 
 	// Find movement direction
@@ -236,7 +237,7 @@ void AHiWavePawn::FireShot()
 	{
 		const FRotator FireRotation = GetActorRotation();
 		// Spawn projectile at an offset from this pawn
-		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(currentGunOffset);
 		
 		if (bulletPool == nullptr) {
 			TArray<AActor*> FoundActors;
@@ -389,10 +390,14 @@ void AHiWavePawn::SpawnInvincibility() {
 	FTimerHandle SetInvincibleTimerHandle;
 	SetInvincibleTimerDelegate.BindUFunction(this, FName("SetInvincible"),false);
 	GetWorld()->GetTimerManager().SetTimer(SetInvincibleTimerHandle, SetInvincibleTimerDelegate, InvincibilityTimeLimit, false);
-
 }
 
-void AHiWavePawn::SetInvincible(bool isInvincible) {
+void AHiWavePawn::ChangeBulletLevel(const int &bulletLevel)
+{
+	currentGunOffset = GunOffset[bulletLevel];
+}
+
+void AHiWavePawn::SetInvincible(const bool &isInvincible) {
 	bIsInvincible = isInvincible;
 	if (!isInvincible) {
 		ShipMeshComponent->SetMaterial(0, DefaultBodyMaterial);

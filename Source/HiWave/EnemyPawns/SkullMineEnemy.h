@@ -79,15 +79,11 @@ public:
 
 
 private:
-
 	void initializeDirectionalMap();
-
 	TMap<EDiagonalDirection, FVector> directionalMap;
 	EDiagonalDirection directionChosen;
 	ESkullEnemyState moveState;
 	FVector currentMovementDirection;
 	float moveTimer;
-
 	class AItemPool* itemPool;
-
 };

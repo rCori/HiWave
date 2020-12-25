@@ -24,15 +24,12 @@ AEnemySpawnPoint::AEnemySpawnPoint()
 	BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
 	BoxComponent->SetupAttachment(RootComponent);
 
-	//BoxComponent->BodyInstance.SetCollisionProfileName(UCollisionProfile::NoCollision_ProfileName);
 	BoxComponent->OnComponentBeginOverlap.AddDynamic(this, &AEnemySpawnPoint::OnOverlapBegin);
 	BoxComponent->OnComponentEndOverlap.AddDynamic(this, &AEnemySpawnPoint::OnOverlapEnd);
 
 	//Setup audio component
 	spawnAudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("SpawnSoundComponent"));
 	spawnAudioComponent->bAutoActivate = false;
-	//spawnAudioComponent->AttachToComponent(RootComponent,FAttachmentTransformRules::KeepWorldTransform);
-	//spawnAudioComponent->SetRelativeLocation(FVector::ZeroVector);
 
 }
 
@@ -50,20 +47,20 @@ void AEnemySpawnPoint::Tick(float DeltaTime)
 
 }
 
-APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(EEnemyType enemyType)
+APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(const EEnemyType &enemyType)
 {
 	//Pick another spawn point
 	if (bIsIntersecting) {
 		UE_LOG(LogTemp, Warning, TEXT("[EnemySpawnPoint.DoEnemyPawnSpawn] Defering to another spawner"));
-		int randomIndex = FMath::RandRange(0, (NeighborSpawnPoints.Num()-1));
+		const int randomIndex = FMath::RandRange(0, (NeighborSpawnPoints.Num()-1));
 		return NeighborSpawnPoints[randomIndex]->DoEnemyPawnSpawn(enemyType);
 	}
 
 	//From the box extent, select the point in the middle of the box
 	//We may want to randomize a bit or ignore the box and use a Vector to place the spawn
-	FVector origin = GetActorLocation();
+	const FVector origin = GetActorLocation();
 
-	FVector actorSpawnLocation = SpawnLocation + origin;
+	const FVector actorSpawnLocation = SpawnLocation + origin;
 
 	//Set spawn parameters for call to GetWorld()->SpawnActor
 	FActorSpawnParameters ActorSpawnParameters;
@@ -92,8 +89,6 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(EEnemyType enemyType)
 			spawnAudioComponent->Play();
 			return spawnedActor;
 		}
-		
-
 	}
 	//If the pointer to UWorld was null then this should return nullptr.
 	return nullptr;

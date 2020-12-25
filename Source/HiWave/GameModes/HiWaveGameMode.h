@@ -17,10 +17,7 @@ UCLASS(MinimalAPI)
 class AHiWaveGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
-
 	virtual void BeginPlay() override; //Override beginplay from the base class
-
-	
 
 public:
 	AHiWaveGameMode();
@@ -35,7 +32,7 @@ public:
 	void OpenPauseMenu();
 
 	UFUNCTION(BlueprintCallable)
-	void RestartGame();
+	void RestartGame() const;
 
 	UFUNCTION(BlueprintCallable)
 	void PlayerDeath();
@@ -67,9 +64,6 @@ public:
 private:
 	bool bIsPaused;
 	bool bIsDead;
-
 	UUserWidget* PauseWidget;
+	APlayerController* playerController;
 };
-
-
-

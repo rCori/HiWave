@@ -40,6 +40,7 @@ AHiWaveGameMode::AHiWaveGameMode()
 
 	playerLives = 3;
 	respawnTime = 2.0;
+	playerController = nullptr;
 }
 
 void AHiWaveGameMode::DestroyAndRespawnPlayer()
@@ -48,10 +49,8 @@ void AHiWaveGameMode::DestroyAndRespawnPlayer()
 	if (!playerPawn) return;
 	bool destroyable = playerPawn->Destroy();
 	APlayerController *playerController = UGameplayStatics::GetPlayerController(this, 0);
-	//UE_LOG(LogTemp, Warning, TEXT("Player is destroyable %s"), (destroyable ? TEXT("True") : TEXT("False")));
 
 	OnDestroyAndRespawnPlayer.Broadcast();
-
 	--playerLives;
 
 	AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
@@ -76,8 +75,6 @@ void AHiWaveGameMode::DestroyAllEnemies() {
 	for (AActor *enemyActor : allEnemies) {
 		AEnemyPawn *castedEnemyPawn = Cast<AEnemyPawn>(enemyActor);
 		if (castedEnemyPawn) {
-			//castedEnemyPawn->EnemyDeath();
-			//castedEnemyPawn->Destroy();
 			IPoolableObjectInterface::Execute_Deactivate(castedEnemyPawn);
 		}
 		else {
@@ -108,7 +105,7 @@ void AHiWaveGameMode::OpenPauseMenu() {
 }
 
 
-void AHiWaveGameMode::RestartGame() {
+void AHiWaveGameMode::RestartGame() const {
 	if (bIsDead) {
 		UGameplayStatics::OpenLevel(GetWorld(), "GameMap");
 	}
@@ -126,7 +123,10 @@ void AHiWaveGameMode::PlayerDeath(){
 
 
 void AHiWaveGameMode::RespawnPlayer() {
-	APlayerController *playerController = UGameplayStatics::GetPlayerController(this, 0);
+	if (playerController == nullptr) {
+		playerController = UGameplayStatics::GetPlayerController(this, 0);
+	}
+	
 	AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	gameState->ResetMultiplier();
 	AActor* playerStart = K2_FindPlayerStart(playerController);
@@ -138,7 +138,7 @@ void AHiWaveGameMode::RespawnPlayer() {
 	if (spawnedPlayer != nullptr) {
 		playerController->Possess(spawnedPlayer);
 	}
-	AHiWavePawn *hiWavePawn = Cast<AHiWavePawn>(spawnedPlayer);
+	//AHiWavePawn *hiWavePawn = Cast<AHiWavePawn>(spawnedPlayer);
 	/*
 	if (hiWavePawn != nullptr) {
 		hiWavePawn->SpawnInvincibility();

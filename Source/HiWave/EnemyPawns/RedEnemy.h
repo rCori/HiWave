@@ -61,12 +61,8 @@ public:
 private:
 	float yawDifference;
 	FRotator directionToRotate;
-
 	bool bFacingPlayer;
-
 	float fireTimer;
-
 	UClass *redEnemyProjectile;
-
 	UWorld* worldRef;
 };

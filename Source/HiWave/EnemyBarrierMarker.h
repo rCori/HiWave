@@ -25,7 +25,7 @@ public:
 	AEnemyBarrierMarker();
 
 	UFUNCTION(BlueprintCallable)
-	EBarrierPosition GetBarrierPosition();
+	EBarrierPosition GetBarrierPosition() const;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	EBarrierPosition BarrierPosition;

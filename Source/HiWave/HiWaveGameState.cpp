@@ -3,13 +3,13 @@
 
 #include "HiWaveGameState.h"
 
-int AHiWaveGameState::IncreasePlayerScore(int amount)
+int AHiWaveGameState::IncreasePlayerScore(const int &amount)
 {
 	playerScore += FMath::FloorToInt(currentMultiplier) * amount;
 	return playerScore;
 }
 
-void AHiWaveGameState::IncreaseMultiplier(float amount)
+void AHiWaveGameState::IncreaseMultiplier(const float &amount)
 {
 	currentMultiplier += amount;
 	if (currentMultiplier >= 3.999) {
@@ -20,7 +20,10 @@ void AHiWaveGameState::IncreaseMultiplier(float amount)
 		currentMultiplier = 1.0;
 	}
 
-	multiplierIndex = currentMultiplier - 1;
+	if (currentMultiplier - 1 != multiplierIndex) {
+		multiplierIndex = currentMultiplier - 1;
+		OnMultiplierLevelChanged.Broadcast(multiplierIndex);
+	}
 }
 
 void AHiWaveGameState::ResetMultiplier()
@@ -28,12 +31,12 @@ void AHiWaveGameState::ResetMultiplier()
 	currentMultiplier = 1.0;
 }
 
-float AHiWaveGameState::GetMultiplier()
+float AHiWaveGameState::GetMultiplier() const
 {
 	return currentMultiplier;
 }
 
-int AHiWaveGameState::GetMultiplierIndex()
+int AHiWaveGameState::GetMultiplierIndex() const
 {
 	return multiplierIndex;
 }

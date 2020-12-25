@@ -9,6 +9,9 @@
 /**
  * 
  */
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMultiplierLevelChanged, const int&, multiplierLevel);
+
 UCLASS()
 class HIWAVE_API AHiWaveGameState : public AGameStateBase
 {
@@ -16,19 +19,19 @@ class HIWAVE_API AHiWaveGameState : public AGameStateBase
 
 public:
 	UFUNCTION(BlueprintCallable)
-	int IncreasePlayerScore(int amount);
+	int IncreasePlayerScore(const int &amount);
 
 	UFUNCTION(BlueprintCallable)
-	void IncreaseMultiplier(float amount);
+	void IncreaseMultiplier(const float &amount);
 
 	UFUNCTION(BlueprintCallable)
 	void ResetMultiplier();
 
 	UFUNCTION(BlueprintCallable)
-	float GetMultiplier();
+	float GetMultiplier() const;
 
 	UFUNCTION(BlueprintCallable)
-	int GetMultiplierIndex();
+	int GetMultiplierIndex() const;
 
 	UPROPERTY(BlueprintReadOnly)
 	int playerScore = 0;
@@ -39,4 +42,6 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	int multiplierIndex = 0;
 
+	UPROPERTY(BlueprintAssignable, Category = Delegates)
+	FOnMultiplierLevelChanged OnMultiplierLevelChanged;
 };

@@ -13,7 +13,7 @@
 //Logging for Critical Errors that must always be addressed
 DECLARE_LOG_CATEGORY_EXTERN(LogSpawnSystem, Log, All);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChangeChapter, FString, chapterName);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnWaveSpawn, FString, waveName);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnWaveSpawn, const FString&, waveName);
 
 
 UCLASS()
@@ -126,10 +126,7 @@ private:
 	TArray<FTimerHandle> spawnTimerCollection;
 
 	/* Simple method for getting a unique group name based on the row name */
-	const FString createNewGroupNameForWave(FString rowName) const;
-
-	/* Does the reverse of what createNewGroupNameForWave does */
-	//const FString getWaveNameFromGroupTag(FString groupName) const;
+	const FString createNewGroupNameForWave(const FString &rowName) const;
 
 	/* With the multi chapter approach we need to be able to get full spawn data and not just the name */
 	const FSpawnRowData& getSpawnRowFromGroupTag(const FString &groupName) const;

@@ -3,7 +3,7 @@
 
 #include "HiWaveGameInstance.h"
 
-bool UHiWaveGameInstance::SubmitHiScore(int score)
+bool UHiWaveGameInstance::SubmitHiScore(const int &score)
 {
 	if (score > playerHiScore) {
 		playerHiScore = score;
@@ -12,7 +12,7 @@ bool UHiWaveGameInstance::SubmitHiScore(int score)
 	return false;
 }
 
-int UHiWaveGameInstance::GetHiScore()
+int UHiWaveGameInstance::GetHiScore() const
 {
 	return playerHiScore;
 }

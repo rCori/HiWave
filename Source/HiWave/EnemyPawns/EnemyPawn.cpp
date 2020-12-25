@@ -59,7 +59,7 @@ UPawnMovementComponent* AEnemyPawn::GetMovementComponent() const
 	return OurMovementComponent;
 }
 
-void AEnemyPawn::EnemyTakeDamage(float damage) {
+void AEnemyPawn::EnemyTakeDamage(const float &damage) {
 	health -= damage * damageRatio;
 	if (health <= 0.0) {
 		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());

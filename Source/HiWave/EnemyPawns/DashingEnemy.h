@@ -53,11 +53,9 @@ public:
 	UMaterialInstanceDynamic *dynamicEngineMaterial;
 
 private:
-
 	float yawDifference;
 	FRotator directionToRotate;
 	FVector dashDirection;
 	FVector dashTarget;
 	bool bFacingPlayer;
-
 };

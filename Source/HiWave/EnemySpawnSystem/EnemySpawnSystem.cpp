@@ -322,7 +322,7 @@ int AEnemySpawnSystem::GetOrderedChapterCount() {
 	return ChapterOrder.Num();
 }
 
-const FString AEnemySpawnSystem::createNewGroupNameForWave(FString rowName) const
+const FString AEnemySpawnSystem::createNewGroupNameForWave(const FString &rowName) const
 {
 	//This is the map
 	//EnemyGroupCounter

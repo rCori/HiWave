@@ -33,7 +33,7 @@ public:
 	 * @enemyType Enum specifies which enemy type to spawn
 	 */
 	UFUNCTION(Category = SpawnSystem)
-	APawn* DoEnemyPawnSpawn(EEnemyType enemyType);
+	APawn* DoEnemyPawnSpawn(const EEnemyType &enemyType);
 
 	// declare overlap begin function
 	UFUNCTION()

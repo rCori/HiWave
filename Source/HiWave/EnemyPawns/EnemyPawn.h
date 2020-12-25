@@ -11,7 +11,7 @@ DECLARE_LOG_CATEGORY_EXTERN(LogEnemyPawn, Warning, All);
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnEnemyDeathDelegate, FString, groupTag);
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnIncreaseMultiplierDelegate, float, amount);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnIncreaseMultiplierDelegate, const float&, amount);
 
 class UBehaviorTree;
 
@@ -39,7 +39,7 @@ public:
 	virtual UPawnMovementComponent* GetMovementComponent() const override;
 
 	UFUNCTION(BlueprintCallable)
-	void EnemyTakeDamage(float damage);
+	void EnemyTakeDamage(const float &damage);
 
 	UFUNCTION(BlueprintCallable)
 	virtual void EnemyDeath();
@@ -62,7 +62,7 @@ public:
 	void SetSpawningGroupTag(FString groupTag);
 
 	UFUNCTION()
-	float GetSpeed() { return speed; }
+	float GetSpeed() const { return speed; }
 
 	UPROPERTY(EditAnywhere, Category = Behavior)
 	class UCollidingPawnMovementComponent* OurMovementComponent;

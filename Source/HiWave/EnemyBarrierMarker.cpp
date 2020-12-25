@@ -14,7 +14,7 @@ AEnemyBarrierMarker::AEnemyBarrierMarker()
 	BarrierArea->SetupAttachment(RootComponent);
 }
 
-EBarrierPosition AEnemyBarrierMarker::GetBarrierPosition()
+EBarrierPosition AEnemyBarrierMarker::GetBarrierPosition() const
 {
 	return BarrierPosition;
 }

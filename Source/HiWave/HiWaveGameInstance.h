@@ -17,12 +17,11 @@ class HIWAVE_API UHiWaveGameInstance : public UGameInstance
 public:
 
 	UFUNCTION(BlueprintCallable)
-	bool SubmitHiScore(int score);
+	bool SubmitHiScore(const int &score);
 
 	UFUNCTION(BlueprintCallable)
-	int GetHiScore();
+	int GetHiScore() const;
 
 private:
 	int playerHiScore = 0;
-
 };

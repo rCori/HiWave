@@ -19,7 +19,6 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
-	//startingHealth = 30.0;
 	health = startingHealth;
 	speed = 500.0;
 	pointsAwarded = 10;

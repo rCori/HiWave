@@ -10,12 +10,14 @@
 #include "Particles/ParticleSystemComponent.h"
 #include "Engine/StaticMesh.h"
 #include "EnemyPawns/EnemyPawn.h"
+#include "HiWavePawn.h"
+#include "HiWaveGameState.h"
 
 AHiWaveProjectile::AHiWaveProjectile() 
 {
 	// Static reference to the mesh to use for the projectile
 	//static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("/Game/TwinStick/Meshes/TwinStickProjectile.TwinStickProjectile"));
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("/Game/Geometry/Meshes/PlayerBullet.PlayerBullet"));
+	//static ConstructorHelpers::FObjectFinder<UStaticMesh> ProjectileMeshAsset(TEXT("/Game/Geometry/Meshes/PlayerBullet.PlayerBullet"));
 
 	//Load the HitSpark particle
 	static ConstructorHelpers::FObjectFinder<UParticleSystem> ParticleAsset(TEXT("/Game/Particles/PS_BasicEnemyHit.PS_BasicEnemyHit"));
@@ -28,7 +30,7 @@ AHiWaveProjectile::AHiWaveProjectile()
 
 	// Create mesh component for the projectile sphere
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));
-	ProjectileMesh->SetStaticMesh(ProjectileMeshAsset.Object);
+	//ProjectileMesh->SetStaticMesh(Level1Mesh);
 	ProjectileMesh->SetupAttachment(RootComponent);
 	ProjectileMesh->BodyInstance.SetCollisionProfileName("Projectile");
 	//ProjectileMesh->SetNotifyRigidBodyCollision(true);
@@ -51,10 +53,20 @@ AHiWaveProjectile::AHiWaveProjectile()
 	Active = false;
 }
 
+void AHiWaveProjectile::BeginPlay()
+{
+	Super::BeginPlay();
+	ProjectileMesh->SetStaticMesh(Level1Mesh);
+	playerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
+
+	hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+	hiWaveGameState->OnMultiplierLevelChanged.AddDynamic(this, &AHiWaveProjectile::ChangeBulletLevel);
+}
+
 void AHiWaveProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
 	// Only add impulse and destroy projectile if we hit a physics
-	if ((OtherActor != NULL) && (OtherActor != this) && (OtherComp != NULL) && OtherComp->IsSimulatingPhysics())
+	if ((OtherActor != NULL) && (OtherActor != this) && (OtherActor != playerPawn) && (OtherComp != NULL) && OtherComp->IsSimulatingPhysics())
 	{
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 20.0f, GetActorLocation());
 	}
@@ -75,9 +87,7 @@ void AHiWaveProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, 
 			spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		}
 	}
-	//Destroy();
 	IPoolableObjectInterface::Execute_Deactivate(this);
-	//Deactivate_Implementation();
 }
 
 void AHiWaveProjectile::OnStop(const FHitResult & Hit)
@@ -87,6 +97,20 @@ void AHiWaveProjectile::OnStop(const FHitResult & Hit)
 	ProjectileMovement->UpdateComponentVelocity();
 }
 
+void AHiWaveProjectile::ChangeBulletLevel(const int &bulletLevel)
+{
+	switch (bulletLevel) {
+	case 0:
+		ProjectileMesh->SetStaticMesh(Level1Mesh);
+		break;
+	case 1:
+		ProjectileMesh->SetStaticMesh(Level2Mesh);
+		break;
+	case 2:
+		ProjectileMesh->SetStaticMesh(Level3Mesh);
+		break;
+	}
+}
 
 void AHiWaveProjectile::SetLocationAndRotation(FVector location, FRotator rotation)
 {
@@ -100,7 +124,6 @@ void AHiWaveProjectile::SetLocationAndRotation(FVector location, FRotator rotati
 
 void AHiWaveProjectile::DeactivateEvent()
 {
-	UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
 	IPoolableObjectInterface::Execute_Deactivate(this);
 }
 
@@ -113,12 +136,10 @@ void AHiWaveProjectile::SetObjectLifeSpan_Implementation(float InLifespan)
 
 void AHiWaveProjectile::SetActive_Implementation(bool IsActive)
 {
-	//Super::SetActive(IsActive);
 	Active = IsActive;
 	if (IsActive) {
 		ProjectileMovement->InitialSpeed = BulletVelocity;
 		ProjectileMovement->MaxSpeed = BulletVelocity;
-		//SetObjectLifeSpan_Implementation(Lifespan);
 		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
 	}
 	else {
