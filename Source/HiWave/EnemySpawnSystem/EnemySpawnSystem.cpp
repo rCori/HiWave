@@ -85,7 +85,7 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	//If this is the first wave of the next chapter, then clear out all previous enemies
 	if (chapterTransition) {
 		chapterTransition = false;
-		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAllEnemies();
+		//Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAllEnemies();
 	}
 
 	FSpawnRowData* lastSpawnRowData = CurrentSpawningDataTable->FindRow<FSpawnRowData>(FName(*LastWaveSpawned), TEXT(""), true);

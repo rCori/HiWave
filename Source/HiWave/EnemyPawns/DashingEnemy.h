@@ -36,6 +36,12 @@ public:
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	class AHiWavePawn* playerPawn;
 
+	UPROPERTY(Category = Gameplay, BlueprintReadWrite, EditDefaultsOnly)
+	float maxDashTime;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadWrite, EditDefaultsOnly)
+	float turnSpeed;
+
 	/** Particle to emit when an enemy hits us */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;
@@ -58,4 +64,5 @@ private:
 	FVector dashDirection;
 	FVector dashTarget;
 	bool bFacingPlayer;
+	float dashTimer;
 };

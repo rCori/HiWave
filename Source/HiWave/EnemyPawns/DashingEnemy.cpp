@@ -25,6 +25,9 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 	damageRatio = 1.0;
 	burstAwarded = 0.5;
 	damageRatioOnBurst = 1.5;
+	dashTimer = 0;
+	turnSpeed = 200.0;
+	maxDashTime = 10.0;
 }
 
 void ADashingEnemy::Tick(float DeltaTime)
@@ -46,7 +49,7 @@ void ADashingEnemy::Tick(float DeltaTime)
 			dashDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
 		}
 		else {
-			directionToRotate.Yaw = DeltaTime * 200.0;
+			directionToRotate.Yaw = DeltaTime * turnSpeed;
 			if (yawDifference < 0) {
 				directionToRotate.Yaw *= -1;
 			}
@@ -64,6 +67,13 @@ void ADashingEnemy::Tick(float DeltaTime)
 		}
 		else {
 			AddMovementInput(dashDirection, 1.0f);
+			dashTimer += DeltaTime;
+			//Time out on dashing if it's just been too long
+			if (dashTimer > maxDashTime) {
+				dashTimer = 0;
+				distance = MAX_FLT;
+				bFacingPlayer = false;
+			}
 		}
 	}
 }
