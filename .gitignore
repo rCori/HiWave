@@ -3,6 +3,8 @@ DerivedDataCache
 Intermediate
 Saved
 Content/Movies
+Content/UI/assets/HowToPlayMedia.uasset
+Content/UI/assets/HowToPlayMedia_Video.uasset
 .vscode
 .vs
 *.VC.db
