@@ -309,10 +309,16 @@ void AEnemySpawnSystem::ChangeChapters(int chapterIndex, bool random) {
 		currentChapter = chapterIndex;
 		currentChapterTitle = chapterTitle;
 		CurrentSpawningDataTable = spawningDataTable;
+		
 		WaveQueue.Empty();
 		WaveQueue.Add(InitialSpawnWave);
 		//Broadcast that the chapter name is changing
 		OnChangeChapterEvent.Broadcast(chapterTitle);
+		/* We have to make the LastWaveSpawned immediatly change to the first wave of the current chapter
+		 * If we leave it as before, we would be requesting the game spawn a wave from a previous chapter and
+		 * we aren't set up to do that.
+		 */
+		LastWaveSpawned = InitialSpawnWave;
 	}
 }
 
@@ -374,10 +380,15 @@ void AEnemySpawnSystem::increaseGameDifficulty()
 	difficultyIncrease++;
 	int randomInt = FMath::Rand() % 5;
 
+	//Lets try with just the spawnTimerDecrease
+	spawnTimerDecrease += 0.25;
+
+	/*
 	if (randomInt < 4) {
 		spawnTimerDecrease += 0.15;
 	}
 	else {
 		spawnCountIncrease++;
 	}
+	*/
 }

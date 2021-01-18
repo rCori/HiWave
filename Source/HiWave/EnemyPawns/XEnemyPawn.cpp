@@ -7,13 +7,19 @@
 #include "Components/StaticMeshComponent.h"
 #include "CollidingPawnMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "EnemyBarrierMarker.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "Components/SphereComponent.h"
 
 AXEnemyPawn::AXEnemyPawn() : AEnemyPawn() {
 	//Adding movement component
 	OurMovementComponent = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("CustomMovementComponent"));
 	OurMovementComponent->UpdatedComponent = RootComponent;
+
+	BarrierCollisionComponent = CreateDefaultSubobject<USphereComponent>(TEXT("BarrierDetection"));
+	BarrierCollisionComponent->SetupAttachment(RootComponent);
+	BarrierCollisionComponent->OnComponentBeginOverlap.AddDynamic(this, &AXEnemyPawn::OnBarrierOverlap);
 
 	health = startingHealth;
 	speed = 500.0;
@@ -42,14 +48,22 @@ void AXEnemyPawn::Tick(float DeltaTime)
 		playerPawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 		//If we could not find a player pawn then just leave early
 		if (playerPawn == nullptr) return;
+		CurrentDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
 	}
+	AddMovementInput(CurrentDirection, 1.0f);
+	NewRotation = FRotator(0.0f, rotationSpeed*DeltaTime, 0.0f);
+	QuatRotation = FQuat(NewRotation);
+	AddActorLocalRotation(QuatRotation, false, 0, ETeleportType::None);
 
+
+	/*
 	FVector newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
 	AddMovementInput(newDirection, 1.0f);
 
 	NewRotation = FRotator(0.0f, rotationSpeed*DeltaTime, 0.0f);
 	QuatRotation = FQuat(NewRotation);
 	AddActorLocalRotation(QuatRotation, false, 0, ETeleportType::None);
+	*/
 
 }
 
@@ -102,4 +116,23 @@ void AXEnemyPawn::SetActive_Implementation(bool IsActive)
 		SetActorLocation(FVector(0.0, 0.0, 10000.0f));
 		SetActorRotation(FRotator::ZeroRotator);
 	}
+}
+
+
+void AXEnemyPawn::OnBarrierOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
+	AEnemyBarrierMarker *enemyBarrierMarker = Cast<AEnemyBarrierMarker>(OtherActor);
+	if (enemyBarrierMarker != nullptr) {
+		EBarrierPosition barrierPosition = enemyBarrierMarker->GetBarrierPosition();
+		switch (barrierPosition) {
+		case EBarrierPosition::VE_Bottom:
+		case EBarrierPosition::VE_Top:
+			CurrentDirection.Set(-CurrentDirection.X, CurrentDirection.Y, CurrentDirection.Z);
+			break;
+		case EBarrierPosition::VE_Left:
+		case EBarrierPosition::VE_Right:
+			CurrentDirection.Set(CurrentDirection.X, -CurrentDirection.Y, CurrentDirection.Z);
+			break;
+		}
+	}
+
 }

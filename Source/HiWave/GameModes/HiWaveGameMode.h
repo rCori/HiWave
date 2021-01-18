@@ -32,6 +32,9 @@ public:
 	void OpenPauseMenu();
 
 	UFUNCTION(BlueprintCallable)
+	void TogglePause();
+
+	UFUNCTION(BlueprintCallable)
 	void RestartGame() const;
 
 	UFUNCTION(BlueprintCallable)

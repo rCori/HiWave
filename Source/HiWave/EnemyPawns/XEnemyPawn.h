@@ -33,6 +33,10 @@ public:
 
 	void SetActive_Implementation(bool IsActive) override;
 
+	UFUNCTION()
+	void OnBarrierOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	class AHiWavePawn* playerPawn;
 
@@ -42,6 +46,9 @@ public:
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;
 
+	UPROPERTY(EditAnywhere, Category = Mesh)
+	class USphereComponent* BarrierCollisionComponent;
+
 	UPROPERTY(Category = Visual, BlueprintReadWrite)
 	UMaterialInstanceDynamic *dynamicMaterial;
 
@@ -49,6 +56,7 @@ public:
 	UParticleSystemComponent* spawnedParticle;
 
 private:
+	FVector CurrentDirection;
 	FRotator NewRotation;
 	FQuat QuatRotation;
 };

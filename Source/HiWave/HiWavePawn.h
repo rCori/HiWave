@@ -13,6 +13,7 @@
 class AHiWaveGameState;
 class AHiWavePlayerController;
 class AItemPool;
+class AHiWaveGameMode;
 
 //Logging during game startup
 DECLARE_LOG_CATEGORY_EXTERN(LogPlayerDeath, Log, All);
@@ -260,11 +261,11 @@ private:
 	/* know if cursor is showing or not */
 	bool bCursorIsShowing;
 
-	/* current rate the multiplier is decaying at */
-	float currentMultiplierDecayRate;
-
 	/* Is the player invincible */
 	bool bIsInvincible;
+
+	/* current rate the multiplier is decaying at */
+	float currentMultiplierDecayRate;
 
 	AHiWaveGameState* hiWaveGameState;
 	AHiWavePlayerController* pc;
@@ -272,7 +273,7 @@ private:
 	FTimerHandle multiplierDecayResetHandle;
 	FRotator currentRotation;
 	APlayerCameraManager* cameraManager;
-
+	AHiWaveGameMode* hiWaveGameMode;
 	AItemPool* bulletPool;
 
 	FVector currentGunOffset;

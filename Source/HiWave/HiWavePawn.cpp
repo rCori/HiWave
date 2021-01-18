@@ -144,6 +144,10 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 		hiWaveGameState->OnMultiplierLevelChanged.AddDynamic(this, &AHiWavePawn::ChangeBulletLevel);
 	}
 
+	if (hiWaveGameMode == nullptr) {
+		hiWaveGameMode = Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode());
+	}
+
 	// Find movement direction
 	const float ForwardValue = GetInputAxisValue(MoveForwardBinding);
 	const float RightValue = GetInputAxisValue(MoveRightBinding);
@@ -283,11 +287,12 @@ void AHiWavePawn::DoBurst()
 }
 
 void AHiWavePawn::PauseFunction() {
-	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OpenPauseMenu();
+	hiWaveGameMode->TogglePause();
+	hiWaveGameMode->OpenPauseMenu();
 }
 
 void AHiWavePawn::RestartFunction() {
-	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->RestartGame();
+	hiWaveGameMode->RestartGame();
 }
 
 void AHiWavePawn::OnBurstOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
@@ -378,7 +383,7 @@ void AHiWavePawn::RestartMultiplierDecay()
 }
 
 void AHiWavePawn::DoDeathAndRespawn() const {
-	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAndRespawnPlayer();
+	hiWaveGameMode->DestroyAndRespawnPlayer();
 }
 
 

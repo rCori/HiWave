@@ -104,10 +104,10 @@ void ARedEnemy::Tick(float DeltaTime)
 			if (worldRef == nullptr) return;
 		}
 
-		//rfUWorld* const World = GetWorld();
 		if (worldRef != NULL)
 		{
 			// spawn the projectile
+			//Disabling shooting for now
 			worldRef->SpawnActor<AActor>(redEnemyProjectile, SpawnLocation, FireRotation);
 		}
 

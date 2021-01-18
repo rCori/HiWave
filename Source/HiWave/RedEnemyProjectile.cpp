@@ -59,7 +59,6 @@ void ARedEnemyProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 	AEnemyPawn *enemy = Cast<AEnemyPawn>(OtherActor);
 	if (enemy == nullptr) {
 		if (DestroyParticle != nullptr) {
-			UE_LOG(LogTemp, Warning, TEXT("OnOverlapBegin ARedEnemyProjectile OnHit"));
 			FTransform transform = FTransform();
 			transform.SetLocation(GetActorLocation());
 			transform.SetRotation(FQuat::Identity);
