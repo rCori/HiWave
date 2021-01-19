@@ -47,26 +47,23 @@ AHiWaveGameMode::AHiWaveGameMode()
 
 void AHiWaveGameMode::DestroyAndRespawnPlayer()
 {
-	APawn *playerPawn = UGameplayStatics::GetPlayerPawn(this, 0);
-	if (!playerPawn) return;
-	bool destroyable = playerPawn->Destroy();
-	if (playerController == nullptr) {
-		playerController = UGameplayStatics::GetPlayerController(this, 0);
-	}
-
+	AHiWavePawn *playerPawn = Cast<AHiWavePawn>(UGameplayStatics::GetPlayerPawn(this, 0)); 
 	OnDestroyAndRespawnPlayer.Broadcast();
 	--playerLives;
-
+	
 	AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (playerLives > 0) {
+		bool destroyable = playerPawn->Destroy();
 		RespawnPlayer();
 	} else {
+		//playerPawn->RemoveCollisionMakeInvisible();
 		UHiWaveGameInstance *gameInstance = Cast<UHiWaveGameInstance>(GetWorld()->GetGameInstance());
 		if (gameState != nullptr && gameInstance != nullptr) {
 			gameInstance->SubmitHiScore(gameState->playerScore);
 		}
 
-		UGameplayStatics::OpenLevel(GetWorld(), "MainMenuMap");
+		UUserWidget* PlayerDeathWidget = CreateWidget<UUserWidget>(GetWorld(), PlayerDeathWidgetClass);
+		PlayerDeathWidget->AddToViewport();
 	}
 }
 

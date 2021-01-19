@@ -321,8 +321,7 @@ void AHiWavePawn::TakeHit() {
 	}
 
 	//Turn off collision
-	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
-	ShipMeshComponent->SetVisibility(false);
+	RemoveCollisionMakeInvisible();
 
 	//Create a timer to call DoDeathAndRespawn in some number of seconds
 	FTimerDelegate TimerDeathAndRespawn;
@@ -400,6 +399,12 @@ void AHiWavePawn::SpawnInvincibility() {
 void AHiWavePawn::ChangeBulletLevel(const int &bulletLevel)
 {
 	currentGunOffset = GunOffset[bulletLevel];
+}
+
+void AHiWavePawn::RemoveCollisionMakeInvisible()
+{
+	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	ShipMeshComponent->SetVisibility(false);
 }
 
 void AHiWavePawn::SetInvincible(const bool &isInvincible) {

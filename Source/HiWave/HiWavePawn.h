@@ -160,6 +160,9 @@ public:
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void ChangeBulletLevel(const int &bulletLevel);
 
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	void RemoveCollisionMakeInvisible();
+
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
 	static const FName MoveRightBinding;
