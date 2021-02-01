@@ -65,4 +65,10 @@ private:
 	float fireTimer;
 	UClass *redEnemyProjectile;
 	UWorld* worldRef;
+
+	FRotator lookAtRotate;
+	FVector newDirection;
+	FRotator FireRotation;
+	FVector SpawnLocation;
+	class AItemPool* bulletPool;
 };

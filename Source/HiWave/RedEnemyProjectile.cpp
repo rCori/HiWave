@@ -12,8 +12,9 @@
 // Sets default values
 ARedEnemyProjectile::ARedEnemyProjectile()
 {
+
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 	// Create mesh component for the projectile sphere
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));
@@ -27,32 +28,29 @@ ARedEnemyProjectile::ARedEnemyProjectile()
 	// Use a ProjectileMovementComponent to govern this projectile's movement
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
 	ProjectileMovement->UpdatedComponent = ProjectileMesh;
-	ProjectileMovement->InitialSpeed = 200.f;
-	ProjectileMovement->MaxSpeed = 200.f;
+	BulletVelocity = 200.0f;
+	ProjectileMovement->InitialSpeed = BulletVelocity;
+	ProjectileMovement->MaxSpeed = BulletVelocity;
 	ProjectileMovement->bRotationFollowsVelocity = true;
 	ProjectileMovement->bShouldBounce = false;
 	ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
+	ProjectileMovement->OnProjectileStop.AddDynamic(this, &ARedEnemyProjectile::OnStop);
 
-	lifespan = 2.0;
+	Lifespan = 20.0;
+	InitialLifeSpan = 0.0;
+	Active = false;
 }
 
 // Called when the game starts or when spawned
 void ARedEnemyProjectile::BeginPlay()
 {
 	Super::BeginPlay();
-	FTimerDelegate destroyTimerDelegate;
-	FTimerHandle destroyTimerHandle;
-	destroyTimerDelegate.BindUFunction(this, FName("DestroySelf"));
+	//FTimerDelegate destroyTimerDelegate;
+	//FTimerHandle destroyTimerHandle;
+	//destroyTimerDelegate.BindUFunction(this, FName("DeactivateEvent"));
 
-	GetWorld()->GetTimerManager().SetTimer(destroyTimerHandle, destroyTimerDelegate, lifespan, false);
+	//GetWorld()->GetTimerManager().SetTimer(destroyTimerHandle, destroyTimerDelegate, Lifespan, false);
 }
-
-// Called every frame
-void ARedEnemyProjectile::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-}
-
 
 void ARedEnemyProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
@@ -70,7 +68,9 @@ void ARedEnemyProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor
 				UGameplayStatics::PlaySoundAtLocation(this, DestroySound, GetActorLocation());
 			}
 		}
-		Destroy();
+		//DeactivateEvent();
+		//GetWorldTimerManager().SetTimer(LifespanTimer, this, &ARedEnemyProjectile::DeactivateEvent, 0.5, false);
+		DeactivateEvent();
 	}
 }
 
@@ -93,10 +93,63 @@ void ARedEnemyProjectile::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, A
 			spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), DestroyParticle, transform, true, EPSCPoolMethod::AutoRelease);
 			spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		}
-		Destroy();
+		//Destroy();
+		//GetWorldTimerManager().SetTimer(LifespanTimer, this, &ARedEnemyProjectile::DeactivateEvent, 0.5, false);
+		DeactivateEvent();
+
 	}
 }
 
-void ARedEnemyProjectile::DestroySelf() {
-	Destroy();
+void ARedEnemyProjectile::OnStop(const FHitResult & Hit)
+{
+	ProjectileMovement->SetUpdatedComponent(ProjectileMesh);
+	ProjectileMovement->Velocity = FVector(0.0f, 0.0f, 0.0f);
+	ProjectileMovement->UpdateComponentVelocity();
+}
+
+void ARedEnemyProjectile::DeactivateEvent()
+{
+	IPoolableObjectInterface::Execute_Deactivate(this);
+}
+
+void ARedEnemyProjectile::SetObjectLifeSpan_Implementation(float InLifespan)
+{
+	Lifespan = InLifespan;
+	GetWorldTimerManager().SetTimer(LifespanTimer, this, &ARedEnemyProjectile::DeactivateEvent, Lifespan, false);
+}
+
+void ARedEnemyProjectile::SetActive_Implementation(bool IsActive)
+{
+	Active = IsActive;
+	if (IsActive) {
+  		GetRootComponent()->SetVisibility(true);
+		ProjectileMovement->InitialSpeed = BulletVelocity;
+		ProjectileMovement->MaxSpeed = BulletVelocity;
+		ProjectileMovement->Velocity = GetActorRotation().RotateVector(FVector::ForwardVector).GetSafeNormal() * BulletVelocity;
+		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
+	}
+	else {
+		/*
+		if (spawnedParticle != nullptr) {
+			spawnedParticle->Deactivate();
+		}
+		*/
+		GetRootComponent()->SetVisibility(false);
+		SetActorLocation(FVector(0.0, 0.0, 2000.0));
+		SetActorRotation(FRotator::ZeroRotator);
+		ProjectileMovement->InitialSpeed = 0;
+		ProjectileMovement->MaxSpeed = 0;
+		ProjectileMovement->Velocity = FVector::ZeroVector;
+	}
+}
+
+bool ARedEnemyProjectile::IsActive_Implementation()
+{
+	return Active;
+}
+
+void ARedEnemyProjectile::Deactivate_Implementation()
+{
+	IPoolableObjectInterface::Execute_SetActive(this, false);
+	GetWorldTimerManager().ClearTimer(LifespanTimer);
 }

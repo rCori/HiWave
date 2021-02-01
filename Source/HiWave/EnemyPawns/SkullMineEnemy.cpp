@@ -25,7 +25,8 @@ ASkullMineEnemy::ASkullMineEnemy() : AEnemyPawn() {
 
 	startingHealth = 20;
 	health = startingHealth;
-	speed = 500.0;
+	MaxSpeed = 500.0;
+	speed = MaxSpeed;
 	pointsAwarded = 50;
 	damageRatio = 1.0;
 	burstAwarded = 0.5;
@@ -34,6 +35,7 @@ ASkullMineEnemy::ASkullMineEnemy() : AEnemyPawn() {
 	directionChosen = EDiagonalDirection::VE_None;
 	moveState = ESkullEnemyState::VE_Move;
 	currentMovementDirection = FVector::ZeroVector;
+	CurrentSpeed = FVector::ZeroVector;
 	timeToMove = 4.0;
 	timeToStop = 1.0;
 	initializeDirectionalMap();
@@ -56,6 +58,7 @@ void ASkullMineEnemy::BeginPlay()
 }
 
 void ASkullMineEnemy::Tick(float DeltaTime) {
+	if (!Active) return;
 	moveTimer -= DeltaTime;
 	if (moveTimer <= 0.0) {
 		TSet<EDiagonalDirection> directions = TSet<EDiagonalDirection>();
@@ -73,6 +76,7 @@ void ASkullMineEnemy::Tick(float DeltaTime) {
 			directionChosen = direction;
 			moveTimer = timeToMove;
 			currentMovementDirection = directionalMap[directionChosen];
+			currentMovementDirection = currentMovementDirection.GetSafeNormal();
 			moveState = ESkullEnemyState::VE_Move;
 			break;
 		case ESkullEnemyState::VE_Move:
@@ -95,7 +99,19 @@ void ASkullMineEnemy::Tick(float DeltaTime) {
 			break;
 		}
 	}
-	AddMovementInput(currentMovementDirection, 1.0f);
+
+	//Apply constant acceleration to your speed
+	CurrentSpeed += currentMovementDirection * Acceleration * DeltaTime;
+
+	//Constantly subtract friction from your speed
+	CurrentSpeed -= CurrentSpeed * Friction * DeltaTime;
+
+	//Limit your speed to a maximum speed;
+	if (FMath::Abs(CurrentSpeed.Size()) > MaxSpeed) {
+		CurrentSpeed = currentMovementDirection * MaxSpeed * DeltaTime;
+	}
+	speed = FMath::Abs(CurrentSpeed.Size());
+	AddMovementInput(CurrentSpeed.GetSafeNormal(), 1.0f);
 }
 
 void ASkullMineEnemy::EnemyDeath() {

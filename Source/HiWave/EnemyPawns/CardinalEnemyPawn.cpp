@@ -34,14 +34,16 @@ ACardinalEnemyPawn::ACardinalEnemyPawn() : AEnemyPawn() {
 
 
 void ACardinalEnemyPawn::Tick(float DeltaTime){
+	if (!Active) return;
 	if (playerPawn == nullptr) {
 		playerPawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 		//If we could not find a player pawn then just leave early
 		if (playerPawn == nullptr) return;
 	}
 
-	newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+	
 	if (movingStatus == 0) {
+		newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
 		currentYaw = GetActorRotation().Yaw;
 		//Get which component difference is greater
 		newDirX = UKismetMathLibrary::Abs(newDirection.X);

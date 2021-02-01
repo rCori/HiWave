@@ -363,22 +363,27 @@ void AHiWavePawn::IncreaseBurst(float amount)
 	burstProgress += amount;
 }
 
+
+void AHiWavePawn::ResetMultiplierDecayRate()
+{
+	currentMultiplierDecayRate = multiplierDecayRate;
+}
+
 void AHiWavePawn::HaltMultiplierDecay()
 {
+	FTimerDelegate MultDecayResetDelegate;
+	FTimerHandle MultDecayResetHandle;
 	currentMultiplierDecayRate = 0.0;
 	//Clear the old timer
+	/*
 	if (multiplierDecayResetHandle.IsValid()) {
 		GetWorld()->GetTimerManager().ClearTimer(multiplierDecayResetHandle);
 	}
+	*/
 	//Start a timer to call RestartMultiplierDecay
-	multiplierDecayResetDelegate.BindUFunction(this, FName("RestartMultiplierDecay"));
-	GetWorld()->GetTimerManager().SetTimer(multiplierDecayResetHandle, multiplierDecayResetDelegate, multiplierPauseTime, false);
+	MultDecayResetDelegate.BindUFunction(this, FName("ResetMultiplierDecayRate"));
+	GetWorld()->GetTimerManager().SetTimer(MultDecayResetHandle, MultDecayResetDelegate, multiplierPauseTime, false);
 
-}
-
-void AHiWavePawn::RestartMultiplierDecay()
-{
-	currentMultiplierDecayRate = multiplierDecayRate;
 }
 
 void AHiWavePawn::DoDeathAndRespawn() const {

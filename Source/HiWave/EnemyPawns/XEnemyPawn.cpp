@@ -44,6 +44,7 @@ void AXEnemyPawn::BeginPlay()
 
 void AXEnemyPawn::Tick(float DeltaTime)
 {
+	if (!Active) return;
 	if (playerPawn == nullptr) {
 		playerPawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 		//If we could not find a player pawn then just leave early

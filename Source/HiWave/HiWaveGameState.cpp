@@ -2,10 +2,35 @@
 
 
 #include "HiWaveGameState.h"
+#include "Engine/World.h"
+#include "GameModes/HiWaveGameMode.h"
 
 int AHiWaveGameState::IncreasePlayerScore(const int &amount)
 {
+	if (!gameMode) {
+		gameMode = Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode());
+		lifePointIncreaseCount = LifePointIncrease.Num();
+	}
 	playerScore += FMath::FloorToInt(currentMultiplier) * amount;
+	
+	if (lifeIncreaseIndex < lifePointIncreaseCount) {
+		if (playerScore > LifePointIncrease[lifeIncreaseIndex]) {
+			if (gameMode->playerLives < MaxLives) {
+				gameMode->IncreasePlayerLives();
+				OnAwardExtraLife.Broadcast(lifeIncreaseIndex);
+			}
+			lifeIncreaseIndex++;
+		}
+	}
+	else {
+		if (playerScore > LifePointIncrease[lifePointIncreaseCount - 1] * (lifeIncreaseIndex - lifePointIncreaseCount + 2)) {
+			if (gameMode->playerLives < MaxLives) {
+				gameMode->IncreasePlayerLives();
+				OnAwardExtraLife.Broadcast(lifeIncreaseIndex);
+			}
+			lifeIncreaseIndex++;
+		}
+	}
 	return playerScore;
 }
 

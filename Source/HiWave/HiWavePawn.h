@@ -134,13 +134,15 @@ public:
 	UFUNCTION(Category = Burst)
 	void IncreaseBurst(float amount);
 
+	/* continue multiplier being decayed */
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	void ResetMultiplierDecayRate();
+
 	/* Temporarily stop the multiplier value from decreasing */
-	UFUNCTION(Category = Gameplay)
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void HaltMultiplierDecay();
 
-	/* continue multiplier being decayed */
-	UFUNCTION()
-	void RestartMultiplierDecay();
+	
 
 	/* 
 	 * Called on a Timer from TakeHit()
@@ -272,8 +274,8 @@ private:
 
 	AHiWaveGameState* hiWaveGameState;
 	AHiWavePlayerController* pc;
-	FTimerDelegate multiplierDecayResetDelegate;
-	FTimerHandle multiplierDecayResetHandle;
+	//FTimerDelegate multiplierDecayResetDelegate;
+	//FTimerHandle multiplierDecayResetHandle;
 	FRotator currentRotation;
 	APlayerCameraManager* cameraManager;
 	AHiWaveGameMode* hiWaveGameMode;

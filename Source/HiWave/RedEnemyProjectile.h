@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PoolableObjectInterface.h"
 #include "GameFramework/Actor.h"
 #include "RedEnemyProjectile.generated.h"
 
@@ -12,7 +13,7 @@ class UStaticMeshComponent;
 class USoundBase;
 
 UCLASS()
-class HIWAVE_API ARedEnemyProjectile : public AActor
+class HIWAVE_API ARedEnemyProjectile : public AActor, public IPoolableObjectInterface
 {
 	GENERATED_BODY()
 	
@@ -28,9 +29,6 @@ public:
 	// Sets default values for this actor's properties
 	ARedEnemyProjectile();
 
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 	/** Function to handle the projectile hitting something */
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
@@ -39,7 +37,7 @@ public:
 	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	UFUNCTION()
-	void DestroySelf();
+	void OnStop(const FHitResult& Hit);
 
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* DestroyParticle;
@@ -51,11 +49,28 @@ public:
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	USoundBase* DestroySound;
 
+	/* How fast red enemy projectiles move */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadWrite)
+	float BulletVelocity;
+
+	void DeactivateEvent();
+
+	/* Implementation of PoolableObjectInterface */
+	void SetObjectLifeSpan_Implementation(float InLifespan) override;
+
+	void SetActive_Implementation(bool IsActive) override;
+
+	bool IsActive_Implementation() override;
+
+	void Deactivate_Implementation() override;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly)
-	float lifespan;
+	float Lifespan;
 
+private:
+	bool Active;
+	FTimerHandle LifespanTimer;
 };

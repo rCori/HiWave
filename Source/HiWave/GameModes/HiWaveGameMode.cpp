@@ -47,9 +47,10 @@ AHiWaveGameMode::AHiWaveGameMode()
 
 void AHiWaveGameMode::DestroyAndRespawnPlayer()
 {
-	AHiWavePawn *playerPawn = Cast<AHiWavePawn>(UGameplayStatics::GetPlayerPawn(this, 0)); 
-	OnDestroyAndRespawnPlayer.Broadcast();
+	AHiWavePawn *playerPawn = Cast<AHiWavePawn>(UGameplayStatics::GetPlayerPawn(this, 0));
 	--playerLives;
+	OnDestroyAndRespawnPlayer.Broadcast();
+	
 	
 	AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (playerLives > 0) {
@@ -85,19 +86,23 @@ void AHiWaveGameMode::DestroyAllEnemies() {
 }
 
 void AHiWaveGameMode::OpenPauseMenu() {
-	if (PauseWidget == nullptr) {
-		PauseWidget = CreateWidget<UUserWidget>(GetWorld(), PauseWidgetClass);
-		PauseWidget->AddToViewport();
-	}
-	else {
-		PauseWidget->RemoveFromViewport();
-		PauseWidget = nullptr;
+	if (playerLives != 0) {
+		if (PauseWidget == nullptr) {
+			PauseWidget = CreateWidget<UUserWidget>(GetWorld(), PauseWidgetClass);
+			PauseWidget->AddToViewport();
+		}
+		else {
+			PauseWidget->RemoveFromViewport();
+			PauseWidget = nullptr;
+		}
 	}
 }
 
 void AHiWaveGameMode::TogglePause() {
-	bIsPaused = !bIsPaused;
-	UGameplayStatics::SetGamePaused(GetWorld(), bIsPaused);
+	if (playerLives != 0) {
+		bIsPaused = !bIsPaused;
+		UGameplayStatics::SetGamePaused(GetWorld(), bIsPaused);
+	}
 }
 
 void AHiWaveGameMode::RestartGame() const {
@@ -116,7 +121,6 @@ void AHiWaveGameMode::PlayerDeath(){
 	}
 }
 
-
 void AHiWaveGameMode::RespawnPlayer() {
 	if (playerController == nullptr) {
 		playerController = UGameplayStatics::GetPlayerController(this, 0);
@@ -133,10 +137,8 @@ void AHiWaveGameMode::RespawnPlayer() {
 	if (spawnedPlayer != nullptr) {
 		playerController->Possess(spawnedPlayer);
 	}
-	//AHiWavePawn *hiWavePawn = Cast<AHiWavePawn>(spawnedPlayer);
-	/*
-	if (hiWavePawn != nullptr) {
-		hiWavePawn->SpawnInvincibility();
-	}
-	*/
+}
+
+void AHiWaveGameMode::IncreasePlayerLives() {
+	++playerLives;
 }

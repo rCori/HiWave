@@ -20,23 +20,41 @@ ABasicEnemy::ABasicEnemy() : AEnemyPawn() {
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
 	health = startingHealth;
-	speed = 500.0;
+	MaxSpeed = 500.0;
+	speed = MaxSpeed;
 	pointsAwarded = 10;
 	damageRatio = 1.0;
 	burstAwarded = 0.2;
 	damageRatioOnBurst = 2.0;
+	UpdateRate = 0.2;
 }
 
 void ABasicEnemy::Tick(float DeltaTime)
 {
+	if (!Active) return;
 	if (playerPawn == nullptr) {
 		playerPawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 		//If we could not find a player pawn then just leave early
 		if (playerPawn == nullptr) return;
 	}
 
-	FVector newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
-	AddMovementInput(newDirection, 1.0f);
+	updateTimer += DeltaTime;
+	if (updateTimer > UpdateRate) {
+		newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+		
+		//Apply constant acceleration to your speed
+		CurrentSpeed += newDirection * Acceleration * DeltaTime;
+
+		//Constantly subtract friction from your speed
+		CurrentSpeed -= CurrentSpeed * Friction * DeltaTime;
+
+		//Limit your speed to a maximum speed;
+		if (FMath::Abs(CurrentSpeed.Size()) > MaxSpeed) {
+			CurrentSpeed = newDirection * MaxSpeed * DeltaTime;
+		}
+		speed = FMath::Abs(CurrentSpeed.Size());
+		AddMovementInput(CurrentSpeed.GetSafeNormal(), 1.0f);
+	}
 
 }
 

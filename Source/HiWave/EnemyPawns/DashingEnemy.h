@@ -42,6 +42,23 @@ public:
 	UPROPERTY(Category = Gameplay, BlueprintReadWrite, EditDefaultsOnly)
 	float turnSpeed;
 
+	/* The rate we accelerate in any direction */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	float Acceleration;
+
+	/* Friction to constant apply to speed */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadWrite)
+	float Friction;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadWrite)
+	FVector CurrentSpeed;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadWrite)
+	float MaxSpeed;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadWrite)
+	float LowSpeedThreshold;
+
 	/** Particle to emit when an enemy hits us */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
 	UParticleSystem* HitParticle;
@@ -64,5 +81,10 @@ private:
 	FVector dashDirection;
 	FVector dashTarget;
 	bool bFacingPlayer;
+	bool bSlowingDown;
 	float dashTimer;
+
+	float dashDistance;
+	FVector distanceVec;
+	FRotator lookAtRotate;
 };

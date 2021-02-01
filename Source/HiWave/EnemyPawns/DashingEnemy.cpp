@@ -20,7 +20,8 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 	OurMovementComponent->UpdatedComponent = RootComponent;
 
 	health = startingHealth;
-	speed = 1250.0;
+	MaxSpeed = 1250.0;
+	speed = MaxSpeed;
 	pointsAwarded = 50;
 	damageRatio = 1.0;
 	burstAwarded = 0.5;
@@ -28,10 +29,12 @@ ADashingEnemy::ADashingEnemy() : AEnemyPawn() {
 	dashTimer = 0;
 	turnSpeed = 200.0;
 	maxDashTime = 10.0;
+	bSlowingDown = false;
 }
 
 void ADashingEnemy::Tick(float DeltaTime)
 {
+	if (!Active) return;
 	if (playerPawn == nullptr) {
 		playerPawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 		//If we could not find a player pawn then just leave early
@@ -39,7 +42,7 @@ void ADashingEnemy::Tick(float DeltaTime)
 	}
 
 	if (!bFacingPlayer) {
-		FRotator lookAtRotate = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), playerPawn->GetActorLocation());
+		lookAtRotate = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), playerPawn->GetActorLocation());
 
 		yawDifference = lookAtRotate.Yaw - GetActorRotation().Yaw;
 		if (FMath::Abs(yawDifference) < 2.0) {
@@ -57,25 +60,50 @@ void ADashingEnemy::Tick(float DeltaTime)
 			bFacingPlayer = false;
 		}
 	}
-	else {
-		FVector distanceVec = (dashTarget - GetActorLocation());
+	else if(!bSlowingDown){
+		distanceVec = (dashTarget - GetActorLocation());
 
-		float distance = distanceVec.Size();
-		if (distance < 10.0) {
-			distance = MAX_FLT;
-			bFacingPlayer = false;
+		dashDistance = distanceVec.Size();
+		if (dashDistance < 10.0) {
+			dashDistance = MAX_FLT;
+			//bFacingPlayer = false;
+			dashDirection = FVector::ZeroVector;
+			bSlowingDown = true;
 		}
 		else {
-			AddMovementInput(dashDirection, 1.0f);
+			//AddMovementInput(dashDirection, 1.0f);
 			dashTimer += DeltaTime;
 			//Time out on dashing if it's just been too long
 			if (dashTimer > maxDashTime) {
 				dashTimer = 0;
-				distance = MAX_FLT;
-				bFacingPlayer = false;
+				dashDistance = MAX_FLT;
+				bSlowingDown = true;
+				//bFacingPlayer = false;
+				dashDirection = FVector::ZeroVector;
 			}
 		}
 	}
+	else if(bSlowingDown) {
+		if (speed < LowSpeedThreshold) {
+			bSlowingDown = false;
+			bFacingPlayer = false;
+			dashDirection = FVector::ZeroVector;
+		}
+	}
+
+	//Apply constant acceleration to your speed
+	CurrentSpeed += dashDirection * Acceleration * DeltaTime;
+
+	//Constantly subtract friction from your speed
+	CurrentSpeed -= CurrentSpeed * Friction * DeltaTime;
+
+	//Limit your speed to a maximum speed;
+	if (FMath::Abs(CurrentSpeed.Size()) > MaxSpeed) {
+		CurrentSpeed = dashDirection * MaxSpeed * DeltaTime;
+	}
+	speed = FMath::Abs(CurrentSpeed.Size());
+	AddMovementInput(CurrentSpeed.GetSafeNormal(), 1.0f);
+
 }
 
 void ADashingEnemy::BeginPlay() {

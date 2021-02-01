@@ -38,6 +38,8 @@ void AEnemyPawn::BeginPlay()
 {
 	Super::BeginPlay();
 	cameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
+	hiWavePawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 }
 
 // Called every frame
@@ -73,7 +75,7 @@ void AEnemyPawn::EnemyTakeDamage(const float &damage) {
 
 void AEnemyPawn::EnemyDeath() {
 	
-	AHiWaveGameState* hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+	//AHiWaveGameState* hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (hiWaveGameState) {
 		hiWaveGameState->IncreasePlayerScore(pointsAwarded);
 		UHiWaveGameInstance *hiWaveGameInstance = Cast<UHiWaveGameInstance>(GetWorld()->GetGameInstance());
@@ -82,7 +84,7 @@ void AEnemyPawn::EnemyDeath() {
 		}
 	}
 	
-	AHiWavePawn* hiWavePawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	hiWavePawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 	if (hiWavePawn) {
 		hiWavePawn->IncreaseBurst(burstAwarded);
 	}

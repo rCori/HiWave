@@ -28,6 +28,8 @@ AHiWaveProjectile::AHiWaveProjectile()
 
 	BulletVelocity = 3000.0f;
 
+	PrimaryActorTick.bCanEverTick = false;
+
 	// Create mesh component for the projectile sphere
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh0"));
 	//ProjectileMesh->SetStaticMesh(Level1Mesh);

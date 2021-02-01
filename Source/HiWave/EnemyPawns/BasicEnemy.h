@@ -50,4 +50,25 @@ public:
 
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	class AHiWavePawn* playerPawn;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadonly)
+	float UpdateRate;
+
+	/* The rate we accelerate in any direction */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
+	float Acceleration;
+
+	/* Friction to constant apply to speed */
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadWrite)
+	float Friction;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadWrite)
+	FVector CurrentSpeed;
+
+	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadWrite)
+	float MaxSpeed;
+
+private:
+	FVector newDirection;
+	float updateTimer;
 };

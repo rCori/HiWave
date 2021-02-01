@@ -37,14 +37,12 @@ void AEnemySpawnSystem::BeginPlay()
 	Super::BeginPlay();
 	
 	WaveQueueRandomized = false;
-	ChangeChapters(0, false);
+	ChangeChapters(0, true);
 	if (CurrentSpawningDataTable != nullptr) {
 		WaveQueue.Add(InitialSpawnWave);
 		//SpawnFromDatatable();
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAllEnemies.AddDynamic(this, &AEnemySpawnSystem::ClearAllSpawnTimers);
-		
-		
 	}
 	
 	spawnTimerCollection = TArray<FTimerHandle>();
@@ -52,8 +50,7 @@ void AEnemySpawnSystem::BeginPlay()
 		itemPool->InitialItemSpawnsFinished.AddDynamic(this, &AEnemySpawnSystem::SpawnFromDatatable);
 		itemPool->IncreaseReferenceCountToSpawn();
 	}
-	
-	
+
 }
 
 // Called every frame
@@ -85,7 +82,6 @@ void AEnemySpawnSystem::SpawnFromDatatable()
 	//If this is the first wave of the next chapter, then clear out all previous enemies
 	if (chapterTransition) {
 		chapterTransition = false;
-		//Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAllEnemies();
 	}
 
 	FSpawnRowData* lastSpawnRowData = CurrentSpawningDataTable->FindRow<FSpawnRowData>(FName(*LastWaveSpawned), TEXT(""), true);

@@ -43,6 +43,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RespawnPlayer();
 
+	UFUNCTION(BlueprintCallable)
+	void IncreasePlayerLives();
+
 	UPROPERTY(BlueprintReadWrite)
 	int playerLives;
 

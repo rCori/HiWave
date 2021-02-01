@@ -4,6 +4,8 @@
 #include "RedEnemy.h"
 #include "EnemyPawn.h"
 #include "HiWavePawn.h"
+#include "ItemPool.h"
+#include "RedEnemyProjectile.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
@@ -61,14 +63,14 @@ void ARedEnemy::BeginPlay()
 
 void ARedEnemy::Tick(float DeltaTime)
 {
-
+	if (!Active) return;
 	if (playerPawn == nullptr) {
 		playerPawn = Cast<AHiWavePawn>(GetWorld()->GetFirstPlayerController()->GetPawn());
 		//If we could not find a player pawn then just leave early
 		if (playerPawn == nullptr) return;
 	}
 
-	FRotator lookAtRotate = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), playerPawn->GetActorLocation());
+	lookAtRotate = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), playerPawn->GetActorLocation());
 
 	yawDifference = lookAtRotate.Yaw - GetActorRotation().Yaw;
 	if (FMath::Abs(yawDifference) < 2.0) {
@@ -80,7 +82,7 @@ void ARedEnemy::Tick(float DeltaTime)
 	}
 
 	if (bFacingPlayer) {
-		FVector newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+		newDirection = (playerPawn->GetActorLocation() - GetActorLocation()).GetSafeNormal();
 		AddMovementInput(newDirection, 1.0f);
 	}
 	else {
@@ -95,9 +97,10 @@ void ARedEnemy::Tick(float DeltaTime)
 
 	if (fireTimer >= fireRate) {
 		//Get the rotation of the projectile
-		const FRotator FireRotation = GetActorRotation();
-		const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(gunOffset);
+		FireRotation = GetActorRotation();
+		SpawnLocation = GetActorLocation() + FireRotation.RotateVector(gunOffset);
 
+		/*
 		//In order to spawn anything we need reference to the world
 		if (worldRef == nullptr) {
 			worldRef = GetWorld();
@@ -109,6 +112,20 @@ void ARedEnemy::Tick(float DeltaTime)
 			// spawn the projectile
 			//Disabling shooting for now
 			worldRef->SpawnActor<AActor>(redEnemyProjectile, SpawnLocation, FireRotation);
+		}
+		*/
+		if (bulletPool == nullptr) {
+			TArray<AActor*> FoundActors;
+			UGameplayStatics::GetAllActorsOfClass(GetWorld(), AItemPool::StaticClass(), FoundActors);
+			bulletPool = Cast<AItemPool>(FoundActors[0]);
+		}
+
+		ARedEnemyProjectile* bullet = Cast<ARedEnemyProjectile>(bulletPool->GetPooledObject(EPoolableType::VE_RedEnemyBullet));
+		if (bullet != nullptr) {
+			bullet->SetActorLocationAndRotation(SpawnLocation, FireRotation);
+			IPoolableObjectInterface::Execute_SetActive(bullet, true);
+			//bullet->SetLocationAndRotation(SpawnLocation, FireRotation);
+			
 		}
 
 		fireTimer = 0.0;

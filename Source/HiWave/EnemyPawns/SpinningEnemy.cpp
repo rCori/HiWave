@@ -43,6 +43,7 @@ ASpinningEnemy::ASpinningEnemy() : AEnemyPawn() {
 
 void ASpinningEnemy::Tick(float DeltaTime)
 {
+	if (!Active) return;
 	Super::Tick(DeltaTime);
 	circleCounter += (DeltaTime*circleNumber);
 	if (circleCounter > 2.0 * PI) { 

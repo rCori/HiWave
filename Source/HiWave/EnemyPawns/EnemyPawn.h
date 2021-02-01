@@ -85,7 +85,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = Score)
 	int pointsAwarded;
 
-	UPROPERTY(EditDefaultsOnly, Category = Burst)
+	UPROPERTY(EditDefaultsOnly, Category = Gameplay)
 	float burstAwarded;
 
 	/** Sound to play each time enemy is hit */
@@ -137,5 +137,9 @@ protected:
 	float Lifespan = 600.0f;
 	bool Active;
 	FTimerHandle LifespanTimer;
+
+private:
+	class AHiWavePawn* hiWavePawn;
+	class AHiWaveGameState* hiWaveGameState;
 
 };
