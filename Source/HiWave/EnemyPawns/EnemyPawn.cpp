@@ -93,10 +93,12 @@ void AEnemyPawn::EnemyDeath() {
 	//Damage ratio is over 1.0 if it has been hit with burst
 	if (damageRatio > 1.0) {
 		OnIncreaseMultiplierDelegate.Broadcast(multiplierIncrease);
-		//Stop the multiplier from couting down for awhile
-		if (hiWavePawn) {
-			hiWavePawn->HaltMultiplierDecay();
-		}
+		
+	}
+
+	//Stop the multiplier from couting down for awhile
+	if (hiWavePawn) {
+		hiWavePawn->HaltMultiplierDecay();
 	}
 
 	//Play camera shake on enemy deaths

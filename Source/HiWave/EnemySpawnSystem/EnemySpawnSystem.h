@@ -86,6 +86,9 @@ public:
 	FString LastWaveSpawned;
 
 	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
+	bool bRandomSpawnOnly;
+
 
 	/* Read the DataTable SpawningDataTable start spawning enemies */
 	UFUNCTION(BlueprintCallable)

@@ -344,7 +344,7 @@ void AHiWavePawn::TakeHit() {
 	GetWorld()->GetTimerManager().SetTimer(TimerHandleDeathAndRespawn, TimerDeathAndRespawn, 2.f, false);
 
 	//Play player death camera shake
-	//cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);
+	cameraManager->PlayCameraShake(PlayerDeathCameraShake, 1.0f);
 }
 
 
@@ -371,18 +371,16 @@ void AHiWavePawn::ResetMultiplierDecayRate()
 
 void AHiWavePawn::HaltMultiplierDecay()
 {
-	FTimerDelegate MultDecayResetDelegate;
-	FTimerHandle MultDecayResetHandle;
 	currentMultiplierDecayRate = 0.0;
 	//Clear the old timer
-	/*
+	
 	if (multiplierDecayResetHandle.IsValid()) {
 		GetWorld()->GetTimerManager().ClearTimer(multiplierDecayResetHandle);
 	}
-	*/
+	
 	//Start a timer to call RestartMultiplierDecay
-	MultDecayResetDelegate.BindUFunction(this, FName("ResetMultiplierDecayRate"));
-	GetWorld()->GetTimerManager().SetTimer(MultDecayResetHandle, MultDecayResetDelegate, multiplierPauseTime, false);
+	multiplierDecayResetDelegate.BindUFunction(this, FName("ResetMultiplierDecayRate"));
+	GetWorld()->GetTimerManager().SetTimer(multiplierDecayResetHandle, multiplierDecayResetDelegate, multiplierPauseTime, false);
 
 }
 

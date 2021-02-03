@@ -29,6 +29,7 @@ AEnemySpawnSystem::AEnemySpawnSystem()
 	currentChapter = 0;
 	currentChapterTitle = "";
 	chapterTransition = false;
+	bRandomSpawnOnly = false;
 }
 
 // Called when the game starts or when spawned
@@ -37,7 +38,7 @@ void AEnemySpawnSystem::BeginPlay()
 	Super::BeginPlay();
 	
 	WaveQueueRandomized = false;
-	ChangeChapters(0, true);
+	ChangeChapters(0, bRandomSpawnOnly);
 	if (CurrentSpawningDataTable != nullptr) {
 		WaveQueue.Add(InitialSpawnWave);
 		//SpawnFromDatatable();
@@ -50,6 +51,7 @@ void AEnemySpawnSystem::BeginPlay()
 		itemPool->InitialItemSpawnsFinished.AddDynamic(this, &AEnemySpawnSystem::SpawnFromDatatable);
 		itemPool->IncreaseReferenceCountToSpawn();
 	}
+	OnChangeChapterEvent.Broadcast(currentChapterTitle);
 
 }
 
@@ -377,7 +379,7 @@ void AEnemySpawnSystem::increaseGameDifficulty()
 	int randomInt = FMath::Rand() % 5;
 
 	//Lets try with just the spawnTimerDecrease
-	spawnTimerDecrease += 0.25;
+	spawnTimerDecrease += 0.20;
 
 	/*
 	if (randomInt < 4) {

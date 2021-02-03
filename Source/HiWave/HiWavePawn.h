@@ -274,8 +274,8 @@ private:
 
 	AHiWaveGameState* hiWaveGameState;
 	AHiWavePlayerController* pc;
-	//FTimerDelegate multiplierDecayResetDelegate;
-	//FTimerHandle multiplierDecayResetHandle;
+	FTimerDelegate multiplierDecayResetDelegate;
+	FTimerHandle multiplierDecayResetHandle;
 	FRotator currentRotation;
 	APlayerCameraManager* cameraManager;
 	AHiWaveGameMode* hiWaveGameMode;
