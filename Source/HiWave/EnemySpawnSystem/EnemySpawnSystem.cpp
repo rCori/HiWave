@@ -20,7 +20,7 @@ DEFINE_LOG_CATEGORY(LogSpawnSystem);
 AEnemySpawnSystem::AEnemySpawnSystem()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 	InitialSpawnWave = "Wave1";
 	difficultyIncrease = 0;
@@ -41,7 +41,6 @@ void AEnemySpawnSystem::BeginPlay()
 	ChangeChapters(0, bRandomSpawnOnly);
 	if (CurrentSpawningDataTable != nullptr) {
 		WaveQueue.Add(InitialSpawnWave);
-		//SpawnFromDatatable();
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
 		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAllEnemies.AddDynamic(this, &AEnemySpawnSystem::ClearAllSpawnTimers);
 	}
@@ -56,10 +55,12 @@ void AEnemySpawnSystem::BeginPlay()
 }
 
 // Called every frame
+/*
 void AEnemySpawnSystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 }
+*/
 
 
 void AEnemySpawnSystem::SpawnFromDatatable()

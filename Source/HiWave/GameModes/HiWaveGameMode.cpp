@@ -51,13 +51,11 @@ void AHiWaveGameMode::DestroyAndRespawnPlayer()
 	--playerLives;
 	OnDestroyAndRespawnPlayer.Broadcast();
 	
-	
 	AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 	if (playerLives > 0) {
 		bool destroyable = playerPawn->Destroy();
 		RespawnPlayer();
 	} else {
-		//playerPawn->RemoveCollisionMakeInvisible();
 		UHiWaveGameInstance *gameInstance = Cast<UHiWaveGameInstance>(GetWorld()->GetGameInstance());
 		if (gameState != nullptr && gameInstance != nullptr) {
 			gameInstance->SubmitHiScore(gameState->playerScore);

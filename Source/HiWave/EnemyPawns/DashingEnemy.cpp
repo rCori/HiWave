@@ -84,7 +84,9 @@ void ADashingEnemy::Tick(float DeltaTime)
 		}
 	}
 	else if(bSlowingDown) {
-		if (speed < LowSpeedThreshold) {
+		dashTimer += DeltaTime;
+		if (speed < LowSpeedThreshold || dashTimer > maxDashTime) {
+			dashTimer = 0;
 			bSlowingDown = false;
 			bFacingPlayer = false;
 			dashDirection = FVector::ZeroVector;

@@ -28,7 +28,7 @@ protected:
 
 public:	
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	//virtual void Tick(float DeltaTime) override;
 
 	//UPROPERTY(EditAnywhere, Category = "ObjectPooler")
 	//TSubclassOf<AHiWaveProjectile> PooledObjectSubclass;
@@ -38,6 +38,12 @@ public:
 
 	UFUNCTION()
 	void DoInitialSpawns();
+
+	UFUNCTION(BlueprintCallable)
+	void DisableAllOfType(EPoolableType type);
+
+	UFUNCTION(BlueprintCallable)
+	void DisableEnemyTypesOnDestroyEvent();
 
 	/*
 	UFUNCTION()
@@ -60,6 +66,7 @@ public:
 
 private:
 
+	class AHiWaveGameMode* hiWaveGameMode;
 	FVector poolItemLocation;
 
 	TMap<EPoolableType, TArray<IPoolableObjectInterface*>> pooledItemCollection;

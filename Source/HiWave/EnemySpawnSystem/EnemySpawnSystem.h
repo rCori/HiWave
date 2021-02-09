@@ -26,7 +26,7 @@ public:
 	AEnemySpawnSystem();
 
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	//virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Spawn Configuration")
 	class UDataTable* SpawningDataTable;

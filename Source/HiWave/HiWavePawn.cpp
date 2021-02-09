@@ -91,9 +91,8 @@ AHiWavePawn::AHiWavePawn()
 	CurrentSpeed = FVector::ZeroVector;
 	burstProgress = 20.0f;
 	maxBurst = 20.0f;
-	multiplierDecayRate = -0.80;
-	multiplierPauseTime = 0.1f;
-	currentMultiplierDecayRate = multiplierDecayRate;
+	multiplierDecayRates = { -0.80, -0.80, -0.80 };
+	multiplierPauseTimes = { 0.1, 0.1, 0.1 };
 	bCursorIsShowing = true;
 	currentRotation = GetActorRotation();
 
@@ -111,6 +110,7 @@ void AHiWavePawn::BeginPlay()
 		UGameplayStatics::PlaySoundAtLocation(this, PlayerSpawnSound, GetActorLocation());
 	}
 	currentGunOffset = GunOffset[0];
+	currentMultiplierDecayRate = multiplierDecayRates[0];
 	SpawnInvincibility();
 
 	Super::BeginPlay();
@@ -366,22 +366,26 @@ void AHiWavePawn::IncreaseBurst(float amount)
 
 void AHiWavePawn::ResetMultiplierDecayRate()
 {
-	currentMultiplierDecayRate = multiplierDecayRate;
+	currentMultiplierDecayRate = multiplierDecayRates[bulletLevel];
 }
 
 void AHiWavePawn::HaltMultiplierDecay()
 {
-	currentMultiplierDecayRate = 0.0;
-	//Clear the old timer
-	
+
 	if (multiplierDecayResetHandle.IsValid()) {
 		GetWorld()->GetTimerManager().ClearTimer(multiplierDecayResetHandle);
 	}
-	
-	//Start a timer to call RestartMultiplierDecay
-	multiplierDecayResetDelegate.BindUFunction(this, FName("ResetMultiplierDecayRate"));
-	GetWorld()->GetTimerManager().SetTimer(multiplierDecayResetHandle, multiplierDecayResetDelegate, multiplierPauseTime, false);
-
+	//If the decay pause time is 0 or less, then don't pause it.
+	if (multiplierPauseTimes[bulletLevel] > 0.0) {
+		currentMultiplierDecayRate = 0.0;
+		//Clear the old timer
+		//Start a timer to call RestartMultiplierDecay
+		multiplierDecayResetDelegate.BindUFunction(this, FName("ResetMultiplierDecayRate"));
+		GetWorld()->GetTimerManager().SetTimer(multiplierDecayResetHandle, multiplierDecayResetDelegate, multiplierPauseTimes[bulletLevel], false);
+	}
+	else {
+		ResetMultiplierDecayRate();
+	}
 }
 
 void AHiWavePawn::DoDeathAndRespawn() const {
@@ -399,9 +403,14 @@ void AHiWavePawn::SpawnInvincibility() {
 	GetWorld()->GetTimerManager().SetTimer(SetInvincibleTimerHandle, SetInvincibleTimerDelegate, InvincibilityTimeLimit, false);
 }
 
-void AHiWavePawn::ChangeBulletLevel(const int &bulletLevel)
+void AHiWavePawn::ChangeBulletLevel(const int &newBulletLevel)
 {
-	currentGunOffset = GunOffset[bulletLevel];
+	currentGunOffset = GunOffset[newBulletLevel];
+	//multiplier dday rate is kept track of differently because it can be stopped and started in a way that currentGunOffset is not.
+	this->bulletLevel = newBulletLevel;
+	if (currentMultiplierDecayRate != 0.0) {
+		currentMultiplierDecayRate = multiplierDecayRates[newBulletLevel];
+	}
 }
 
 void AHiWavePawn::RemoveCollisionMakeInvisible()

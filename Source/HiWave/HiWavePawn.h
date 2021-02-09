@@ -160,7 +160,7 @@ public:
 	void SetInvincible(const bool &isInvincible);
 
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
-	void ChangeBulletLevel(const int &bulletLevel);
+	void ChangeBulletLevel(const int &newBulletLevel);
 
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void RemoveCollisionMakeInvisible();
@@ -230,11 +230,11 @@ protected:
 
 	/* Multiplier decay rate */
 	UPROPERTY(Category = Burst, EditDefaultsOnly, BlueprintReadOnly)
-	float multiplierDecayRate;
+	TArray<float> multiplierDecayRates;
 
 	/* Multiplier decay pause time */
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
-	float multiplierPauseTime;
+	TArray<float> multiplierPauseTimes;
 
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
 	TSubclassOf<UCameraShake> PlayerDeathCameraShake;
@@ -272,6 +272,9 @@ private:
 	/* current rate the multiplier is decaying at */
 	float currentMultiplierDecayRate;
 
+	/* Keep track of the current bullet upgrade level */
+	int bulletLevel;
+
 	AHiWaveGameState* hiWaveGameState;
 	AHiWavePlayerController* pc;
 	FTimerDelegate multiplierDecayResetDelegate;
@@ -280,7 +283,6 @@ private:
 	APlayerCameraManager* cameraManager;
 	AHiWaveGameMode* hiWaveGameMode;
 	AItemPool* bulletPool;
-
 	FVector currentGunOffset;
 
 public:

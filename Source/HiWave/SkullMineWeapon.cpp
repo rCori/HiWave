@@ -78,7 +78,6 @@ void ASkullMineWeapon::OnOverlap(class UPrimitiveComponent* OverlappedComp, clas
 
 void ASkullMineWeapon::DeactivateEvent()
 {
-	//UE_LOG(LogTemp, Warning, TEXT("DeactivateEvent"));
 	IPoolableObjectInterface::Execute_Deactivate(this);
 }
 
@@ -90,10 +89,8 @@ void ASkullMineWeapon::SetObjectLifeSpan_Implementation(float InLifespan)
 
 void ASkullMineWeapon::SetActive_Implementation(bool IsActive)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation in SkullMineWeapon"));
 	Active = IsActive;
 	if (IsActive) {
-		//UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active true"));
 		// Hides visible components
 		SetActorHiddenInGame(false);
 		// Disables collision components
@@ -103,7 +100,6 @@ void ASkullMineWeapon::SetActive_Implementation(bool IsActive)
 		IPoolableObjectInterface::Execute_SetObjectLifeSpan(this, Lifespan);
 	}
 	else {
-		//UE_LOG(LogTemp, Warning, TEXT("SetActive_Implementation setting active false"));
 		// Hides visible components
 		SetActorHiddenInGame(true);
 		// Disables collision components
