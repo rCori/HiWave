@@ -58,6 +58,7 @@ void AHiWaveGameMode::DestroyAndRespawnPlayer()
 	} else {
 		UHiWaveGameInstance *gameInstance = Cast<UHiWaveGameInstance>(GetWorld()->GetGameInstance());
 		if (gameState != nullptr && gameInstance != nullptr) {
+			gameState->SaveCurrentGame();
 			gameInstance->SubmitHiScore(gameState->playerScore);
 		}
 

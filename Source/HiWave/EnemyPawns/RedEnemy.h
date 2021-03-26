@@ -71,4 +71,5 @@ private:
 	FRotator FireRotation;
 	FVector SpawnLocation;
 	class AItemPool* bulletPool;
+	class AHiWaveGameState* hiWaveGameState;
 };

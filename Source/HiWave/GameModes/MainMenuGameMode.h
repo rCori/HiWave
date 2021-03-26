@@ -22,6 +22,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void StartGameButton();
 
+	UFUNCTION(BlueprintCallable)
+	void ClearSaveData();
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "MainMenu")
 	TSubclassOf<UUserWidget> MainMenuBackgroundWidgetClass;
 	

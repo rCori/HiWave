@@ -7,6 +7,7 @@
 #include "PoolableActor.h"
 #include "PoolableTypes.h"
 #include "ItemPool.h"
+#include "TutorialCountTypes.h"
 
 #include "TimerManager.h"
 #include "UObject/ConstructorHelpers.h"
@@ -95,7 +96,7 @@ AHiWavePawn::AHiWavePawn()
 	multiplierPauseTimes = { 0.1, 0.1, 0.1 };
 	bCursorIsShowing = true;
 	currentRotation = GetActorRotation();
-
+	burstTimer = 0.0;
 }
 
 void AHiWavePawn::BeginPlay()
@@ -225,9 +226,14 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 	if (!bBurstAvailable)
 	{
 		burstProgress += DeltaSeconds;
+		burstTimer += DeltaSeconds;
 		if (burstProgress >= maxBurst) {
 			burstProgress = maxBurst;
 			bBurstAvailable = true;
+			if (burstTimer < maxBurst * hiWaveGameState->burstGoalPercent) {
+				hiWaveGameState->UpdateTutorialValue(ETutorialCountTypes::VE_BurstRecharge);
+			}
+			burstTimer = 0.0;
 		}
 	}
 

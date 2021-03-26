@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameStateBase.h"
+#include "TutorialCountTypes.h"
 #include "HiWaveGameState.generated.h"
 
 /**
@@ -12,11 +13,13 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMultiplierLevelChanged, const int&, multiplierLevel);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnAwardExtraLife, const int&, lifeIndex);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnTutorialValueChanged, ETutorialCountTypes, type, const int&, tutorialValue);
 
 UCLASS()
 class HIWAVE_API AHiWaveGameState : public AGameStateBase
 {
 	GENERATED_BODY()
+	virtual void BeginPlay() override; //Override beginplay from the base class
 
 public:
 	UFUNCTION(BlueprintCallable)
@@ -33,6 +36,18 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	int GetMultiplierIndex() const;
+
+	UFUNCTION(BlueprintCallable)
+	void UpdateTutorialValue(ETutorialCountTypes valueToUpdate, int newValue = -1);
+
+	UFUNCTION(BlueprintCallable)
+	void SaveCurrentGame();
+
+	UFUNCTION(BlueprintCallable)
+	void LoadTutorialValues();
+
+	UFUNCTION(BlueprintCallable)
+	bool IsTutorialFinished();
 
 	UPROPERTY(BlueprintReadOnly)
 	int playerScore = 0;
@@ -52,14 +67,22 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Lives")
 	int MaxLives;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Tutorial", meta = (ClampMin = "0.0", ClampMax = "1.0"))
+	float burstGoalPercent = 0.5;
+
 	UPROPERTY(BlueprintAssignable, Category = Delegates)
 	FOnMultiplierLevelChanged OnMultiplierLevelChanged;
 
 	UPROPERTY(BlueprintAssignable, Category = Delegates)
 	FOnAwardExtraLife OnAwardExtraLife;
 
+	UPROPERTY(BlueprintAssignable, Category = Delegates)
+	FOnTutorialValueChanged OnTutorialValueChanged;
+
 private:
 	class AHiWaveGameMode* gameMode;
-
+	//class UTutorialProgressSaveGame* saveGame;
 	int lifePointIncreaseCount;
+
+	TMap<ETutorialCountTypes, int> tutorialSaveValues;
 };

@@ -5,12 +5,14 @@
 #include "EnemyPawn.h"
 #include "HiWavePawn.h"
 #include "ItemPool.h"
+#include "HiWaveGameState.h"
 #include "RedEnemyProjectile.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "Kismet/GameplayStatics.h"
 #include "CollidingPawnMovementComponent.h"
+#include "TutorialCountTypes.h"
 #include "TimerManager.h"
 #include "Engine/World.h"
 #include "Particles/ParticleSystemComponent.h"
@@ -47,7 +49,6 @@ ARedEnemy::ARedEnemy() : AEnemyPawn() {
 // Called when the game starts or when spawned
 void ARedEnemy::BeginPlay()
 {
-
 	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
 	auto frontMaterial = staticMesh->GetMaterial(0);
 	auto sizeMaterial = staticMesh->GetMaterial(1);
@@ -57,6 +58,8 @@ void ARedEnemy::BeginPlay()
 
 	dynamicSideMaterial = UMaterialInstanceDynamic::Create(sizeMaterial, NULL);
 	staticMesh->SetMaterial(1, dynamicSideMaterial);
+
+	hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
 
 	Super::BeginPlay();
 }
@@ -145,6 +148,9 @@ void ARedEnemy::EnemyDeath()
 		spawnedParticle = UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, transform, true, EPSCPoolMethod::AutoRelease);
 		spawnedParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	}
+	if (damageRatio > 1.0) {
+		hiWaveGameState->UpdateTutorialValue(ETutorialCountTypes::VE_RedTankDestroyed);
+	}
 	Super::EnemyDeath();
 }
 
@@ -152,6 +158,7 @@ void ARedEnemy::BurstOverlap()
 {
 	dynamicFrontMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
 	dynamicSideMaterial->SetScalarParameterValue(TEXT("IsHighlight"), 1.0);
+	hiWaveGameState->UpdateTutorialValue(ETutorialCountTypes::VE_RedTankMarked);
 	Super::BurstOverlap();
 }
 

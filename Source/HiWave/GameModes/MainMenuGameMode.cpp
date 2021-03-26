@@ -37,3 +37,9 @@ void AMainMenuGameMode::StartGameButton()
 {
 	UGameplayStatics::OpenLevel(GetWorld(), "GameMap");
 }
+
+void AMainMenuGameMode::ClearSaveData()
+{
+	//UGameplayStatics::SaveGameToSlot(saveGame, "TutorialSlot", 0);
+	UGameplayStatics::DeleteGameInSlot("TutorialSlot", 0);
+}

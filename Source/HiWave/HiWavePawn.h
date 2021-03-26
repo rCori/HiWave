@@ -275,6 +275,9 @@ private:
 	/* Keep track of the current bullet upgrade level */
 	int bulletLevel;
 
+	/* Keep track of how much time it takes to charge burst since used */
+	float burstTimer;
+
 	AHiWaveGameState* hiWaveGameState;
 	AHiWavePlayerController* pc;
 	FTimerDelegate multiplierDecayResetDelegate;
