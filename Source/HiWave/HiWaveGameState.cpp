@@ -224,3 +224,13 @@ bool AHiWaveGameState::IsTutorialFinished()
 		&& tutorialSaveValues[ETutorialCountTypes::VE_MultiplierThreeX] == 10
 		&& tutorialSaveValues[ETutorialCountTypes::VE_BurstRecharge] == 10;
 }
+
+int AHiWaveGameState::GetTutorialValue(ETutorialCountTypes tutorialCountType)
+{
+	if (tutorialSaveValues.Contains(tutorialCountType)) {
+		return tutorialSaveValues[tutorialCountType];
+	}
+	else {
+		return -1;
+	}
+}

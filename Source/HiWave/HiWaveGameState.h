@@ -49,6 +49,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool IsTutorialFinished();
 
+	/* This is going to return -1 if tutorial values are not loaded with LoadTutorialValues() beforehand */
+	UFUNCTION(BlueprintCallable)
+	int GetTutorialValue(ETutorialCountTypes tutorialCountType);
+
 	UPROPERTY(BlueprintReadOnly)
 	int playerScore = 0;
 
