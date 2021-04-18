@@ -40,6 +40,5 @@ void AMainMenuGameMode::StartGameButton()
 
 void AMainMenuGameMode::ClearSaveData()
 {
-	//UGameplayStatics::SaveGameToSlot(saveGame, "TutorialSlot", 0);
 	UGameplayStatics::DeleteGameInSlot("TutorialSlot", 0);
 }
