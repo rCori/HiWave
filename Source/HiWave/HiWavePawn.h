@@ -23,17 +23,7 @@ class AHiWavePawn : public APawn
 {
 	GENERATED_BODY()
 
-	/* The mesh component */
-	UPROPERTY(Category = Mesh, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	class UStaticMeshComponent* ShipMeshComponent;
-
-	/** The camera */
-	UPROPERTY(Category = Camera, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	class UCameraComponent* CameraComponent;
-
-	/** Camera boom positioning the camera above the character */
-	UPROPERTY(Category = Camera, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	class USpringArmComponent* CameraBoom;
+	
 
 
 public:
@@ -47,10 +37,6 @@ public:
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* FireSound;
 
-	/** Sound to play each time enemy is hit */
-	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
-	class USoundBase* DeathSound;
-
 	/** Sound to play when burst attack is used */
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* BurstSound;
@@ -62,9 +48,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Mesh)
 	class USphereComponent* SphereComponent;
 
-	/** Particle to emit when an enemy hits us */
-	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
-	UParticleSystem* HitParticle;
+	
 
 	/** Particle to emit when we do the burst attack */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
@@ -72,10 +56,6 @@ public:
 
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	UParticleSystemComponent* spawnedBurstParticle;
-
-	/** Capsule component for burst weapon radius */
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
-	class UStaticMeshComponent* BurstComponent;
 
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	bool bIsDead;
@@ -92,6 +72,9 @@ public:
 
 	// Begin Actor Interface
 	virtual void Tick(float DeltaSeconds) override;
+
+	virtual void CharacterTick(float DeltaSeconds);
+
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	// End Actor Interface
 
@@ -103,6 +86,9 @@ public:
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void DoBurst();
 	
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	virtual void DoBurstChild();
+
 	/* Pause or unpause the game */
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void PauseFunction();
@@ -122,9 +108,15 @@ public:
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void TakeHit();
 
+	/* The visual effects of getting hit */
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	virtual void TakeHitVisuals();
+
 	/* After the burst attack reset the size of the capsule collision component */
+	/*
 	UFUNCTION(Category = Gameplay)
 	void ResetBurstCollision();
+	*/
 
 	/* After the burst attack reset the size of the capsule collision component */
 	UFUNCTION(Category = Gameplay)
@@ -160,10 +152,19 @@ public:
 	void SetInvincible(const bool &isInvincible);
 
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	virtual void DisabledInvincibleVisuals();
+
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	virtual void EnabledInvincibleVisuals();
+
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void ChangeBulletLevel(const int &newBulletLevel);
 
 	UFUNCTION(Category = Gameplay, BlueprintCallable)
 	void RemoveCollisionMakeInvisible();
+
+	UFUNCTION(Category = Visual, BlueprintCallable)
+	virtual void SetCharacterInvisible();
 
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
@@ -198,8 +199,7 @@ protected:
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
 	float burstAvailabilityTimer;
 
-	UPROPERTY(Category = Gameplay, BlueprintReadOnly)
-	FVector burstComponentRelativeScale;
+	
 
 	/* The rate we accelerate in any direction */
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
@@ -242,6 +242,19 @@ protected:
 	UPROPERTY(Category = Gameplay, EditDefaultsOnly, BlueprintReadOnly)
 	float InvincibilityTimeLimit;
 
+	/* current rate the multiplier is decaying at */
+	float currentMultiplierDecayRate;
+
+	AHiWaveGameState* hiWaveGameState;
+	AHiWavePlayerController* pc;
+	FTimerDelegate multiplierDecayResetDelegate;
+	FTimerHandle multiplierDecayResetHandle;
+	FRotator currentRotation;
+	APlayerCameraManager* cameraManager;
+	AHiWaveGameMode* hiWaveGameMode;
+	AItemPool* bulletPool;
+	FVector currentGunOffset;
+
 private:
 
 	/* Only for internal use to point the player in the direction of the mouse */
@@ -269,8 +282,7 @@ private:
 	/* Is the player invincible */
 	bool bIsInvincible;
 
-	/* current rate the multiplier is decaying at */
-	float currentMultiplierDecayRate;
+	
 
 	/* Keep track of the current bullet upgrade level */
 	int bulletLevel;
@@ -278,22 +290,5 @@ private:
 	/* Keep track of how much time it takes to charge burst since used */
 	float burstTimer;
 
-	AHiWaveGameState* hiWaveGameState;
-	AHiWavePlayerController* pc;
-	FTimerDelegate multiplierDecayResetDelegate;
-	FTimerHandle multiplierDecayResetHandle;
-	FRotator currentRotation;
-	APlayerCameraManager* cameraManager;
-	AHiWaveGameMode* hiWaveGameMode;
-	AItemPool* bulletPool;
-	FVector currentGunOffset;
-
-public:
-	/** Returns ShipMeshComponent subobject **/
-	FORCEINLINE class UStaticMeshComponent* GetShipMeshComponent() const { return ShipMeshComponent; }
-	/** Returns CameraComponent subobject **/
-	FORCEINLINE class UCameraComponent* GetCameraComponent() const { return CameraComponent; }
-	/** Returns CameraBoom subobject **/
-	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 };
 

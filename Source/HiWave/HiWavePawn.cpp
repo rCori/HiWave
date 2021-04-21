@@ -55,6 +55,7 @@ AHiWavePawn::AHiWavePawn()
 	RootComponent = SphereComponent;
 	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
 
+	/*
 	// Create the mesh component
 	ShipMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
@@ -72,12 +73,13 @@ AHiWavePawn::AHiWavePawn()
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
 	CameraComponent->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
 	CameraComponent->bUsePawnControlRotation = false;	// Camera does not rotate relative to arm
+	*/
 
 	//Create hitbox for burst capsule
-	BurstComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BurstHitDetection"));
-	BurstComponent->OnComponentBeginOverlap.AddDynamic(this, &AHiWavePawn::OnBurstOverlap);
-	BurstComponent->SetupAttachment(ShipMeshComponent);
-	BurstComponent->ComponentTags.Add("BurstHitbox");
+	//BurstComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BurstHitDetection"));
+	//BurstComponent->OnComponentBeginOverlap.AddDynamic(this, &AHiWavePawn::OnBurstOverlap);
+	//BurstComponent->SetupAttachment(ShipMeshComponent);
+	//BurstComponent->ComponentTags.Add("BurstHitbox");
 
 	// Weapon
 	GunOffset = { FVector(110.f, 0.f, 0.f), FVector(150.f, 0.f, 0.f), FVector(150.f, 0.f, 0.f) };
@@ -101,8 +103,8 @@ AHiWavePawn::AHiWavePawn()
 
 void AHiWavePawn::BeginPlay()
 {
-	burstComponentRelativeScale = BurstComponent->GetComponentScale();
-	BurstComponent->SetWorldScale3D(FVector::ZeroVector);
+	//burstComponentRelativeScale = BurstComponent->GetComponentScale();
+	//BurstComponent->SetWorldScale3D(FVector::ZeroVector);
 	pc = Cast<AHiWavePlayerController>(UGameplayStatics::GetPlayerController(GetWorld(), 0));
 	cameraManager = GetWorld()->GetFirstPlayerController()->PlayerCameraManager;
 
@@ -136,9 +138,10 @@ void AHiWavePawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputCo
 
 void AHiWavePawn::Tick(float DeltaSeconds)
 {
-
 	//Can't fire if you are dead
 	if (bIsDead) return;
+
+	
 
 	if (hiWaveGameState == nullptr) {
 		hiWaveGameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
@@ -237,7 +240,14 @@ void AHiWavePawn::Tick(float DeltaSeconds)
 		}
 	}
 
-	hiWaveGameState->IncreaseMultiplier(currentMultiplierDecayRate*DeltaSeconds);
+	
+
+	CharacterTick(DeltaSeconds);
+
+}
+
+void AHiWavePawn::CharacterTick(float DeltaSeconds)
+{
 }
 
 void AHiWavePawn::FireShot()
@@ -279,6 +289,9 @@ void AHiWavePawn::DoBurst()
 		bBurstAvailable = false;
 		ExpandBurstComponent();
 
+		DoBurstChild();
+
+		/*
 		//Spawn the death particle
 		if (BurstParticle != nullptr) {
 			FRotator rotation = GetActorRotation();
@@ -289,7 +302,13 @@ void AHiWavePawn::DoBurst()
 		if (BurstSound != nullptr) {
 			UGameplayStatics::PlaySoundAtLocation(this, BurstSound, GetActorLocation());
 		}
+		*/
 	}
+}
+
+void AHiWavePawn::DoBurstChild()
+{
+
 }
 
 void AHiWavePawn::PauseFunction() {
@@ -334,15 +353,7 @@ void AHiWavePawn::TakeHit() {
 	FTimerHandle TimerHandleDeathAndRespawn;
 	TimerDeathAndRespawn.BindUFunction(this, FName("DoDeathAndRespawn"));
 
-	//Spawn the death particle
-	if (HitParticle != nullptr) {
-		FRotator rotation = FRotator::ZeroRotator;
-		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
-	}
-
-	if (DeathSound != nullptr) {
-		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
-	}
+	TakeHitVisuals();
 
 	//Destroy all the enemies and get ready to go through player respawn process.
 	Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->DestroyAllEnemies();
@@ -354,10 +365,17 @@ void AHiWavePawn::TakeHit() {
 }
 
 
+void AHiWavePawn::TakeHitVisuals()
+{
+}
+
+
+/*
 void AHiWavePawn::ResetBurstCollision()
 {	
 	BurstComponent->SetRelativeScale3D(FVector::ZeroVector);
 }
+*/
 
 void AHiWavePawn::ResetBurstAvailability()
 {
@@ -400,8 +418,7 @@ void AHiWavePawn::DoDeathAndRespawn() const {
 
 
 void AHiWavePawn::SpawnInvincibility() {
-	ShipMeshComponent->SetMaterial(0, BlinkingBodyMaterial);
-	ShipMeshComponent->SetMaterial(1, BlinkingWingMaterial);
+	EnabledInvincibleVisuals();
 	bIsInvincible = true;
 	FTimerDelegate SetInvincibleTimerDelegate;
 	FTimerHandle SetInvincibleTimerHandle;
@@ -422,15 +439,32 @@ void AHiWavePawn::ChangeBulletLevel(const int &newBulletLevel)
 void AHiWavePawn::RemoveCollisionMakeInvisible()
 {
 	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
-	ShipMeshComponent->SetVisibility(false);
+	SetCharacterInvisible();
+}
+
+void AHiWavePawn::SetCharacterInvisible()
+{
+	
 }
 
 void AHiWavePawn::SetInvincible(const bool &isInvincible) {
 	bIsInvincible = isInvincible;
 	if (!isInvincible) {
+		/*
 		ShipMeshComponent->SetMaterial(0, DefaultBodyMaterial);
 		ShipMeshComponent->SetMaterial(1, DefaultWingMaterial);
+		*/
+		DisabledInvincibleVisuals();
 	}
+}
+
+void AHiWavePawn::DisabledInvincibleVisuals()
+{
+
+}
+
+void AHiWavePawn::EnabledInvincibleVisuals()
+{
 }
 
 const FRotator AHiWavePawn::RotateWithMouse() {
