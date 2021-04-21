@@ -30,7 +30,7 @@ void AHiWaveGameMode::BeginPlay()
 AHiWaveGameMode::AHiWaveGameMode()
 {
 	// This isn't working for some reason
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprint/BP_HiWavePawn"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprint/BP_DefaultCharacterPawn"));
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
