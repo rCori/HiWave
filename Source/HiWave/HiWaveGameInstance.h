@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
+#include "HiWavePawn.h"
 #include "HiWaveGameInstance.generated.h"
 
 /**
@@ -22,6 +23,18 @@ public:
 	UFUNCTION(BlueprintCallable)
 	int GetHiScore() const;
 
+	UFUNCTION(BlueprintCallable)
+	void SetSelectedCharacterClass(TSubclassOf<AHiWavePawn> pawnClass);
+
+	UFUNCTION(BlueprintCallable)
+	TSubclassOf<AHiWavePawn> GetSelectedCharacterClass();
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Gameplay")
+	TSubclassOf<AHiWavePawn> SelectedCharacterClass;
+
 private:
 	int playerHiScore = 0;
+
+	
+
 };

@@ -16,3 +16,12 @@ int UHiWaveGameInstance::GetHiScore() const
 {
 	return playerHiScore;
 }
+
+void UHiWaveGameInstance::SetSelectedCharacterClass(TSubclassOf<AHiWavePawn> pawnClass) {
+	SelectedCharacterClass = pawnClass;
+}
+
+TSubclassOf<AHiWavePawn> UHiWaveGameInstance::GetSelectedCharacterClass()
+{
+	return SelectedCharacterClass;
+}

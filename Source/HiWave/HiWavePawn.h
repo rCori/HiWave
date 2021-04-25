@@ -60,16 +60,6 @@ public:
 	UPROPERTY(Category = Gameplay, BlueprintReadonly)
 	bool bIsDead;
 
-	UPROPERTY(EditAnywhere)
-	class UMaterialInterface* DefaultBodyMaterial;
-	UPROPERTY(EditAnywhere)
-	class UMaterialInterface* BlinkingBodyMaterial;
-
-	UPROPERTY(EditAnywhere)
-	class UMaterialInterface* DefaultWingMaterial;
-	UPROPERTY(EditAnywhere)
-	class UMaterialInterface* BlinkingWingMaterial;
-
 	// Begin Actor Interface
 	virtual void Tick(float DeltaSeconds) override;
 

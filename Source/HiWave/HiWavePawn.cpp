@@ -55,31 +55,6 @@ AHiWavePawn::AHiWavePawn()
 	RootComponent = SphereComponent;
 	SphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
 
-	/*
-	// Create the mesh component
-	ShipMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
-	ShipMeshComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
-	ShipMeshComponent->SetupAttachment(RootComponent);
-
-	// Create a camera boom...
-	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
-	CameraBoom->SetupAttachment(ShipMeshComponent);
-	CameraBoom->bAbsoluteRotation = true; // Don't want arm to rotate when ship does
-	CameraBoom->TargetArmLength = 1200.f;
-	CameraBoom->RelativeRotation = FRotator(-80.f, 0.f, 0.f);
-	CameraBoom->bDoCollisionTest = false; // Don't want to pull camera in when it collides with level
-
-	// Create a camera...
-	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("TopDownCamera"));
-	CameraComponent->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
-	CameraComponent->bUsePawnControlRotation = false;	// Camera does not rotate relative to arm
-	*/
-
-	//Create hitbox for burst capsule
-	//BurstComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BurstHitDetection"));
-	//BurstComponent->OnComponentBeginOverlap.AddDynamic(this, &AHiWavePawn::OnBurstOverlap);
-	//BurstComponent->SetupAttachment(ShipMeshComponent);
-	//BurstComponent->ComponentTags.Add("BurstHitbox");
 
 	// Weapon
 	GunOffset = { FVector(110.f, 0.f, 0.f), FVector(150.f, 0.f, 0.f), FVector(150.f, 0.f, 0.f) };
@@ -450,10 +425,6 @@ void AHiWavePawn::SetCharacterInvisible()
 void AHiWavePawn::SetInvincible(const bool &isInvincible) {
 	bIsInvincible = isInvincible;
 	if (!isInvincible) {
-		/*
-		ShipMeshComponent->SetMaterial(0, DefaultBodyMaterial);
-		ShipMeshComponent->SetMaterial(1, DefaultWingMaterial);
-		*/
 		DisabledInvincibleVisuals();
 	}
 }

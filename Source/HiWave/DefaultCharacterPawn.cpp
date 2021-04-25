@@ -35,7 +35,6 @@ ADefaultCharacterPawn::ADefaultCharacterPawn() {
 
 void ADefaultCharacterPawn::BeginPlay()
 {
-
 	burstComponentRelativeScale = BurstComponent->GetComponentScale();
 	BurstComponent->SetWorldScale3D(FVector::ZeroVector);
 
@@ -46,7 +45,6 @@ void ADefaultCharacterPawn::CharacterTick(float DeltaSeconds)
 {
 	hiWaveGameState->IncreaseMultiplier(currentMultiplierDecayRate*DeltaSeconds);
 }
-
 
 void ADefaultCharacterPawn::DoBurstChild()
 {
@@ -61,7 +59,6 @@ void ADefaultCharacterPawn::DoBurstChild()
 		UGameplayStatics::PlaySoundAtLocation(this, BurstSound, GetActorLocation());
 	}
 }
-
 
 void ADefaultCharacterPawn::TakeHitVisuals()
 {
@@ -93,7 +90,9 @@ void ADefaultCharacterPawn::EnabledInvincibleVisuals()
 	ShipMeshComponent->SetMaterial(1, BlinkingWingMaterial);
 }
 
+/*
 void ADefaultCharacterPawn::ResetBurstCollision()
 {
 	BurstComponent->SetRelativeScale3D(FVector::ZeroVector);
 }
+*/

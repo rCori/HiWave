@@ -16,6 +16,24 @@ void AHiWaveGameMode::BeginPlay()
 	PrimaryActorTick.bCanEverTick = true;
 	bIsDead = false;
 
+	if (playerController == nullptr) {
+		playerController = UGameplayStatics::GetPlayerController(this, 0);
+	}
+
+	//FindPlayerStart(playerController,"")->GetActorLocation()
+
+	FActorSpawnParameters ActorSpawnParameters;
+	ActorSpawnParameters.Owner = this;
+	ActorSpawnParameters.Instigator = Instigator;
+	ActorSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	FVector playerStartLocation = FindPlayerStart(playerController, "")->GetActorLocation();
+
+	TSubclassOf<AHiWavePawn> characterClass = Cast<UHiWaveGameInstance>(GetGameInstance())->GetSelectedCharacterClass();
+
+	AHiWavePawn *spawnedPawn = GetWorld()->SpawnActor<AHiWavePawn>(characterClass, playerStartLocation, FRotator().ZeroRotator, ActorSpawnParameters);
+	playerController->Possess(spawnedPawn);
+
 	UUserWidget* GameplayWidget = CreateWidget<UUserWidget>(GetWorld(), GameplayWidgetClass);
 	if (GameplayWidget != nullptr)
 	{
@@ -30,11 +48,13 @@ void AHiWaveGameMode::BeginPlay()
 AHiWaveGameMode::AHiWaveGameMode()
 {
 	// This isn't working for some reason
+	/*
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprint/BP_DefaultCharacterPawn"));
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+	*/
 	
 	// tell your custom game mode to use your custom player controller
 	PlayerControllerClass = AHiWavePlayerController::StaticClass();
@@ -126,13 +146,14 @@ void AHiWaveGameMode::RespawnPlayer() {
 	}
 	
 	AHiWaveGameState *gameState = Cast<AHiWaveGameState>(GetWorld()->GetGameState());
+	TSubclassOf<AHiWavePawn> characterClass = Cast<UHiWaveGameInstance>(GetGameInstance())->GetSelectedCharacterClass();
 	gameState->ResetMultiplier();
 	AActor* playerStart = K2_FindPlayerStart(playerController);
 	FActorSpawnParameters SpawnInfo;
 	SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 	SpawnInfo.Owner = this;
 	SpawnInfo.Instigator = Instigator;
-	APawn *spawnedPlayer = GetWorld()->SpawnActor<APawn>(DefaultPawnClass, playerStart->GetActorLocation(), playerStart->GetActorRotation(), SpawnInfo);
+	APawn *spawnedPlayer = GetWorld()->SpawnActor<APawn>(characterClass, playerStart->GetActorLocation(), playerStart->GetActorRotation(), SpawnInfo);
 	if (spawnedPlayer != nullptr) {
 		playerController->Possess(spawnedPlayer);
 	}

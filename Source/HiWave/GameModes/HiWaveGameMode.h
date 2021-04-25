@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "PoolableTypes.h"
+#include "HiWavePawn.h"
 #include "GameFramework/GameModeBase.h"
 #include "HiWaveGameMode.generated.h"
 
@@ -67,7 +68,6 @@ public:
 
 	UPROPERTY(BlueprintAssignable, Category = "Spawning")
 	FOnDestroyAllEnemies OnDestroyAllEnemies;
-
 
 private:
 	bool bIsPaused;

@@ -4,15 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "HiWavePawn.h"
-#include "DefaultCharacterPawn.generated.h"
+#include "FasterTestPawn.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class HIWAVE_API ADefaultCharacterPawn : public AHiWavePawn
+class HIWAVE_API AFasterTestPawn : public AHiWavePawn
 {
 	GENERATED_BODY()
+	
 
 protected:
 	/* The mesh component */
@@ -31,12 +32,12 @@ protected:
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
 	class UStaticMeshComponent* BurstComponent;
 
+
 public:
-	ADefaultCharacterPawn();
+
+	AFasterTestPawn();
 
 	void CharacterTick(float DeltaSeconds) override;
-
-	virtual void DoBurstChild() override;
 
 	/* The visual effects of getting hit */
 	virtual void TakeHitVisuals() override;
@@ -47,38 +48,20 @@ public:
 
 	virtual void EnabledInvincibleVisuals() override;
 
-	//UFUNCTION(Category = Gameplay, BlueprintCallable)
-	//void ResetBurstCollision();
-
-	/** Particle to emit when an enemy hits us */
-	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
-	class UParticleSystem* HitParticle;
-
-	/** Sound to play each time enemy is hit */
-	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
-	class USoundBase* DeathSound;
-
-	UPROPERTY(Category = Gameplay, BlueprintReadOnly)
-	FVector burstComponentRelativeScale;
-
 	UPROPERTY(EditAnywhere)
 	class UMaterialInterface* DefaultBodyMaterial;
 	UPROPERTY(EditAnywhere)
-	class UMaterialInterface* BlinkingBodyMaterial;
-
-	UPROPERTY(EditAnywhere)
 	class UMaterialInterface* DefaultWingMaterial;
-	UPROPERTY(EditAnywhere)
-	class UMaterialInterface* BlinkingWingMaterial;
+
+	UPROPERTY(Category = Gameplay, BlueprintReadOnly)
+	FVector burstComponentRelativeScale;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-private:
-	
-
 public:
+
 	/** Returns ShipMeshComponent subobject **/
 	FORCEINLINE class UStaticMeshComponent* GetShipMeshComponent() const { return ShipMeshComponent; }
 	/** Returns CameraComponent subobject **/
