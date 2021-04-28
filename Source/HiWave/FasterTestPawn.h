@@ -29,8 +29,12 @@ protected:
 	class USpringArmComponent* CameraBoom;
 
 	/** Capsule component for burst weapon radius */
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
-	class UStaticMeshComponent* BurstComponent;
+	UPROPERTY(Category = Mesh, VisibleDefaultsOnly, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class USkeletalMeshComponent* BurstComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Mesh, meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* BurstSphereComponent;
+	
 
 
 public:

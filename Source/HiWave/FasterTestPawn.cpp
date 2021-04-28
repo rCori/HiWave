@@ -5,6 +5,8 @@
 #include "HiWaveGameState.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Components/SphereComponent.h"
 #include "Camera/CameraComponent.h"
 
 AFasterTestPawn::AFasterTestPawn()
@@ -27,10 +29,17 @@ AFasterTestPawn::AFasterTestPawn()
 	CameraComponent->bUsePawnControlRotation = false;	// Camera does not rotate relative to arm
 
 	//Create hitbox for burst capsule
-	BurstComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BurstHitDetection"));
-	BurstComponent->OnComponentBeginOverlap.AddDynamic(this, &AHiWavePawn::OnBurstOverlap);
+	BurstComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BurstHitDetection"));
+	//BurstComponent->OnComponentBeginOverlap.AddDynamic(this, &AHiWavePawn::OnBurstOverlap);
+	//BurstComponent->SetupAttachment(RootComponent);
 	BurstComponent->SetupAttachment(ShipMeshComponent);
-	BurstComponent->ComponentTags.Add("BurstHitbox");
+	//BurstComponent->ComponentTags.Add("BurstHitbox");
+
+	BurstSphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("BurstSphereComponent"));
+	BurstSphereComponent->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
+	BurstSphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AHiWavePawn::OnBurstOverlap);
+	BurstSphereComponent->SetupAttachment(BurstComponent);
+	BurstSphereComponent->ComponentTags.Add("BurstHitbox");
 }
 
 void AFasterTestPawn::BeginPlay()
