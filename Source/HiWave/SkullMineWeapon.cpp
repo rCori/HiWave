@@ -3,7 +3,7 @@
 
 #include "SkullMineWeapon.h"
 #include "TimerManager.h"
-#include "HiWavePawn.h"
+#include "PlayerPawns/HiWavePawn.h"
 #include "Kismet/GameplayStatics.h"
 #include "HiWaveProjectile.h"
 #include "Components/SphereComponent.h"

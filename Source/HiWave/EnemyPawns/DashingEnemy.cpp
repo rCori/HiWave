@@ -3,7 +3,7 @@
 
 #include "DashingEnemy.h"
 #include "EnemyPawn.h"
-#include "HiWavePawn.h"
+#include "PlayerPawns/HiWavePawn.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"

@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "PoolableTypes.h"
-#include "HiWavePawn.h"
+#include "PlayerPawns/HiWavePawn.h"
 #include "GameFramework/GameModeBase.h"
 #include "HiWaveGameMode.generated.h"
 

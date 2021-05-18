@@ -2,7 +2,7 @@
 
 #include "HiWaveGameMode.h"
 #include "HiWavePlayerController.h"
-#include "HiWavePawn.h"
+#include "PlayerPawns/HiWavePawn.h"
 #include "TimerManager.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Kismet/GameplayStatics.h"

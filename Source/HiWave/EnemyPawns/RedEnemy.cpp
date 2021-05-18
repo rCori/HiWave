@@ -3,7 +3,7 @@
 
 #include "RedEnemy.h"
 #include "EnemyPawn.h"
-#include "HiWavePawn.h"
+#include "PlayerPawns/HiWavePawn.h"
 #include "ItemPool.h"
 #include "HiWaveGameState.h"
 #include "RedEnemyProjectile.h"

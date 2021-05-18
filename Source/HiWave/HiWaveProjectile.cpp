@@ -10,7 +10,7 @@
 #include "Particles/ParticleSystemComponent.h"
 #include "Engine/StaticMesh.h"
 #include "EnemyPawns/EnemyPawn.h"
-#include "HiWavePawn.h"
+#include "PlayerPawns/HiWavePawn.h"
 #include "HiWaveGameState.h"
 
 AHiWaveProjectile::AHiWaveProjectile() 

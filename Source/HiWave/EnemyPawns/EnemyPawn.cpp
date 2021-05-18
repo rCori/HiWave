@@ -7,7 +7,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "BehaviorTree/BehaviorTree.h"
 #include "CollidingPawnMovementComponent.h"
-#include "HiWavePawn.h"
+#include "PlayerPawns/HiWavePawn.h"
 #include "Components/SphereComponent.h"
 #include "HiWaveGameState.h"
 #include "Sound/SoundBase.h"

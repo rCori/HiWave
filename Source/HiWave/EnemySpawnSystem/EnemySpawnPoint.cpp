@@ -12,7 +12,7 @@
 #include "GameFramework/Pawn.h"
 #include "SpawnRowData.h"
 #include "ItemPool.h"
-#include "HiWavePawn.h"
+#include "PlayerPawns/HiWavePawn.h"
 
 
 // Sets default values

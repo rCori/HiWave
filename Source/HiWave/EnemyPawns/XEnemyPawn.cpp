@@ -2,7 +2,7 @@
 
 
 #include "XEnemyPawn.h"
-#include "HiWavePawn.h"
+#include "PlayerPawns/HiWavePawn.h"
 #include "Engine/World.h"
 #include "Components/StaticMeshComponent.h"
 #include "CollidingPawnMovementComponent.h"
