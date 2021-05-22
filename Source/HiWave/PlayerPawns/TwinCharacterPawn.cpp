@@ -7,6 +7,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "Materials/MaterialInstanceDynamic.h"
 
 ATwinCharacterPawn::ATwinCharacterPawn() {
 	LeftHitboxCollision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("LeftCapsuleHitbox"));
@@ -41,14 +42,28 @@ ATwinCharacterPawn::ATwinCharacterPawn() {
 
 void ATwinCharacterPawn::BeginPlay()
 {
-	Super::BeginPlay();
+	burstComponentRelativeScale = BurstComponent->GetComponentScale();
+	BurstComponent->SetWorldScale3D(FVector::ZeroVector);
+
 	isLeftOffset = true;
+
+	auto staticMesh = FindComponentByClass<UStaticMeshComponent>();
+	auto material = staticMesh->GetMaterial(4);
+
+	dynamicDiamondMaterial = UMaterialInstanceDynamic::Create(material, NULL);
+	staticMesh->SetMaterial(4, dynamicDiamondMaterial);
+
+	Super::BeginPlay();
 }
 
 
 void ATwinCharacterPawn::CharacterTick(float DeltaSeconds)
 {
 	hiWaveGameState->IncreaseMultiplier(currentMultiplierDecayRate*DeltaSeconds);
+	if (!bBurstAvailable) {
+		const float fillAmount = ((burstProgress / maxBurst) * 4.5) + 0.5;
+		dynamicDiamondMaterial->SetScalarParameterValue(TEXT("DiamondFill"), fillAmount);
+	}
 }
 
 void ATwinCharacterPawn::DoBurstChild()
@@ -70,6 +85,7 @@ void ATwinCharacterPawn::FireShotChild()
 
 void ATwinCharacterPawn::TakeHitVisuals()
 {
+	dynamicDiamondMaterial->SetScalarParameterValue(TEXT("DiamondFill"), 0.5);
 }
 
 void ATwinCharacterPawn::SetCharacterInvisible()

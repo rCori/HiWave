@@ -70,6 +70,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Gameplay", Meta = (MakeEditWidget = true))
 	FVector rightGunOffset;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Gameplay")
+	FVector burstComponentRelativeScale;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Visual")
+	UMaterialInstanceDynamic *dynamicDiamondMaterial;
+
 private:
 	bool isLeftOffset;
 };
