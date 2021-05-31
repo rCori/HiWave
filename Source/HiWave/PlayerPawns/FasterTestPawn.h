@@ -59,6 +59,11 @@ public:
 	UPROPERTY(EditAnywhere)
 	class UMaterialInterface* DefaultWingMaterial;
 
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* BlinkingBodyMaterial;
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* BlinkingWingMaterial;
+
 	UPROPERTY(Category = Gameplay, BlueprintReadOnly)
 	FVector burstComponentRelativeScale;
 

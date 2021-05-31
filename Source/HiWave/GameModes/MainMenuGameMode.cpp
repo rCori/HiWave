@@ -10,26 +10,26 @@
 
 void AMainMenuGameMode::BeginPlay()
 {
-	UUserWidget* MainMenuBackgroundWidget = CreateWidget<UUserWidget>(GetWorld(), MainMenuBackgroundWidgetClass);
+	MainMenuBackgroundWidgetInstantiated = CreateWidget<UUserWidget>(GetWorld(), MainMenuBackgroundWidgetClass);
 
-	if (MainMenuBackgroundWidget != nullptr)
+	if (MainMenuBackgroundWidgetInstantiated != nullptr)
 	{
-		MainMenuBackgroundWidget->AddToViewport();
+		MainMenuBackgroundWidgetInstantiated->AddToViewport();
 	}
 
-	UUserWidget* MainMenuButtonsWidget = CreateWidget<UUserWidget>(GetWorld(), MainMenuButtonsWidgetClass);
+	MainMenuButtonsWidgetInstantiated = CreateWidget<UUserWidget>(GetWorld(), MainMenuButtonsWidgetClass);
 
-	if (MainMenuButtonsWidget != nullptr)
+	if (MainMenuButtonsWidgetInstantiated != nullptr)
 	{
-		MainMenuButtonsWidget->AddToViewport();
+		MainMenuButtonsWidgetInstantiated->AddToViewport();
 	}
 
 
-	UUserWidget* HiScoreWidget = CreateWidget<UUserWidget>(GetWorld(), HiScoreWidgetClass);
+	HiScoreWidgetInstantiated = CreateWidget<UUserWidget>(GetWorld(), HiScoreWidgetClass);
 
-	if (HiScoreWidget != nullptr)
+	if (HiScoreWidgetInstantiated != nullptr)
 	{
-		HiScoreWidget->AddToViewport();
+		HiScoreWidgetInstantiated->AddToViewport();
 	}
 }
 

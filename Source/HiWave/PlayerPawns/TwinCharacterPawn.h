@@ -76,6 +76,20 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Visual")
 	UMaterialInstanceDynamic *dynamicDiamondMaterial;
 
+	/** Sound to play each time enemy is hit */
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+	class USoundBase* DeathSound;
+
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* LeftDefaultBodyMaterial;
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* RightDefaultBodyMaterial;
+
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* LeftBlinkingBodyMaterial;
+	UPROPERTY(EditAnywhere)
+	class UMaterialInterface* RightBlinkingBodyMaterial;
+
 private:
 	bool isLeftOffset;
 };

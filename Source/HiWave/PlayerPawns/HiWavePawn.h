@@ -23,8 +23,6 @@ class AHiWavePawn : public APawn
 {
 	GENERATED_BODY()
 
-	
-
 
 public:
 	AHiWavePawn();
@@ -47,8 +45,6 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Mesh)
 	class USphereComponent* SphereComponent;
-
-	
 
 	/** Particle to emit when we do the burst attack */
 	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
@@ -277,10 +273,6 @@ private:
 
 	/* Is the player invincible */
 	bool bIsInvincible;
-
-	
-
-	
 
 	/* Keep track of how much time it takes to charge burst since used */
 	float burstTimer;

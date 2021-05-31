@@ -90,8 +90,12 @@ void AFasterTestPawn::SetCharacterInvisible()
 
 void AFasterTestPawn::DisabledInvincibleVisuals()
 {
+	ShipMeshComponent->SetMaterial(0, DefaultBodyMaterial);
+	ShipMeshComponent->SetMaterial(1, DefaultWingMaterial);
 }
 
 void AFasterTestPawn::EnabledInvincibleVisuals()
 {
+	ShipMeshComponent->SetMaterial(0, BlinkingBodyMaterial);
+	ShipMeshComponent->SetMaterial(1, BlinkingWingMaterial);
 }

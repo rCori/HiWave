@@ -8,6 +8,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "Kismet/GameplayStatics.h"
 
 ATwinCharacterPawn::ATwinCharacterPawn() {
 	LeftHitboxCollision = CreateDefaultSubobject<UCapsuleComponent>(TEXT("LeftCapsuleHitbox"));
@@ -86,6 +87,10 @@ void ATwinCharacterPawn::FireShotChild()
 void ATwinCharacterPawn::TakeHitVisuals()
 {
 	dynamicDiamondMaterial->SetScalarParameterValue(TEXT("DiamondFill"), 0.5);
+
+	if (DeathSound != nullptr) {
+		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
+	}
 }
 
 void ATwinCharacterPawn::SetCharacterInvisible()
@@ -95,9 +100,15 @@ void ATwinCharacterPawn::SetCharacterInvisible()
 
 void ATwinCharacterPawn::DisabledInvincibleVisuals()
 {
+	dynamicDiamondMaterial->SetScalarParameterValue(TEXT("DiamondFill"), 5.0);
+	ShipMeshComponent->SetMaterial(0, LeftDefaultBodyMaterial);
+	ShipMeshComponent->SetMaterial(2, RightDefaultBodyMaterial);
 }
 
 void ATwinCharacterPawn::EnabledInvincibleVisuals()
 {
+	dynamicDiamondMaterial->SetScalarParameterValue(TEXT("DiamondFill"), 0.0);
+	ShipMeshComponent->SetMaterial(0, LeftBlinkingBodyMaterial);
+	ShipMeshComponent->SetMaterial(2, RightBlinkingBodyMaterial);
 }
 
