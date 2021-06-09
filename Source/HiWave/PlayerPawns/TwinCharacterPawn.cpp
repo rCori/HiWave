@@ -62,7 +62,7 @@ void ATwinCharacterPawn::CharacterTick(float DeltaSeconds)
 {
 	hiWaveGameState->IncreaseMultiplier(currentMultiplierDecayRate*DeltaSeconds);
 	if (!bBurstAvailable) {
-		const float fillAmount = ((burstProgress / maxBurst) * 4.5) + 0.5;
+		const float fillAmount = (burstProgress / maxBurst)*1.2;
 		dynamicDiamondMaterial->SetScalarParameterValue(TEXT("DiamondFill"), fillAmount);
 	}
 }
@@ -91,6 +91,14 @@ void ATwinCharacterPawn::TakeHitVisuals()
 	if (DeathSound != nullptr) {
 		UGameplayStatics::PlaySoundAtLocation(this, DeathSound, GetActorLocation());
 	}
+	LeftHitboxCollision->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+	RightHitboxCollision->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+
+	if (HitParticle != nullptr) {
+		FRotator rotation = FRotator::ZeroRotator;
+		UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticle, GetActorLocation(), rotation);
+	}
+
 }
 
 void ATwinCharacterPawn::SetCharacterInvisible()
@@ -100,7 +108,7 @@ void ATwinCharacterPawn::SetCharacterInvisible()
 
 void ATwinCharacterPawn::DisabledInvincibleVisuals()
 {
-	dynamicDiamondMaterial->SetScalarParameterValue(TEXT("DiamondFill"), 5.0);
+	dynamicDiamondMaterial->SetScalarParameterValue(TEXT("DiamondFill"), 1.2);
 	ShipMeshComponent->SetMaterial(0, LeftDefaultBodyMaterial);
 	ShipMeshComponent->SetMaterial(2, RightDefaultBodyMaterial);
 }

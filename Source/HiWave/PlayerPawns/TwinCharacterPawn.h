@@ -80,6 +80,10 @@ public:
 	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
 	class USoundBase* DeathSound;
 
+	/** Particle to emit when an enemy hits us */
+	UPROPERTY(Category = Effects, EditAnywhere, BlueprintReadWrite)
+	class UParticleSystem* HitParticle;
+
 	UPROPERTY(EditAnywhere)
 	class UMaterialInterface* LeftDefaultBodyMaterial;
 	UPROPERTY(EditAnywhere)

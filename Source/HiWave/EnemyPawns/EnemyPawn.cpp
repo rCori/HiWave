@@ -13,7 +13,6 @@
 #include "Sound/SoundBase.h"
 #include "Kismet/GameplayStatics.h"
 #include "HiWaveGameInstance.h"
-#include "HiWaveGameState.h"
 
 // Sets default values
 AEnemyPawn::AEnemyPawn()

@@ -270,19 +270,6 @@ void AHiWavePawn::DoBurst()
 		ExpandBurstComponent();
 
 		DoBurstChild();
-
-		/*
-		//Spawn the death particle
-		if (BurstParticle != nullptr) {
-			FRotator rotation = GetActorRotation();
-			spawnedBurstParticle = UGameplayStatics::SpawnEmitterAttached(BurstParticle,RootComponent,NAME_None, FVector::ZeroVector, rotation, EAttachLocation::KeepRelativeOffset);
-			spawnedBurstParticle->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-		}
-		//Play burst sound
-		if (BurstSound != nullptr) {
-			UGameplayStatics::PlaySoundAtLocation(this, BurstSound, GetActorLocation());
-		}
-		*/
 	}
 }
 

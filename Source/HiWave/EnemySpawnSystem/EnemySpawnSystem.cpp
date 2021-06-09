@@ -224,6 +224,10 @@ void AEnemySpawnSystem::SingleSpawnWave(const bool &canShuffleSpawnPoints, const
 		//Make sure the spawn was successful
 		if (enemyPawn != nullptr) {
 
+			//Clear dynamic delegate list first
+			enemyPawn->OnEnemyDeathDelegate.Clear();
+			enemyPawn->OnIncreaseMultiplierDelegate.Clear();
+
 			//So far this is the best way I can  find to give enemies a callback for when they are destroyed. They all have the same event
 			//Later if we want different enemies to have different events this could be it's own small function
 			enemyPawn->OnEnemyDeathDelegate.AddDynamic(this, &AEnemySpawnSystem::EnemyPawnDeathEventCallback);
