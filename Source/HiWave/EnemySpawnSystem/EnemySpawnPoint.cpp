@@ -24,8 +24,8 @@ AEnemySpawnPoint::AEnemySpawnPoint()
 	BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollision"));
 	BoxComponent->SetupAttachment(RootComponent);
 
-	BoxComponent->OnComponentBeginOverlap.AddDynamic(this, &AEnemySpawnPoint::OnOverlapBegin);
-	BoxComponent->OnComponentEndOverlap.AddDynamic(this, &AEnemySpawnPoint::OnOverlapEnd);
+	//BoxComponent->OnComponentBeginOverlap.AddDynamic(this, &AEnemySpawnPoint::OnOverlapBegin);
+	//BoxComponent->OnComponentEndOverlap.AddDynamic(this, &AEnemySpawnPoint::OnOverlapEnd);
 
 	//Setup audio component
 	spawnAudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("SpawnSoundComponent"));
@@ -44,18 +44,32 @@ void AEnemySpawnPoint::BeginPlay()
 void AEnemySpawnPoint::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(const EEnemyType &enemyType)
 {
+	TArray<AActor*> overlappingActors;
+	GetOverlappingActors(overlappingActors, OverlappingCharacter);
+	for (AActor* currentActor : overlappingActors) {
+		AHiWavePawn *player = Cast<AHiWavePawn>(currentActor);
+		if (player != nullptr) {
+			FString ObjectName = GetName();
+			//UE_LOG(LogTemp, Warning, TEXT("[EnemySpawnPoint.DoEnemyPawnSpawn] We are spawning from %s even though we are overlapping"), *ObjectName);
+			const int randomIndex = FMath::RandRange(0, (NeighborSpawnPoints.Num() - 1));
+			return NeighborSpawnPoints[randomIndex]->DoEnemyPawnSpawn(enemyType);
+		}
+	}
+
+	/*
 	//Pick another spawn point
 	if (bIsIntersecting) {
-		UE_LOG(LogTemp, Warning, TEXT("[EnemySpawnPoint.DoEnemyPawnSpawn] Defering to another spawner"));
+		FString ObjectName = GetName();
+		UE_LOG(LogTemp, Warning, TEXT("[EnemySpawnPoint.DoEnemyPawnSpawn] Defering to another spawner Called from %s"), *ObjectName);
 		const int randomIndex = FMath::RandRange(0, (NeighborSpawnPoints.Num()-1));
 		return NeighborSpawnPoints[randomIndex]->DoEnemyPawnSpawn(enemyType);
 	}
-
+	*/
+	
 	//From the box extent, select the point in the middle of the box
 	//We may want to randomize a bit or ignore the box and use a Vector to place the spawn
 	const FVector origin = GetActorLocation();
@@ -97,8 +111,10 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(const EEnemyType &enemyType)
 void AEnemySpawnPoint::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
 	AHiWavePawn *player = Cast<AHiWavePawn>(OtherActor);
-	if (player != nullptr)
+	if (player != nullptr && player->ActorHasTag("Player"))
 	{
+		FString ObjectName = GetName();
+		UE_LOG(LogTemp, Warning, TEXT("[EnemySpawnPoint.DoEnemyPawnSpawn] Player started intersecting spawn point %s"),*ObjectName);
 		bIsIntersecting = true;
 	}
 }
@@ -106,8 +122,10 @@ void AEnemySpawnPoint::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AAct
 void AEnemySpawnPoint::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex)
 {
 	AHiWavePawn *player = Cast<AHiWavePawn>(OtherActor);
-	if (player != nullptr)
+	if (player != nullptr && player->ActorHasTag("Player"))
 	{
+		FString ObjectName = GetName();
+		UE_LOG(LogTemp, Warning, TEXT("[EnemySpawnPoint.DoEnemyPawnSpawn] Player has left spawn point %s"), *ObjectName);
 		bIsIntersecting = false;
 	}
 }

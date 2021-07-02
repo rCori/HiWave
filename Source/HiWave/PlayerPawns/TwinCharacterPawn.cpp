@@ -69,6 +69,10 @@ void ATwinCharacterPawn::CharacterTick(float DeltaSeconds)
 
 void ATwinCharacterPawn::DoBurstChild()
 {
+	//Play burst sound
+	if (BurstSound != nullptr) {
+		UGameplayStatics::PlaySoundAtLocation(this, BurstSound, GetActorLocation());
+	}
 }
 
 
@@ -105,7 +109,7 @@ void ATwinCharacterPawn::SetCharacterInvisible()
 {
 	ShipMeshComponent->SetVisibility(false);
 }
-
+ 
 void ATwinCharacterPawn::DisabledInvincibleVisuals()
 {
 	dynamicDiamondMaterial->SetScalarParameterValue(TEXT("DiamondFill"), 1.2);

@@ -64,6 +64,9 @@ enum class ESpawnPoints : uint8
 	VE_34		UMETA(DisplayName = "[3,4]"),
 	VE_44		UMETA(DisplayName = "[4,4]"),
 
+	VE_TOP		UMETA(DisplayName = "Top"),
+	VE_BOTTOM	UMETA(DisplayName = "Bottom"),
+
 };
 
 UENUM(BlueprintType)		//"BlueprintType" is essential to include

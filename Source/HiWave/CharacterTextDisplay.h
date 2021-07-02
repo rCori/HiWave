@@ -32,4 +32,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString CharacterDescription;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString CharacterStats;
 };

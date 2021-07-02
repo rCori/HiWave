@@ -15,6 +15,7 @@ class UParticleSystem;
 class UAudioComponent;
 class USoundCue;
 class AItemPool;
+class AHiWavePawn;
 
 UCLASS()
 class HIWAVE_API AEnemySpawnPoint : public AActor
@@ -73,6 +74,11 @@ public:
 	/* A particle system to play when an enemy spawns */
 	UPROPERTY(EditDefaultsOnly)
 	UParticleSystem* SpawnParticle;
+
+	/* Class to filter out for player overlaps*/
+	UPROPERTY(EditDefaultsOnly, Category = SpawningCharacter)
+	TSubclassOf<AActor> OverlappingCharacter;
+
 
 	/* A sound to play when an enemy spawns */
 	UPROPERTY(EditDefaultsOnly)

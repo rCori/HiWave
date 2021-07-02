@@ -74,6 +74,7 @@ AHiWavePawn::AHiWavePawn()
 	bCursorIsShowing = true;
 	currentRotation = GetActorRotation();
 	burstTimer = 0.0;
+	multiplierAdjustmentRate = 1.0;
 }
 
 void AHiWavePawn::BeginPlay()
@@ -405,6 +406,11 @@ void AHiWavePawn::RemoveCollisionMakeInvisible()
 void AHiWavePawn::SetCharacterInvisible()
 {
 	
+}
+
+float AHiWavePawn::GetMultiplierAdjustment() const
+{
+	return multiplierAdjustmentRate;
 }
 
 void AHiWavePawn::SetInvincible(const bool &isInvincible) {

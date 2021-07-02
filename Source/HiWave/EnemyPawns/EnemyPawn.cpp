@@ -91,8 +91,7 @@ void AEnemyPawn::EnemyDeath() {
 	OnEnemyDeathDelegate.Broadcast(SpawningGroupTag);
 	//Damage ratio is over 1.0 if it has been hit with burst
 	if (damageRatio > 1.0) {
-		OnIncreaseMultiplierDelegate.Broadcast(multiplierIncrease);
-		
+		OnIncreaseMultiplierDelegate.Broadcast(multiplierIncrease * hiWavePawn->GetMultiplierAdjustment());
 	}
 
 	//Stop the multiplier from couting down for awhile

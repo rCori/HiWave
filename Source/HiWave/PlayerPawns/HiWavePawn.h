@@ -155,6 +155,9 @@ public:
 	UFUNCTION(Category = Visual, BlueprintCallable)
 	virtual void SetCharacterInvisible();
 
+	UFUNCTION(Category = Gameplay, BlueprintCallable)
+	float GetMultiplierAdjustment() const;
+
 	// Static names for axis bindings
 	static const FName MoveForwardBinding;
 	static const FName MoveRightBinding;
@@ -216,6 +219,9 @@ protected:
 	/* Burst progress must be at this level to set bBurstAvailable to true */
 	UPROPERTY(Category = Burst, EditDefaultsOnly, BlueprintReadOnly)
 	float maxBurst;
+
+	UPROPERTY(Category = Burst, EditDefaultsOnly, BlueprintReadOnly)
+	float multiplierAdjustmentRate;
 
 	/* Multiplier decay rate */
 	UPROPERTY(Category = Burst, EditDefaultsOnly, BlueprintReadOnly)
