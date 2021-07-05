@@ -69,6 +69,10 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Spawning")
 	FOnDestroyAllEnemies OnDestroyAllEnemies;
 
+	/** Sound to play each time player gains a life */
+	UPROPERTY(Category = Audio, EditAnywhere, BlueprintReadWrite)
+	class USoundBase* IncreaseLifeSound;
+
 private:
 	bool bIsPaused;
 	bool bIsDead;

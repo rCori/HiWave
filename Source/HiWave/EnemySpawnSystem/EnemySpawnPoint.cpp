@@ -46,7 +46,7 @@ void AEnemySpawnPoint::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(const EEnemyType &enemyType)
+APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(const EEnemyType &enemyType, const int& recursiveCount)
 {
 	TArray<AActor*> overlappingActors;
 	GetOverlappingActors(overlappingActors, OverlappingCharacter);
@@ -54,9 +54,9 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(const EEnemyType &enemyType)
 		AHiWavePawn *player = Cast<AHiWavePawn>(currentActor);
 		if (player != nullptr) {
 			FString ObjectName = GetName();
-			//UE_LOG(LogTemp, Warning, TEXT("[EnemySpawnPoint.DoEnemyPawnSpawn] We are spawning from %s even though we are overlapping"), *ObjectName);
+			UE_LOG(LogTemp, Warning, TEXT("[EnemySpawnPoint.DoEnemyPawnSpawn] We are spawning from %s even though we are overlapping. reccursiveCount == %d "), *ObjectName, recursiveCount);
 			const int randomIndex = FMath::RandRange(0, (NeighborSpawnPoints.Num() - 1));
-			return NeighborSpawnPoints[randomIndex]->DoEnemyPawnSpawn(enemyType);
+			return NeighborSpawnPoints[randomIndex]->DoEnemyPawnSpawn(enemyType, recursiveCount + 1);
 		}
 	}
 

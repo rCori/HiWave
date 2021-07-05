@@ -161,4 +161,8 @@ void AHiWaveGameMode::RespawnPlayer() {
 
 void AHiWaveGameMode::IncreasePlayerLives() {
 	++playerLives;
+	//Play life up sound
+	if (IncreaseLifeSound != nullptr) {
+		UGameplayStatics::PlaySound2D(this, IncreaseLifeSound);
+	}
 }

@@ -34,7 +34,7 @@ public:
 	 * @enemyType Enum specifies which enemy type to spawn
 	 */
 	UFUNCTION(Category = SpawnSystem)
-	APawn* DoEnemyPawnSpawn(const EEnemyType &enemyType);
+	APawn* DoEnemyPawnSpawn(const EEnemyType &enemyType, const int &recursiveCount = 0);
 
 	// declare overlap begin function
 	UFUNCTION()
