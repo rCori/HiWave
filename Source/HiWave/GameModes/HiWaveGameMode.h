@@ -40,13 +40,13 @@ public:
 	void RestartGame() const;
 
 	UFUNCTION(BlueprintCallable)
-	void PlayerDeath();
-
-	UFUNCTION(BlueprintCallable)
 	void RespawnPlayer();
 
 	UFUNCTION(BlueprintCallable)
 	void IncreasePlayerLives();
+
+	UFUNCTION(BlueprintCallable)
+	const bool GetIsGameOver() const;
 
 	UPROPERTY(BlueprintReadWrite)
 	int playerLives;
@@ -75,7 +75,7 @@ public:
 
 private:
 	bool bIsPaused;
-	bool bIsDead;
+	bool bIsGameOver;
 	UUserWidget* PauseWidget;
 	APlayerController* playerController;
 };

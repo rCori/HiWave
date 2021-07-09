@@ -119,10 +119,14 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Spawn Events")
 	FOnWaveSpawn OnWaveSpawn;
 
+	
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
+	int deathSpawns;
 
 private:
 	/* We keep track of all of the spawner timers created so we can stop them all if the player dies */
@@ -147,4 +151,5 @@ private:
 	int currentChapter;
 	FString currentChapterTitle;
 	bool chapterTransition;
+	class AHiWaveGameMode* gameMode;
 };

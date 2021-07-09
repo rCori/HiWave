@@ -14,7 +14,7 @@
 void AHiWaveGameMode::BeginPlay()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	bIsDead = false;
+	bIsGameOver = false;
 
 	if (playerController == nullptr) {
 		playerController = UGameplayStatics::GetPlayerController(this, 0);
@@ -81,7 +81,7 @@ void AHiWaveGameMode::DestroyAndRespawnPlayer()
 			gameState->SaveCurrentGame();
 			gameInstance->SubmitHiScore(gameState->playerScore);
 		}
-
+		bIsGameOver = true;
 		UUserWidget* PlayerDeathWidget = CreateWidget<UUserWidget>(GetWorld(), PlayerDeathWidgetClass);
 		PlayerDeathWidget->AddToViewport();
 	}
@@ -125,18 +125,8 @@ void AHiWaveGameMode::TogglePause() {
 }
 
 void AHiWaveGameMode::RestartGame() const {
-	if (bIsDead) {
+	if (bIsGameOver) {
 		UGameplayStatics::OpenLevel(GetWorld(), "GameMap");
-	}
-}
-
-void AHiWaveGameMode::PlayerDeath(){
-	bIsDead = true;
-
-	UUserWidget* PlayerDeathWidget = CreateWidget<UUserWidget>(GetWorld(), PlayerDeathWidgetClass);
-	if (PlayerDeathWidget != nullptr)
-	{
-		PlayerDeathWidget->AddToViewport();
 	}
 }
 
@@ -165,4 +155,8 @@ void AHiWaveGameMode::IncreasePlayerLives() {
 	if (IncreaseLifeSound != nullptr) {
 		UGameplayStatics::PlaySound2D(this, IncreaseLifeSound);
 	}
+}
+
+const bool AHiWaveGameMode::GetIsGameOver() const {
+	return bIsGameOver;
 }

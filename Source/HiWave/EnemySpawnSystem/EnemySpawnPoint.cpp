@@ -51,6 +51,12 @@ APawn* AEnemySpawnPoint::DoEnemyPawnSpawn(const EEnemyType &enemyType, const int
 	TArray<AActor*> overlappingActors;
 	GetOverlappingActors(overlappingActors, OverlappingCharacter);
 	for (AActor* currentActor : overlappingActors) {
+		if (!currentActor) {
+			UE_LOG(LogTemp, Warning, TEXT("We died at the wrong time and now the game is going to crash"));
+		}
+		if (recursiveCount > 1000) {
+			UE_LOG(LogTemp, Warning, TEXT("The recursiveCount got way too high and now we are going to crash from a stack overflow"));
+		}
 		AHiWavePawn *player = Cast<AHiWavePawn>(currentActor);
 		if (player != nullptr) {
 			FString ObjectName = GetName();

@@ -30,6 +30,7 @@ AEnemySpawnSystem::AEnemySpawnSystem()
 	currentChapterTitle = "";
 	chapterTransition = false;
 	bRandomSpawnOnly = false;
+	deathSpawns = 3;
 }
 
 // Called when the game starts or when spawned
@@ -41,8 +42,9 @@ void AEnemySpawnSystem::BeginPlay()
 	ChangeChapters(0, bRandomSpawnOnly);
 	if (CurrentSpawningDataTable != nullptr) {
 		WaveQueue.Add(InitialSpawnWave);
-		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
-		Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode())->OnDestroyAllEnemies.AddDynamic(this, &AEnemySpawnSystem::ClearAllSpawnTimers);
+		gameMode = Cast<AHiWaveGameMode>(GetWorld()->GetAuthGameMode());
+		gameMode->OnDestroyAndRespawnPlayer.AddDynamic(this, &AEnemySpawnSystem::SpawnLastWave);
+		gameMode->OnDestroyAllEnemies.AddDynamic(this, &AEnemySpawnSystem::ClearAllSpawnTimers);
 	}
 	
 	spawnTimerCollection = TArray<FTimerHandle>();
@@ -65,6 +67,17 @@ void AEnemySpawnSystem::Tick(float DeltaTime)
 
 void AEnemySpawnSystem::SpawnFromDatatable()
 {
+
+	//Limit the number of enemy spawns after the player dies.
+	if (gameMode->GetIsGameOver()) {
+		if (deathSpawns > 0) {
+			--deathSpawns;
+		}
+		else {
+			return;
+		}
+	}
+
 	UE_LOG(LogSpawnSystem, Warning, TEXT("SpawnFromDatatable"));
 	//If we have nothing to spawn then just return
 	if (WaveQueue.Num() == 0) return;
